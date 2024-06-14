@@ -20,7 +20,7 @@ h1 {
     max-width: 800px; /* Limit maximum width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
     margin-top: 20px;
-    position: relative;
+    position: relative; /* Ensure button is positioned relative to this container */
 }
 .copy-btn {
     position: absolute;
