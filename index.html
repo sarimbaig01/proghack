@@ -42,17 +42,30 @@
         .copy-btn:hover {
             background-color: #49483f;
         }
-        /* Adjust Prism.js styles for better visibility */
-        pre {
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.5;
-            overflow-x: auto;
+        .back-link {
+            position: fixed;
+            z-index: 100;
+            cursor: pointer;
+            background-color: #373832;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-link.top-right {
+            top: 20px;
+            right: 20px;
+        }
+        .back-link.bottom-right {
+            bottom: 20px;
+            right: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>1. Contained Bounce </h1>
+    <a href="#" class="back-link top-right" onclick="return false;">← Back</a>
+
+    <h1>1. Contained Bounce</h1>
 
     <p>opening para... </p>
 
@@ -89,6 +102,8 @@ int main() {
         </code></pre>
     </div>
 
+    <a href="#" class="back-link bottom-right" onclick="return false;">← Back</a>
+
     <!-- Prism.js JavaScript -->
     <script src="./prism.js"></script> <!-- Adjust the path as needed -->
     <script>
@@ -106,7 +121,15 @@ int main() {
                 console.error('Failed to copy: ', err);
             });
         }
+
+        // Example function to handle navigation
+        document.querySelectorAll('.back-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert('This link would navigate to another page.');
+                // Replace the alert with actual navigation logic
+            });
+        });
     </script>
 </body>
 </html>
-
