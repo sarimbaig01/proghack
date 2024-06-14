@@ -6,6 +6,24 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: url('your-image.jpg'); /* Replace with the actual image file name */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    opacity: 0.1; /* Adjust the opacity to control the fade effect */
+    pointer-events: none;
+    z-index: -1;
 }
 
 .code-container {
@@ -18,6 +36,7 @@ body {
     margin: 20px auto;
     position: relative;
 }
+
 .copy-btn {
     position: absolute;
     top: 10px;
@@ -31,9 +50,11 @@ body {
     font-size: 12px;
     z-index: 1;
 }
+
 .copy-btn:hover {
     background-color: #49483f;
 }
+
 .back-link {
     position: fixed;
     z-index: 100;
@@ -44,10 +65,12 @@ body {
     border-radius: 5px;
     text-decoration: none;
 }
+
 .back-link.top-right {
     top: 20px;
     right: 20px;
 }
+
 .back-link.bottom-right {
     bottom: 20px;
     right: 20px;
