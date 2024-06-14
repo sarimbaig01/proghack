@@ -6,7 +6,55 @@
     <title>Programming Hackathon</title>
     <!-- Prism.js CSS -->
     <link rel="stylesheet" href="./prism.css"> <!-- Adjust the path as needed -->
-    <link rel="stylesheet" href="./styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .code-container {
+            background-color: #272822; /* Dark background */
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%; /* Adjust width as needed */
+            max-width: 800px; /* Limit maximum width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+            margin: 20px auto; /* Center align with margins */
+            position: relative; /* Ensure button is positioned relative to this container */
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #373832;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+            z-index: 1;
+        }
+        .copy-btn:hover {
+            background-color: #49483f;
+        }
+        /* Adjust Prism.js styles for better visibility */
+        pre {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+    </style>
 </head>
 <body>
     <h1>Programming Hackathon</h1>
@@ -23,6 +71,21 @@ int main() {
 
     <!-- Prism.js JavaScript -->
     <script src="./prism.js"></script> <!-- Adjust the path as needed -->
-    <script src="./script.js"></script>
+    <script>
+        function copyCode() {
+            const button = document.querySelector('.copy-btn');
+            const originalText = button.textContent;
+            const code = document.getElementById('cpp-code').textContent.trim();
+            
+            navigator.clipboard.writeText(code).then(function() {
+                button.textContent = '✓ Copied';
+                setTimeout(function() {
+                    button.textContent = originalText;
+                }, 3000);
+            }, function(err) {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
