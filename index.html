@@ -73,12 +73,16 @@ int main() {
     <script src="./prism.js"></script> <!-- Adjust the path as needed -->
     <script>
         function copyCode() {
+            const button = document.querySelector('.copy-btn');
+            const originalText = button.textContent;
             const code = document.getElementById('cpp-code').textContent.trim();
+            
             navigator.clipboard.writeText(code).then(function() {
-                //this is fine
-                //alert('Code copied to clipboard!');
+                button.textContent = '✓ Copied';
+                setTimeout(function() {
+                    button.textContent = originalText;
+                }, 3000);
             }, function(err) {
-                alert('Code copied to clipboard!');
                 console.error('Failed to copy: ', err);
             });
         }
