@@ -2,22 +2,41 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f5dc; /* Light beige background */
     margin: 0;
+    padding: 0;
+}
+
+.sticky-heading {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #007bff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.content {
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 .code-container {
-    background-color: #272822;
+    background-color: #272822; /* Dark background */
     padding: 20px;
     border-radius: 5px;
-    width: 80%;
-    max-width: 800px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    position: relative;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Limit maximum width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+    margin: 20px auto; /* Center align with margins */
+    position: relative; /* Ensure button is positioned relative to this container */
 }
+
 .copy-btn {
     position: absolute;
     top: 10px;
@@ -31,24 +50,15 @@ body {
     font-size: 12px;
     z-index: 1;
 }
+
 .copy-btn:hover {
     background-color: #49483f;
 }
-.back-link {
-    position: fixed;
-    z-index: 100;
-    cursor: pointer;
-    background-color: #373832;
-    color: #ffffff;
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-.back-link.top-right {
-    top: 20px;
-    right: 20px;
-}
-.back-link.bottom-right {
-    bottom: 20px;
-    right: 20px;
+
+/* Adjust Prism.js styles for better visibility */
+pre {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: auto;
 }
