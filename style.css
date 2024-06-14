@@ -1,12 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f5f5dc; /* Light beige background */
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 .code-container {
     background-color: #272822;
     padding: 20px;
