@@ -124,8 +124,7 @@ int main() {
         document.querySelectorAll('.back-link').forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
-                //alert('This link would navigate to another page.');
-                // Replace the alert with actual navigation logic
+                window.location.href = link.href; // Navigate to the specified URL
             });
         });
     </script>
