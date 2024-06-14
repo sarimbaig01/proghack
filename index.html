@@ -4,18 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Hackathon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .code-container {
+            position: relative;
+            background-color: #333;
+            color: #f0f0f0;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .code-container code {
+            display: block;
+            white-space: pre;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #555;
+            color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background-color: #777;
+        }
+    </style>
 </head>
 <body>
     <h1>Programming Hackathon</h1>
 
-    <h2>Sample C++ Code:</h2>
-    <pre><code>#include &lt;iostream&gt;
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode()">Copy code</button>
+        <pre><code id="cpp-code">#include &lt;iostream&gt;
 
 int main() {
     std::cout &lt;&lt; "Hello, World! This is C++ code." &lt;&lt; std::endl;
     return 0;
 }</code></pre>
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = document.getElementById('cpp-code').textContent.trim();
+            navigator.clipboard.writeText(code).then(function() {
+                alert('Code copied to clipboard!');
+            }, function(err) {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
 
 </body>
 </html>
-
