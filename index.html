@@ -62,7 +62,6 @@
         <pre><code class="language-cpp" id="cpp-code">
 
 int main() {
-
     //Create a graphics window, put a green ball at the top left of it
     sf::RenderWindow window(sf::VideoMode(800, 600), "Contained Bounce");
     sf::CircleShape ball(10);
@@ -75,19 +74,15 @@ int main() {
     //Continue while the window is still open (hasn't been closed)        
     while (window.isOpen()) {
         sf::Event event;
-
         //While there are still events to process in the events queue     
         while (window.pollEvent(event)) {
-
             //Currently, the only event being processed is window closure
             if (event.type == sf::Event::Closed)
                 window.close();
             }
-
             ///other events may be be tested in else-if statements
         }
     }
-
     return 0;
 }
         </code></pre>
