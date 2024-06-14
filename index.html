@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Hackathon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,18 +15,9 @@
         .code-container {
             position: relative;
             background-color: #333;
-            color: #f0f0f0;
             padding: 20px;
             margin-top: 20px;
             border-radius: 5px;
-        }
-        .code-container code {
-            display: block;
-            white-space: pre;
-            overflow-x: auto;
-            font-family: Consolas, Monaco, 'Courier New', Courier, monospace;
-            font-size: 14px;
-            line-height: 1.5;
         }
         .copy-btn {
             position: absolute;
@@ -42,6 +34,10 @@
         .copy-btn:hover {
             background-color: #777;
         }
+        /* Adjust Prism.js styles for better visibility */
+        pre {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +45,7 @@
 
     <div class="code-container">
         <button class="copy-btn" onclick="copyCode()">Copy code</button>
-        <pre><code id="cpp-code">#include &lt;iostream&gt;
+        <pre><code class="language-cpp" id="cpp-code">#include &lt;iostream&gt;
 
 int main() {
     std::cout &lt;&lt; "Hello, World! This is C++ code." &lt;&lt; std::endl;
@@ -57,6 +53,7 @@ int main() {
 }</code></pre>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
     <script>
         function copyCode() {
             const code = document.getElementById('cpp-code').textContent.trim();
