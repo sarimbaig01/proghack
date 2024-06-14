@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contained Bounce</title>
+    <!-- Prism.js CSS -->
+    <link rel="stylesheet" href="../prism.css"> <!-- Adjust the path as needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+        .code-container {
+            background-color: #272822; /* Dark background */
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%; /* Adjust width as needed */
+            max-width: 800px; /* Limit maximum width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+            margin: 20px auto; /* Center align with margins */
+            position: relative; /* Ensure button is positioned relative to this container */
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #373832;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+            z-index: 1;
+        }
+        .copy-btn:hover {
+            background-color: #49483f;
+        }
+        .back-link {
+            position: fixed;
+            z-index: 100;
+            cursor: pointer;
+            background-color: #373832;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-link.top-right {
+            top: 20px;
+            right: 20px;
+        }
+        .back-link.bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="back-link top-right" onclick="return false;">← Back</a>
+
+    <h1>1. Contained Bounce</h1>
+
+    <p>opening para... </p>
+
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode()">Copy code</button>
+        <pre><code class="language-cpp" id="cpp-code">
+#include &lt;SFML/Graphics.hpp&gt;
+#include &lt;SFML/System.hpp&gt;
+
+int main() {
+    //Create a graphics window, put a green ball at the top left of it
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Contained Bounce");
+    sf::CircleShape ball(10);
+    ball.setFillColor(sf::Color::Green);
+
+    //Show the initial setup
+    window.draw(ball);
+    window.display();
+
+    //Continue while the window is still open (hasn't been closed)        
+    while (window.isOpen()) {
+        sf::Event event;
+        //While there are still events to process in the events queue     
+        while (window.pollEvent(event)) {
+            //Currently, the only event being processed is window closure
+            if (event.type == sf::Event::Closed)
+                window.close();
+            }
+            ///other events may be be tested in else-if statements
+        }
+    }
+    return 0;
+}
+        </code></pre>
+    </div>
+
+    <!-- Prism.js JavaScript -->
+    <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+    <script>
+        function copyCode() {
+            const button = document.querySelector('.copy-btn');
+            const originalText = button.textContent;
+            const code = document.getElementById('cpp-code').textContent.trim();
+            
+            navigator.clipboard.writeText(code).then(function() {
+                button.textContent = '✓ Copied';
+                setTimeout(function() {
+                    button.textContent = originalText;
+                }, 3000);
+            }, function(err) {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Example function to handle navigation
+        document.querySelectorAll('.back-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert('This link would navigate to another page.');
+                // Replace the alert with actual navigation logic
+            });
+        });
+    </script>
+</body>
+</html>
+
 
