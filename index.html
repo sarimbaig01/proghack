@@ -75,8 +75,10 @@ int main() {
         function copyCode() {
             const code = document.getElementById('cpp-code').textContent.trim();
             navigator.clipboard.writeText(code).then(function() {
-                alert('Code copied to clipboard!');
+                //this is fine
+                //alert('Code copied to clipboard!');
             }, function(err) {
+                alert('Code copied to clipboard!');
                 console.error('Failed to copy: ', err);
             });
         }
