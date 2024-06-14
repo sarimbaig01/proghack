@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Hackathon</title>
     <!-- Prism.js CSS -->
-    <link rel="stylesheet" href="./prism.css"> <!-- Adjust the path as needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,41 +13,50 @@
             margin: 0;
             padding: 20px;
             display: flex;
-            justify-content: center; /* Center align content horizontally */
-            align-items: center; /* Center align content vertically */
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh; /* Ensure full viewport height */
         }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
         .code-container {
-            background-color: #222; /* Dark background */
+            background-color: #272822; /* Dark background */
             padding: 20px;
             border-radius: 5px;
             width: 80%; /* Adjust width as needed */
             max-width: 800px; /* Limit maximum width */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
-        }
-        .code-container pre {
-            margin: 0; /* Remove default pre tag margin */
-            white-space: pre-wrap; /* Preserve formatting */
+            margin-top: 20px;
+            position: relative;
         }
         .copy-btn {
             position: absolute;
             top: 10px;
             right: 10px;
             padding: 5px 10px;
-            background-color: #555;
-            color: #f0f0f0;
+            background-color: #373832;
+            color: #ffffff;
             border: none;
             cursor: pointer;
             border-radius: 3px;
             font-size: 12px;
+            z-index: 1;
         }
         .copy-btn:hover {
-            background-color: #777;
+            background-color: #49483f;
+        }
+        pre {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Programming Hackathon</h1>
+    <h1>Programming Hackathon</h1>
 
     <div class="code-container">
         <button class="copy-btn" onclick="copyCode()">Copy code</button>
@@ -60,7 +69,7 @@ int main() {
     </div>
 
     <!-- Prism.js JavaScript -->
-    <script src="./prism.js"></script> <!-- Adjust the path as needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
     <script>
         function copyCode() {
             const code = document.getElementById('cpp-code').textContent.trim();
