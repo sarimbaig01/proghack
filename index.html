@@ -12,13 +12,22 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center; /* Center align content horizontally */
+            align-items: center; /* Center align content vertically */
+            min-height: 100vh; /* Ensure full viewport height */
         }
         .code-container {
-            position: relative;
-            background-color: #333;
+            background-color: #222; /* Dark background */
             padding: 20px;
-            margin-top: 20px;
             border-radius: 5px;
+            width: 80%; /* Adjust width as needed */
+            max-width: 800px; /* Limit maximum width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+        }
+        .code-container pre {
+            margin: 0; /* Remove default pre tag margin */
+            white-space: pre-wrap; /* Preserve formatting */
         }
         .copy-btn {
             position: absolute;
@@ -35,14 +44,10 @@
         .copy-btn:hover {
             background-color: #777;
         }
-        /* Adjust Prism.js styles for better visibility */
-        pre {
-            margin: 0;
-        }
     </style>
 </head>
 <body>
-    <h1>Programming Hackathon</h1>
+    <h1 style="text-align: center;">Programming Hackathon</h1>
 
     <div class="code-container">
         <button class="copy-btn" onclick="copyCode()">Copy code</button>
