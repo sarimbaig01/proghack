@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Hackathon</title>
     <!-- Prism.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./prism.css"> <!-- Adjust the path as needed -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,6 +47,7 @@
         .copy-btn:hover {
             background-color: #49483f;
         }
+        /* Adjust Prism.js styles for better visibility */
         pre {
             margin: 0;
             font-size: 14px;
@@ -69,7 +70,7 @@ int main() {
     </div>
 
     <!-- Prism.js JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="./prism.js"></script> <!-- Adjust the path as needed -->
     <script>
         function copyCode() {
             const code = document.getElementById('cpp-code').textContent.trim();
