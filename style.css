@@ -87,3 +87,8 @@ body {
 .ptable a:hover {
     text-decoration: underline;
 }
+
+.th.sub-header {
+    font-style: italic;
+    color: blue;
+}
