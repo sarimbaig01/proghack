@@ -18,6 +18,7 @@ body {
     margin: 20px auto;
     position: relative;
 }
+
 .copy-btn {
     position: absolute;
     top: 10px;
@@ -31,9 +32,11 @@ body {
     font-size: 12px;
     z-index: 1;
 }
+
 .copy-btn:hover {
     background-color: #49483f;
 }
+
 .back-link {
     position: fixed;
     z-index: 100;
@@ -44,13 +47,43 @@ body {
     border-radius: 5px;
     text-decoration: none;
 }
+
 .back-link.top-right {
     top: 20px;
     right: 20px;
 }
+
 .back-link.bottom-right {
     bottom: 20px;
     right: 20px;
 }
 
+.ptable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
+.ptable th, .ptable td {
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+}
+
+.ptable th {
+    border-top: 1px solid #000;
+    background-color: #f0f0f0;
+}
+
+.ptable td {
+    vertical-align: top;
+}
+
+.ptable a {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+.ptable a:hover {
+    text-decoration: underline;
+}
