@@ -53,29 +53,4 @@ body {
     right: 20px;
 }
 
-/* Styles for Programming Sessions table */
-.ptable-container {
-    max-width: 800px; /* Adjust as needed */
-    margin: 0 auto; /* Center the section */
-    padding: 0 20px; /* Add slight padding on both sides */
-}
-
-.ptable {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.ptable th, .ptable td {
-    border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
-    padding: 10px 0;
-}
-
-.ptable th {
-    text-align: left;
-}
-
-.ptable td {
-    padding: 10px;
-}
 
