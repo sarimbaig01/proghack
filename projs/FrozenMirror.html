@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frozen Mirror</title>
-     <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
 </head>
 <body>
     <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right" onclick="return false;">← Back</a>
@@ -14,39 +14,33 @@
     <table>
         <tr>
             <td>
-
                 <section class="statement">
-   
-    <p>Consider a one-dimensional integer vector representing an image. This image is reflected in a peculiar mirror, where some parts of the mirror are frozen. When the image is mirrored, the elements of the array should be reversed. However, the elements at positions corresponding to the frozen parts retain their original places and are not reversed.</p>
-    <p>To achieve this mirrored effect, you need to reverse the array while keeping the elements at the frozen indices unchanged. The frozen indices are provided separately as an input.</p>
+                    <p>Consider a one-dimensional integer vector representing an image. This image is reflected in a peculiar mirror, where some parts of the mirror are frozen. When the image is mirrored, the elements of the array should be reversed. However, the elements at positions corresponding to the frozen parts retain their original places and are not reversed.</p>
+                    <p>To achieve this mirrored effect, you need to reverse the array while keeping the elements at the frozen indices unchanged. The frozen indices are provided separately as an input.</p>
 
-    <h3>Example:</h3>
-    <p><strong>Input:</strong></p>
-    <ul>
-        <li>Image Vector: {5, 3, 2, 6, 4, 0, 11, 9, -7, 13}</li>
-        <li>Frozen Indices Vector: {0, 2, 4, 6}</li>
-    </ul>
-    <p><strong>Output:</strong></p>
-    <ul>
-        <li>Mirrored Image Vector: {5, 13, 2, -7, 4, 9, 11, 0, 6, 3}</li>
-    </ul>
-    <p>In this example, the elements at indices 0, 2, 4, and 6 remain in their original positions while the other elements are reversed to produce the mirrored image vector.</p>
+                    <h3>Example:</h3>
+                    <p><strong>Input:</strong></p>
+                    <ul>
+                        <li>Image Vector: {5, 3, 2, 6, 4, 0, 11, 9, -7, 13}</li>
+                        <li>Frozen Indices Vector: {0, 2, 4, 6}</li>
+                    </ul>
+                    <p><strong>Output:</strong></p>
+                    <ul>
+                        <li>Mirrored Image Vector: {5, 13, 2, -7, 4, 9, 11, 0, 6, 3}</li>
+                    </ul>
+                    <p>In this example, the elements at indices 0, 2, 4, and 6 remain in their original positions while the other elements are reversed to produce the mirrored image vector.</p>
 
-    <h3>C++ Function Header:</h3>
-        
-    <p><code>std::vector&lt;int&gt; mirrorImage(const std::vector&lt;int&gt;&nbsp;image, const std::vector&lt;int&gt;&nbsp;frozenIndices);</code></p>
+                    <h3>C++ Function Header:</h3>
+                    <p><code>std::vector&lt;int&gt; mirrorImage(const std::vector&lt;int&gt;&nbsp;image, const std::vector&lt;int&gt;&nbsp;frozenIndices);</code></p>
 
-    <h3>Visual Representation:</h3>
-    <p>Below is a visual representation of the input and output transformation:</p>
-    <img src="./img/FrozenMirror1.jpeg" width="650" height="180">
-    <p>In the visual, the frozen elements (in blue) retain their positions while the rest of the elements are reversed.</p>
-</section>
-
-
-                
+                    <h3>Visual Representation:</h3>
+                    <p>Below is a visual representation of the input and output transformation:</p>
+                    <img src="./img/FrozenMirror1.jpeg" width="650" height="180">
+                    <p>In the visual, the frozen elements (in blue) retain their positions while the rest of the elements are reversed.</p>
+                </section>
             </td>
         </tr>
     </table>
-
 </body>
 </html>
+```
