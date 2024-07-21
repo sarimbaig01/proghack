@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frozen Mirror</title>
+    <title>Conway's Game of Life</title>
     <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
 </head>
 <body>
@@ -11,29 +11,9 @@
     <a href="https://sarimbaig01.github.io/proghack/" class="back-link bottom-right" onclick="history.back(); return false;">← Back</a>
 
     <div class="statement">
-    <h1> Frozen Mirror </h1>
+    <h1> Conway's Game of Life </h1>
         <section class="statement">
-            <p>Consider a one-dimensional integer vector representing an image (usually this would be a two-deimensional vector, but for this problem we consider only one-dimensional). This image is reflected in a peculiar mirror: some parts of the mirror are frozen. When the image is mirrored the elements of the vector are reversed, however, the elements at positions corresponding to the frozen parts retain their original places and are not reversed.</p>
-            <p>To achieve this mirrored effect, you need to reverse the vector (the original vector in-place, i.e., not using another vector) while keeping the elements at the frozen indices unchanged. The frozen indices are provided separately as an input.</p>
-    
-            <h3>Example:</h3>
-            <p><strong>Input:</strong></p>
-            <ul>
-                <li>Image Vector: {5, 3, 2, 6, 4, 0, 11, 9, -7, 13}</li>
-                <li>Frozen Indices Vector: {0, 2, 4, 6}</li>
-            </ul>
-            <p><strong>Output:</strong></p>
-            <ul>
-                <li>Mirrored Image Vector: {5, 13, 2, -7, 4, 9, 11, 0, 6, 3}</li>
-            </ul>
-            <p>In this example, the elements at indices 0, 2, 4, and 6 remain in their original positions while the other elements are reversed to produce the mirrored image vector.</p>
-            <p>Below is a visual representation of the input and output transformation:</p>
-            <img src="./img/FrozenMirror1.png" width="650" height="180">
-            <p>In the visual, the frozen elements (in blue) retain their positions while the rest of the elements are reversed.</p>
-    
-            <h3>C++ Function Header:</h3>
-            <p><code>void mirrorImage(std::vector&lt;int&gt;& image, const std::vector&lt;int&gt;& frozenIndices);</code></p>
-    
+            <p>Conway's Game of Life is a <a href="https://plato.stanford.edu/entries/cellular-automata/">cellular automaton</a> devised by mathematician <a href="https://en.wikipedia.org/wiki/John_Horton_Conway">John Horton Conway</a> in 1970. It's a zero-player game, meaning its evolution is determined by its initial state without any further input. The game is played on an infinite grid of square cells, each of which can be either <i>alive</i> or <i>dead</i>. The state of the grid evolves in discrete time steps according to a set of simple rules based on the states of neighboring cells. Despite simple rules, the Game of Life can produce incredibly complex and varied patterns, being used in practical applications such as <a href="https://arxiv.org/abs/2009.01398">neural network design</a> and <a href="https://pubs.aip.org/aapt/ajp/article/91/7/561/2897367/The-game-of-life-as-a-species-model">simulating population dynamics</a> in theoretical biology, among other applications.</p>
         </section>
       </div>
 </body>
