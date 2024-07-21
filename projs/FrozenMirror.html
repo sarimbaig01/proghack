@@ -13,8 +13,8 @@
     <div class="statement">
     <h1> Frozen Mirror </h1>
         <section class="statement">
-            <p>Consider a one-dimensional integer vector representing an image. This image is reflected in a peculiar mirror, where some parts of the mirror are frozen. When the image is mirrored, the elements of the vector should be reversed. However, the elements at positions corresponding to the frozen parts retain their original places and are not reversed.</p>
-            <p>To achieve this mirrored effect, you need to reverse the vector while keeping the elements at the frozen indices unchanged. The frozen indices are provided separately as an input.</p>
+            <p>Consider a one-dimensional integer vector representing an image (usually this would be a two-deimensional vector, but for this problem we consider only one-dimensional). This image is reflected in a peculiar mirror: some parts of the mirror are frozen. When the image is mirrored the elements of the vector are reversed, however, the elements at positions corresponding to the frozen parts retain their original places and are not reversed.</p>
+            <p>To achieve this mirrored effect, you need to reverse the vector (the original vector in-place, i.e., not using another vector) while keeping the elements at the frozen indices unchanged. The frozen indices are provided separately as an input.</p>
     
             <h3>Example:</h3>
             <p><strong>Input:</strong></p>
@@ -32,7 +32,7 @@
             <p>In the visual, the frozen elements (in blue) retain their positions while the rest of the elements are reversed.</p>
     
             <h3>C++ Function Header:</h3>
-            <p><code>std::vector&lt;int&gt; mirrorImage(const std::vector&lt;int&gt;& image, const std::vector&lt;int&gt;& frozenIndices);</code></p>
+            <p><code>void mirrorImage(std::vector&lt;int&gt;& image, const std::vector&lt;int&gt;& frozenIndices);</code></p>
     
         </section>
       </div>
