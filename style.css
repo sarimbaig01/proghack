@@ -93,3 +93,7 @@ body {
     font-style: italic;
 }
 
+ body.statement {
+            margin-right: 1.5in; /* Add right margin of 1.5 inches for body with class statement */
+ }
+
