@@ -97,3 +97,10 @@ body {
             margin-right: 3in; /* Add right margin of 1.5 inches for body with class statement */
  }
 
+ legend {
+      color: blue;
+    }
+
+fieldset {
+      border: 2px solid burgundy; /* Adjust the border width if needed */
+ }
