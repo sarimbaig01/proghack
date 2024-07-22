@@ -99,7 +99,8 @@ body {
 
  legend {
       color: blue;
-    }
+      font-weight: bold;
+ }
 
 fieldset {
       border: 2px solid burgundy; /* Adjust the border width if needed */
