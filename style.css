@@ -93,11 +93,43 @@ body {
     font-style: italic;
 }
 
- .statement {
-            margin-right: 3in; /* Add right margin of 1.5 inches for body with class statement */
- }
+.statement {
+    margin-right: 3in; /* Add right margin of 1.5 inches for body with class statement */
+}
 
- legend {
-      color: burgundy;
-      font-weight: bold;
- }
+legend {
+    color: burgundy;
+    font-weight: bold;
+}
+
+fieldset {
+    border: 2px solid burgundy; /* Adjust the border width if needed */
+    color: burgundy; /* Set the text color inside the fieldset to burgundy */
+}
+
+.toc {
+    position: fixed;
+    top: 50px; /* Adjust based on your preference */
+    right: 20px;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.toc h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+.toc a {
+    display: block;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.toc a:hover {
+    text-decoration: underline;
+}
