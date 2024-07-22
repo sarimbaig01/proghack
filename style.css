@@ -111,25 +111,25 @@ fieldset {
     position: fixed;
     top: 50px; /* Adjust based on your preference */
     right: 20px;
-    width: 200px;
+    width: 200px; /* Set the width to 200 pixels */
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.toc h2 {
-    font-size: 1.2em;
-    margin-top: 0;
-}
-
 .toc a {
-    display: block;
-    margin: 5px 0;
-    text-decoration: none;
-    color: #333;
+    display: block; /* Ensure each link takes up the full width and appears on its own line */
+    margin: 5px 0; /* Add some margin for spacing between links */
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Set link color */
 }
 
 .toc a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline links on hover for better visibility */
+}
+
+.toc h2 {
+    font-size: 1.2em;
+    margin-top: 0;
 }
