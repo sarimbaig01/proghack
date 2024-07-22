@@ -98,10 +98,6 @@ body {
  }
 
  legend {
-      color: blue;
+      color: burgundy;
       font-weight: bold;
- }
-
-fieldset {
-      border: 2px solid burgundy; /* Adjust the border width if needed */
  }
