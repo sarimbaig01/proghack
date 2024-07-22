@@ -110,7 +110,7 @@ fieldset {
 .toc {
     position: fixed;
     top: 50px; /* Adjust based on your preference */
-    right: 20px;
+    right: 80px;
     width: 200px; /* Set the width to 200 pixels */
     padding: 10px;
     border: 1px solid #ccc;
