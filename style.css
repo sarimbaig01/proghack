@@ -123,7 +123,7 @@ fieldset {
     display: block; /* Ensure each link takes up the full width and appears on its own line */
     margin: 5px 0; /* Add some margin for spacing between links */
     text-decoration: underline; /* Underline the links */
-    color: orange; /* Set link color to orange */
+    color: maroon; /* Set link color to orange */
     position: relative; /* Enable positioning of pseudo-element */
     padding-left: 20px; /* Add padding to make space for bullets */
 }
@@ -132,7 +132,7 @@ fieldset {
     content: "•"; /* Bullet point character */
     position: absolute; /* Position relative to the link */
     left: 0; /* Adjust distance from the link text */
-    color: orange; /* Same color as the link text */
+    color: maroon; /* Same color as the link text */
 }
 
 .toc a:hover {
