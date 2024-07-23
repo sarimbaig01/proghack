@@ -38,60 +38,60 @@ body {
     background-color: #49483f;
 }
 
-.back-link {
+.button-box {
     position: fixed;
-    z-index: 100;
-    cursor: pointer;
+    top: 20px; /* Adjust based on your preference */
+    right: 20px;
     background-color: #373832;
-    color: #ffffff;
     padding: 10px;
     border-radius: 5px;
+    z-index: 100;
+}
+
+.nav-button {
+    display: block;
+    color: white;
     text-decoration: none;
-}
-
-.back-link.top-right {
-    top: 20px;
-    right: 20px;
-}
-
-.back-link.bottom-right {
-    bottom: 20px;
-    right: 20px;
-}
-
-.ptable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.ptable th, .ptable td {
-    border-bottom: 1px solid #000;
     padding: 10px;
-    text-align: left;
+    border-radius: 5px;
+    background-color: #373832;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
-.ptable th {
-    border-top: 1px solid #000;
-    background-color: #f0f0f0;
+.nav-button:hover {
+    background-color: #49483f;
 }
 
-.ptable td {
-    vertical-align: top;
+.toc {
+    position: fixed;
+    top: 100px; /* Adjust based on your preference */
+    right: 180px; /* Move the TOC a little towards the right */
+    width: 220px; /* Adjust the width as necessary */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.ptable a {
-    color: #0000EE;
-    text-decoration: none;
+.toc a {
+    display: block; /* Ensure each link takes up the full width and appears on its own line */
+    margin: 5px 0; /* Add some margin for spacing between links */
+    text-decoration: underline; /* Underline the links */
+    color: orange; /* Set link color to orange */
+    position: relative; /* Enable positioning of pseudo-element */
+    padding-left: 20px; /* Add padding to make space for bullets */
 }
 
-.ptable a:hover {
-    text-decoration: underline;
+.toc a::before {
+    content: "•"; /* Bullet point character */
+    position: absolute; /* Position relative to the link */
+    left: 0; /* Adjust distance from the link text */
+    color: orange; /* Same color as the link text */
 }
 
-.ptable th.sub-header {
-    color: blue;
-    font-style: italic;
+.toc a:hover {
+    text-decoration: underline; /* Underline links on hover for better visibility */
 }
 
 .statement {
@@ -106,71 +106,4 @@ legend {
 fieldset {
     border: 2px solid burgundy; /* Adjust the border width if needed */
     color: burgundy; /* Set the text color inside the fieldset to burgundy */
-}
-
-.toc {
-    position: fixed;
-    top: 50px; /* Adjust based on your preference */
-    right: 180px; /* Move the TOC a little towards the right */
-    width: 220px; /* Adjust the width as necessary */
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.toc a {
-    display: block; /* Ensure each link takes up the full width and appears on its own line */
-    margin: 5px 0; /* Add some margin for spacing between links */
-    text-decoration: underline; /* Underline the links */
-    color: black; 
-    position: relative; /* Enable positioning of pseudo-element */
-    padding-left: 20px; /* Add padding to make space for bullets */
-}
-
-.toc a::before {
-    content: "•"; /* Bullet point character */
-    position: absolute; /* Position relative to the link */
-    left: 0; /* Adjust distance from the link text */
-    color: black; 
-}
-
-.toc a:hover {
-    text-decoration: underline; /* Underline links on hover for better visibility */
-}
-
-img {
-    max-width: 100%; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.toc-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 100;
-}
-
-/* Media queries for mobile devices */
-@media only screen and (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-    
-    .toc {
-        position: static; /* Remove fixed positioning on small screens */
-        width: 100%; /* Make the TOC full width */
-        margin-bottom: 20px; /* Add some margin below the TOC */
-        display: none; /* Hide the TOC by default on mobile */
-    }
-
-    .statement {
-        margin-right: 0; /* Remove the right margin */
-    }
 }
