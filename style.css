@@ -157,6 +157,13 @@ img {
     z-index: 100;
 }
 
+.video-container {
+    display: flex;
+    justify-content: center; /* Center the video horizontally */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+
 /* Media queries for mobile devices */
 @media only screen and (max-width: 600px) {
     body {
