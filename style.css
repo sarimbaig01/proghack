@@ -175,6 +175,16 @@ figcaption {
     color: #555;
 }
 
+/* Ensure video controls are hidden */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-overlay-enclosure {
+    display: none !important;
+}
+
+
 
 
 /* Media queries for mobile devices */
