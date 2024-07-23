@@ -54,13 +54,17 @@
          <div class="task" id="task">
              <h2>The task and boilerplate code</h2>
              <p>
-                 Consider the following simulation of Conway's Game of Life. This simulation uses a 100x100 grid, which is a useful size because it balances complexity and manageability, allowing intricate patterns to emerge without overwhelming computational resources. In this grid, black cells represent alive states, while white cells represent dead states. The initial configuration of the grid is populated randomly with a mix of alive and dead cells. Our first goal is to write code that can produce such simulations, showing the evolution of this grid over any number of generations, continuing until the window is closed by the user.
+                 Consider the following simulation of Conway's Game of Life. This simulation uses a 100x100 grid. This is a good size because it allows intricate patterns to emerge without overwhelming computational resources. In this grid, black cells represent alive states, while white cells represent dead states. The initial configuration of the grid is populated randomly with a mix of alive and dead cells. Our first goal is to write code that can produce such simulations, showing the evolution of this grid over any number of generations, continuing until the window is closed by the user.
             </p>
             <div class="video-container">
-                <video width="320" height="240" autoplay loop muted>
-                    <source src="./mov/gol_100_eq.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <!-- Video with Caption -->
+                <figure>
+                    <video width="320" height="240" controls autoplay loop muted>
+                        <source src="./mov/gol1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>Figure 1: Simulation of Conway's Game of Life. This particular simulation begins from a randomly generated initial configuration and eventually reaches equilibrium.</figcaption>
+                </figure>
             </div>
         </div>
 
