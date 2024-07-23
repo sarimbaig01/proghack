@@ -13,6 +13,7 @@
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
         <a href="#terms">Terminology</a>
+        <a href="#rules">The Rules</a>
     </div>
 
     <div class="statement">
@@ -27,12 +28,24 @@
               <legend>Basic terminology</legend>
               <p><strong>Cell</strong>: The basic unit in the grid, either alive or dead.</p>
               <p><strong>Grid</strong>: The environment where the Game of Life is played, consisting of cells in a two-dimensional array.</p>
+              <p><strong>Neighbor</strong>: Any of the eight surrounding cells influencing a cell's future state.</p>
               <p><strong>Alive</strong>: A cell state that is "on" or active, represented by `1`.</p>
               <p><strong>Dead</strong>: A cell state that is "off" or inactive, represented by `0`.</p>
-              <p><strong>Generation</strong>: A time step where the state of each cell is updated based on the game's rules.</p>
-              <p><strong>Neighbor</strong>: Any of the eight surrounding cells influencing a cell's future state.</p>
               <p><strong>Initial Configuration</strong>: The starting arrangement of alive and dead cells in the grid.</p>
-            </fieldset>  
+              <p><strong>Generation</strong>: A time step where the state of each cell is updated based on the game's rules.</p>
+              <p><strong>Survival</strong>: A condition where a live cell remains alive in the next generation.</p>
+          </fieldset>
+          </div>
+
+          <div class="rules" id="rules">
+              <h2>The Rules</h2>
+                <p>Conway's Game of Life typically uses the B3/S23 rules, which are the most common despite many possible variations. "B3/S23" means a dead cell with exactly three alive neighbors becomes alive (B3), and a live cell with two or three alive neighbors survives (S23). The rules are:</p>
+                <ol>
+                  <li>Any live cell with fewer than two alive neighbors dies (underpopulation).</li>
+                  <li>A live cell with two or three alive neighbors survives.</li>
+                  <li>Any live cell with more than three alive neighbors dies (overcrowding).</li>
+                  <li>A dead cell with exactly three alive neighbors becomes alive (reproduction).</li>
+                </ol>
           </div>
         </section>
     </div>
