@@ -1,3 +1,4 @@
+/* Base styles for desktop */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5dc; /* Light beige background */
@@ -94,7 +95,7 @@ body {
 }
 
 .statement {
-    margin-right: 3in; /* Add right margin of 1.5 inches for body with class statement */
+    margin-right: 220px; /* Add right margin to make space for the TOC */
 }
 
 legend {
@@ -110,7 +111,7 @@ fieldset {
 .toc {
     position: fixed;
     top: 50px; /* Adjust based on your preference */
-    right: 250px;
+    right: 250px; /* Set the distance from the right edge to 250 pixels */
     width: 200px; /* Set the width to 200 pixels */
     padding: 10px;
     border: 1px solid #ccc;
@@ -129,7 +130,19 @@ fieldset {
     text-decoration: underline; /* Underline links on hover for better visibility */
 }
 
-.toc h2 {
-    font-size: 1.2em;
-    margin-top: 0;
+/* Media queries for mobile devices */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .toc {
+        position: static; /* Remove fixed positioning on small screens */
+        width: 100%; /* Make the TOC full width */
+        margin-bottom: 20px; /* Add some margin below the TOC */
+    }
+
+    .statement {
+        margin-right: 0; /* Remove the right margin */
+    }
 }
