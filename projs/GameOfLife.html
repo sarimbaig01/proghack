@@ -7,49 +7,52 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-   <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+    <div class="button-box">
+        <a href="#" class="nav-button" onclick="history.back(); return false;">← Back</a>
+        <a href="https://sarimbaig01.github.io/proghack/" class="nav-button">Home</a>
+    </div>
 
     <div class="toc">
         <h2>Contents</h2>
         <a href="#intro">What is the game of life?</a>
         <a href="#terms">Basic terminology</a>
         <a href="#rules">The rules</a>
-        <a href="">The task and boilerplate code</a>
-        <a href="">Simulating for different initial configurations</a>
+        <a href="#">The task and boilerplate code</a>
+        <a href="#">Simulating for different initial configurations</a>
     </div>
 
     <div class="statement">
         <h1>Conway's Game of Life</h1>
         <section class="statement">
-          <div class="intro" id="intro">
-            <h2>What is the game of life?</h2>  
-            <p>Conway's Game of Life is a <a href="https://plato.stanford.edu/entries/cellular-automata/" target="_blank">cellular automaton</a> devised by mathematician <a href="https://en.wikipedia.org/wiki/John_Horton_Conway" target="_blank">John Horton Conway</a> in 1970. It's a zero-player game, meaning its evolution is determined by its initial state without any further input. The game is played on an infinite grid of square cells, each of which can be either <i>alive</i> or <i>dead</i>. The state of the grid evolves in discrete time steps according to a set of simple rules based on the states of neighboring cells. Despite simple rules, the Game of Life can produce incredibly complex and varied patterns, being used in practical applications such as <a href="https://arxiv.org/abs/2009.01398" target="_blank">neural networks research</a> in computer science and <a href="https://pubs.aip.org/aapt/ajp/article/91/7/561/2897367/The-game-of-life-as-a-species-model" target="_blank">simulating population dynamics</a> in theoretical biology, among other applications.</p>
-          </div>
-            
-          <div class="terms" id="terms">  
-            <fieldset>
-              <legend>Basic terminology</legend>
-              <p><strong>Cell</strong>: The basic unit in the grid, either alive or dead.</p>
-              <p><strong>Grid</strong>: The environment where the Game of Life is played, consisting of cells in a two-dimensional array.</p>
-              <p><strong>Neighbor</strong>: Any of the eight surrounding cells influencing a cell's future state.</p>
-              <p><strong>Alive</strong>: A cell state that is "on" or active, represented by `1`.</p>
-              <p><strong>Dead</strong>: A cell state that is "off" or inactive, represented by `0`.</p>
-              <p><strong>Initial Configuration</strong>: The starting arrangement of alive and dead cells in the grid.</p>
-              <p><strong>Generation</strong>: A time step where the state of each cell is updated based on the game's rules (the initial configuration being generation 0).</p>
-              <p><strong>Survival</strong>: A condition where a live cell remains alive in the next generation.</p>
-          </fieldset>
-          </div>
+            <div class="intro" id="intro">
+                <h2>What is the game of life?</h2>  
+                <p>Conway's Game of Life is a <a href="https://plato.stanford.edu/entries/cellular-automata/" target="_blank">cellular automaton</a> devised by mathematician <a href="https://en.wikipedia.org/wiki/John_Horton_Conway" target="_blank">John Horton Conway</a> in 1970. It's a zero-player game, meaning its evolution is determined by its initial state without any further input. The game is played on an infinite grid of square cells, each of which can be either <i>alive</i> or <i>dead</i>. The state of the grid evolves in discrete time steps according to a set of simple rules based on the states of neighboring cells. Despite simple rules, the Game of Life can produce incredibly complex and varied patterns, being used in practical applications such as <a href="https://arxiv.org/abs/2009.01398" target="_blank">neural networks research</a> in computer science and <a href="https://pubs.aip.org/aapt/ajp/article/91/7/561/2897367/The-game-of-life-as-a-species-model" target="_blank">simulating population dynamics</a> in theoretical biology, among other applications.</p>
+            </div>
+                
+            <div class="terms" id="terms">  
+                <fieldset>
+                    <legend>Basic terminology</legend>
+                    <p><strong>Cell</strong>: The basic unit in the grid, either alive or dead.</p>
+                    <p><strong>Grid</strong>: The environment where the Game of Life is played, consisting of cells in a two-dimensional array.</p>
+                    <p><strong>Neighbor</strong>: Any of the eight surrounding cells influencing a cell's future state.</p>
+                    <p><strong>Alive</strong>: A cell state that is "on" or active, represented by `1`.</p>
+                    <p><strong>Dead</strong>: A cell state that is "off" or inactive, represented by `0`.</p>
+                    <p><strong>Initial Configuration</strong>: The starting arrangement of alive and dead cells in the grid.</p>
+                    <p><strong>Generation</strong>: A time step where the state of each cell is updated based on the game's rules (the initial configuration being generation 0).</p>
+                    <p><strong>Survival</strong>: A condition where a live cell remains alive in the next generation.</p>
+                </fieldset>
+            </div>
 
-          <div class="rules" id="rules">
-              <h2>The rules</h2>
+            <div class="rules" id="rules">
+                <h2>The rules</h2>
                 <p>Conway's Game of Life typically uses the B3/S23 rules, which are the most common despite many possible variations. "B3/S23" means a dead cell with exactly three alive neighbors becomes alive (B3), and a live cell with two or three alive neighbors survives (S23). The rules are:</p>
                 <ol>
-                  <li>Any live cell with fewer than two alive neighbors dies (the underpopulation rule).</li>
-                  <li>A live cell with two or three alive neighbors survives (the survival rule). (</li>
-                  <li>Any live cell with more than three alive neighbors dies (the overcrowding rule).</li>
-                  <li>A dead cell with exactly three alive neighbors becomes alive (the reproduction rule).</li>
+                    <li>Any live cell with fewer than two alive neighbors dies (the underpopulation rule).</li>
+                    <li>A live cell with two or three alive neighbors survives (the survival rule).</li>
+                    <li>Any live cell with more than three alive neighbors dies (the overcrowding rule).</li>
+                    <li>A dead cell with exactly three alive neighbors becomes alive (the reproduction rule).</li>
                 </ol>
-          </div>
+            </div>
         </section>
     </div>
 </body>
