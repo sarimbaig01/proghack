@@ -109,6 +109,42 @@ fieldset {
     color: burgundy; /* Set the text color inside the fieldset to burgundy */
 }
 
+/* Table styles */
+.ptable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.ptable th, .ptable td {
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+}
+
+.ptable th {
+    border-top: 1px solid #000;
+    background-color: #f0f0f0;
+}
+
+.ptable td {
+    vertical-align: top;
+}
+
+.ptable a {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+.ptable a:hover {
+    text-decoration: underline;
+}
+
+.ptable th.sub-header {
+    color: blue;
+    font-style: italic;
+}
+
 /* Additional Styles */
 img {
     max-width: 100%; /* Make images responsive */
