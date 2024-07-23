@@ -130,6 +130,11 @@ fieldset {
     text-decoration: underline; /* Underline links on hover for better visibility */
 }
 
+img {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
 /* Media queries for mobile devices */
 @media only screen and (max-width: 600px) {
     body {
