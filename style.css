@@ -157,6 +157,11 @@ img {
     z-index: 100;
 }
 
+.toc a.sub-item {
+    padding-left: 20px; /* Adjust the padding value to control the indentation */
+}
+
+
 .video-container {
     display: flex;
     justify-content: center; /* Center the video horizontally */
