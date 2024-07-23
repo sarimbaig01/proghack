@@ -40,66 +40,25 @@ body {
 
 .back-link {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    z-index: 100;
+    cursor: pointer;
     background-color: #373832;
     color: #ffffff;
     padding: 10px;
     border-radius: 5px;
     text-decoration: none;
-    z-index: 100;
 }
 
-.back-link:hover {
-    background-color: #49483f;
+.back-link.top-right {
+    top: 20px;
+    right: 20px;
 }
 
-.toc {
-    position: fixed;
-    top: 100px; /* Adjust based on your preference */
-    right: 180px; /* Move the TOC a little towards the right */
-    width: 220px; /* Adjust the width as necessary */
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.back-link.bottom-right {
+    bottom: 20px;
+    right: 20px;
 }
 
-.toc a {
-    display: block; /* Ensure each link takes up the full width and appears on its own line */
-    margin: 5px 0; /* Add some margin for spacing between links */
-    text-decoration: underline; /* Underline the links */
-    color: black; /* Set link color to black */
-    position: relative; /* Enable positioning of pseudo-element */
-    padding-left: 20px; /* Add padding to make space for bullets */
-}
-
-.toc a::before {
-    content: "•"; /* Bullet point character */
-    position: absolute; /* Position relative to the link */
-    left: 0; /* Adjust distance from the link text */
-    color: black; /* Same color as the link text */
-}
-
-.toc a:hover {
-    text-decoration: underline; /* Underline links on hover for better visibility */
-}
-
-.statement {
-    margin-right: 270px; /* Increase right margin to make more space for the TOC */
-}
-
-legend {
-    color: burgundy;
-    font-weight: bold;
-}
-
-fieldset {
-    border: 2px solid burgundy; /* Adjust the border width if needed */
-    color: burgundy; /* Set the text color inside the fieldset to burgundy */
-}
-
-/* Table styles */
 .ptable {
     width: 100%;
     border-collapse: collapse;
@@ -135,7 +94,51 @@ fieldset {
     font-style: italic;
 }
 
-/* Additional Styles */
+.statement {
+    margin-right: 270px; /* Increase right margin to make more space for the TOC */
+}
+
+legend {
+    color: burgundy;
+    font-weight: bold;
+}
+
+fieldset {
+    border: 2px solid burgundy; /* Adjust the border width if needed */
+    color: burgundy; /* Set the text color inside the fieldset to burgundy */
+}
+
+.toc {
+    position: fixed;
+    top: 50px; /* Adjust based on your preference */
+    right: 180px; /* Move the TOC a little towards the right */
+    width: 220px; /* Adjust the width as necessary */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.toc a {
+    display: block; /* Ensure each link takes up the full width and appears on its own line */
+    margin: 5px 0; /* Add some margin for spacing between links */
+    text-decoration: underline; /* Underline the links */
+    color: black; 
+    position: relative; /* Enable positioning of pseudo-element */
+    padding-left: 20px; /* Add padding to make space for bullets */
+}
+
+.toc a::before {
+    content: "•"; /* Bullet point character */
+    position: absolute; /* Position relative to the link */
+    left: 0; /* Adjust distance from the link text */
+    color: black; 
+}
+
+.toc a:hover {
+    text-decoration: underline; /* Underline links on hover for better visibility */
+}
+
 img {
     max-width: 100%; /* Make images responsive */
     height: auto; /* Maintain aspect ratio */
@@ -159,7 +162,7 @@ img {
     body {
         padding: 10px;
     }
-
+    
     .toc {
         position: static; /* Remove fixed positioning on small screens */
         width: 100%; /* Make the TOC full width */
