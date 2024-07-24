@@ -44,7 +44,7 @@ pre[class*=language-] {
 }
 
 :not(pre)>code[class*=language-], pre[class*=language-] {
-    background: #f5f2f0;
+    background: #d9a17c;
 }
 
 :not(pre)>code[class*=language-] {
@@ -187,7 +187,7 @@ div.code-toolbar>.toolbar>.toolbar-item>a, div.code-toolbar>.toolbar>.toolbar-it
     color: #bbb;
     font-size: .8em;
     padding: 0 .5em;
-    background: #f5f2f0;
+    background: #d9a17c;
     background: rgba(224, 224, 224, .2);
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, .2);
     border-radius: .5em;
