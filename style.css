@@ -1,4 +1,5 @@
 /* Base styles for desktop */
+/* Base styles for desktop */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5dc; /* Light beige background */
@@ -13,12 +14,15 @@ body {
     background-color: #272822;
     padding: 20px;
     border-radius: 5px;
-    width: 80%;
-    max-width: 800px;
+    width: 90%; /* Make the container wider */
+    max-width: 1000px; /* Increase max width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
+    margin: 20px 0; /* Remove auto margins and reduce to just vertical margins */
     position: relative;
+    border: 1px solid #e0e0d1; /* Thin border, slightly darker than body's background color */
+    left: 5%; /* Move the container closer to the left of the screen */
 }
+
 
 .copy-btn {
     position: absolute;
