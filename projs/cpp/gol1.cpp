@@ -56,7 +56,7 @@ int main() {
     //Generate a random initial configuration
     //with the probability of any call being alive = 0.2
   
-    //generateRandomInitConf(grid, 100, 100, 0.2); //*Function needs implementation*//
+    //generateRandomInitConf(grid, 100, 100, 0.2); //Function needs implementation
 
     //clock is used to measure elapsed time
     sf::Clock clock;
@@ -74,7 +74,7 @@ int main() {
         ///After each 0.09 seconds progress to the next generation
         if (clock.getElapsedTime().asSeconds() > updateInterval) {
           
-            //updateGrid(grid, rows, cols); //**Function needs implementation*//
+            //updateGrid(grid, rows, cols); //Function needs implementation
           
             drawGrid(window, grid, rows, cols, cellSize);
             clock.restart();//Start measuring again from 0
