@@ -107,7 +107,6 @@ fieldset {
     border: 2px solid burgundy; /* Adjust the border width if needed */
     color: burgundy; /* Set the text color inside the fieldset to burgundy */
 }
-
 .toc {
     position: fixed;
     top: 100px; /* Adjust based on your preference */
@@ -125,24 +124,24 @@ fieldset {
     text-decoration: underline; /* Underline the links */
     color: black; /* Set link color to black */
     position: relative; /* Enable positioning of pseudo-element */
-    padding-left: 20px; /* Add padding to make space for bullets */
+    padding-left: 15px; /* Reduce padding to bring text closer to bullet */
 }
 
 .toc a::before {
     content: "•"; /* Bullet point character */
     position: absolute; /* Position relative to the link */
-    left: 0; /* Adjust distance from the link text */
+    left: 5px; /* Adjust distance from the link text */
     color: black; /* Same color as the link text */
 }
 
 .toc a.sub-item {
-    padding-left: 40px; /* Indent sub-items */
+    padding-left: 25px; /* Indent sub-items */
 }
 
 .toc a.sub-item::before {
     content: "•"; /* Bullet point character */
     position: absolute; /* Position relative to the link */
-    left: 20px; /* Adjust distance from the link text to align bullets */
+    left: 15px; /* Adjust distance from the link text to align bullets */
     color: black; /* Same color as the link text */
 }
 
