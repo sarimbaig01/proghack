@@ -28,7 +28,7 @@ void generateRandomInitConf(std::vector<std::vector<int>> &grid, int rows, int c
     //TODO: add code here
 }
 
-int countLiveNeighbours(const std::vector<std::vector<int>> &grid, int num_rows, int num_cols, int rows, int cols) {
+int countLiveNeighbours(const std::vector<std::vector<int>> &grid, int x, int y, int rows, int cols) {
     int liveNeighbors = 0;
     //TODO: add code here
     return liveNeighbors;
