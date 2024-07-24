@@ -15,6 +15,7 @@ body {
     max-width: 1000px; /* Increase max width */
     margin: 20px 0; /* Remove auto margins and reduce to just vertical margins */
     left: 5%; /* Move the container closer to the left of the screen */
+    border: 1px solid #ccc; /* Thin border, slightly darker than body's background color */
 }
 
 .copy-btn {
