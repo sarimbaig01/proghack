@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+//this is a graphics function implemented for you
+//you don't need to bother about this code, unless something visual needs changing
 void drawGrid(sf::RenderWindow &window, const std::vector<std::vector<int>> &grid, int rows, int cols, int cellSize) {
     window.clear(sf::Color::White);
 
@@ -26,7 +28,7 @@ void generateRandomInitConf(std::vector<std::vector<int>> &grid, int rows, int c
     //TODO: add code here
 }
 
-int countLiveNeighbours(const std::vector<std::vector<int>> &grid, int x, int y, int rows, int cols) {
+int countLiveNeighbours(const std::vector<std::vector<int>> &grid, int num_rows, int num_cols, int rows, int cols) {
     int liveNeighbors = 0;
     //TODO: add code here
     return liveNeighbors;
