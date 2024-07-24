@@ -1,4 +1,4 @@
-
+/* Base styles for desktop */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5dc; /* Light beige background */
@@ -19,6 +19,7 @@ body {
     position: relative;
     border: 1px solid #d4d4c8; /* Thin border, slightly darker than body's background color */
     left: 5%; /* Move the container closer to the left of the screen */
+    font-family: Consolas, "Courier New", monospace; /* Set font to Consolas */
 }
 
 
