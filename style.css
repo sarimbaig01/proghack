@@ -10,16 +10,11 @@ body {
 }
 
 .code-container {
-    background-color: #272822;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 10px; /* Reduced padding to 10 pixels */
     width: 90%; /* Make the container wider */
     max-width: 1000px; /* Increase max width */
     margin: 20px 0; /* Remove auto margins and reduce to just vertical margins */
-    position: relative;
-    border: 1px solid #d4d4c8; /* Thin border, slightly darker than body's background color */
-    left: 5%; /* Move the container closer to the left of the screen */
-    font-family: Consolas, "Courier New", monospace; /* Set font to Consolas */
+    left: 5%; /* Move the container closer to the left of the screen *
 }
 
 .copy-btn {
