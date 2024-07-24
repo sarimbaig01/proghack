@@ -141,7 +141,7 @@ fieldset {
 .toc a.sub-item::before {
     content: "•"; /* Bullet point character */
     position: absolute; /* Position relative to the link */
-    left: 15px; /* Adjust distance from the link text to align bullets */
+    left: 5px; /* Adjust distance from the link text to align bullets */
     color: black; /* Same color as the link text */
 }
 
