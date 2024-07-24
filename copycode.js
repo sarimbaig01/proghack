@@ -1,5 +1,8 @@
 function loadCode() {
-    fetch('../code/demo1.cpp') // Adjust the path as needed
+    const codeContainer = document.querySelector('.code-container');
+    const fileName = codeContainer.getAttribute('data-filename');
+
+    fetch(`../code/${fileName}`) // Adjust the path as needed
         .then(response => response.text())
         .then(code => {
             document.getElementById('cpp-code').textContent = code.trim();
