@@ -2,7 +2,7 @@ function loadCode() {
     const codeContainer = document.querySelector('.code-container');
     const fileName = codeContainer.getAttribute('data-filename');
 
-    fetch(`../code/${fileName}`) // Adjust the path as needed
+    fetch(fileName) // Fetch the file based on the data attribute
         .then(response => response.text())
         .then(code => {
             document.getElementById('cpp-code').textContent = code.trim();
