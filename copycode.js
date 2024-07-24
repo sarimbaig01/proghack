@@ -2,11 +2,12 @@ function loadCode() {
     const codeContainer = document.querySelector('.code-container');
     const fileName = codeContainer.getAttribute('data-filename');
 
-    fetch(fileName) // Fetch the file based on the data attribute
+    fetch(fileName)
         .then(response => response.text())
         .then(code => {
-            document.getElementById('cpp-code').textContent = code.trim();
-            Prism.highlightAll(); // Re-highlight the code after adding it
+            const codeElement = document.getElementById('cpp-code');
+            codeElement.textContent = code.trim();
+            Prism.highlightElement(codeElement); // Highlight the code after adding it
         })
         .catch(error => console.error('Error loading the code:', error));
 }
@@ -26,7 +27,6 @@ function copyCode() {
     });
 }
 
-// Load the code when the page is loaded
 document.addEventListener('DOMContentLoaded', function() {
     loadCode();
     document.querySelector('.copy-btn').addEventListener('click', copyCode);
