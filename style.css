@@ -128,24 +128,25 @@ fieldset {
 .toc a::before {
     content: "•"; /* Bullet point character */
     position: absolute; /* Position relative to the link */
-    left: 0px; /* Adjust distance from the link text */
+    left: 5px; /* Adjust distance from the link text */
     color: black; /* Same color as the link text */
 }
 
 .toc a.sub-item {
-    padding-left: 35px; /* Indent sub-items */
+    padding-left: 40px; /* Indent sub-items more */
 }
 
 .toc a.sub-item::before {
     content: "•"; /* Bullet point character */
     position: absolute; /* Position relative to the link */
-    left: 0px; /* Adjust distance from the link text to align bullets */
+    left: 25px; /* Adjust distance from the link text to align bullets */
     color: black; /* Same color as the link text */
 }
 
 .toc a:hover {
     text-decoration: underline; /* Underline links on hover for better visibility */
 }
+
 
 img {
     max-width: 100%; /* Make images responsive */
