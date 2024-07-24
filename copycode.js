@@ -6,7 +6,7 @@ function loadCode() {
         .then(response => response.text())
         .then(code => {
             const codeElement = document.getElementById('cpp-code');
-            codeElement.textContent = code.trim();
+            codeElement.textContent = code; // Use textContent to prevent HTML interpretation
             Prism.highlightElement(codeElement); // Highlight the code after adding it
         })
         .catch(error => console.error('Error loading the code:', error));
