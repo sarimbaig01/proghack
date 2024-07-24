@@ -110,7 +110,7 @@ fieldset {
 
 .toc {
     position: fixed;
-    top: 50px; /* Adjust based on your preference */
+    top: 100px; /* Adjust based on your preference */
     right: 180px; /* Move the TOC a little towards the right */
     width: 220px; /* Adjust the width as necessary */
     padding: 10px;
@@ -123,7 +123,7 @@ fieldset {
     display: block; /* Ensure each link takes up the full width and appears on its own line */
     margin: 5px 0; /* Add some margin for spacing between links */
     text-decoration: underline; /* Underline the links */
-    color: black; 
+    color: black; /* Set link color to black */
     position: relative; /* Enable positioning of pseudo-element */
     padding-left: 20px; /* Add padding to make space for bullets */
 }
@@ -132,7 +132,18 @@ fieldset {
     content: "•"; /* Bullet point character */
     position: absolute; /* Position relative to the link */
     left: 0; /* Adjust distance from the link text */
-    color: black; 
+    color: black; /* Same color as the link text */
+}
+
+.toc a.sub-item {
+    padding-left: 40px; /* Indent sub-items */
+}
+
+.toc a.sub-item::before {
+    content: "•"; /* Bullet point character */
+    position: absolute; /* Position relative to the link */
+    left: 20px; /* Adjust distance from the link text to align bullets */
+    color: black; /* Same color as the link text */
 }
 
 .toc a:hover {
