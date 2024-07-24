@@ -34,14 +34,13 @@ int countLiveNeighbours(const std::vector<std::vector<int>> &grid, int x, int y,
     return liveNeighbors;
 }
 
-
 void updateGrid(std::vector<std::vector<int>> &grid, int rows, int cols) {
     //TODO: add code here
 }
 
 int main() {
    //Using the following parameters we get a window size of 600x600 pixels
-   //The grid itself is 100 x 100 cells, and each cells is 6x6 pixels
+   //The grid itself is 100 x 100 cells, and each cell is 6x6 pixels
 
     const int rows = 100;  // Number of rows in the grid
     const int cols = 100;  // Number of columns in the grid
@@ -64,7 +63,7 @@ int main() {
     sf::Clock clock;
 
    //The main event loop
-   ///The only even we're handling at the moment is window close 
+   ///The only event we're handling at the moment is window close 
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
