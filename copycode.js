@@ -1,3 +1,13 @@
+function loadCode() {
+    fetch('../code/demo1.cpp') // Adjust the path as needed
+        .then(response => response.text())
+        .then(code => {
+            document.getElementById('cpp-code').textContent = code.trim();
+            Prism.highlightAll(); // Re-highlight the code after adding it
+        })
+        .catch(error => console.error('Error loading the code:', error));
+}
+
 function copyCode() {
     const button = document.querySelector('.copy-btn');
     const originalText = button.textContent;
@@ -12,6 +22,12 @@ function copyCode() {
         console.error('Failed to copy: ', err);
     });
 }
+
+// Load the code when the page is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadCode();
+    document.querySelector('.copy-btn').addEventListener('click', copyCode);
+});
 
 // Example function to handle navigation
 document.querySelectorAll('.back-link').forEach(link => {
