@@ -70,9 +70,21 @@
                     <figcaption>Figure 1: Simulation of Conway's Game of Life. This particular simulation begins from a randomly generated initial configuration and eventually reaches equilibrium.</figcaption>
                 </figure>
             </div>
-        </div>
+             
+            <p>Following is a skeleton C++ code using SFML for the graphics (refer to the <a href="https://www.sfml-dev.org/" target="_blank">SFML page</a> for a basic introduction). The code implements some functions while leaving others to be implemented by you. In particular, the functionalities to be implemented include: setting the grid to a random initial configuration, updating the grid to the next generation by applying the four rules stated above. As it is at the moment, when this code is executed, it shows an empty 100 x 100 grid (i.e., all cells are initially dead), and it remains unchanged.</p>
 
+            <p>In particular, you need to implement the following functions:</p>
+            <ul>
+              <li>generateRandomInitConf</li>
+              <li>countAliveNeighbours (to be used inside updateGrid)</li>
+              <li>updateGrid</li>
+            </ul>
+
+            <p>The following code also shows (in comments) how these functions are used, which should help you figure out which parameters need to be passed and how the implementation should proceed.</p>
+ 
+        </div>
         </section>
+        
     </div>
 </body>
 </html>
