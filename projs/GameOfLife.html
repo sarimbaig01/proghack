@@ -20,7 +20,7 @@
         <a href="#task1">Task 1: The basic simulation </a>
         <a href="#fterms">Further terminology</a>
         <a href="#task2">Task 2: Make it toroidal</a>
-        <a href="#task3">Task 3: Print statistics</a>
+        <a href="#task3">Task 3: Print useful statistics</a>
         
         <!--<a href="#toroidal" class="sub-item">Make it toriodal</a>
         <a href="#stats" class="sub-item">Print statistics</a>
@@ -116,6 +116,12 @@
                  <h2>Task 2: Make it toroidal</h2>
                 <p>Change the implementation to toroidal to create a grid where the edges wrap around, making the top row adjacent to the bottom row, and the left column adjacent to the right column. This continuous wrap-around effect simulates an infinite, unbounded environment, eliminating edge effects in finite grids. This modification is particularly useful for studying patterns and behaviors that are not influenced by artificial boundaries, such as oscillators and spaceships that can move freely across the grid. To achieve this, make appropriate changes to countLiveNeighbors to handle the edge cases in a way to make the grid toroidal.</p>
             </div>
+
+             <div class="task3" id="task3">
+                <h2>Task 3: Print useful statistics</h2>
+                <p>Implement functionality to print various statistics for each generation of the Game of Life. Printing statistics is useful for analyzing and understanding the dynamics of the grid over time. The statistics to print include generation number, population, growth rate, stability, and entropy (these have been defined in the box above). These metrics help track trends such as how quickly the population is changing, how stable certain patterns are, and the overall randomness or order within the grid. Monitoring these statistics can provide insights into the long-term behavior of patterns, the likelihood of reaching equilibrium, and the evolution of complexity within the grid. You may print the statistics on the console (not on the graphics window).</p>
+            </div>
+
 
             <!-- Prism.js JavaScript -->
             <script src="../prism.js"></script> <!-- Adjust the path as needed -->
