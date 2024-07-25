@@ -1,26 +1,27 @@
 function loadCode() {
-    const codeContainer = document.querySelector('.code-container');
-    const fileName = codeContainer.getAttribute('data-filename');
-
-    fetch(fileName)
-        .then(response => response.text())
-        .then(code => {
-            const codeElement = document.getElementById('cpp-code');
-            codeElement.textContent = code; // Use textContent to prevent HTML interpretation
-            Prism.highlightElement(codeElement); // Highlight the code after adding it
-        })
-        .catch(error => console.error('Error loading the code:', error));
+    const codeContainers = document.querySelectorAll('.code-container');
+    codeContainers.forEach(container => {
+        const fileName = container.getAttribute('data-filename');
+        
+        fetch(fileName)
+            .then(response => response.text())
+            .then(code => {
+                const codeElement = container.querySelector('code');
+                codeElement.textContent = code; // Use textContent to prevent HTML interpretation
+                Prism.highlightElement(codeElement); // Highlight the code after adding it
+            })
+            .catch(error => console.error('Error loading the code:', error));
+    });
 }
 
-function copyCode() {
-    const button = document.querySelector('.copy-btn');
-    const originalText = button.textContent;
-    const code = document.getElementById('cpp-code').textContent.trim();
+function copyCode(event) {
+    const button = event.target;
+    const code = button.closest('.code-container').querySelector('code').textContent.trim();
     
     navigator.clipboard.writeText(code).then(function() {
         button.textContent = '✓ Copied';
         setTimeout(function() {
-            button.textContent = originalText;
+            button.textContent = 'Copy';
         }, 3000);
     }, function(err) {
         console.error('Failed to copy: ', err);
@@ -29,7 +30,9 @@ function copyCode() {
 
 document.addEventListener('DOMContentLoaded', function() {
     loadCode();
-    document.querySelector('.copy-btn').addEventListener('click', copyCode);
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', copyCode);
+    });
 });
 
 // Example function to handle navigation
