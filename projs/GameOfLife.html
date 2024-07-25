@@ -15,12 +15,14 @@
         <a href="#intro">What is the game of life?</a>
         <a href="#terms">Basic terminology</a>
         <a href="#rules">The rules</a>
-        <a href="#task">The task: the basic simulation </a>
-        <a href="#toroidal" class="sub-item">Make it toriodal</a>
+        <a href="#task">Task 1: the basic simulation </a>
+        <a href="#terms">Further terminology</a>
+        
+        <!--<a href="#toroidal" class="sub-item">Make it toriodal</a>
         <a href="#stats" class="sub-item">Print statistics</a>
         <a href="#colors" class="sub-item">Color-code for age</a>
         <a href="#equi" class="sub-item">Detect equilibrium</a>
-        <a href="#confs">Simulate different initial configurations</a>
+        <a href="#confs">Simulate different initial configurations</a>-->
     </div>
 
     <div class="statement">
@@ -87,6 +89,23 @@
                 <pre><code class="language-cpp" id="cpp-code">
                     <!-- The code will be loaded dynamically here -->
                 </code></pre>
+            </div>
+
+            <div class="#terms" id="#further-terms">  
+                <fieldset>
+                    <legend>Further terminology</legend>
+                    <p><strong>Age</strong>: The number of generations a cell has been alive.</p>
+                    <p><strong>Pattern</strong>: A specific arrangement of live and dead cells in the grid.</p>
+                    <p><strong>Period</strong>: The number of generations it takes for an oscillator to return to its initial state.</p>
+                    <p><strong>Spaceship</strong>: A pattern that translates itself across the grid over generations.</p>
+                    <p><strong>Glider</strong>: A common type of spaceship that moves diagonally across the grid, consisting of 5 live cells in a specific formation.</p>
+                    <p><strong>Oscillator</strong>: A pattern that returns to its initial state after a fixed number of generations, known as its period.</p>
+                    <p><strong>Equilibrium</strong>: A state where the grid either remains unchanged or cycles through the same sequence of configurations repeatedly.</p>
+                    <p><strong>Population</strong>: The total number of live cells in the grid \( P(t) = \sum_{i,j} \text{grid}[i][j] \). Purpose: tracks how the number of live cells changes over generations.</p>
+                    <p><strong>Growth Rate</strong>: The rate at which the population of live cells changes over time \( G(t) = \frac{P(t+1) - P(t)}{P(t)} \). Purpose: measures how quickly the population is increasing or decreasing.</p>
+                    <p><strong>Stability</strong>: A measure of how quickly a grid reaches equilibrium. One way to compute stability: the number of generations it takes to reach equilibrium.</p>
+                    <p><strong>Entropy</strong>: A measure of the disorder or randomness in the grid. One way to compute entropy: \( H(t) = - \sum_{i,j} \left( \frac{\text{grid}[i][j]}{N} \right) \log_2 \left( \frac{\text{grid}[i][j]}{N} \right) \) where \(N\) is the total number of cells.</p>
+                </fieldset>
             </div>
             
 
