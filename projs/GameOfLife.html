@@ -120,7 +120,17 @@
              <div class="task3" id="task3">
                 <h2>Task 3: Print useful statistics</h2>
                 <p>Implement functionality to print various statistics for each generation of the Game of Life. Printing statistics is useful for analyzing and understanding the dynamics of the grid over time. The statistics to print include generation number, population, growth rate, stability, and entropy (these have been defined in the box above). These metrics help track trends such as how quickly the population is changing, how stable certain patterns are, and the overall randomness or order within the grid. Monitoring these statistics can provide insights into the long-term behavior of patterns, the likelihood of reaching equilibrium, and the evolution of complexity within the grid. You may print the statistics on the console (not on the graphics window).</p>
-            </div>
+                <p>Following is a list of prototypes of the functions you need to implement. For generation number it suffices to keep a variable in the main that keeps track of the generation count.</p> 
+
+                <div class="code-container">
+                    <pre><code class="language-cpp">
+                        int calculatePopulation(const std::vector<std::vector<int>>& grid);
+                        double calculateGrowthRate(const std::vector<std::vector<int>>& currentGrid, const std::vector<std::vector<int>>& previousGrid);
+                        double calculateStability(const std::vector<std::vector<int>>& currentGrid, const std::vector<std::vector<int>>& previousGrid);
+                        double calculateEntropy(const std::vector<std::vector<int>>& grid);
+                    </code></pre>
+                </div>   
+             </div>
 
 
             <!-- Prism.js JavaScript -->
