@@ -10,7 +10,7 @@ body {
 }
 
 .code-container {
-    padding: 10px; /* Reduced padding to 10 pixels */
+    padding: 0px; /* Reduced padding to 10 pixels */
     width: 90%; /* Make the container wider */
     max-width: 1000px; /* Increase max width */
     margin: 20px 0; /* Remove auto margins and reduce to just vertical margins */
