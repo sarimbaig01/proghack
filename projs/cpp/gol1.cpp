@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-//this is a graphics function implemented for you
-//you don't need to bother about this code, unless something visual needs changing
+//This is a graphics related function implemented for you.
+//You may not bother about this code yet, 
+//however, when something visual needs to be done 
+//you'd need to make changes in this function.
 void drawGrid(sf::RenderWindow &window, const std::vector<std::vector<int>> &grid, int rows, int cols, int cellSize) {
     window.clear(sf::Color::White);
 
@@ -24,11 +26,15 @@ void drawGrid(sf::RenderWindow &window, const std::vector<std::vector<int>> &gri
     window.display();
 }
 
+//Funtions to be implemented
+
 void generateRandomInitConf(std::vector<std::vector<int>> &grid, int rows, int cols, float liveProbability) {
     //TODO: add code here
+    //the function sets any given cell to alive with probability liveProbability
 }
 
-int countLiveNeighbours(const std::vector<std::vector<int>> &grid, int x, int y, int rows, int cols) {
+int countLiveNeighbours(const std::vector<std::vector<int>> &grid, int i, int j, int rows, int cols) {
+    ///count the live neighbors of the cell at grid[i][j]
     int liveNeighbors = 0;
     //TODO: add code here
     return liveNeighbors;
@@ -38,6 +44,7 @@ void updateGrid(std::vector<std::vector<int>> &grid, int rows, int cols) {
     //TODO: add code here
 }
 
+//The main 
 int main() {
    //Using the following parameters we get a window size of 600x600 pixels
    //The grid itself is 100 x 100 cells, and each cell is 6x6 pixels
@@ -55,7 +62,7 @@ int main() {
     std::vector<std::vector<int>> grid(rows, std::vector<int>(cols, 0));
 
     //Generate a random initial configuration
-    //with the probability of any call being alive = 0.2
+    //with the probability of any call being alive = 0.2 
   
     //generateRandomInitConf(grid, 100, 100, 0.2); //Function needs implementation
 
