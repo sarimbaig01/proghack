@@ -111,6 +111,12 @@
                     <p><strong>Entropy</strong>: A measure of the disorder or randomness in the grid. One way to compute entropy: \( H(t) = - \sum_{i,j} \left( \frac{\text{grid}[i][j]}{N} \right) \log_2 \left( \frac{\text{grid}[i][j]}{N} \right) \) where \(N\) is the total number of cells.</p>
                 </fieldset>
             </div>
+
+             <div class="task2" id="task2">
+                 <h2>Task2: Make it toroidal</h2>
+                <p>Change the implementation to toroidal to create a grid where the edges wrap around, making the top row adjacent to the bottom row, and the left column adjacent to the right column. This continuous wrap-around effect simulates an infinite, unbounded environment, eliminating edge effects in finite grids. This modification is particularly useful for studying patterns and behaviors that are not influenced by artificial boundaries, such as oscillators and spaceships that can move freely across the grid. To achieve this, make appropriate changes to countLiveNeighbors to handle the edge cases in a way to make the grid toroidal.</p>
+            </div>
+
             
 
             <!-- Prism.js JavaScript -->
