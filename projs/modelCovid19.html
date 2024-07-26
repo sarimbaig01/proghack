@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model the Spread of COVID-19</title>
+    <link rel="stylesheet" href="../prism.css"> <!-- Adjust the path as needed -->
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+   <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+    <div class="statement">
+        <h1>Model the Spread of COVID-19</h1>
+        <section class="statement">
+       
+          <p><strong>Cellular automata</strong> can be used for numerous applications beyond <strong>Conway's Game of Life</strong>. By applying different rules, cellular automata can model a variety of complex systems, such as population simulations, disease spread modeling, and more, which are used in fields like ecology, epidemiology, and urban planning.</p>
+      
+          <p>For simulating the spread of COVID-19, we can assign different states to cells: susceptible (white), infected (red), and recovered (green). The rules to implement are:</p>
+          <ol>
+              <li>A susceptible cell with one or more infected neighbors becomes infected.</li>
+              <li>An infected cell remains infected for a fixed number of generations and then becomes recovered.</li>
+              <li>A recovered cell remains recovered and does not become susceptible again.</li>
+          </ol>
+          <p>A combination of base probabilities derived from real data and the current state of a cell's neighborhood can be used to make these steps reflect the real situation more accurately. (These will be parameters in your systems whose values you can change as desired).</p>
+      
+          <p>Each generation corresponds to a time step in the simulation. Different initial conditions can correspond to various real-world scenarios, such as a few initial infections in a small community or widespread infections in a densely populated area.</p>
+      
+          <p>Printing statistics with the simulation provides valuable insights:</p>
+          <ul>
+              <li><strong>Population Growth:</strong> Indicates the rate at which infections are spreading.</li>
+              <li><strong>Stability:</strong> Reflects how the spread is stabilizing over time.</li>
+              <li><strong>Entropy:</strong> Measures the randomness or disorder in the spread of the infection.</li>
+              <li><strong>Equilibrium:</strong> Shows whether the infection spread has reached a steady state or continues to fluctuate.</li>
+          </ul>
+      
+          <p>So your task here is to write code to implement this simulation and experiment with different start states to observe how the infection spreads under various conditions.</p>
+        </section>
+    </div>
+            
+</body>
+</html>
