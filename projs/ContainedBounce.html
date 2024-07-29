@@ -26,148 +26,59 @@
         -->
     </div>
 
-    <div class="statement">
-        <h1>Contained Bounce</h1>
-        <section class="statement">
-          <div class="intro" id="intro">
-            <h2>What is the game of life?</h2>  
-            <p>Conway's Game of Life is a <a href="https://plato.stanford.edu/entries/cellular-automata/" target="_blank">cellular automaton</a> devised by mathematician <a href="https://en.wikipedia.org/wiki/John_Horton_Conway" target="_blank">John Horton Conway</a> in 1970. It's a zero-player game, meaning its evolution is determined by its initial state without any further input. The game is played on an infinite grid of square cells, each of which can be either <i>alive</i> or <i>dead</i>. The state of the grid evolves in discrete time steps according to a set of simple rules based on the states of neighboring cells. Despite simple rules, the Game of Life can produce incredibly complex and varied patterns, being used in practical applications such as <a href="https://arxiv.org/abs/2009.01398" target="_blank">neural networks research</a> in computer science and <a href="https://pubs.aip.org/aapt/ajp/article/91/7/561/2897367/The-game-of-life-as-a-species-model" target="_blank">simulating population dynamics</a> in theoretical biology, among other applications.</p>
-          </div>
-            
-          <div class="terms" id="terms">  
-            <fieldset>
-              <legend>Basic terminology</legend>
-              <p><strong>Cell</strong>: The basic unit in the grid, either alive or dead.</p>
-              <p><strong>Grid</strong>: The environment where the Game of Life is played, consisting of cells in a two-dimensional array.</p>
-              <p><strong>Neighbor</strong>: Any of the eight surrounding cells influencing a cell's future state.</p>
-              <p><strong>Alive</strong>: A cell state that is "on" or active, represented by `1`.</p>
-              <p><strong>Dead</strong>: A cell state that is "off" or inactive, represented by `0`.</p>
-              <p><strong>Initial Configuration</strong>: The starting arrangement of alive and dead cells in the grid.</p>
-              <p><strong>Generation</strong>: A time step where the state of each cell is updated based on the game's rules (the initial configuration being generation 0).</p>
-              <p><strong>Survival</strong>: A condition where a live cell remains alive in the next generation.</p>
-          </fieldset>
-          </div>
+    <div class="intro" id="intro">
+        <h2>Introduction</h2>
+        <p>In this exercise, you will implement a program where a ball bounces freely within a graphics window. The ball is modeled as a circle and, at all times, it maintains a constant speed and one of eight possible directions: up, down, left, right, down-right, down-left, up-right, and up-left. The ball will start at a random point on the screen, moving in one of these eight directions.</p>
+        <p>The graphics window for this exercise has dimensions of 800 pixels in width and 600 pixels in height. The coordinate system of the window places the origin (0, 0) at the top-left corner, with the other corners defined as follows: the top-right corner is at (799, 0), the bottom-left corner is at (0, 599), and the bottom-right corner is at (799, 599).</p>
+        <p>As the ball moves within the window, the application will need to detect when the ball collides with any of the window's sides. Upon collision, the ball should rebound following the basic laws of reflection of light from a smooth surface. We simplify the physics of the bouncing ball by mapping it to the reflection of light. The angle of incidence is equal to the angle of reflection, and the incident ray, reflected ray, and the normal to the surface at the point of incidence all lie in the same plane.</p>
+        <p>To illustrate this, consider the following table which maps the incident direction of the ball, the collision side, and the resulting reflected direction. This mapping ensures that the ball's movement adheres to the laws of reflection:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Incidence Direction</th>
+                    <th>Collision Side</th>
+                    <th>Reflected Direction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>up-right</td><td>top</td><td>down-right</td></tr>
+                <tr><td>up-right</td><td>right</td><td>up-left</td></tr>
+                <tr><td>down-right</td><td>bottom</td><td>up-right</td></tr>
+                <tr><td>down-right</td><td>right</td><td>down-left</td></tr>
+                <tr><td>up-left</td><td>top</td><td>down-left</td></tr>
+                <tr><td>up-left</td><td>left</td><td>up-right</td></tr>
+                <tr><td>down-left</td><td>bottom</td><td>up-left</td></tr>
+                <tr><td>down-left</td><td>left</td><td>down-right</td></tr>
+                <tr><td>up</td><td>top</td><td>down</td></tr>
+                <tr><td>down</td><td>bottom</td><td>up</td></tr>
+                <tr><td>left</td><td>left</td><td>right</td></tr>
+                <tr><td>right</td><td>right</td><td>left</td></tr>
+            </tbody>
+        </table>
+        <p>By following these principles, you will ensure the ball bounces realistically around the window, providing a dynamic and engaging simulation.</p>
+    </div>
+    
 
-          <div class="rules" id="rules">
-              <h2>The rules</h2>
-                <p>Conway's Game of Life typically uses the B3/S23 rules, which are the most common despite many possible variations. "B3/S23" means a dead cell with exactly three alive neighbors becomes alive (B3), and a live cell with two or three alive neighbors survives (S23). The rules are:</p>
-                <ol>
-                  <li>Any live cell with fewer than two alive neighbors dies (the underpopulation rule).</li>
-                  <li>A live cell with two or three alive neighbors survives (the survival rule).</li>
-                  <li>Any live cell with more than three alive neighbors dies (the overcrowding rule).</li>
-                  <li>A dead cell with exactly three alive neighbors becomes alive (the reproduction rule).</li>
-                </ol>
-          </div>
-
-         <div class="task1" id="task1">
-             <h2>Task 1: the basic simulation</h2>
-             <p>
-                 Consider the following simulation of Conway's Game of Life. This simulation uses a 100x100 grid. This is a good size because it allows intricate patterns to emerge without overwhelming computational resources. In this grid, black cells represent alive states, while white cells represent dead states. The initial configuration of the grid is populated randomly with a mix of alive and dead cells. Our first goal is to write code that can produce such simulations, showing the evolution of this grid over any number of generations, continuing until the window is closed by the user.
-            </p>
-            <div class="video-container">
-                <!-- Video with Caption -->
-                <figure>
-                    <video width="320" height="240" autoplay loop muted>
-                        <source src="./mov/gol_100_eq.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <figcaption>Figure 1: Simulation of Conway's Game of Life. This particular simulation begins from a randomly generated initial configuration and eventually reaches equilibrium.</figcaption>
-                </figure>
-            </div>
-             
-            <p>Following is a skeleton C++ code using SFML for the graphics (refer to the <a href="https://www.sfml-dev.org/" target="_blank">SFML page</a> for a basic introduction). The code implements some functions while leaving others to be implemented by you. In particular, the functionalities to be implemented include: setting the grid to a random initial configuration, updating the grid to the next generation by applying the four rules stated above. As it is at the moment, when this code is executed, it shows an empty 100 x 100 grid (i.e., all cells are initially dead), and it remains unchanged.</p>
-
-            <p>In particular, you need to implement the following functions:</p>
-            <ul>
-              <li>generateRandomInitConf</li>
-              <li>countAliveNeighbours (to be used inside updateGrid)</li>
-              <li>updateGrid</li>
-            </ul>
-
-            <p>The following code also shows (in comments) how these functions are used, which should help you figure out which parameters need to be passed and how the implementation should proceed.</p>
-
+       <!--    
              <div class="code-container" data-filename="./cpp/gol1.cpp">
                 <pre><code class="language-cpp" id="cpp-code1">
-                    <!-- The code will be loaded dynamically here -->
+                   
                 </code></pre>
             </div>
 
-            <div class="terms" id="fterms">  
-                <fieldset>
-                    <legend>Further terminology</legend>
-                    <p><strong>Age</strong>: The number of generations a cell has been alive.</p>
-                    <p><strong>Pattern</strong>: A specific arrangement of live and dead cells in the grid.</p>
-                    <p><strong>Period</strong>: The number of generations it takes for an oscillator to return to its initial state.</p>
-                    <p><strong>Spaceship</strong>: A pattern that translates itself across the grid over generations.</p>
-                    <p><strong>Glider</strong>: A common type of spaceship that moves diagonally across the grid, consisting of 5 live cells in a specific formation.</p>
-                    <p><strong>Oscillator</strong>: A pattern that returns to its initial state after a fixed number of generations, known as its period.</p>
-                    <p><strong>Still Lifes</strong>: Stable patterns that do not change from one generation to the next.</p>
-                    <p><strong>Equilibrium</strong>: A state where the grid either remains unchanged or cycles through the same sequence of configurations repeatedly.</p>
-                    <p><strong>Population</strong>: The total number of live cells in the grid \( P(t) = \sum_{i,j} \text{grid}[i][j] \). Purpose: tracks how the number of live cells changes over generations.</p>
-                    <p><strong>Growth Rate</strong>: The rate at which the population of live cells changes over time \( G(t) = \frac{P(t+1) - P(t)}{P(t)} \). Purpose: measures how quickly the population is increasing or decreasing.</p>
-                    <p><strong>Stability</strong>: The tendency of a pattern to remain unchanged or return to its original configuration after disturbances. One way to calculate stability is by counting the number of cells that do not change state between generations \( \text{Stability} = \frac{\text{Unchanged Cells}}{\text{Total Cells}} \).</p>
-                    <p><strong>Entropy</strong>: A measure of the disorder or randomness in the grid. One way to calculate entropy: \( H(t) = - \sum_{i,j} \left( \frac{\text{grid}[i][j]}{N} \right) \log_2 \left( \frac{\text{grid}[i][j]}{N} \right) \) where \(N\) is the total number of cells.</p>
-                </fieldset>
-            </div>
-
-
-             <div class="task2" id="task2">
-                 <h2>Task 2: Make it toroidal</h2>
-                <p>Change the implementation to toroidal to create a grid where the edges wrap around, making the top row adjacent to the bottom row, and the left column adjacent to the right column. This continuous wrap-around effect simulates an infinite, unbounded environment, eliminating edge effects in finite grids. This modification is particularly useful for studying patterns and behaviors that are not influenced by artificial boundaries, such as oscillators and spaceships that can move freely across the grid. To achieve this, make appropriate changes to <span style="font-family: Consolas;">countLiveNeighbours</span> to handle the edge cases in a way to make the grid toroidal.</p>
-            </div>
-
-             <div class="task3" id="task3">
-                <h2>Task 3: Print useful statistics</h2>
-                <p>Implement functionality to print various statistics for each generation of the Game of Life. Printing statistics is useful for analyzing and understanding the dynamics of the grid over time. The statistics to print include generation number, population, growth rate, stability, and entropy (these have been defined in the box above). These metrics help track trends such as how quickly the population is changing, how stable certain patterns are, and the overall randomness or order within the grid. Monitoring these statistics can provide insights into the long-term behavior of patterns, the likelihood of reaching equilibrium, and the evolution of complexity within the grid. You may print the statistics on the console (not on the graphics window).</p>
-                <p>Following is a list of prototypes of the functions you need to implement. For generation number it suffices to keep a variable in the main that keeps track of the generation count.</p> 
-
-                <div class="code-container" data-filename="./cpp/gol3.cpp">
-                    <pre><code class="language-cpp" id="cpp-code2">
-                    </code></pre>
-                </div>   
-             </div>
-
-            <div class="task4" id="task4">
-                <h2>Task 4: Detect equilibrium</h2>
-                <p>In this task, you need to detect when the Game of Life grid reaches equilibrium and stop the simulation at that point. This is useful to stop unnecessary computations once the grid no longer changes. Equilibrium is achieved when the grid either becomes static (all cells remain the same) or enters a repeating cycle of configurations (dynamic equilibrium). To detect equilibrium, you need to add the necessary code to identify when the grid reaches one of these states and then stop the simulation, reporting the final statistics. While dynamic equilibrium can theoretically involve long cycles, you only need to cater to cycles of size 10 or less for this task. Make sure to maintain the necessary information and write the required functions to detect equilibrium and manage the simulation accordingly.</p>
-            </div>
-
-             <div class="task5" id="task5">
-                <h2>Task 5: Color-code for age</h2>
-                <p>For this task, you need to maintain the necessary information and write the required code to color-code the simulation based on the age of the cells. In this context, the age of a cell refers to the number of generations it has been alive. Cells that have been alive for longer should appear darker. You can use a gradient where the color darkens progressively with each generation, but for cells that have been alive for 20 generations or more, the color may no longer change. Feel free to experiment with this number to find what works best for your simulation. To achieve this, you will need to modify the code in the drawGrid function. Make sure to update and manage the age of each cell as the simulation progresses. This task will help visualize the longevity and stability of various patterns in the simulation. Ideal visualization depends on several factors, so you are encouraged to experiment with different methods to enhance the quality of your visualization.</p>
-
+           
                <div class="video-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
-                        <!-- Video 1 -->
+                       
                         <video width="320" height="240" autoplay loop muted style="margin-right: 10px;">
                             <source src="./mov/gol_col1.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <!-- Video 2 -->
-                        <video width="320" height="240" autoplay loop muted style="margin-right: 10px;">
-                            <source src="./mov/gol_col2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <!-- Video 3 -->
-                        <video width="320" height="240" autoplay loop muted>
-                            <source src="./mov/gol_col3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <figcaption>Figure 2: Three different color-codings of the Game of Life on a 100x100 grid. Can you find a better scheme? Can you explore different backgrounds? Can you go a step further and color-code patterns?</figcaption>
+                        
+                    <figcaption>Figure 2: Three different color-codings of the Game of Life on a 100x100 grid. Can you find a better scheme? Can you explore different backgrounds? Can you go a step further and color-code patterns?</figcaption>
                     </figure>
                 </div>
-                    <p>Some incredibly beautiful things are possible when colorful Game of Life is implemented at high resolutions and made interactive. For example, check out <a href="https://jaxry.github.io/colorful-life/" target="_blank">this beautiful implementation</a> by Lucas Crane.</p>
-              </div>
-
-             <div class="close" id="close">
-                <h1>Explore more</h1>
-                <p>The Game of Life is truly a world in itself. It's a Turing complete system, meaning it can simulate any Turing machine and perform any computation that can be described algorithmically. This is because the Game of Life can simulate all basic logic gates, such as AND, OR, and NOT gates. For example, gliders can act as signals, and by their interactions, they can simulate an OR gate where two gliders present at the input produce a single glider at the output, etc. With these gates, you can build circuits and perform complex computations. For more information, tutorials, and the latest contributions about the Game of Life, visit the <a href="https://conwaylife.com/wiki/" target="_blank">Conway Life Wiki</a>.</p>
-            </div>
-
-
-             
-
-
+                    !-->
 
             <!-- Prism.js JavaScript -->
             <script src="../prism.js"></script> <!-- Adjust the path as needed -->
