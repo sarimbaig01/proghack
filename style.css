@@ -209,6 +209,30 @@ video::-webkit-media-controls-overlay-enclosure {
     display: none !important;
 }
 
+.video-container-playonly {
+    position: relative;
+    width: 640px;
+    height: 360px;
+}
+
+#playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#playButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
 /* Media queries for mobile devices */
 @media only screen and (max-width: 600px) {
     body {
