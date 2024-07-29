@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conway's Game of Life</title>
+    <title>Contained Bounce</title>
     <link rel="stylesheet" href="../prism.css"> <!-- Adjust the path as needed -->
     <link rel="stylesheet" href="../style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -14,26 +14,20 @@
 
     <div class="toc">
         <h2>Contents</h2>
-        <a href="#intro">What is the game of life?</a>
-        <a href="#terms">Basic terminology</a>
-        <a href="#rules">The rules</a>
-        <a href="#task1">Task 1: The basic simulation </a>
-        <a href="#fterms">Further terminology</a>
-        <a href="#task2">Task 2: Make it toroidal</a>
-        <a href="#task3">Task 3: Print useful statistics</a>
-        <a href="#task4">Task 4: Detect equilibrium</a>
-        <a href="#task5">Task 5: Color-code for age</a>
-        <a href="#close">Explore more</a>
-        
-        <!--<a href="#toroidal" class="sub-item">Make it toriodal</a>
-        <a href="#stats" class="sub-item">Print statistics</a>
+        <a href="#intro">Introduction</a>
+        <a href="#terms">A moving ball</a>
+        <a href="#rules">Implementing bounce</a>
+        <!--
+        <a href="#dir" class="sub-item">Add direction</a>
+        <a href="#edge" class="sub-item">Detect edges and change direction</a>
         <a href="#colors" class="sub-item">Color-code for age</a>
         <a href="#equi" class="sub-item">Detect equilibrium</a>
-        <a href="#confs">Simulate different initial configurations</a>-->
+        <a href="#confs">Simulate different initial configurations</a>
+        -->
     </div>
 
     <div class="statement">
-        <h1>Conway's Game of Life</h1>
+        <h1>Contained Bounce</h1>
         <section class="statement">
           <div class="intro" id="intro">
             <h2>What is the game of life?</h2>  
