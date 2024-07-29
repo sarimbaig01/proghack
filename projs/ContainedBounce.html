@@ -47,29 +47,34 @@
             <p>As the ball moves within the window, the application needs to detect when the ball collides with any of the window's sides. Upon collision, the ball should rebound following the basic laws of reflection of light from a smooth surface. We are simplifying the physics of the bouncing ball by mapping it to the reflection of light: the angle of incidence is equal to the angle of reflection, and the incident ray, reflected ray, and the normal to the surface at the point of incidence all lie in the same plane.</p>
             <p>The following table maps the incident direction of the ball to the reflected direction given the collision side.</p>
            
-            <table class="dtable">
-                <thead>
-                    <tr>
-                        <th>Incidence Direction</th>
-                        <th>Collision Side</th>
-                        <th>Reflected Direction</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>up-right</td><td>top</td><td>down-right</td></tr>
-                    <tr><td>up-right</td><td>right</td><td>up-left</td></tr>
-                    <tr><td>down-right</td><td>bottom</td><td>up-right</td></tr>
-                    <tr><td>down-right</td><td>right</td><td>down-left</td></tr>
-                    <tr><td>up-left</td><td>top</td><td>down-left</td></tr>
-                    <tr><td>up-left</td><td>left</td><td>up-right</td></tr>
-                    <tr><td>down-left</td><td>bottom</td><td>up-left</td></tr>
-                    <tr><td>down-left</td><td>left</td><td>down-right</td></tr>
-                    <tr><td>up</td><td>top</td><td>down</td></tr>
-                    <tr><td>down</td><td>bottom</td><td>up</td></tr>
-                    <tr><td>left</td><td>left</td><td>right</td></tr>
-                    <tr><td>right</td><td>right</td><td>left</td></tr>
-                </tbody>
-            </table>
+            <figure>
+                <table class="dtable">
+                    <thead>
+                        <tr>
+                            <th>Incidence Direction</th>
+                            <th>Collision Side</th>
+                            <th>Reflected Direction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>up-right</td><td>top</td><td>down-right</td></tr>
+                        <tr><td>up-right</td><td>right</td><td>up-left</td></tr>
+                        <tr><td>down-right</td><td>bottom</td><td>up-right</td></tr>
+                        <tr><td>down-right</td><td>right</td><td>down-left</td></tr>
+                        <tr><td>up-left</td><td>top</td><td>down-left</td></tr>
+                        <tr><td>up-left</td><td>left</td><td>up-right</td></tr>
+                        <tr><td>down-left</td><td>bottom</td><td>up-left</td></tr>
+                        <tr><td>down-left</td><td>left</td><td>down-right</td></tr>
+                        <tr><td>up</td><td>top</td><td>down</td></tr>
+                        <tr><td>down</td><td>bottom</td><td>up</td></tr>
+                        <tr><td>left</td><td>left</td><td>right</td></tr>
+                        <tr><td>right</td><td>right</td><td>left</td></tr>
+                    </tbody>
+                </table>
+                <figcaption>
+                    Table 1: The rebound rules.
+                </figcaption>
+            </figure>
         </div>
 
         <div class="movball" id="movball">
