@@ -42,3 +42,16 @@ document.querySelectorAll('.back-link').forEach(link => {
         window.location.href = link.href; // Navigate to the specified URL
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('playButton').addEventListener('click', function() {
+        var video = document.getElementById('myVideo');
+        if (video.paused) {
+            video.play();
+            this.textContent = 'Pause';
+        } else {
+            video.pause();
+            this.textContent = 'Play';
+        }
+    });
+});
