@@ -92,7 +92,27 @@
                 </figure>
             </div>
             
-            <p>The code used to produce this output is shown below.</p>
+            <p>The code used to produce this output is shown below, following brief descriptions of some of its key functions.</p>
+            
+            <fieldset>
+                <legend>Function descriptions</legend>
+                
+                <h3>Inbuilt SFML functions used in the code</h3>
+                <p><strong>sf::CircleShape</strong>: used to create and define the ball shape.</p>
+                <p><strong>object.setRadius</strong>: sets the radius of the circle.</p>
+                <p><strong>object.setFillColor</strong>: changes the color of the circle.</p>
+                <p><strong>object.setPosition</strong>: places the circle at the specified coordinates.</p>
+                <p><strong>clock.restart().asSeconds()</strong>: resets the clock and returns the elapsed time in seconds since the last reset.</p>
+                <p><strong>object.move</strong>: updates the position of the shape by a given offset.</p>
+                
+                <h3>User-defined functions</h3>
+                
+                <p><strong>initializeBall</strong>: sets the radius, color, and initial position of the ball.</p>
+                <p><strong>updateBallPosition</strong>: updates the ball's position based on the elapsed time and speed.</p>
+                <p><strong>drawScreen</strong>: clears the window and draws the ball.</p>
+            </fieldset>
+
+            
             <p>TODO: add code...</p>
         </div>
         
