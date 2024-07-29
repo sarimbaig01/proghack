@@ -44,14 +44,20 @@ document.querySelectorAll('.back-link').forEach(link => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('playButton').addEventListener('click', function() {
-        var video = document.getElementById('myVideo');
-        if (video.paused) {
-            video.play();
-            this.textContent = 'Pause';
-        } else {
-            video.pause();
-            this.textContent = 'Play';
-        }
+    var playButtons = document.querySelectorAll('#playButton');
+    var videos = document.querySelectorAll('.playOnlyVideo');
+
+    playButtons.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            var video = videos[index];
+            if (video.paused) {
+                video.play();
+                this.textContent = 'Pause';
+            } else {
+                video.pause();
+                this.textContent = 'Play';
+            }
+        });
     });
 });
+
