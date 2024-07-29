@@ -13,6 +13,7 @@
    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
     <div class="toc">
+    <section class="toc">
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
         <a href="#movball">A moving ball</a>
@@ -24,9 +25,13 @@
         <a href="#equi" class="sub-item">Detect equilibrium</a>
         <a href="#confs">Simulate different initial configurations</a>
         -->
+    </section>
     </div>
 
     <div class="statement">
+        
+        <h1>Conway's Game of Life</h1>
+        
     <section class="statement">
     
         <div class="intro" id="intro">
@@ -36,7 +41,7 @@
             <p>As the ball moves within the window, the application will need to detect when the ball collides with any of the window's sides. Upon collision, the ball should rebound following the basic laws of reflection of light from a smooth surface. We simplify the physics of the bouncing ball by mapping it to the reflection of light. The angle of incidence is equal to the angle of reflection, and the incident ray, reflected ray, and the normal to the surface at the point of incidence all lie in the same plane.</p>
             <p>To illustrate this, consider the following table which maps the incident direction of the ball, the collision side, and the resulting reflected direction. This mapping ensures that the ball's movement adheres to the laws of reflection:</p>
            
-            <table>
+            <table class="dtable">
                 <thead>
                     <tr>
                         <th>Incidence Direction</th>
