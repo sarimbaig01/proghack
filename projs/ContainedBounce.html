@@ -194,7 +194,7 @@
 
                 <div class="task2i" id="task2i">
                      <h3>Bouncing off of the paddle</h3>
-                    <p>It is now fairly simple to detect collisions of the ball with the paddle and make it bounce off in a similar way as from a wall. The code for this collision detection and the corresponding change of direction should be added to updateBallPosition; this function should now also receive the paddle as a parameter. The following snippet of code shows how the paddle can be used to access its position and dimensions, which should be sufficient to determine whether the ball has hit the paddle.</p>
+                    <p>It is now fairly simple to detect collisions of the ball with the paddle and make it bounce off in a similar way as from a wall. The code for this collision detection and the corresponding change of direction should be added to updateBallPosition; this function should now also receive the paddle as a parameter. The function should also check if the ball has hit the bottom of the screen anywhere other than the paddle, and stop if that is the case. The following snippet of code shows how the paddle can be used to access its position and dimensions, which should be sufficient to determine whether the ball has hit the paddle.</p>
                    
                     <div class="code-container" data-filename="./cpp/cb3.cpp">
                     <pre><code class="language-cpp" id="cpp-code1">
@@ -210,7 +210,7 @@
 
                     <ol>
                         <li>Detect when the left or right arrow key is pressed on the keyboard, and for each:</li>
-                        <li>Update the position of the paddle, while making sure that it stays within the bounds of the window.</li>
+                        <li>Update the position of the paddle, while making sure that it stays within the bounds of the window.</li>  
                     </ol>
 
                     <p>The code for detecting key presses is ideally placed in the event loop in the main. The code for updating the paddle's position may be implemented as a separate function called <code>updatePaddlePosition</code>, which is called in the main as needed. The following snippets of code show some of the code for each feature.</p>
@@ -226,7 +226,18 @@
                     <pre><code class="language-cpp" id="cpp-code1">
                     </code></pre>
                     </div>
-            
+
+                    <p>After successfully adding the required code you should have a basic bouncing game at your hands, like the one shown below.</p>
+
+                    <figure>
+                        <!-- Video 1 -->
+                        <video width="600" height="400" autoplay loop muted>
+                            <source src="./mov/ContainedBounce3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Figure 5: A Contained Bounce game with a movable paddle. The game stops when the ball hits the bottom of the screen anywhere other than the paddle.</figcaption>              
+                        </figure>
+                    
                 </div>
                
                 
