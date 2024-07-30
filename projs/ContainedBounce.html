@@ -130,17 +130,25 @@
         <div class="task1" id="task1">
             <h2>Task 1: Implement bounce</h2>
             <p>Add appropriate code to the given program to make the ball bounce between the four sides of the window indefinitely, following the rebound rules of Table 1. To achieve this, you will need to:</p>
+
             <ul>
-                <li>Introduce a direction variable capable of storing one of the eight possible directions discussed above.</li>
+                <li>Introduce a direction variable capable of storing one of the eight possible directions discussed above. One good way could be to use:
+                    <code>std::vector&lt;int&gt; ballDirection(2);</code>
+                    where {1, 0} stands for right, {-1, 0} for left, {0, 1} for down, and so on.
+                </li>
                 <li>Begin by assigning the ball any random direction.</li>
                 <li>Detect collision of the ball with any side. When a collision occurs, change the direction according to the rules in Table 1. The ball should continue moving in the new direction.</li>
+                <li>Note that any direction change only changes the direction of one of the coordinates (x or y coordinate); either downward becomes upward or vice versa, or leftwards becomes rightwards or vice versa.</li>
+                <li><code>updateBallPosition</code> also seems to be a good place where to detect collision. It would be a good idea to write a separate function called <code>detectCollision</code> for this purpose and call it inside <code>updateBallPosition</code>.</li>
             </ul>
+
             <p>Suggested changes in code:</p>
+            
             <ul>
-                <li>Modify the updateBallPosition function so that it takes into account the current direction of the ball when updating its position.</li>
-                <li>Pass the current direction as a parameter to the updateBallPosition function.</li>
-                <li>Feel free to add any additional function necessary to complete the task.</li>
+                <li>Modify the <code>updateBallPosition</code> function so that it takes into account the current direction of the ball when updating its position.</li>
+                <li>Pass the current direction as a parameter to the <code>updateBallPosition</code> function.</li>
             </ul>
+
             <p>The outcome of your code should look something the following:</p>
 
              <div class="video-container">
