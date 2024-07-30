@@ -9,6 +9,10 @@ body {
     min-height: 100vh;
 }
 
+code {
+        font-family: Consolas, "Courier New", monospace;
+}
+
 .code-container {
     padding: 0px; /* Reduced padding to 10 pixels */
     width: 90%; /* Make the container wider */
