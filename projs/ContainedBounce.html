@@ -160,12 +160,14 @@
             </div>
 
             <div class="task2" id="task2">
-                <h2>Task 2: Introduce the paddle</h2>
-                <figure>
+                <h2>Task 2: Introduce the paddle</h2>      
+                <p>The goal is now to add a paddle at the bottom of the screen, as shown in Figure 4.</p>
+                
+                 <figure>
                     <img src="./img/ContainedBounce2.jpeg" width="600" height="400"> 
                     <figcaption>Figure 4: The paddle is modeled as a rectangle with a fixed width (100 pixels) and height (20 pixels).</figcaption>
                 </figure>
-                <p>The goal is now to add a paddle at the bottom of the screen, as shown in Figure 4.</p>
+                
                 <p>This requires only a few small additions to the current code. The paddle is a rectangle implemented using an SFML rectangle. A rectangle's position is defined by the (x, y) coordinates of its top-left and bottom-right corners. For our paddle, the bottom-left and bottom-right coordinates are always of the form (x1, 599) and (x2, 599). We will fix the width to 100 pixels and the height to 20 pixels for now. The additional code needed to add the paddle to our app is given below. Integrate it into your code and see that the paddle appears.</p>
                 <fieldset>
                     <legend>Function descriptions</legend>
