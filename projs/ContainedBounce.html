@@ -139,7 +139,7 @@
                 <li>Begin by assigning the ball any random direction.</li>
                 <li>Detect collision of the ball with any side. When a collision occurs, change the direction according to the rules in Table 1. The ball should continue moving in the new direction.</li>
                 <li>Note that any direction change only changes the direction of one of the coordinates (x or y coordinate); either downward becomes upward or vice versa, or leftwards becomes rightwards or vice versa.</li>
-                <li><code>updateBallPosition</code> also seems to be a good place where to detect collision. It would be a good idea to write a separate function called <code>detectCollision</code> for this purpose and call it inside <code>updateBallPosition</code>.</li>
+                <li><code>updateBallPosition</code> also seems to be a good place where to detect collision, to change direction accordingly.</li>
             </ul>
 
             <p>Suggested changes in code:</p>
