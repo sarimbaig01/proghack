@@ -120,12 +120,43 @@
             <div class="code-container" data-filename="./cpp/cb1.cpp">
                     <pre><code class="language-cpp" id="cpp-code1">
                     </code></pre>
-                </div>
             </div>
-        
-        <div class="task1" id="task1">
+
+            <p>The comments provide further information on the functions.</p>
             
         </div>
+
+             
+        <div class="task1" id="task1">
+            <h2>Task 1: Implement bounce</h2>
+            <p>Add appropriate code to the given program to make the ball bounce between the four sides of the window indefinitely, following the rebound rules of Table 1. To achieve this, you will need to:</p>
+            <ul>
+                <li>Introduce a direction variable capable of storing one of the eight possible directions discussed above.</li>
+                <li>Begin by assigning the ball any random direction.</li>
+                <li>Detect collision of the ball with any side. When a collision occurs, change the direction according to the rules in Table 1. The ball should continue moving in the new direction.</li>
+            </ul>
+            <p>Suggested changes in code:</p>
+            <ul>
+                <li>Modify the updateBallPosition function so that it takes into account the current direction of the ball when updating its position.</li>
+                <li>Pass the current direction as a parameter to the updateBallPosition function.</li>
+                <li>Feel free to add any additional function necessary to complete the task.</li>
+            </ul>
+            <p>The outcome of your code should look something the following:</p>
+
+             <div class="video-container">
+                <figure>
+                    <!-- Video 1 -->
+                    <video width="600" height="400" autoplay loop muted>
+                        <source src="./mov/ContainedBounce2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>Figure 3: The ball bouncing between the four 'walls'. The ball may move in one of 8 possible directions.</figcaption>              
+                </figure>
+            </div>
+            
+        </div>
+
+        
     
     </section>
     </div>
