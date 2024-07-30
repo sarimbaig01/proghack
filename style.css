@@ -234,12 +234,17 @@ video::-webkit-media-controls-overlay-enclosure {
 }
 
 
-
-
 /* Media queries for mobile devices */
 @media only screen and (max-width: 600px) {
     body {
         padding: 10px;
+    }
+
+    .code-container {
+        width: 100%; /* Full width on small screens */
+        padding: 5px; /* Reduce padding on small screens */
+        margin: 10px 0; /* Reduce margin on small screens */
+        left: 0; /* Remove left offset on small screens */
     }
     
     .toc {
@@ -251,5 +256,35 @@ video::-webkit-media-controls-overlay-enclosure {
 
     .statement {
         margin-right: 0; /* Remove the right margin */
+    }
+    
+    .copy-btn {
+        position: relative; /* Adjust positioning for small screens */
+        top: 0;
+        right: 0;
+        margin-top: 10px; /* Add margin for spacing */
+    }
+}
+
+/* Media queries for tablets */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    body {
+        padding: 15px;
+    }
+
+    .code-container {
+        width: 95%; /* Slightly narrower on tablets */
+        padding: 10px; /* Moderate padding on tablets */
+        margin: 15px 0; /* Moderate margin on tablets */
+        left: 2.5%; /* Adjust left offset on tablets */
+    }
+    
+    .toc {
+        right: 10px; /* Adjust TOC position for tablets */
+        width: 200px; /* Adjust width for tablets */
+    }
+
+    .statement {
+        margin-right: 150px; /* Adjust right margin for tablets */
     }
 }
