@@ -4,75 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breakout</title>
-    <!-- Prism.js CSS -->
     <link rel="stylesheet" href="../prism.css"> <!-- Adjust the path as needed -->
-    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+   <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+    <div class="statement">
+        <h1>Breakout</h1>
+        <section class="statement">
 
-    <h1>Breakout</h1>
+            <p><a href="https://atari.com/pages/breakout" target="_blank"> Breakout </a> is a classic arcade game developed and published by Atari, Inc. in 1976. The game involves a player controlling a paddle to bounce a ball against a wall of bricks, with the objective of breaking all the bricks without letting the ball fall off the screen. As a foundational game in the video game industry, Breakout has inspired countless variations and remains a popular example of early arcade gaming.</p>
 
-    <p>opening para... </p>
-
-    <div class="code-container">
-        <button class="copy-btn" onclick="copyCode()">Copy code</button>
-        <pre class="line-numbers"><code class="language-cpp" id="cpp-code">
-#include &lt;SFML/Graphics.hpp&gt;
-#include &lt;SFML/System.hpp&gt;
-
-int main() {
-    //Create a graphics window, put a green ball at the top left of it
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Contained Bounce");
-    sf::CircleShape ball(10);
-    ball.setFillColor(sf::Color::Green);
-
-    //Show the initial setup
-    window.draw(ball);
-    window.display();
-
-    //Continue while the window is still open (hasn't been closed)        
-    while (window.isOpen()) {
-        sf::Event event;
-        //While there are still events to process in the events queue     
-        while (window.pollEvent(event)) {
-            //Currently, the only event being processed is window closure
-            if (event.type == sf::Event::Closed)
-                window.close();
-            }
-            ///other events may be be tested in else-if statements
-        }
-    }
-    return 0;
-}
-        </code></pre>
-    </div>
-
-    <!-- Prism.js JavaScript -->
-    <script src="../prism.js"></script> <!-- Adjust the path as needed -->
-    <script>
-        function copyCode() {
-            const button = document.querySelector('.copy-btn');
-            const originalText = button.textContent;
-            const code = document.getElementById('cpp-code').textContent.trim();
+            <figure>
+                <img src="./img/Breakout.jpg" width="500" height="600">
+                <figcaption></figcaption>
+            </figure>
             
-            navigator.clipboard.writeText(code).then(function() {
-                button.textContent = '✓ Copied';
-                setTimeout(function() {
-                    button.textContent = originalText;
-                }, 3000);
-            }, function(err) {
-                console.error('Failed to copy: ', err);
-            });
-        }
-
-        // Example function to handle navigation
-        document.querySelectorAll('.back-link').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                window.location.href = link.href; // Navigate to the specified URL
-            });
-        });
-    </script>
+            <p>Building on the tasks you have already completed in Contained Bounce, you can now proceed to build Breakout. You have already implemented basic mechanics such as moving the paddle, bouncing the ball off the walls, and detecting collisions with the paddle. With these fundamentals in place, the next steps involve adding bricks to the game, detecting collisions between the ball and the bricks, and updating the game state to reflect broken bricks. This progression will allow you to transform Contained Bounce into a fully functional Breakout game.</p>
+         
+          </section>
+    </div>
+            
 </body>
 </html>
