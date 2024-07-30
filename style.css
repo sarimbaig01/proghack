@@ -194,7 +194,7 @@ img {
     margin: 20px 0; /* Add margin for spacing */
 }
 
-figure {
+/*figure {
     display: inline-block;
     text-align: center;
     margin: 20px 0;
@@ -205,6 +205,24 @@ figcaption {
     font-size: 14px;
     color: #555;
 }
+*/
+
+figure {
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center content horizontally */
+    margin: 20px auto; /* Center horizontally and add some vertical margin */
+    text-align: center; /* Center text within the figure */
+    max-width: 100%; /* Ensure figures do not exceed container width */
+}
+
+figcaption {
+    margin-top: 10px; /* Add some space between the image/video and the caption */
+    font-size: 14px;
+    color: #555;
+    text-align: center; /* Center the caption text */
+}
+
 
 /* Ensure video controls are hidden */
 video::-webkit-media-controls {
