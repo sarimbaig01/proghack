@@ -165,8 +165,21 @@
                 </figure>
                 <p>The goal is now to add a paddle at the bottom of the screen, as shown in Figure 4.</p>
                 <p>This requires only a few small additions to the current code. The paddle is a rectangle implemented using an SFML rectangle. A rectangle's position is defined by the (x, y) coordinates of its top-left and bottom-right corners. For our paddle, the bottom-left and bottom-right coordinates are always of the form (x1, 599) and (x2, 599). We will fix the width to 100 pixels and the height to 20 pixels for now. The additional code needed to add the paddle to our app is given below. Integrate it into your code and see that the paddle appears.</p>
+                <fieldset>
+                    <legend>Function descriptions</legend>
+                    
+                    <p><strong>initializePaddle</strong>: Initializes the paddle by setting its size, color, and initial position at the bottom of the window.</p>
+                    <p><strong>drawScreen</strong>: Updates to include drawing the paddle along with the ball.</p>
+                </fieldset>
 
-                <p>TODO: to be added...</p>
+                <p>The code:</p>
+
+                <div class="code-container" data-filename="./cpp/cb2.cpp">
+                    <pre><code class="language-cpp" id="cpp-code2">
+                    </code></pre>
+                </div>
+
+                
             </div>
             
         </div>
