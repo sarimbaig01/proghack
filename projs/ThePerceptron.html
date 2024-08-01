@@ -16,12 +16,6 @@
     <section class="toc">
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
-        <a href="#movball">The moving ball</a>
-        <a href="#task1">Task 1: Implement bounce</a>
-        <a href="#task2">Task 2: Introduce the paddle</a>
-        <a href="#task2i" class="sub-item">Bouncing off of the paddle</a>
-        <a href="#task2ii" class="sub-item">Moving the paddle</a>
-        <a href="#task3">Task 3: Add gameplay features</a>
        
         <!--
         <a href="#dir" class="sub-item">Add direction</a>
@@ -35,224 +29,17 @@
 
     <div class="statement">
         
-        <h1>Contained Bounce</h1>
+        <h1>The Perceptron</h1>
         
     <section class="statement">
-    
+
         <div class="intro" id="intro">
             <h2>Introduction</h2>
-            <p>In this exercise, you will implement a program where a ball bounces freely within a graphics window. The ball is modeled as a circle and, at all times, it maintains a constant speed and one of eight possible directions: up, down, left, right, down-right, down-left, up-right, and up-left. The ball will start at a random point on the screen, moving in one of these eight directions.</p>
-            <p>The graphics window for this exercise has dimensions of 800 pixels in width and 600 pixels in height. The coordinate system of the window places the origin (0, 0) at the top-left corner, with the other corners defined as follows: the top-right corner is at (799, 0), the bottom-left corner is at (0, 599), and the bottom-right corner is at (799, 599). This is shown in Figure 1.</p>
-            <figure>
-                <img src="./img/ContainedBounce1.jpeg" width="650" height="180"> 
-                <figcaption>
-                    Figure 1: The screen dimensions. Our screen is a 600 x 800 window. In other words, it is a 2-dimentional array with 600 rows (0-599) and 800 columns (0-799). Therefore the x-coordinate can vary between 0 and 799 and the y-coordinate can vary between 0 and 599. 
-                </figcaption>
-            </figure>
-            <p>As the ball moves within the window, the application needs to detect when the ball collides with any of the window's sides. Upon collision, the ball should rebound following the basic laws of reflection of light from a smooth surface. We are simplifying the physics of the bouncing ball by mapping it to the reflection of light: the angle of incidence is equal to the angle of reflection, and the incident ray, reflected ray, and the normal to the surface at the point of incidence all lie in the same plane.</p>
-            <p>The following table maps the incident direction of the ball to the reflected direction given the collision side.</p>
-           
-            <figure>
-                <table class="dtable">
-                    <thead>
-                        <tr>
-                            <th>Incidence Direction</th>
-                            <th>Collision Side</th>
-                            <th>Reflected Direction</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>up-right</td><td>top</td><td>down-right</td></tr>
-                        <tr><td>up-right</td><td>right</td><td>up-left</td></tr>
-                        <tr><td>down-right</td><td>bottom</td><td>up-right</td></tr>
-                        <tr><td>down-right</td><td>right</td><td>down-left</td></tr>
-                        <tr><td>up-left</td><td>top</td><td>down-left</td></tr>
-                        <tr><td>up-left</td><td>left</td><td>up-right</td></tr>
-                        <tr><td>down-left</td><td>bottom</td><td>up-left</td></tr>
-                        <tr><td>down-left</td><td>left</td><td>down-right</td></tr>
-                        <tr><td>up</td><td>top</td><td>down</td></tr>
-                        <tr><td>down</td><td>bottom</td><td>up</td></tr>
-                        <tr><td>left</td><td>left</td><td>right</td></tr>
-                        <tr><td>right</td><td>right</td><td>left</td></tr>
-                    </tbody>
-                </table>
-                <figcaption>
-                    Table 1: The rebound rules.
-                </figcaption>
-            </figure>
+            <p>A perceptron is one of the simplest forms of artificial neural networks, designed to perform binary classification tasks. Inspired by the way biological neurons function, a perceptron takes multiple input signals, applies corresponding weights, sums them up, and passes the result through an activation function to produce an output. This output determines which class the input belongs to. The perceptron is used in supervised learning, where it learns from labeled data to make predictions. It forms the foundation for more complex neural network architectures and serves as a crucial building block in the field of machine learning.</p>
+            <p>Examples of supervised learning tasks that could use a perceptron include medical diagnosis, where symptoms are used to determine whether a patient has a particular disease or not, and sentiment analysis, where text is classified as having positive or negative sentiment, etc.</p>
         </div>
 
-        <div class="movball" id="movball">
-            <h2>The moving ball</h2>
-            <p>In this section we take a look at the code to move a ball across the screen. The output of the code is shown below.</p>
-          
-            <div class="video-container">
-                <figure>
-                    <!-- Video 1 -->
-                    <video width="600" height="400" autoplay loop muted>
-                        <source src="./mov/ContainedBounce1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <figcaption>Figure 2: The ball moving to the right by incrementing the x-coordinate of the center of the circle (ball) . This video is running in a loop, the program initially places the ball at the origin (0,0) and moves the ball towards the right, and reaching the right side performs no further actions.</figcaption>
-                </figure>
-            </div>
-            
-            <p>The code that produces this output is provided below, along with brief descriptions of a few key functions.</p>
-            
-            <fieldset>
-                <legend>Function descriptions</legend>
-                
-                <p><strong>Inbuilt SFML functions used in the code</strong></p>
-                <p><strong>sf::CircleShape</strong>: used to create and define the ball shape.</p>
-                <p><strong>object.setRadius</strong>: sets the radius of the circle.</p>
-                <p><strong>object.setFillColor</strong>: changes the color of the circle.</p>
-                <p><strong>object.setPosition</strong>: places the circle at the specified coordinates.</p>
-                <p><strong>clock.restart().asSeconds()</strong>: resets the clock and returns the elapsed time in seconds since the last reset.</p>
-                <p><strong>object.move</strong>: updates the position of the shape by a given offset.</p>
-                
-                <p><strong>User-defined functions</strong></p>
-                <p><strong>initializeBall</strong>: sets the radius, color, and initial position of the ball.</p>
-                <p><strong>updateBallPosition</strong>: updates the ball's position based on the elapsed time and speed.</p>
-                <p><strong>drawScreen</strong>: clears the window and draws the ball.</p>
-            </fieldset>
-
-            
-            <p>The code: </p>
-            
-            <div class="code-container" data-filename="./cpp/cb1.cpp">
-                    <pre><code class="language-cpp" id="cpp-code1">
-                    </code></pre>
-            </div>
-
-            <p>The comments provide further information on the functions.</p>
-            
-        </div>
-
-             
-        <div class="task1" id="task1">
-            <h2>Task 1: Implement bounce</h2>
-            <p>Add appropriate code to the given program to make the ball bounce between the four sides of the window indefinitely, following the rebound rules of Table 1. To achieve this, you will need to:</p>
-
-            <ul>
-                <li>Introduce a direction variable capable of storing one of the eight possible directions discussed above. One good way to do this is to use:
-                    <code>std::vector&lt;int&gt; ballDirection(2);</code>
-                    where the value {1, 0} stands for right, {-1, 0} for left, {0, 1} for down, and so on.
-                </li>
-                <li>Begin by assigning the ball any random direction.</li>
-                <li>Detect collision of the ball with any side. When a collision occurs, change the direction according to the rules in Table 1. The ball should continue moving in the new direction.</li>
-                <li>Note that any direction change only changes the direction of one of the coordinates (x or y coordinate); either downward becomes upward or vice versa, or leftwards becomes rightwards or vice versa.</li>
-                <li><code>updateBallPosition</code> seems to be a good place where to detect collision, to change direction accordingly.</li>
-                <li>Modify the <code>updateBallPosition</code> function so that it takes into account the current direction of the ball when updating its position.</li>
-                <li>Pass the current direction as a parameter to the <code>updateBallPosition</code> function.</li>
-            </ul>
-
-            <p>The outcome of your code should look something the following:</p>
-
-             <div class="video-container">
-                <figure>
-                    <!-- Video 1 -->
-                    <video width="600" height="400" autoplay loop muted>
-                        <source src="./mov/ContainedBounce2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <figcaption>Figure 3: The ball bouncing between the four 'walls'. The ball may move in one of 8 possible directions.</figcaption>              
-                </figure>
-            </div>
-
-            <div class="task2" id="task2">
-                <h2>Task 2: Introduce the paddle</h2>      
-                <p>The goal is now to add a paddle at the bottom of the screen, as shown in Figure 4.</p>
-                
-                 <figure>
-                    <img src="./img/ContainedBounce2.jpg" width="600" height="400"> 
-                    <figcaption>Figure 4: The paddle is modeled as a rectangle with a fixed width (100 pixels) and height (20 pixels).</figcaption>
-                </figure>
-                
-                <p>This requires only a few small additions to the current code. The paddle is a rectangle implemented using an SFML rectangle. A rectangle's position is defined by the (x, y) coordinates of its top-left and bottom-right corners. For our paddle, the bottom-left and bottom-right coordinates are always of the form (x1, 599) and (x2, 599). We will fix the width to 100 pixels and the height to 20 pixels for now. The additional code needed to add the paddle to our app is given below. Integrate it into your code and see that the paddle appears.</p>
-                <fieldset>
-                    <legend>Function descriptions</legend>
-                    
-                    <p><strong>initializePaddle</strong>: Initializes the paddle by setting its size, color, and initial position at the bottom of the window.</p>
-                    <p><strong>drawScreen</strong>: Updates to include drawing the paddle along with the ball.</p>
-                </fieldset>
-
-                <p>Code for a new function and an updated function:</p>
-
-                <div class="code-container" data-filename="./cpp/cb2a.cpp">
-                    <pre><code class="language-cpp" id="cpp-code2a">
-                    </code></pre>
-                </div>
-
-                <p>Code to be added to the main:</p>
-
-                <div class="code-container" data-filename="./cpp/cb2b.cpp">
-                    <pre><code class="language-cpp" id="cpp-code2b">
-                    </code></pre>
-                </div>
-
-                <p>With these additions you should be able to see the paddle on the screen. Inspect the various aspects of this code as we prepare to move the paddle.</p>
-
-                <div class="task2i" id="task2i">
-                     <h3>Bouncing off of the paddle</h3>
-                    <p>It is now fairly simple to detect collisions of the ball with the paddle and make it bounce off in a similar way as from a wall. The code for this collision detection and the corresponding change of direction should be added to updateBallPosition; this function should now also receive the paddle as a parameter. The function should also check if the ball has hit the bottom of the screen anywhere other than the paddle, and stop if that is the case. The following snippet of code shows how the paddle can be used to access its position and dimensions, which should be sufficient to determine whether the ball has hit the paddle.</p>
-                   
-                    <div class="code-container" data-filename="./cpp/cb3.cpp">
-                    <pre><code class="language-cpp" id="cpp-code1">
-                    </code></pre>
-                    </div>
-                    
-                    <p>Add the needful code to updateBallPosition and test your program.</p>
-                </div> 
-                
-                <div class="task2ii" id="task2ii">
-                     <h3>Moving the paddle</h3>
-                    <p>To move the paddle, the following two features need to be added:</p>
-
-                    <ol>
-                        <li>Detect when the left or right arrow key is pressed on the keyboard, and for each:</li>
-                        <li>Update the position of the paddle, while making sure that it stays within the bounds of the window.</li>  
-                    </ol>
-
-                    <p>The code for detecting key presses is ideally placed in the event loop in the main. The code for updating the paddle's position may be implemented as a separate function called <code>updatePaddlePosition</code>, which is called in the main as needed. The following snippets of code show some of the code for each feature.</p>
-                    
-                    <p>The event handling code to add to the event loop in the main (to be completed):</p>
-                    <div class="code-container" data-filename="./cpp/cb4a.cpp">
-                    <pre><code class="language-cpp" id="cpp-code1">
-                    </code></pre>
-                    </div>
-
-                    <p>Function updatePaddlePosition (to be completed):</p>
-                    <div class="code-container" data-filename="./cpp/cb4b.cpp">
-                    <pre><code class="language-cpp" id="cpp-code1">
-                    </code></pre>
-                    </div>
-
-                    <p>After successfully adding the required code you should have a basic bouncing game at your hands, like the one shown below.</p>
-
-                    <figure>
-                        <!-- Video 1 -->
-                        <video width="600" height="400" autoplay loop muted>
-                            <source src="./mov/ContainedBounce3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <figcaption>Figure 5: A Contained Bounce game with a movable paddle. The game stops when the ball hits the bottom of the screen anywhere other than the paddle.</figcaption>              
-                    </figure>
-                    
-                </div>
-
-                 <div class="task3" id="task3">
-                     <h2>Task 3: Add gameplay features</h2>
-                     <p>It is now time to refine the game by ironing out any glitches and adding some gameplay features. It is up to your motivation and imagination to determine how much you want to enhance this game. Here are a couple of ideas:</p>
-                    <ol>
-                        <li>Keep scoring. For this game, the score could be the seconds' count. The longer a player can keep the ball bouncing, the higher their score. You could display the score either on the console or on the graphics window (Explore here for graphics: <a href="https://www.sfml-dev.org/" target="_blank">https://www.sfml-dev.org/</a>).</li>
-                        <li>Introduce levels. After a fixed period, progress to the next level, which is harder. The difficulty can be increased by reducing the width of the paddle or increasing the speed of the ball (however, in this case, you would also need to speed up the paddle to keep it fair).</li>
-                    </ol>
-                    <p>Feel free to explore additional features to make the game more engaging and challenging.</p>
-                 </div>
-                
-            </div>
-            
-        </div>
+    
 
         <!-- Prism.js JavaScript -->
         <script src="../prism.js"></script> <!-- Adjust the path as needed -->
