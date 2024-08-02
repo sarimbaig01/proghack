@@ -51,16 +51,19 @@
                 <p><strong>Bias (b)</strong>: An extra value added to the weighted sum of inputs. It helps the neuron make better decisions by shifting the activation function.</p>
                 
                 <p><strong>Weighted Sum</strong>: The sum of the products of the weights and inputs plus the bias before being passed to the activation function. It is the intermediate value computed by the neuron.<br>
-                z = w<sub>1</sub> x<sub>1</sub> + w<sub>2</sub> x<sub>2</sub> + ... + w<sub>n</sub> x<sub>n</sub> + b
+                \( z = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b \)
                 </p>
                 
                 <p><strong>Activation Function</strong>: A function applied to the weighted sum in a neuron to produce an output. It can be a step function or other non-linear functions like sigmoid or ReLU.<br>
-                &#x017E; = step(z)<br>
+                \( \hat{y} = \text{step}(z) \)<br>
                 where the step function is defined as:<br>
-                step(z) = {<br>
-                &emsp;1 &nbsp;&nbsp;if z &ge; 0<br>
-                &emsp;0 &nbsp;&nbsp;if z < 0<br>
-                }<br>
+                \[
+                \text{step}(z) = 
+                \begin{cases} 
+                1 & \text{if } z \geq 0 \\
+                0 & \text{if } z < 0 
+                \end{cases}
+                \]
                 See also Figure 1.
                 </p>
                 
