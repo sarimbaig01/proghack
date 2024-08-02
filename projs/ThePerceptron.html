@@ -16,6 +16,7 @@
     <section class="toc">
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
+        <a href="#terms">Basic terminology</a>
        
         <!--
         <a href="#dir" class="sub-item">Add direction</a>
@@ -38,6 +39,51 @@
             <p>A perceptron is one of the simplest forms of artificial neural networks, designed to perform binary classification tasks. Inspired by the way biological neurons function, a perceptron takes multiple input signals, applies corresponding weights, sums them up, and passes the result through an activation function to produce an output. This output determines which class the input belongs to. A single-layer perceptron is the most basic form, but by stacking multiple layers of perceptrons, we can create multi-layer perceptrons (MLPs) or more complex neural networks capable of solving a wide range of problems. The perceptron is used in supervised learning, where it learns from labeled data to make predictions. It forms the foundation for more complex neural network architectures and serves as a crucial building block in the field of machine learning.</p>
             <p>Examples of supervised learning tasks that could use a perceptron include medical diagnosis, where symptoms are used to determine whether a patient has a particular disease, and sentiment analysis, where text is classified as having positive or negative sentiment, etc.</p>
         </div>
+
+        <div class="terms" id="terms">
+            <fieldset>
+                <legend>Basic Terminology</legend>
+                
+                <p><strong>Inputs (x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>)</strong>: The features or data points fed into a model for processing and prediction. Each input is typically a vector of values representing different attributes or characteristics of the data.</p>
+                
+                <p><strong>Weights (w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub>)</strong>: Values that are multiplied by input features. They determine how much influence each input has on the output.</p>
+                
+                <p><strong>Bias (b)</strong>: An extra value added to the weighted sum of inputs. It helps the neuron make better decisions by shifting the activation function.</p>
+                
+                <p><strong>Weighted Sum</strong>: The sum of the products of the weights and inputs plus the bias before being passed to the activation function. It is the intermediate value computed by the neuron.<br>
+                z = w<sub>1</sub> x<sub>1</sub> + w<sub>2</sub> x<sub>2</sub> + ... + w<sub>n</sub> x<sub>n</sub> + b
+                </p>
+                
+                <p><strong>Activation Function</strong>: A function applied to the weighted sum in a neuron to produce an output. It can be a step function or other non-linear functions like sigmoid or ReLU.<br>
+                &#x017E; = step(z)<br>
+                where the step function is defined as:<br>
+                step(z) = {<br>
+                &emsp;1 &nbsp;&nbsp;if z &ge; 0<br>
+                &emsp;0 &nbsp;&nbsp;if z < 0<br>
+                }<br>
+                See also Figure 1.
+                </p>
+                
+                <p><strong>Error</strong>: The difference between the predicted output and the actual output. It is used to adjust the model’s weights during training.</p>
+                
+                <p><strong>Learning Rate</strong>: A small value that controls how much the weights are updated during training. It affects how quickly the model learns.</p>
+                
+                <p><strong>Epoch</strong>: One full cycle through the entire training dataset. Multiple epochs help improve the model’s performance.</p>
+                
+                <p><strong>Training Data</strong>: The set of data used to teach the model. It includes input-output pairs where the correct output is known.</p>
+                
+                <p><strong>Validation Data</strong>: A separate set of data used to tune the model during training. It helps check how well the model performs and prevents overfitting.</p>
+                
+                <p><strong>Test Data</strong>: A final set of data used to evaluate the model’s performance after training. It ensures the model works well on new, unseen data.</p>
+                
+                <p><strong>Supervised Learning</strong>: A type of learning where the model is trained on labeled data. Each input has a corresponding correct output.</p>
+                
+                <p><strong>Binary Classification</strong>: A task where the model decides between two possible classes, like yes/no or true/false.</p>
+            </fieldset>
+        </div>
+
+
+        
 
         <!-- Prism.js JavaScript -->
         <script src="../prism.js"></script> <!-- Adjust the path as needed -->
