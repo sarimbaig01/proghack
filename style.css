@@ -22,6 +22,24 @@ code {
     /*border: 1px solid #ccc; /* Thin border, slightly darker than body's background color */
 }
 
+/* Add this to your CSS file */
+.algorithm p {
+    margin: 0;
+}
+
+.algorithm .indent-1 {
+    margin-left: 20px;
+}
+
+.algorithm .indent-2 {
+    margin-left: 40px;
+}
+
+.algorithm .indent-3 {
+    margin-left: 60px;
+}
+
+
 .copy-btn {
     position: absolute;
     top: 10px;
