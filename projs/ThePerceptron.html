@@ -16,8 +16,9 @@
     <section class="toc">
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
-        <a href="#terms">Basic terminology</a>
+        <a href="#terms1">Basic terminology</a>
         <a href="#gates">The Perceptron as a logic gate</a>
+        <a href="#terms2">Further terminology</a>
         <a href="#algo">Task 1: Code the Perceptron algorithm</a>
        
         <!--
@@ -42,7 +43,7 @@
             <p>Examples of supervised learning tasks that could use a perceptron include medical diagnosis, where symptoms are used to determine whether a patient has a particular disease, and sentiment analysis, where text is classified as having positive or negative sentiment, etc.</p>
         </div>
 
-        <div class="terms" id="terms">
+        <div class="terms1" id="terms1">
             <fieldset>
                 <legend>Basic terminology</legend>
                 
@@ -73,7 +74,25 @@
                     <img src="./img/ThePerceptron1.jpg" width="500">
                     <figcaption>Figure 1: A visual representation of a Perceptron with inputs, weights, weighted sum, and a step activation function. (Image source: Shanmugamani, R. (2018) Deep Learning for Computer Vision, Birmingham, UK: Packt Publishing)</figcaption>
                 </figure>
-            
+            </fieldset>
+        </div>
+
+        <div class="gates" id="gates">
+            <h2>Example: The Perceptron as a logic gate</h2>
+            <p>The perceptron can perfectly classify the inputs \( x_1 \) and \( x_2 \) for AND, OR, and NOT gates because these logic gates are linearly separable. This means the inputs and outputs can be divided with a straight line, allowing the perceptron to create a clear decision boundary using a step activation function.</p>
+            <p>For an AND gate, the perceptron can be set up with weights \( w_1 = 1 \) and \( w_2 = 1 \), and a bias \( w_0 = -1.5 \). The weighted sum \( z = w_1 x_1 + w_2 x_2 + w_0 \) becomes \( z = x_1 + x_2 - 1.5 \). The perceptron will output 1 (true) only when both \( x_1 \) and \( x_2 \) are 1, making the weighted sum greater than or equal to 0.</p>
+            <p>Similarly, appropriate values for weights and biases can be found for OR, NOT, NAND, and NOR gates to achieve perfect classification.</p>
+            <p>These weights can be manually set for simple logic gates, but for larger datasets and more complex tasks, the weights are typically learned through a training process. This process involves adjusting the weights based on the error between the predicted output and the actual output, iteratively minimizing this error.</p>
+            <p>Figure 2 below shows the situation with the logic gates on a 2D plane. In particular, note that the outputs of a XOR gate are not perfectly linearly separable.</p>
+            <figure>
+                <img src="./img/ThePerceptron2.jpg">
+                <figcaption>Figure 2: Outputs of AND, OR and XOR gates shown on a 2D plane. Whereas the outputs of the AND and OR gates are linearly separable, outputs of the XOR gate are not. Similarly, for more complex datasets we will encounter some classification error and the aim would be to set the weights in such a way so that the error is minimized. (Image source: https://gamedevacademy.org/perceptrons-the-first-neural-networks/)</figcaption>
+            </figure>
+        </div>
+
+        <div class="terms2" id="terms2">
+            <fieldset>
+                <legend>Further terminology</legend>
                 
                 <p><strong>Error</strong>: The difference between the predicted output and the actual output. It is used to adjust the model’s weights during training.</p>
                 
@@ -91,19 +110,6 @@
                 
                 <p><strong>Binary Classification</strong>: A task where the model decides between two possible classes, like yes/no or true/false.</p>
             </fieldset>
-        </div>
-
-        <div class="gates" id="gates">
-            <h2>Example: The Perceptron as a logic gate</h2>
-            <p>The perceptron can perfectly classify the inputs \( x_1 \) and \( x_2 \) for AND, OR, and NOT gates because these logic gates are linearly separable. This means the inputs and outputs can be divided with a straight line, allowing the perceptron to create a clear decision boundary using a step activation function.</p>
-            <p>For an AND gate, the perceptron can be set up with weights \( w_1 = 1 \) and \( w_2 = 1 \), and a bias \( w_0 = -1.5 \). The weighted sum \( z = w_1 x_1 + w_2 x_2 + w_0 \) becomes \( z = x_1 + x_2 - 1.5 \). The perceptron will output 1 (true) only when both \( x_1 \) and \( x_2 \) are 1, making the weighted sum greater than or equal to 0.</p>
-            <p>Similarly, appropriate values for weights and biases can be found for OR, NOT, NAND, and NOR gates to achieve perfect classification.</p>
-            <p>These weights can be manually set for simple logic gates, but for larger datasets and more complex tasks, the weights are typically learned through a training process. This process involves adjusting the weights based on the error between the predicted output and the actual output, iteratively minimizing this error.</p>
-            <p>Figure 2 below shows the situation with the logic gates on a 2D plane. In particular, note that the outputs of a XOR gate are not perfectly linearly separable.</p>
-            <figure>
-                <img src="./img/ThePerceptron2.jpg">
-                <figcaption>Figure 2: Outputs of AND, OR and XOR gates shown on a 2D plane. Whereas the outputs of the AND and OR gates are linearly separable, outputs of the XOR gate are not. Similarly, for more complex datasets we will encounter some classification error and the aim would be to set the weights in such a way so that the error is minimized. (Image source: https://gamedevacademy.org/perceptrons-the-first-neural-networks/)</figcaption>
-            </figure>
         </div>
 
 
