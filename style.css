@@ -131,6 +131,27 @@ code {
     background-color: #f2f2f2;
 }
 
+/* CSS for table with class atable */
+table.atable {
+    border-collapse: collapse;
+    width: 100%; /* Optional: Set the table to take the full width of its container */
+}
+
+table.atable, 
+table.atable td {
+    border: 1px solid #000; /* Thin dark border */
+}
+
+table.atable th {
+    display: none; /* Hide headers */
+}
+
+table.atable td {
+    padding: 8px; /* Optional: Add padding to table cells */
+    text-align: left; /* Optional: Align text to the left */
+}
+
+
 .statement {
     margin-right: 270px; /* Increase right margin to make more space for the TOC */
 }
