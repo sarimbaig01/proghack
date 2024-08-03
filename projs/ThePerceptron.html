@@ -47,14 +47,14 @@
             <fieldset>
                 <legend>Basic terminology</legend>
                 
-                <p><strong>Inputs (x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>)</strong>: The features or data points fed into a model for processing and prediction. Each input is typically a vector of values representing different attributes or characteristics of the data.</p>
+                <p><strong>Inputs (x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>m</sub>)</strong>: The features or data points fed into a model for processing and prediction. Each input is typically a vector of values representing different attributes or characteristics of the data.</p>
                 
-                <p><strong>Weights (w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub>)</strong>: Values that are multiplied by input features. They determine how much influence each input has on the output.</p>
+                <p><strong>Weights (w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>m</sub>)</strong>: Values that are multiplied by input features. They determine how much influence each input has on the output.</p>
                 
                 <p><strong>Bias (b)</strong>: An extra value added to the weighted sum of inputs. It helps the neuron make better decisions by shifting the activation function.</p>
                 
                 <p><strong>Weighted Sum</strong>: The sum of the products of the weights and inputs plus the bias before being passed to the activation function. It is the intermediate value computed by the neuron.<br>
-                \( z = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b \)
+                \( z = w_1 x_1 + w_2 x_2 + \cdots + w_m x_m + b \)
                 </p>
                 
                 <p><strong>Activation Function</strong>: A function applied to the weighted sum in a neuron to produce an output. It can be a step function or other non-linear functions like sigmoid or ReLU.<br>
@@ -74,7 +74,7 @@
 
                 <p><strong>Actual Output (\(y\)):</strong> The true output value from the dataset used for training.</p>
 
-                <p><strong>Training (data) Sample (\(x_1, x_2, ..., x_n, y\)):</strong> A single instance from the dataset, consisting of input features (\(x_1, x_2, ..., x_n\)) and the actual output (\(y\)).</p>
+                <p><strong>Training (data) Sample (\(x_1, x_2, ..., x_m, y\)):</strong> A single instance from the dataset, consisting of input features (\(x_1, x_2, ..., x_n\)) and the actual output (\(y\)).</p>
 
                 <figure>
                     <img src="./img/ThePerceptron1.jpg" width="500">
@@ -120,7 +120,7 @@
                         <div class="algorithm">   
                             <p>Initialize weights and bias</p>
                             <p>Repeat for a specified number of training cycles:</p>
-                            <p class="indent-1">For each training sample (x1, x2, ..., xn, y):</p>
+                            <p class="indent-1">For each training sample (x1, x2, ..., xm, y):</p>
                             <p class="indent-2">Compute weighted sum \( z \)</p>
                             <p class="indent-2">Predict output \( \hat{y} \)</p>
                             <p class="indent-2">Compute error \( y - \hat{y} \)</p>
