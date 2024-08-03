@@ -241,6 +241,13 @@ figcaption {
     text-align: center; /* Center the caption text */
 }
 
+figure.no-center {
+    display: block;
+    justify-content: initial;
+    align-items: initial;
+    text-align: initial;
+}
+
 
 /* Ensure video controls are hidden */
 video::-webkit-media-controls {
