@@ -17,6 +17,7 @@
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
         <a href="#terms">Basic terminology</a>
+        <a href="#gates">The Perceptron as a logic gate</a>
        
         <!--
         <a href="#dir" class="sub-item">Add direction</a>
@@ -42,7 +43,7 @@
 
         <div class="terms" id="terms">
             <fieldset>
-                <legend>Basic Terminology</legend>
+                <legend>Basic terminology</legend>
                 
                 <p><strong>Inputs (x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>)</strong>: The features or data points fed into a model for processing and prediction. Each input is typically a vector of values representing different attributes or characteristics of the data.</p>
                 
@@ -84,6 +85,15 @@
                 <p><strong>Binary Classification</strong>: A task where the model decides between two possible classes, like yes/no or true/false.</p>
             </fieldset>
         </div>
+
+        <div class="gates" id="gates">
+            <h2>Example: The Perceptron as a logic gate</h2>
+            <p>The perceptron can perfectly classify the inputs \( x_1 \) and \( x_2 \) for AND, OR, and NOT gates because these logic gates are linearly separable. This means the inputs and outputs can be divided with a straight line, allowing the perceptron to create a clear decision boundary using a step activation function.</p>
+            <p>For an AND gate, the perceptron can be set up with weights \( w_1 = 1 \) and \( w_2 = 1 \), and a bias \( w_0 = -1.5 \). The weighted sum \( z = w_1 x_1 + w_2 x_2 + w_0 \) becomes \( z = x_1 + x_2 - 1.5 \). The perceptron will output 1 (true) only when both \( x_1 \) and \( x_2 \) are 1, making the weighted sum greater than or equal to 0.</p>
+            <p>Similarly, appropriate values for weights and biases can be found for OR, NOT, and NAND gates to achieve perfect classification.</p>
+            <p>These weights can be manually set for simple logic gates, but for larger datasets and more complex tasks, the weights are typically learned through a training process. This process involves adjusting the weights based on the error between the predicted output and the actual output, iteratively minimizing this error.</p>
+        </div>
+
 
 
         
