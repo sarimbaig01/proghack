@@ -51,10 +51,10 @@
                 
                 <p><strong>Weights (w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>m</sub>)</strong>: Values that are multiplied by input features. They determine how much influence each input has on the output.</p>
                 
-                <p><strong>Bias (b)</strong>: An extra value added to the weighted sum of inputs. It helps the neuron make better decisions by shifting the activation function.</p>
+                <p><strong>Bias (w<sub>0</sub>)</strong>: An extra value added to the weighted sum of inputs (it could be thought of as the weight associated with another input which is always 1). It helps the neuron make better decisions by shifting the activation function.</p>
                 
                 <p><strong>Weighted Sum</strong>: The sum of the products of the weights and inputs plus the bias before being passed to the activation function. It is the intermediate value computed by the neuron.<br>
-                \( z = w_1 x_1 + w_2 x_2 + \cdots + w_m x_m + b \)
+                \( z = w_1 x_1 + w_2 x_2 + \cdots + w_m x_m + w_0 \)
                 </p>
                 
                 <p><strong>Activation Function</strong>: A function applied to the weighted sum in a neuron to produce an output. It can be a step function or other non-linear functions like sigmoid or ReLU.<br>
