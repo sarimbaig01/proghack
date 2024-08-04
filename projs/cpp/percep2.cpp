@@ -9,8 +9,7 @@ void splitData(const std::vector<std::pair<std::vector<double>, double>>& data,
 
 int main() {
 
-    // Fitness dataset with features 
-    // Features (Column names):
+    // Fitness dataset with features: 
     // Age, Gender (Male = 0, Female=1), Exercise Frequency (times per week), 
     // BMI, Hours of Sleep, Label (Fit =1, Unfit=0)
 
@@ -44,8 +43,10 @@ int main() {
 
     // Initialize perceptron parameters
     std::vector<double> weights;   
+    const int m = 49; //Number of samples
+    initializeWeights(weights, m);
 
-    // The following hyper-parameters may be tweaked to improve accuracy          
+    // The following hyper-parameters may be tuned to improve accuracy          
     int numOfTrainingCycles = 8;      
     double learningRate = 0.01;     
 
