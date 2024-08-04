@@ -22,7 +22,7 @@ void updateWeights(vector<double>& weights, const vector<double>& inputs, double
 // Uses the trained perceptron model to make predictions on new data.
 int predict(const vector<double>& weights, const vector<double>& inputs);
 
-// Evaluates the model's performance on a validation or test dataset.
+// Evaluates the model's performance on the test dataset.
 double evaluateModel(const vector<pair<vector<double>, double>>& dataset, const vector<double>& weights);
 
 // Prints the training progress for each training cycle.
