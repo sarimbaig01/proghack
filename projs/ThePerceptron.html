@@ -151,6 +151,38 @@
                     <pre><code class="language-cpp" id="cpp-code1">
                     </code></pre>
             </div>
+
+            <p>Descriptions of selected functions: </p>
+            <fieldset>
+                <legend>Function descriptions (selected)</legend>
+                
+                <p>
+                    <strong>evaluateModel:</strong> evaluateModel calculates the accuracy of the trained perceptron model by comparing its predictions against the actual labels in the testing dataset. For each data sample in the testing dataset, it makes a prediction using the learned weights and counts the correct predictions, finally returning the accuracy as the ratio of correct predictions to the total number of samples in the testing dataset.
+                </p>
+                
+                <p>
+                    <strong>printTrainingProgress:</strong> printTrainingProgress is called once per training cycle. It prints the current training cycle, total number of training cycles, and the average error for that cycle, providing a simple way to monitor the training performance and convergence over time.
+                </p>
+                
+                <p>
+                    <strong>updateWeights:</strong> updateWeights adjusts the weights of the perceptron model based on the error between the actual output and the predicted output.
+                </p>
+                    <fieldset>
+                        <legend>Update Rule:</legend>
+                        <p>The update rule can be summarized as:</p>
+                        <pre><code>w_i ← w_i + η ⋅ error ⋅ x_i</code></pre>
+                        <p>Where \( w_i \) is the weight, \( η \) is the learning rate, \( error \) is the difference between actual and predicted output, and \( x_i \) is the corresponding input.</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Intuition:</legend>
+                        <ul>
+                            <li>If the prediction is too high (\( y - \hat{y} < 0 \)), the error will be negative, decreasing the weights \( w_i \) to lower the prediction.</li>
+                            <li>If the prediction is too low (\( y - \hat{y} > 0 \)), the error will be positive, increasing the weights \( w_i \) to raise the prediction.</li>
+                            <li>This balanced adjustment helps the perceptron model learn the appropriate weights to minimize the error over time, leading to improved accuracy in predictions.</li>
+                        </ul>
+                    </fieldset>
+            </fieldset>
+
             
         </div>
 
