@@ -153,6 +153,7 @@
             </div>
 
             <p>Descriptions of selected functions: </p>
+            
             <fieldset>
                 <legend>Function descriptions (selected)</legend>
                 
@@ -167,20 +168,17 @@
                 <p>
                     <strong>updateWeights:</strong> updateWeights adjusts the weights of the perceptron model based on the error between the actual output and the predicted output.
                 </p>
-                    <fieldset>
-                        <legend>Update Rule:</legend>
-                        <p>The update rule can be summarized as:</p>
-                        <pre><code>w_i ← w_i + η ⋅ error ⋅ x_i</code></pre>
-                        <p>Where \( w_i \) is the weight, \( η \) is the learning rate, \( error \) is the difference between actual and predicted output, and \( x_i \) is the corresponding input.</p>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Intuition:</legend>
-                        <ul>
-                            <li>If the prediction is too high (\( y - \hat{y} < 0 \)), the error will be negative, decreasing the weights \( w_i \) to lower the prediction.</li>
-                            <li>If the prediction is too low (\( y - \hat{y} > 0 \)), the error will be positive, increasing the weights \( w_i \) to raise the prediction.</li>
-                            <li>This balanced adjustment helps the perceptron model learn the appropriate weights to minimize the error over time, leading to improved accuracy in predictions.</li>
-                        </ul>
-                    </fieldset>
+                <fieldset>
+                    <legend>Update Rule and Intuition:</legend>
+                    <p>The update rule can be summarized as:</p>
+                    <p>\[ w_i \leftarrow w_i + \eta \cdot \text{error} \cdot x_i \]</p>
+                    <p>Where \( w_i \) is the weight, \( \eta \) is the learning rate, \( \text{error} \) is the difference between actual and predicted output, and \( x_i \) is the corresponding input.</p>
+                    <ul>
+                        <li>If the prediction is too high (\( y - \hat{y} < 0 \)), the error will be negative, decreasing the weights \( w_i \) to lower the prediction.</li>
+                        <li>If the prediction is too low (\( y - \hat{y} > 0 \)), the error will be positive, increasing the weights \( w_i \) to raise the prediction.</li>
+                        <li>This balanced adjustment helps the perceptron model learn the appropriate weights to minimize the error over time, leading to improved accuracy in predictions.</li>
+                    </ul>
+                </fieldset>
             </fieldset>
 
             
