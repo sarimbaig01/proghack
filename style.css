@@ -144,6 +144,8 @@ table.atable td {
 
 table.atable th {
     border: 1px solid #000; /* Add a thin dark border to the table headers */
+    text-align: left; /* Left justify the header text */
+    padding: 8px; /* Add padding for better readability */
 }
 
 table.atable td {
