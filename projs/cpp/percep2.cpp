@@ -43,8 +43,7 @@ int main() {
 
     // Initialize perceptron parameters
     std::vector<double> weights;   
-    const int m = 49; //Number of samples
-    initializeWeights(weights, m);
+    initializeWeights(weights, 5);
 
     // The following hyper-parameters may be tuned to improve accuracy          
     int numOfTrainingCycles = 8;      
