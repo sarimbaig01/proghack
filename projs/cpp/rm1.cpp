@@ -25,12 +25,11 @@ int main() {
     bool allTestsPassed = true;
 
     for (int i = 0; i < testCases.size(); ++i) {
-        const std::vector<int>& testCase = testCases[i];
         int expected = expectedResults[i];
-        int actual = findRotatedMaximum(testCase);
+        int actual = findRotatedMaximum(testCases[i]);
         if (actual != expected) {
             std::cout << "Test failed for vector: ";
-            for (int num : testCase) {
+            for (int num : testCases[i]) {
                 std::cout << num << " ";
             }
             std::cout << ". Expected: " << expected << ", but got: " << actual << std::endl;
