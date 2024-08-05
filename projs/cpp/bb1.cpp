@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <utility>
 
 // Function prototype
 bool isBalanced(const std::string& str);
@@ -30,15 +32,12 @@ int main() {
 
     bool allTestsPassed = true;
 
-    for (const auto& testCase : testCases) {
-        const auto& str = testCase.first;
-        bool expected = testCase.second;
-        bool actual = isBalanced(str);
-        if (actual != expected) {
-            std::cout << "Test failed for string: \"" << str << "\". Expected: " 
-                      << (expected ? "balanced" : "not balanced") 
+    for (int i = 0; i < testCases.size(); ++i) {
+        if (isBalanced(testCases[i].first) != testCases[i].second) {
+            std::cout << "Test failed for string: \"" << testCases[i].first << "\". Expected: " 
+                      << (testCases[i].second ? "balanced" : "not balanced") 
                       << ", but got: " 
-                      << (actual ? "balanced" : "not balanced") 
+                      << (isBalanced(testCases[i].first) ? "balanced" : "not balanced") 
                       << std::endl;
             allTestsPassed = false;
         }
