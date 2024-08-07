@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implement a Playlist</title>
+    <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+     
+</head>
+<body>
+  <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+      <div class="statement">
+        <h1>Implement a Playlist</h1>
+      <section class="statement">
+          <p>We wish to implement an MP3 playlist. We know the maximum size (number of MP3s in the list) never exceeds 200. However, songs may be moved around in the list, added to, or removed from the list at any time. We need our data structure to have the following features:</p>
+          <ul>
+              <li>Use vectors to store the list to exploit the cachability and locality of reference features of vectors due to the elements being stored contiguously in memory.</li>
+              <li>Implement the playlist as a list so that moving, adding, and removing songs does not require copying (in order to shift) a number of elements left or right.</li>
+          </ul>
+          <p>Consider the example shown in Figure 1. The characters A, P, X, etc., represent songs' metadata stored in the data vector. The vector containing numbers stores the connections (or links) representing the order in which the songs appear in the playlist.</p>
+          <p>For the sake of this problem, we represent song metadata by single letters and assume the playlist must always maintain alphabetical order among songs. In real situations, these could be several KBs of data per song.</p>
+          <p>In the example (before song Q is added): the playlist begins with song A, followed by songs P and X, which is the last song. This order is represented in the links vector, which starts at index 2 (the index of A), which stores the index 0 of the next song P. At index 0, we find 1, the index of the next song X, and at index 1, we find -1, representing the end of the list.</p>
+          <p>Notice in the figure showing the state of the list after adding song Q how Q is simply placed at the end of the data vector without having to move around (heavyweight) song data. The correct place of Q is between P and X. This order can be maintained simply by adjusting the indices (lightweight) in the links vector.</p>
+          <p>The following main program shows the definition of the data and links vectors and the index start, which holds the index of the first song. Prototypes of functions addToPlaylist, removeFromPlaylist, and shufflePlaylist are also given. The main contains code to test these functions. Implement the functions and use this code to test them thoroughly.</p>
+    
+      
+      
+         <!-- Prism.js JavaScript -->
+        <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+        <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
+
+      
+      </section>
+  </div>
+
+</body>
+</html>
 
