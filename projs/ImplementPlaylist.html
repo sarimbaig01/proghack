@@ -23,7 +23,7 @@
         </ul>
         <p>Consider the example shown in Figure 1. The characters A, P, X, etc., represent songs' metadata stored in the data vector. The vector containing numbers stores the connections (or links) representing the order in which the songs appear in the playlist.</p>
         <p>For the sake of this problem, we represent song metadata by single letters and assume the playlist must always maintain alphabetical order among songs. In real situations, these could be several KBs of data per song.</p>
-        
+
          <figure>
                     <img src="./img/ImplementPlaylist.jpeg" width="650" height="500">
                     <figcaption>Figure 1: The top vector contains songs meta-data (represented by characters for simplicity), the bottom vector contains links, or indices, maintaining the order of the playlist.</figcaption>
@@ -31,16 +31,16 @@
         
         <p>In the example (before song Q is added): the playlist begins with song A, followed by songs P and X, which is the last song. This order is represented in the links vector, which starts at index 2 (the index of A), which stores the index 0 of the next song P. At index 0, we find 1, the index of the next song X, and at index 1, we find -1, representing the end of the list.</p>
         <p>Notice in the figure showing the state of the list after adding song Q how Q is simply placed at the end of the data vector without having to move around (heavyweight) song data. The correct place of Q is between P and X. This order can be maintained simply by adjusting the indices (lightweight) in the links vector.</p>
-        
+
         <h3>Functions to Implement:</h3>
         <p>
             1. <b>addToPlaylist</b>: Adds a new song to the playlist while maintaining the alphabetical order.<br>
             2. <b>removeFromPlaylist</b>: Removes a song from the playlist, updating the links to ensure the order is preserved.<br>
             3. <b>defragment</b>: Reorganizes the playlist to ensure that the songs are stored contiguously in the data vector, which might have been disrupted by multiple additions and removals. This function helps in optimizing memory usage and improving access speed.<br>
-            4. <b>shufflePlaylist</b>: Randomizes the order of the songs in the playlist as efficiently as possible. (Challenge: implement the <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank">Fisher–Yates shuffle.</a>) 
+            4. <b>mergePlaylists</b>: Merges two playlists into one, maintaining the alphabetical order.
         </p>
 
-        <p>The following main program shows the definition of the data and links vectors and the index start, which holds the index of the first song. Prototypes of functions addToPlaylist, removeFromPlaylist, defragment, and shufflePlaylist are also given. The main contains code to test these functions. Implement the functions and use this code to test them thoroughly.</p>
+        <p>The following main program shows the definition of the data and links vectors and the index start, which holds the index of the first song. Prototypes of functions addToPlaylist, removeFromPlaylist, defragment, and mergePlaylists are also given. The main contains code to test these functions. Implement the functions and use this code to test them thoroughly.</p>
 
         <div class="code-container" data-filename="./cpp/ip1.cpp">
                     <pre><code class="language-cpp" id="cpp-code1">
