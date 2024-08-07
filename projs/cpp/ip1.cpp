@@ -5,7 +5,7 @@
 void addToPlaylist(std::vector<char>& data, std::vector<int>& links, int& start, char song);
 void removeFromPlaylist(std::vector<char>& data, std::vector<int>& links, int& start, int songIndex);
 void defragment(std::vector<char>& data, std::vector<int>& links, int& start);
-void shufflePlaylist(std::vector<char>& data, std::vector<int>& links, int& start);
+void mergePlaylists(std::vector<char>& data1, std::vector<int>& links1, int& start1, const std::vector<char>& data2, const std::vector<int>& links2, int start2);
 
 int main() {
     std::vector<char> data(200);  // Initialize vector with size 200
@@ -51,9 +51,12 @@ int main() {
     }
     std::cout << std::endl;
 
-    // Test shufflePlaylist
-    shufflePlaylist(data, links, start);
-    std::cout << "Playlist after shuffling:\n";
+    // Test mergePlaylists
+    std::vector<char> data2 = {'P', 'Q', 'X'};
+    std::vector<int> links2 = {1, 2, -1};
+    int start2 = 0;
+    mergePlaylists(data, links, start, data2, links2, start2);
+    std::cout << "Merged playlist:\n";
     for (int i = start; i != -1; i = links[i]) {
         std::cout << data[i] << " ";
     }
