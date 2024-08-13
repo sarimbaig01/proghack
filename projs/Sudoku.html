@@ -28,6 +28,23 @@
         <h1>Sudoku with Exhaustive Search and Heuristics</h1>
       <section class="statement">
 
+          <div class="intro" id="intro">
+            <h2>Sudoku rules</h2>
+            <p>Sudoku is a puzzle game played on a 9x9 grid, divided into nine 3x3 subgrids. The goal is to fill the grid with digits from 1 to 9 so that each digit appears exactly once in every row, column, and 3x3 subgrid. The puzzle begins with some cells already filled, and the player's task is to fill in the empty cells while following these rules, ensuring no repetition of digits in any row, column, or subgrid.</p>
+        
+            <p>Figure 1 shows a partially filled input grid and a corresponding fully-filled grid presenting a valid solution.</p>
+        
+            <p>For our purposes, each cell on the grid will either contain a digit from 1 to 9 or a '.' representing an empty cell. We aim to write a recursive program that receives a partially filled initial state and attempts to reach a fully filled final state that satisfies all the Sudoku rules.</p>
+          </div>
+
+          <div class="task1" id="task1">
+              <h2>Task 1: Solve a 9x9 Sudoku grid</h2>
+              <p>Our first goal is to write a recursive exhaustive search algorith to find a solution to a partially filled Sudoku grid.</p>
+              <h3>Brief explanation of the algorithm:</h3>
+              <p>The algorithm works by recursively attempting to place a valid digit in each empty cell. It starts from the first empty cell, tries all possible digits (1-9), and checks if placing a digit violates any Sudoku rules (row, column, or subgrid). If a digit is valid, the algorithm moves to the next empty cell and repeats the process. If a dead end is reached (i.e., no valid digits can be placed in the current cell), the algorithm backtracks to the previous cell and tries the next possible digit. This process continues until the grid is completely and correctly filled or all possibilities are exhausted.</p>
+          </div>
+
+
         <p>tdb...</p>
         
         <!-- Prism.js JavaScript -->
