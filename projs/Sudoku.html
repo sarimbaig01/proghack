@@ -14,6 +14,7 @@
     <div class="toc">
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
+        <a href="#terms1">Basic terminology</a>
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
         
         
@@ -47,6 +48,21 @@
         
           </div>
 
+          <div class="terms1" id="terms1">
+            <fieldset>
+                <legend>Some terminology</legend>
+            
+                <p><strong>Solution Search Space:</strong> 
+                The solution search space is the set of all possible configurations that could solve a problem. In Sudoku, it includes every potential way to fill the grid with digits 1-9, regardless of whether the configurations follow the Sudoku rules.</p>
+            
+                <p><strong>Exhaustive Search:</strong> 
+                Exhaustive search explores all possible options within the solution search space to find a solution. For Sudoku, this involves trying every combination of numbers until a valid solution is found, but it can be time-consuming due to the large number of possibilities. Typical applications of exhaustive search include solving puzzles like Sudoku, generating permutations and combinations, and finding solutions to the traveling salesman problem.</p>
+            
+                <p><strong>Backtracking:</strong> 
+                Backtracking is a recursive technique that explores possible solutions by making choices and undoing them if they lead to dead ends. In Sudoku, backtracking places a number in a cell and, if it leads to an invalid configuration, reverses the decision and tries a different number. It's a core part of how recursive algorithms efficiently navigate large solution spaces.</p>
+            </fieldset>
+          </div>
+
           <div class="task1" id="task1">
               <h2>Task 1: Solve a 9x9 Sudoku board</h2>
               <p>Our first goal is to write a recursive exhaustive search algorith to find a solution to a partially filled Sudoku board.</p>
@@ -62,9 +78,6 @@
               
           </div>
 
-
-        <p>tdb...</p>
-        
         <!-- Prism.js JavaScript -->
         <script src="../prism.js"></script> <!-- Adjust the path as needed -->
         <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
