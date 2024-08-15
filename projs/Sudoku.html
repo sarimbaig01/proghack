@@ -81,15 +81,14 @@
           </div>
           
           <div class="terms2" id="terms2">
-              <fieldset>
+            <fieldset>
+                <fieldset>
                     <legend>Further terminology</legend>
-                
-                    <p><strong>Goal State:</strong> 
-                    The goal state is the desired final configuration or solution in a problem-solving process. In Sudoku, the goal state is the fully completed 9x9 grid where each row, column, and subgrid contains the digits 1-9 without repetition.</p>
-                
-                    <p><strong>Heuristic Function (h(n)):</strong> 
-                    A heuristic function, denoted as <code>h(n)</code>, is an estimate used to guide search algorithms toward the goal state more efficiently. It predicts the cost or distance from a given state to the goal state, helping to prioritize paths that are more likely to lead to a solution.</p>
-              </fieldset>
+                    <p><strong>State:</strong> A specific configuration of the problem at a given moment. In the context of Sudoku, a state refers to the current arrangement of digits on the Sudoku board, including both filled and empty cells.</p>
+                    <p><strong>State transition:</strong> The process of moving from one configuration of the problem to one of the valid next states. In the context of Sudoku, a state transition occurs when a digit is placed in an empty cell, altering the board to a valid next state.</p>
+                    <p><strong>Goal state:</strong> The final configuration in a problem-solving process, where all constraints are satisfied (e.g., a fully solved Sudoku board).</p>
+                    <p><strong>Heuristic function:</strong> A function, often denoted as h(n), that estimates the cost or distance from a given state to the goal state, guiding the search algorithm toward more promising paths.</p>
+                </fieldset>
           </div>
 
            <div class="task2" id="task2">
