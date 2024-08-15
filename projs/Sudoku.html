@@ -87,7 +87,7 @@
                     The goal state is the desired final configuration or solution in a problem-solving process. In Sudoku, the goal state is the fully completed 9x9 grid where each row, column, and subgrid contains the digits 1-9 without repetition.</p>
                 
                     <p><strong>Heuristic Function (h(n)):</strong> 
-                    A heuristic function, denoted as <code>h(n)</code>, is an estimate used to guide search algorithms toward the goal state more efficiently. It predicts the cost or distance from the current state to the goal state, helping to prioritize paths that are more likely to lead to a solution.</p>
+                    A heuristic function, denoted as <code>h(n)</code>, is an estimate used to guide search algorithms toward the goal state more efficiently. It predicts the cost or distance from a given state to the goal state, helping to prioritize paths that are more likely to lead to a solution.</p>
               </fieldset>
           </div>
 
@@ -97,7 +97,7 @@
 
                 <p>Heuristics can be used to prioritize subtrees (or paths) that are more likely to lead to a solution based on common-sense rules or educated guesses. By applying these heuristics, the search process is likely to become less wasteful by focusing on more promising paths, even though wasteful execution, and in particular the worst-case scenario, are still possible.</p>
                 
-                <p>The input of a function like h(n) is the current state n, and its output is an estimate of the cost or distance from this state to the goal state. This estimate helps guide the search algorithm toward more promising paths, improving efficiency.</p>
+                <p>The input of a heuristic function h(n) is a potential next state (or child node) that could be reached from the current state n. The output is an estimate of the cost or distance from this child state to the goal state. This estimate helps guide the search algorithm in choosing which child node to explore next.</p>
                 
                 <p>Now, we will introduce two heuristics for Sudoku that can be implemented to enhance the solving process.</p>
 
