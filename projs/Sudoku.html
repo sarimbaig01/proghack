@@ -103,7 +103,7 @@
                 <div class="heuristic1" id="heuristic1">
                     <h3>Minimum Remaining Values (MRV) heuristic</h3>
 
-                    <p>The Minimum Remaining Values (MRV) heuristic improves the efficiency of a Sudoku solver by selecting the cell with the fewest legal options available. The hope is that this will reduce the search space and minimize unnecessary recursive calls. In other words, focusing on the most constrained cells first should reduce the number of calls to solveSudoku, hopefully leading to a significant reduction in overall solving time.</p>
+                    <p>The Minimum Remaining Values (MRV) heuristic improves the efficiency of a Sudoku solver by selecting the cell with the fewest legal options available. In other words, focusing on the most constrained cells first. The intuition here is that by transitioning to more constrained states first we are likely to move closer to the goal state.</p>
                     
                     <p>Write another version of the solveSudoku method called solveSudokuMRV. Also, write functions countMRV and hMRV. The prototypes of these functions are shown below with brief explanations in comments:</p>
 
