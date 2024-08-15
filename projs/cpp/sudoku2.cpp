@@ -1,3 +1,4 @@
+
 // Returns a vector of all valid digits that can be placed in the cell at (row, col)
 std::vector<char> validDigitsForCell(const std::vector<std::vector<char>>& board, int row, int col);
 
