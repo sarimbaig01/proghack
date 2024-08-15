@@ -5,14 +5,9 @@
 
 #define N 9
 
-// Checks if placing a number in a specific row is valid.
-bool validRow(const std::vector<std::vector<char>>& board, int row, char num);
-
-// Checks if placing a number in a specific column is valid.
-bool validCol(const std::vector<std::vector<char>>& board, int col, char num);
-
-// Checks if placing a number in a specific 3x3 subgrid is valid.
-bool validGrid(const std::vector<std::vector<char>>& board, int startRow, int startCol, char num);
+// Checks if placing a number in a specific 3x3 subgrid is valid, i.e., it does not
+// violate the uniqueness condition in a row, column or subgrid.
+bool validMove(const std::vector<std::vector<char>>& board, int startRow, int startCol, char num);
 
 // Solves the Sudoku puzzle using a recursive backtracking approach.
 // Each call increments the solveSodukoCalls parameter, so that
