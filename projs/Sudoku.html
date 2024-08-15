@@ -18,6 +18,7 @@
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
         <a href="#terms2">Further terminology</a>
         <a href="#task2">Task 2: Implement heuristics</a>
+        <a href="#heuristic1" class="sub-item">Minimum value heuristic (MRV)</a>
         
         <!--<a href="#toroidal" class="sub-item">Make it toriodal</a>
         <a href="#stats" class="sub-item">Print statistics</a>
@@ -101,6 +102,31 @@
                 
                 <p>Now, we will introduce two heuristics that could be useful for Sudoku.</p>
 
+                <div class="heuristic1" id="heuristic1">
+                    <h3>Minimum Remaining Values (MRV) heuristic</h3>
+
+                    <p>The Minimum Remaining Values (MRV) heuristic improves the efficiency of a Sudoku solver by selecting the cell with the fewest legal options available. The hope is that this will reduce the search space and minimize unnecessary recursive calls. In other words, focusing on the most constrained cells first should reduce the number of calls to solveSudoku, hopefully leading to a significant reduction in overall solving time.</p>
+                    
+                    <p>Write another version of the solveSudoku method called solveSudokuMRV. Also, write functions countMRV and hMRV. The prototypes of these functions are shown below with brief explanations in comments:</p>
+
+                    <div class="code-container" data-filename="./cpp/sudoku2.cpp">
+                        <pre>
+                             <code class="language-cpp" id="cpp-code2"></code>
+                        </pre>
+                    </div>
+                    
+                    <p>These functions help implement the MRV heuristic in the Sudoku solver, making the algorithm more efficient by focusing on the most constrained cells first.</p>
+            
+                    <p>Use the following main to compare the number of recusrive calls made in the regular exhaustive version and the mrv version. Is there a significant improvement?</p>
+
+                    <div class="code-container" data-filename="./cpp/sudoku3.cpp">
+                        <pre>
+                             <code class="language-cpp" id="cpp-code3"></code>
+                        </pre>
+                    </div>
+                </div>
+
+               
                 <p>continued...</p>
               
           </div>
