@@ -14,7 +14,9 @@ bool validCol(const std::vector<std::vector<char>>& board, int col, char num);
 bool validGrid(const std::vector<std::vector<char>>& board, int startRow, int startCol, char num);
 
 // Solves the Sudoku puzzle using a recursive backtracking approach.
-bool solveSudoku(std::vector<std::vector<char>>& board);
+// Each call increments the solveSodukoCalls parameter, so that
+// a global count of all calls per puzzle is maintained.
+bool solveSudoku(std::vector<std::vector<char>>& board, int &solveSudokuCalls);
 
 // Prints the current state of the Sudoku board.
 void printBoard(const std::vector<std::vector<char>>& board) {
@@ -26,8 +28,8 @@ void printBoard(const std::vector<std::vector<char>>& board) {
     }
 }
 
+
 int main() {
-    // Defining multiple Sudoku boards
     std::vector<std::vector<std::vector<char>>> boards = {
         {
             {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
@@ -64,18 +66,22 @@ int main() {
         }
     };
 
-    // Loop through all boards
-    for (auto& board : boards) {
-        std::cout << "Initial Sudoku Board:" << std::endl;
+    for (int i = 0; i < boards.size(); ++i) {
+        std::vector<std::vector<char>> board = boards[i];
+        int solveSudokuCalls = 0;  // Initialize the counter for solveSudoku
+
+        std::cout << "Initial Sudoku Board " << i + 1 << ":" << std::endl;
         printBoard(board);
 
-        if (solveSudoku(board)) {
+        if (solveSudoku(board, solveSudokuCalls)) {
             std::cout << "Sudoku Solved Successfully:" << std::endl;
             printBoard(board);
         } else {
-            std::cout << "No solution exists for the given Sudoku board." << std::endl;
+            std::cout << "No solution exists for Sudoku Board " << i + 1 << "." << std::endl;
         }
-        std::cout << std::endl; // Separate outputs for readability
+
+        std::cout << "Number of calls to solveSudoku: " << solveSudokuCalls << std::endl;
+        std::cout << std::endl;
     }
 
     return 0;
