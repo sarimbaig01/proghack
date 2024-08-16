@@ -122,9 +122,10 @@
 
                <div class="heuristic2" id="heuristic2">
                    <h3>Least constraining value (LCV) heuristic</h3>
-                   <p>While the MRV heuristic look to fill the most constrained cells first, the LCV works by choosing the value which, when placed in a selected cell (selected randomly or via MRV), leaves the most options open for other cells. Intuitively, this heuristic reduces the likelihood of creating further constraints down the line, helping to avoid dead-ends and excessive backtracking.</p>
+                   <p>While the MRV heuristic looks to fill the most constrained cells first, the LCV works by choosing the value which, when placed in a selected cell (selected randomly or via MRV), leaves the most options open for other cells. Intuitively, this heuristic reduces the likelihood of creating further constraints down the line, helping to avoid dead-ends and excessive backtracking.</p>
                    <p>Note that when a value is placed in a cell, it only reduces the number of the options of the impacted cells by 1 each. Here the impacted cells are those in the same row, column and subgrid of the selected cell. However, the impact of a placement goes beyond this. For example, placing a specific number in a cell may highly constrain a nearby, almost filled subgrid. So, in LCV, we select a value which keeps the number of available options for all other empty cells in the grid to maximum possible.</p>
-                   <p>Following snippet shows prototypes of functions you need to add (feel free to add more utility functions is required). As before, compare the number of recusrive calls made by <code>solveSodukuLCV</code> with those made by the basic backtracking method.</p>
+                   <p>Following snippet shows prototypes of functions you need to add (feel free to add more utility functions if required). As before, compare the number of recursive calls made by <code>solveSodukuLCV</code> per puzzle with those made by the basic backtracking and MRV methods.</p>
+                   
                    <div class="code-container" data-filename="./cpp/sudoku3.cpp">
                             <pre>
                                  <code class="language-cpp" id="cpp-code3"></code>
@@ -132,8 +133,6 @@
                         </div>
                    </div>
                
-                <p>continued...</p>
-              
           </div>
 
         <!-- Prism.js JavaScript -->
