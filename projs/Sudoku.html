@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,6 +19,7 @@
         <a href="#terms2">Further terminology</a>
         <a href="#task2">Task 2: Implement heuristics</a>
         <a href="#heuristic1" class="sub-item">Minimum remaining values heuristic (MRV)</a>
+        <a href="#heuristic1" class="sub-item">Least constrained value heuristic (LCV)</a>
         
         <!--<a href="#toroidal" class="sub-item">Make it toriodal</a>
         <a href="#stats" class="sub-item">Print statistics</a>
@@ -101,9 +102,9 @@
                 <p>Now, we will introduce two heuristics that could be useful for Sudoku.</p>
 
                 <div class="heuristic1" id="heuristic1">
-                    <h3>Minimum Remaining Values (MRV) heuristic</h3>
+                    <h3>Minimum remaining values (MRV) heuristic</h3>
 
-                    <p>The Minimum Remaining Values (MRV) heuristic improves the efficiency of a Sudoku solver by selecting the cell with the fewest legal options available. In other words, focusing on the most constrained cells first. The intuition here is that by transitioning to more constrained states first we are likely to move closer to the goal state.</p>
+                    <p>The Minimum Remaining Values (MRV) heuristic improves the efficiency of a Sudoku solver by selecting the cell with the fewest legal options available. In other words, the most constrained cell. The intuition here is that since a few options are left for this cell one of them is likely to be part of a goal state.</p>
                     
                     <p>Write another version of the solveSudoku method called solveSudokuMRV. Also, write functions countMRV and hMRV. The prototypes of these functions are shown below with brief explanations in comments:</p>
 
@@ -119,6 +120,17 @@
 
                 </div>
 
+               <div class="heuristic2" id="heuristic2">
+                   <h3>Least constraining value (LCV) heuristic</h3>
+                   <p>While the MRV heuristic look to fill the most constrained cells first, the LCV works by choosing the value which, when placed in a selected cell (selected randomly or via MRV), leaves the most options open for other cells. Intuitively, this heuristic reduces the likelihood of creating further constraints down the line, helping to avoid dead-ends and excessive backtracking.</p>
+                   <p>Note that when a value is placed in a cell, it only reduces the number of the options of the impacted cells by 1 each. Here the impacted cells are those in the same row, column and subgrid of the selected cell. However, the impact of a placement goes beyond this. For example, placing a specific number in a cell may highly constrain a nearby, almost filled subgrid. So, in LCV, we select a value which keeps the number of available options for all other empty cells in the grid to maximum possible.</p>
+                   <p>Following snippet shows prototypes of functions you need to add (feel free to add more utility functions is required). As before, compare the number of recusrive calls made by <code>solveSodukuLCV</code> with those made by the basic backtracking method.</p>
+                   <div class="code-container" data-filename="./cpp/sudoku3.cpp">
+                            <pre>
+                                 <code class="language-cpp" id="cpp-code3"></code>
+                            </pre>
+                        </div>
+                   </div>
                
                 <p>continued...</p>
               
