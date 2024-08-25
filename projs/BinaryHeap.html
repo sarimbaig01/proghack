@@ -44,7 +44,7 @@
             <div class="img-container">
                 <figure>
                   <img src="./img/BinaryHeap1.png" width="500" height="400">
-                  <figcaption>Figure 1: The tree interpretation of a binary Min-Heap. This tree corresponds to the vector: [4, 4, 6, 11, 8, 6, 11, 13, 12, 20, 9]. Below each node is the index of the value in that node in the corresponding vector. In this picture we have shown indices as beginning from 1. This is a convention followed in theoretical descriptions of binary heaps. In our implementation the indices will start from 0 (as the root). (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
+                  <figcaption>Figure 1: The tree interpretation of a binary Min-Heap. This tree corresponds to the vector: <strong>[4, 4, 6, 11, 8, 6, 11, 13, 12, 20, 9]</strong>. Below each node is the index of the value in that node in the corresponding vector. In this picture we have shown indices as beginning from 1. This is a convention followed in theoretical descriptions of binary heaps. In our implementation the indices will start from 0 (as the root). (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
                 </figure>
             </div>
               
@@ -114,12 +114,12 @@
                 </code></pre>
             </div>  
             <p>Provide a full implementation for this function. The function should be able to print the heap in a tree-like format.</p>
-            <p>For example, for the vector <strong> {2, 3, 6, 4, 7, 6, 11, 5, 5, 8, 11, 7, 19, 13, 11} </strong>, the tree is printed as:</p>
-            <p><strong>[2]<br>
-            [3,6]<br>
-            [4,7][6,11]<br>
-            [5,5][8,11][7,19][13,11]</strong></p>
-            <p>It should also print the corresponding vector to make it convenient for us to map the elements in the two structures. Note that the output shown below uses square brackets to enclose siblings at each level, and siblings are separated by commas. There are no spaces anywhere. There is one level per line.</p>
+            <p>For example, for the vector: <strong> [4, 4, 6, 11, 8, 6, 11, 13, 12, 20, 9, 6, 19, 13] </strong>, the tree is printed as:</p>
+            <p><strong>[4]<br>
+            [4,6]<br>
+            [11,8][6,11]<br>
+            [13,12][20,9][6,19][13]</strong></p>
+            <p>The function prints one level per line. It uses square brackets to enclose siblings at each level (single values appear within brackets when they have no siblings) and siblings are separated by commas. There are no spaces.</p>
         </div>
 
 
