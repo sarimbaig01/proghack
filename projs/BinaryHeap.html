@@ -48,16 +48,6 @@
                   <figcaption>Figure 1: The tree interpretation of a binary Min-Heap. This tree corresponds to the vector: <strong>[4, 4, 6, 11, 8, 6, 11, 13, 12, 20, 9]</strong>. Below each node is the index of the value in that node in the corresponding vector. In this picture we have shown indices as beginning from 1. This is a convention followed in theoretical descriptions of binary heaps. In our implementation the indices will start from 0 (as the root). (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
                 </figure>
             </div>
-              
-            <!--
-              <div class="img-container">
-                    <figure style="display: inline-block; margin: 10px; text-align: center;">
-                        <img  src="./img/Sudoku1a.png">
-                        <img  src="./img/Sudoku1b.png">
-                        <figcaption>Figure 1: A partially filled Sudoku board representing a typical input and a corresponding solution (a valid output)</figcaption>
-                    </figure>
-              </div>
-            -->
 
             <p>The structure of the tree is encoded in three simple relationships, given below. For a given node \( i \), its left child is found at \( 2i \), the right child at \( 2i + 1 \), and the parent of \( i \) is found at \( \frac{i}{2} \).</p>
                 <p>
@@ -128,8 +118,23 @@
             <p>One of the fundamental operations required to maintain a binary min-heap is called heapify. Its task may be described as follows:</p>
             <p>Given a binary min heap, of valid shape, and the values of all but one node \( i \) in the correct place according to the order property, move the value at \( i \) to its correct place according to the order property, while maintaining the shape of the heap.</p>
             <p>In the context of heapify, the value at \( i \) may violate the order property in one of two possible ways: (1) the value at \( i \) is greater than the value of a child of \( i \), or (2) the value at \( i \) is smaller than its parent.</p>
-            <p>The method used to resolve (1) is called heapify down, and the method to resolve (2) is heapify up. Our task in this section is to write the functions <code>heapifyDown</code> and <code>heapifyUp</code> , prototypes shown below.</p>
+            <p>The method used to resolve (1) is called heapify down, and the method to resolve (2) is heapify up. Our task in this section is to write the functions <code>heapifyDown</code> and <code>heapifyUp</code> , prototypes shown below.</p> 
         </div>
+
+        <div class="heapifyDown" id="heapifyDown">
+            <h3>heapifyDown</h3>
+            <p>Figure 2 below shows the action of heapifyDown. We begin with a properly shaped heap in which one node, at index 0 in this case, contains a value that is greater than a child's value (both children's values in this case). The algorithm proceeds to move this value down the heap, one level at a time, using the following rules:</p>
+            <div class="img-container">
+                <figure>
+                    <img src="./img/BinaryHeap2.png" width="800" height="600">
+                    <figcaption>Figure 2: Shows heapifyDown in action. Starting with an invalid value at the root, namely 26, it is moved down the heap using the algorithm described in this section. (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
+                </figure>
+            </div>
+            <p><strong>Case 1:</strong> If the node at \( i \) has only one child \( j \), and the value at \( i \) is greater than the value at \( j \): swap the value at \( i \) with the value at \( j \). Set \( i \) to \( j \) and repeat.</p>
+            <p><strong>Case 2:</strong> If the node at \( i \) has two children \( j \) and \( k \), and the value at \( j \) is less than or equal to the value at \( k \) and less than the value at \( i \): swap the value at \( i \) with the value at \( j \). Set \( i \) to \( j \) and repeat.</p>
+            <p><strong>Case 3:</strong> If \( i \) has no children, or the value at \( i \) is less than or equal to the values at the children, STOP.</p>
+        </div>
+
 
 
         <!-- Prism.js JavaScript -->
