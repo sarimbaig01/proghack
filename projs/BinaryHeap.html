@@ -123,18 +123,18 @@
 
             <div class="heapifyDown" id="heapifyDown">
                 <h3>heapifyDown</h3>
-                <p>Figure 2 below shows the action of heapifyDown. We begin with a properly shaped heap in which one node, at index 0 in this case, contains a value that is greater than a child's value (both children's values in this case). The algorithm proceeds to move this value down the heap, one level at a time, using the following rules:</p>
-                <div class="img-container">
-                    <figure>
-                        <img src="./img/BinaryHeap2.png" width="800" height="600">
-                        <figcaption>Figure 2: Shows heapifyDown in action. Starting with an invalid value at the root, namely 26, it is moved down the heap using the algorithm described in this section. (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
-                    </figure>
-                </div>
+                <p>Figure 2 below shows the action of heapifyDown. We begin with a properly shaped heap in which one node, at the root in this case, contains a value that is greater than a child's value (both children's values in this case). The algorithm proceeds by moving this value down the heap, one level at a time, using the following rules:</p>
                 <p><strong>Case 1:</strong> If the node at \( i \) has only one child \( j \), and the value at \( i \) is greater than the value at \( j \): swap the value at \( i \) with the value at \( j \). Set \( i \) to \( j \) and repeat.</p>
                 <p><strong>Case 2:</strong> If the node at \( i \) has two children \( j \) and \( k \), and the value at \( j \) is less than or equal to the value at \( k \) and less than the value at \( i \): swap the value at \( i \) with the value at \( j \). Set \( i \) to \( j \) and repeat.</p>
                 <p><strong>Case 3:</strong> If \( i \) has no children, or the value at \( i \) is less than or equal to the values at the children, STOP.</p>
+                <div class="img-container">
+                        <figure>
+                            <img src="./img/BinaryHeap2.png" width="800" height="600">
+                            <figcaption>Figure 2: Shows heapifyDown in action. Starting with an invalid value at the root, namely 26, it is moved down the heap using the algorithm described in this section. (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
+                        </figure>
+                </div>
             </div>
-
+            
              <div class="heapifyUp" id="heapifyUp">
                 <h3>heapifyUp</h3>
                 <p>For heapifyUp, only two cases suffice:</p>
@@ -152,7 +152,8 @@
                     </figure>
                 </div>
              </div>
-</div>
+            
+        </div> 
 
      </div>
 
