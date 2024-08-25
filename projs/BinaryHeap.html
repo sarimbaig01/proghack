@@ -41,7 +41,11 @@
 
             <p>Physically, a binary heap is stored as a vector; however, it is interpreted as a tree. The index numbers of the vector elements are mapped to the nodes of the logical tree. Typically, in theory, the vector is assumed to begin from index 1; however, in practical implementations, index 0 might be considered the first element. In our description here, we will follow the convention of considering the element at index 1 as the root of the tree. The situation is depicted in Figure 1 below.</p>
 
-            <p>add fig...</p>
+            <figure>
+                <img src="./img/binh1.png" width="500" height="400">
+                <figcaption>Figure 1: The tree interpretation of a binary Min-Heap. Below each node is the index of the value in that node in the corresponding vector. In this picture we show indices as beginning from 1. This is a convention followed in theoretical descriptions of binary heaps. In our implementation the indices will start from 0 (as the root). Note that the minimum element is always be at the root. (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
+            </figure>
+              
             <!--
               <div class="img-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
