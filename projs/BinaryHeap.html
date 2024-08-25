@@ -67,24 +67,26 @@
           <div class="math1" id="math1">
             <fieldset>
                 <legend>Height of a complete binary tree</legend>
-                <p>If \( N \) is the number of nodes in the heap and \( h \) is the height of the tree, then the total number of nodes in a complete binary tree can be expressed as a geometric series:</p>
-                <p>\[
-                N = 2^0 + 2^1 + 2^2 + \dots + 2^h
-                \]</p>
-                <p>This series sums to:</p>
-                <p>\[
-                N = 2^{h+1} - 1
-                \]</p>
-                <p>\[
-                \Rightarrow N + 1 = 2^{h+1}
-                \]</p>
-                <p>\[
-                \Rightarrow h + 1 = \log_2(N + 1)
-                \]</p>
-                <p>\[
-                \Rightarrow h = \log_2(N + 1) - 1
-                \]</p>
-                <p>This means that any operation on the heap that requires traversing a path from the root to a leaf (or vice versa) will take a constant multiple of \( \log_2(N) \) basic operations to complete.</p>
+                <p>A perfect binary tree is a complete binary tree whose last level is full. The number of nodes \( N \) of a complete binary tree of height \( h \) (assuming \( h \geq 1 \)) can be bounded by the number of nodes in a perfect binary tree of height \( h-1 \) as follows:</p>
+                    <p>
+                        \[
+                        2^0 + 2^1 + \ldots + 2^{h-1} < N
+                        \]
+                    </p>
+                    
+                    <p>
+                        \[
+                        \implies 2^h - 1 < N
+                        \]
+                    </p>
+                    
+                    <p>
+                        \[
+                        \implies h < \log_2(N + 1)
+                        \]
+                    </p>
+                <p>Hence, for a binary heap with \( N \) elements, the height of the heap tree is no more than \( \log_2(N + 1) \).</p>
+                <p>This implies that any heap operation that traverses the tree has a time complexity proportional to \( \log_2(N) \).</p>
             </fieldset>
         </div>
 
