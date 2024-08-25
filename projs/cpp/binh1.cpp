@@ -1,6 +1,6 @@
 void printHeap(const std::vector<int>& heap);
 
-//main to test your function
+//main to test your printHeap and future functions
 int main() {
     // Test data: various heap vectors
     std::vector<int> heap1 = {10, 15, 20, 17, 25, 30, 40, 19, 27, 35};
