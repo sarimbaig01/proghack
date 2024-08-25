@@ -18,6 +18,7 @@
       
         <a href="#intro">Introduction</a>
         <a href="#math1">Height of a complete binary tree</a>
+        <a href="#task1">Print the heap tree</a>
       <!--
         <a href="#terms1">Some terminology</a>
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
@@ -98,6 +99,18 @@
                 <li><strong>Order property:</strong> For any node \( i \), the value at \( i \) must be less than or equal to the values in its child nodes (if they exist), i.e., the nodes at \( 2i \) and \( 2i + 1 \). There is no order constraint among sibling nodes, however.</li>
             </ul></p>          
         </div>
+
+        <div class="task1" id="task1">
+            <h2>Print the heap tree</h2>
+            <p>As we implement a binary heap, it will be useful to be able to view the data in the vector as the logical heap tree. We need to write a function called printHeap to do this for us. The function has a simple prototype shown below. Provide a full implementation for this function. The function should be able to print the heap in a tree-like format.</p>
+            <p><strong>For example, for the vector {2, 3, 6, 4, 7, 6, 11, 5, 5, 8, 11, 7, 19, 13, 11}, the tree is printed as:</strong></p>
+            <p><strong>[2]<br>
+            [3,6]<br>
+            [4,7][6,11]<br>
+            [5,5][8,11][7,19][13,11]</strong></p>
+            <p>It should also print the corresponding vector to make it convenient for us to map the elements in the two structures. Note that the output shown below uses square brackets to enclose siblings at each level, and siblings are separated by commas. There are no spaces anywhere. There is one level per line.</p>
+        </div>
+
 
 
         <!-- Prism.js JavaScript -->
