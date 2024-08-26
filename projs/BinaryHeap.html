@@ -20,6 +20,7 @@
         <a href="#math1">Height of a complete binary tree</a>
         <a href="#task1">Task 1: Print the heap tree</a>
         <a href="#task2">Task 2: heapifyDown and heapifyUp</a>
+        <a href="#task3">Task 3: insert, removeMin and getMin</a>
       <!--
         <a href="#terms1">Some terminology</a>
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
@@ -163,10 +164,30 @@
                 <pre><code class="language-cpp" id="cpp-code1">
                 </code></pre>
             </div>  
-            
         </div> 
-
      </div>
+      
+      <div class="task3" id="task3">
+        <h2>insert, removeMin, and getMin</h2>
+        <p>We should be able to insert new elements into the heap, remove the minimum element from the heap, and get the minimum element. Given the way the heap is designed, the last task is quite simple: simply return the value at the root.</p>
+
+        <p><strong>For insert</strong>, the following algorithm suffices:</p>
+        <p>Push back the new element to the end of the vector (making it the rightmost node in the last level of the tree).  
+        Then, call the <code>heapifyUp</code> function on the newly added node.</p>
+        
+        <p><strong>For removeMin</strong>, the strategy is also simple. We note that the minimum element is at the root of the tree. We use the following algorithm:</p>
+        <p>Swap the value at the root with the value in the rightmost node in the last level (i.e., the value at index (size - 1) of the vector).  
+        Next, pop back the last element from the vector.  
+        Then, call <code>heapifyDown</code> on the root node.</p>
+        
+        <p>The prototypes of <code>insert</code>, <code>removeMin</code>, and <code>getMin</code> are given below. Implement these functions and test them in the main. It should be obvious that these functions also take time that is logarithmic in the number of elements in the heap.</p>    
+
+        <div class="code-container" data-filename="./cpp/binh3.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
+                </code></pre>
+        </div>
+          
+      </div>
 
 
         <!-- Prism.js JavaScript -->
