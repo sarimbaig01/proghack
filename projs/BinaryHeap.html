@@ -21,6 +21,7 @@
         <a href="#task1">Task 1: Print the heap tree</a>
         <a href="#task2">Task 2: heapifyDown and heapifyUp</a>
         <a href="#task3">Task 3: insert, removeMin and getMin</a>
+        <a href="">Task 4: buildHeap</a>
       <!--
         <a href="#terms1">Some terminology</a>
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
@@ -188,6 +189,24 @@
         </div>
           
       </div>
+
+      <div class="task4" id="task4">
+            <h2>Task 4: buildHeap</h2>
+        
+            <p>Returning to our example of the network buffer, consider the following scenario: as a network router goes online, it receives a vector of already buffered packets, stored in some order of sequence numbers, which need to be added to a heap. One way to do this would be to insert the \( N \) elements in the vector into the heap one at a time, which will take \( \approx c \times N \times \log_2 N \) time, where \( c &gt; 0 \) is a constant. However, this can be accomplished in only \( \approx d \times N \) time, where \( d &gt; 0 \) is a constant, by repeatedly applying the <code>heapifyDown</code> method, starting from the node at position \( N/2 \) and proceeding all the way to the node at the root.</p>
+        
+            <p>Intuitively: since the cost of <code>heapifyDown</code> depends on the height of the node where it is called, and since most nodes in a binary tree are at lower heights (much less than \( \log_2 N \)), the overall time of \( N/2 \) calls to <code>heapifyDown</code> turns out to be approximately \( N \) rather than \( N \log_2 N \). You might need to consult an algorithms book for a detailed mathematical analysis of the running time.</p>
+        
+            <p>Before implementing the function, try the method on a random set of values to convince yourself that it works.</p>
+        
+            <p>Following is the prototype of the method you need to implement. Test the method in the main.</p>
+
+            <div class="code-container" data-filename="./cpp/binh4.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
+                </code></pre>
+            </div>
+      </div>
+
 
 
         <!-- Prism.js JavaScript -->
