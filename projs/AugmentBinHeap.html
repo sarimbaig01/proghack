@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binary Min-Heap</title>
+    <title>Augment Binary Min-Heap</title>
     <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -13,7 +13,7 @@
 <body>
     <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
-    <div class="toc">
+    <!--<div class="toc">
         <h2>Contents</h2>
       
         <a href="#intro">Introduction</a>
@@ -22,192 +22,40 @@
         <a href="#task2">Task 2: heapifyDown and heapifyUp</a>
         <a href="#task3">Task 3: insert, removeMin and getMin</a>
         <a href="#task4">Task 4: buildHeap</a>
-      <!--
+      
         <a href="#terms1">Some terminology</a>
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
         <a href="#terms2">Further terminology</a>
         <a href="#task2">Task 2: Implement heuristics</a>
         <a href="#heuristic1" class="sub-item">Minimum remaining values heuristic (MRV)</a>
         <a href="#heuristic1" class="sub-item">Least constrained value heuristic (LCV)</a>
-      -->
-    </div>
+     
+    </div> -->
 
 
     <div class="statement">
         <h1>Binary Min-Heap</h1>
       <section class="statement">
 
-          <div class="intro" id="intro">
-            <h2>Introduction</h2>
-              
-            <p>Imagine a network host receiving packets at hundreds of thousands per second. Due to the nature of network communication, some packets might be delivered out of order. We know that the out-of-order packets are only within a span of <code>N</code> consecutive sequence numbers. The host needs to maintain a buffer of the last <code>N</code> received packets and retrieve packets from the buffer based on the sequence number (smallest sequence number first to ensure ordered delivery). The buffer should provide the ability to find and remove the packet with the smallest sequence number efficiently, specifically, in around \(\log_2 N\) (or simply <code>lgN</code>) operations. This problem presents an ideal application for a data structure known as a <strong>binary Min-Heap</strong>.</p>
+        <div class="intro" id="intro">
+          <p>HeapifyUp, heapifyDown, insert, removeMin, and getMin are the standard methods belonging to the Heap Abstract Data Type (ADT). An Abstract Data Type (ADT) is a model for a certain data structure that specifies the type of data it can hold, along with the operations that can be performed on it, without specifying how these operations will be implemented.</p>
 
-            <p>Physically, a binary heap is stored as a vector; however, it is interpreted as a tree. The index numbers of the vector elements are mapped to the nodes of the logical tree. Typically, in theory, the vector is assumed to begin from index 1; however, in practical implementations, index 0 might be considered the first element. In our description here, we will follow the convention of considering the element at index 1 as the root of the tree. The situation is depicted in Figure 1 below.</p>
+            <p>However, there are several other functionalities that can be added to a Binary Min-Heap, which can prove to be useful for other algorithms, such as those used for sorting, shortest path finding, and scheduling, to name a few areas. Four of the most commonly used additional functionalities that can augment heap functionality are as follows:</p>
             
-            <div class="img-container">
-                <figure>
-                  <img src="./img/BinaryHeap1.png" width="500" height="400">
-                  <figcaption>Figure 1: The tree interpretation of a binary Min-Heap. This tree corresponds to the vector: <strong>[4, 4, 6, 11, 8, 6, 11, 13, 12, 20, 9]</strong>. Below each node is the index of the value in that node in the corresponding vector. In this picture we have shown indices as beginning from 1. This is a convention followed in theoretical descriptions of binary heaps. In our implementation the indices will start from 0 (as the root). (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
-                </figure>
-            </div>
+            <ul>
+                <li><strong>Update Key</strong>: Changes the value of a specific heap node, either increasing or decreasing it, and restores the heap property. This is useful for dynamically updating priorities in various algorithms. The updateKey operation should take time logarithmic in the size of the input, \( N \).</li>
+                <li><strong>Merge (Union) Heaps</strong>: Combines two heaps into one while maintaining the heap property. Useful in applications that require merging of priority queues. The union operation should take time linear in \( N \).</li>
+                <li><strong>Delete</strong>: Removes any specific element from the heap and restores the heap property. Useful for dynamically managing tasks in scheduling. The delete operation should take time logarithmic in the size of the input, \( N \).</li>
+                <li><strong>heapSort</strong>: Sorts any given vector with random values by building a heap and repeatedly removing the minimum element. Useful for sorting data efficiently. The heapSort operation might take time proportional to \( N \log N \).</li>
+            </ul>
+            
+            <p>Following are the required prototypes of these functions followed by a main program to be used for testing the functions.</p>
 
-            <p>The structure of the tree is encoded in three simple relationships, given below. For a given node \( i \), its left child is found at \( 2i \), the right child at \( 2i + 1 \), and the parent of \( i \) is found at \( \frac{i}{2} \).</p>
-                <p>
-                    \[
-                    \text{Left child of } i: \quad 2i
-                    \]
-                    \[
-                    \text{Right child of } i: \quad 2i + 1
-                    \]
-                    \[
-                    \text{Parent of } i: \quad \frac{i}{2}
-                    \]
-                </p>
-            <p>The type of tree shown in Figure 1 is called a complete tree. This is a tree in which all levels, except possibly the last level, are full (i.e., they are not missing any nodes). The last level may not be full; however, the nodes in it must be aligned to the left, meaning there are no gaps between nodes.</p>
-
-          
-          <div class="math1" id="math1">
-            <fieldset>
-                <legend>Height of a complete binary tree</legend>
-                <p>A perfect binary tree is a complete binary tree whose last level is full. The number of nodes \( N \) of a complete binary tree of height \( h \) (assuming \( h \geq 1 \)) can be bounded by the number of nodes in a perfect binary tree of height \( h-1 \) as follows:</p>
-                    <p>
-                        \[
-                        2^0 + 2^1 + \ldots + 2^{h-1} < N
-                        \]
-                    </p>
-                    
-                    <p>
-                        \[
-                        \implies 2^h - 1 < N
-                        \]
-                    </p>
-                    
-                    <p>
-                        \[
-                        \implies h < \log_2(N + 1)
-                        \]
-                    </p>
-                <p>Hence, for a binary heap with \( N \) elements, the height of the heap tree is no more than \( \log_2(N + 1) \).</p>
-                <p>This implies that any heap operation that traverses a path in the tree has a time complexity proportional to \( \log_2(N) \).</p>
-            </fieldset>
-        </div>
-
-        <div class="intro2" id="intro2">
-            <h3>The shape and order properties</h3>
-            <p>A binary heap is required to maintain two properties at all times:</p>
-            <p><ul>
-                <li><strong>Shape property:</strong> The heap must always be a complete binary tree.</li>
-                <li><strong>Order property:</strong> For any node \( i \), the value at \( i \) must be less than or equal to the values in its child nodes (if they exist), i.e., the nodes at \( 2i \) and \( 2i + 1 \). There is no order constraint among sibling nodes, however.</li>
-            </ul></p>          
-        </div>
-
-        <div class="task1" id="task1">
-            <h2>Task 1: Print the heap tree</h2>
-            <p>As we implement a binary heap, it will be useful to be able to view the data in the vector as the logical heap tree. We need to write a function called <code>printHeap</code> to do this for us. The function has a simple prototype shown below. Use the provided main to test your implementation.</p>
-            <div class="code-container" data-filename="./cpp/binh1.cpp">
+             <pre><div class="code-container" data-filename="./cpp/binh4.cpp">
                 <pre><code class="language-cpp" id="cpp-code1">
-                </code></pre>
-            </div>  
-            <p>Provide a full implementation for this function. The function should be able to print the heap in a format that, even though not completely tree-like, makes it easier to read the tree structure.</p>
-            <p>For example, for the vector: <strong> [4, 4, 6, 11, 8, 6, 11, 13, 12, 20, 9, 6, 19, 13] </strong>, the tree could be printed as:</p>
-            <p><strong>[4]<br>
-            [4,6]<br>
-            [11,8][6,11]<br>
-            [13,12][20,9][6,19][13]</strong></p>
-            <p>The function prints one level per line. It uses square brackets to enclose siblings at each level (single values appear within brackets when they have no siblings) and siblings are separated by commas. There are no spaces.</p>
+            </code></pre>
+            
         </div>
-
-        <div class="task2" id="task2">
-            <h2>Task 2: heapifyDown and heapifyUp</h2>
-            <p>One of the fundamental operations required to maintain a binary min-heap is called heapify. Its task may be described as follows:</p>
-            <p>Given a binary min heap, of valid shape, and the values of all but one node \( i \) in the correct place according to the order property, move the value at \( i \) to its correct place according to the order property, while maintaining the shape of the heap.</p>
-            <p>In the context of heapify, the value at \( i \) may violate the order property in one of two possible ways: (1) the value at \( i \) is greater than the value of a child of \( i \), or (2) the value at \( i \) is smaller than its parent.</p>
-            <p>The method used to resolve (1) is called heapify down, and the method to resolve (2) is heapify up. Our task in this section is to write the functions <code>heapifyDown</code> and <code>heapifyUp</code> , prototypes shown below.</p> 
-       
-
-            <div class="heapifyDown" id="heapifyDown">
-                <h3>heapifyDown</h3>
-                <p>Figure 2 below shows the action of heapifyDown. We begin with a properly shaped heap in which one node, at the root in this case, contains a value that is greater than a child's value (both children's values in this case). The algorithm proceeds by moving this value down the heap, one level at a time, using the following rules:</p>
-                <p><strong>Case 1:</strong> If the node at \( i \) has only one child \( j \), and the value at \( i \) is greater than the value at \( j \): swap the value at \( i \) with the value at \( j \). Set \( i \) to \( j \) and repeat.</p>
-                <p><strong>Case 2:</strong> If the node at \( i \) has two children \( j \) and \( k \), and the value at \( j \) is less than or equal to the value at \( k \) and less than the value at \( i \): swap the value at \( i \) with the value at \( j \). Set \( i \) to \( j \) and repeat.</p>
-                <p><strong>Case 3:</strong> If \( i \) has no children, or the value at \( i \) is less than or equal to the values at the children, STOP.</p>
-                <div class="img-container">
-                        <figure>
-                            <img src="./img/BinaryHeap2.png" width="800" height="600">
-                            <figcaption>Figure 2: Shows heapifyDown in action. Starting with an invalid value at the root, namely 26, it is moved down the heap using the algorithm described in this section. (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
-                        </figure>
-                </div>
-            </div>
-            
-             <div class="heapifyUp" id="heapifyUp">
-                <h3>heapifyUp</h3>
-                <p>For heapifyUp, only two cases suffice:</p>
-            
-                <p><strong>Case 1:</strong> If the node at \( i \) has a parent \( p \) and the value at \( i \) is less than the value at \( p \), swap the values at \( i \) and \( p \). Set \( i \) to \( p \) and repeat.</p>
-            
-                <p><strong>Case 2:</strong> If node \( i \) has no parent or the value at \( i \) is greater than or equal to the value at the parent, STOP.</p>
-            
-                <p>The action of heapifyUp is shown below in Figure 3.</p>
-            
-                <div class="img-container">
-                    <figure>
-                        <img src="./img/BinaryHeap3.png" width="800" height="600">
-                        <figcaption>Figure 3: Shows heapifyUp in action. In this case the value 1 violates the order property. The heapifyUp algorithm proceeds to move it up the tree until (in this case) it reaches the root. (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
-                    </figure>
-                </div>
-             </div>
-
-            <p>Note that both <code>heapifyUp</code> and <code>heapifyDown</code> traverse a path in the tree, and therefore take time that is logarithmic to the number of elements in the heap.</p>
-
-            <p>Prototypes of <code>heapifyDown</code> and <code>heapifyUp</code> are given below. The comments explain what the parameters mean. Implement the two functions and test them in the main.</p>
-
-            <div class="code-container" data-filename="./cpp/binh2.cpp">
-                <pre><code class="language-cpp" id="cpp-code1">
-                </code></pre>
-            </div>  
-        </div> 
-     </div>
-      
-      <div class="task3" id="task3">
-        <h2>Task 3: insert, removeMin, and getMin</h2>
-        <p>We should be able to insert new elements into the heap, remove the minimum element from the heap, and get the minimum element. Given the way the heap is designed, the last task is quite simple: simply return the value at the root.</p>
-
-        <p><strong>For insert</strong>, the following algorithm suffices:</p>
-        <p>Push back the new element to the end of the vector (making it the rightmost node in the last level of the tree).  
-        Then, call the <code>heapifyUp</code> function on the newly added node.</p>
-        
-        <p><strong>For removeMin</strong>, the strategy is also simple. We note that the minimum element is at the root of the tree. We use the following algorithm:</p>
-        <p>Swap the value at the root with the value in the rightmost node in the last level (i.e., the value at index (size - 1) of the vector).  
-        Next, pop back the last element from the vector.  
-        Then, call <code>heapifyDown</code> on the root node.</p>
-        
-        <p>The prototypes of <code>insert</code>, <code>removeMin</code>, and <code>getMin</code> are given below. Implement these functions and test them in the main. It should be obvious that these functions also take time that is logarithmic in the number of elements in the heap.</p>    
-
-        <div class="code-container" data-filename="./cpp/binh3.cpp">
-                <pre><code class="language-cpp" id="cpp-code1">
-                </code></pre>
-        </div>
-          
-      </div>
-
-      <div class="task4" id="task4">
-            <h2>Task 4: buildHeap</h2>
-        
-            <p>Returning to our example of the network buffer, consider the following scenario: as a network router goes online, it receives a vector of already buffered packets, stored in some order of sequence numbers, which need to be added to a heap. One way to do this would be to insert the \( N \) elements in the vector into the heap one at a time, which will take \( \approx c \times N \times \log_2 N \) time, where \( c &gt; 0 \) is a constant. However, this can be accomplished in only \( \approx d \times N \) time, where \( d &gt; 0 \) is a constant, by repeatedly applying the <code>heapifyDown</code> method, starting from the node at position \( N/2 \) and proceeding all the way to the node at the root.</p>
-        
-            <p>Intuitively: since the cost of <code>heapifyDown</code> depends on the height of the node where it is called, and since most nodes in a binary tree are at lower heights (much less than \( \log_2 N \)), the overall time of \( N/2 \) calls to <code>heapifyDown</code> turns out to be approximately \( N \) rather than \( N \log_2 N \). You might need to consult an algorithms book for a detailed mathematical analysis of the running time.</p>
-        
-            <p>Before implementing the function, try the method on a random set of values to convince yourself that it works.</p>
-        
-            <p>Following is the prototype of the method you need to implement. Test the method in the main.</p>
-
-            <div class="code-container" data-filename="./cpp/binh4.cpp">
-                <pre><code class="language-cpp" id="cpp-code1">
-                </code></pre>
-            </div>
-      </div>
-
-
 
         <!-- Prism.js JavaScript -->
         <script src="../prism.js"></script> <!-- Adjust the path as needed -->
