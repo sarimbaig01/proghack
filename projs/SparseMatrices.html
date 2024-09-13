@@ -33,7 +33,7 @@
       <h1>Sparse Matrices</h1>
       <section class="statement">
           <div class="intro" id="intro">
-            <h2> Sparse Matrices </h2>
+            <h2>Introduction</h2>
               <p>A sparse matrix is a matrix in which most of the elements are zero, similar to how sparse polynomials contain mostly zero coefficients. Sparse matrices arise frequently in scientific computing, engineering, and data science, where large datasets or systems are represented with many zero values. For example, a sparse matrix could be a large system of linear equations where only a small portion of the equations have non-zero coefficients. Instead of storing all the zero elements, we can store only the non-zero values and their positions, leading to significant memory savings.</p>
               
               <p>A more space-efficient way to store sparse matrices is by using a linked list. In this approach, each node in the linked list stores the row index, column index, and the non-zero value of the matrix. For example, consider the following 5x5 sparse matrix:</p>
