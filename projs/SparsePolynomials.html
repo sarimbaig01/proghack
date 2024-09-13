@@ -17,11 +17,7 @@
         <h2>Contents</h2>
       
         <a href="#intro">Introduction</a>
-        <a href="#math1">Height of a complete binary tree</a>
-        <a href="#task1">Task 1: Print the heap tree</a>
-        <a href="#task2">Task 2: heapifyDown and heapifyUp</a>
-        <a href="#task3">Task 3: insert, removeMin and getMin</a>
-        <a href="#task4">Task 4: buildHeap</a>
+        <a href="#impl">Implementation</a>
       <!--
         <a href="#terms1">Some terminology</a>
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
@@ -38,9 +34,13 @@
       <section class="statement">
           <div class="intro" id="intro">
             <h2>Introduction</h2>
-             
-            <p>todo...</p>
-            <!--<div class="img-container">
+            <p>A sparse polynomial is a polynomial in which most of the coefficients are zero, with only a few non-zero terms. For example, the polynomial \( 5x^8 + 3x^2 + 7 \) is sparse because it has only three non-zero terms, while the remaining coefficients are zero. Another example is \( 4x^{100} + 6x^5 + 2 \), where the highest power is much larger, but the number of non-zero terms remains small.</p>
+            <p>For non-sparse polynomials, a vector is a suitable data structure to store coefficients, with the index numbers corresponding to the powers of \(x\). For example, the polynomial \(3x^3 + 2x^2 + x + 4\) can be stored as \([4, 1, 2, 3]\), where the value at each index represents the coefficient of the corresponding power of \(x\). The advantage of using a vector is that it allows direct access to any coefficient in constant time, making operations like evaluation or differentiation straightforward and efficient. However, since most coefficients in sparse polynomials are zero, storing all terms in a vector would be wasteful in terms of memory. A more space-efficient approach is to store only the non-zero coefficients. A suitable data structure for this scenario is a linked list, where each node stores a non-zero coefficient and its corresponding power of \(x\), allowing memory to be used only for meaningful terms.</p>
+          </div>
+
+          <div class="impl" id="impl">
+
+              <!--<div class="img-container">
                 <figure>
                   <img src="./img/BinaryHeap1.png" width="500" height="400">
                   <figcaption>Figure 1: The tree interpretation of a binary Min-Heap. This tree corresponds to the vector: <strong>[4, 4, 6, 11, 8, 6, 11, 13, 12, 20, 9]</strong>. Below each node is the index of the value in that node in the corresponding vector. In this picture we have shown indices as beginning from 1. This is a convention followed in theoretical descriptions of binary heaps. In our implementation the indices will start from 0 (as the root). (Image created using yEd: https://www.yworks.com/products/yed/)</figcaption>
@@ -53,7 +53,7 @@
             </div>
               
               -->
-        </div>
+          </div>
 
 
         <!-- Prism.js JavaScript -->
