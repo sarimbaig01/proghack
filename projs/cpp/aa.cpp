@@ -38,7 +38,7 @@ int main() {
         std::cout << "Test case " << i + 1 << ": Expected = " 
                   << expectedOutputs[i] << ", Result = " << result << std::endl;
 
-        if (elapsed.count() > 5.0) {
+        if (elapsed.count() > 0.0001) {
             std::cout << "Implementation took longer than 5 seconds. Time: " 
                       << elapsed.count() << " seconds." << std::endl;
         } else {
