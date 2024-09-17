@@ -14,11 +14,11 @@
     <div class="statement">
         <h1>Partition</h1>
       <section class="statement">
-          <p>Partitioning data around an element is a common operation used in several fundamental algorithms in computer science. Given a vector of integers, A, of size N, and an index <em>p</em> between 0 and <em>N - 1</em>, partitioning involves rearranging the elements of A such that all elements with indices <em>i</em> where <em>0 ≤ i < N</em> are divided into two groups: those less than or equal to <em>A[p]</em> (the pivot) are placed on one side, and those greater than <em>A[p]</em> are placed on the other side. The element <em>A[p]</em> is referred to as the pivot.</p>
+          <p>Partitioning data around an element is a common operation used in several fundamental algorithms in computer science. Given a vector of integers, A, of size N, and an index p between 0 and N - 1, partitioning involves rearranging the elements of A such that all elements with indices i where 0 &lte; i &lt; N are divided into two groups: those less than or equal to A[p] (the pivot) are placed on one side, and those greater than A[p] are placed on the other side. The element A[p] is referred to as the pivot.</p>
   
           <p><strong>Example:</strong></p>
           
-          <p>Let <em>A = [9, 3, 7, 6, 2, 8, 1, 4, 5, 10]</em> with pivot index <em>p = 2</em> (pivot = 7).</p>
+          <p>Let A = [9, 3, 7, 6, 2, 8, 1, 4, 5, 10] with pivot index p = 2 (pivot = 7).</p>
           
           <p><strong>Original:</strong><br><br>
           A = [9, 3, 7, 6, 2, 8, 1, 4, 5, 10]</p>
@@ -33,9 +33,9 @@
           
           <p>In all these cases, the elements less than or equal to the pivot (7) are on the left, while the elements greater than 7 are on the right, though their relative order differs.</p>
           
-          <p>The goal is often to partition the data <em>in place</em>. This means that the data is rearranged directly within the original structure, reducing memory overhead. By doing so, algorithms can be more efficient, especially when handling large datasets, as no extra space is required for a copy of the data.</p>
+          <p>The goal is often to partition the data in place. This means that the data is rearranged directly within the original structure, reducing memory overhead. By doing so, algorithms can be more efficient, especially when handling large datasets, as no extra space is required for a copy of the data.</p>
           
-          <p>Design a method that can partition a vector of integers around a given index. It is possible to do this while making a single pass of the vector, i.e. the total amount of work done is linear in <em>N</em>. The following code shows the prototype of the required function. Use the main to test your function.</p>
+          <p>Design a method that can partition a vector of integers around a given index. It is possible to do this while making a single pass of the vector, i.e. the total amount of work done is linear in N. The following code shows the prototype of the required function. Use the main to test your function.</p>
 
         <div class="code-container" data-filename="./cpp/partition.cpp">
             <pre><code class="language-cpp" id="cpp-code1">
