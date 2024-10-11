@@ -12,23 +12,25 @@
     <div class="statement">
     <h1> Problem 1.2 Cumulative Temperatures </h1>
         <section class="statement">
-            <p>As a data analyst for an environmental research company, you need to identify periods of extreme temperature fluctuations from sensor data collected over time. Your task is to find the contiguous stretch of recorded temperature values that has the highest cumulative temperature. The data includes both positive and negative values, indicating periods of warming and cooling. By identifying the stretch with the maximum sum, you can pinpoint the most significant period of temperature change for further analysis.</p>
+            <p>As a data analyst for an environmental research company, you need to identify periods of high temperatures from sensor data collected over time. Your task is to find the contiguous stretch of recorded temperature values that has the highest cumulative temperature. The data includes both positive and negative values, indicating hot and cold tempteratures respectively. By identifying the period with the maximum sum overall, you are interested in highlighting stretches of warm weather for further analysis of temperature fluctuations.</p>
 
-            <p>Given a sequence of temperature readings, determine the start and end indexes of the contiguous subsequence that yields the maximum sum, along with the maximum cumulative value itself.</p>
+            <p>The problem, then, is this: Given a sequence of temperature readings, determine the start and end indexes (which correspond to times) of the contiguous subsequence that yields the maximum sum, along with the maximum cumulative value itself.</p>
             
-            <h3>Examples:</h3>
+            <h3>Examples inputs and outputs:</h3>
+
+            Some example inputs and their corresponding outputs are shown below, first in textual and then visual format.
             
             <ul>
                 <li>
                     <p><strong>Input:</strong> temperatures = [2, -4, 3, -1, 5, -2, 7, -3]</p>
-                    <p><strong>Output:</strong> start_index = 2</code>, <code>end_index = 6, max_sum = 12</p>
-                    <p><strong>Explanation:</strong> The contiguous stretch with the maximum sum is [3, -1, 5, -2, 7], starting at index 2 and ending at index 6. Hence, the maximum cumulative value is 12.</p>
+                    <p><strong>Output:</strong> start index = 2, end index = 6, cumulative temperature = 12</p>
+                    <p><strong>Explanation:</strong> The period with the maximum cumulative sum is [3, -1, 5, -2, 7], starting at index 2 and ending at index 6. Hence, the maximum cumulative value is 12.</p>
                 </li>
 
                 <li>
-                    <p><strong>Input:</strong> temperatures = [4, -1, 2, -5, 3, 7, -2, 4, -3, 6, -1, 2, -7, 8, 4, -3, 5, -6, 3, 1, -2, 5, 6, -4, 7]</p>
-                    <p><strong>Output:</strong> start_index = 8, end_index = 18, max_sum = 18</p>
-                    <p><strong>Explanation:</strong> The contiguous stretch with the maximum sum is [3, -1, 5, -2, 7], starting at index 2 and ending at index 6. Hence, the maximum cumulative value is 12.</p>
+                    <p><strong>Input:</strong> temperatures = [4, -1, 2, -5, 3, 7, -2, 4, -3, 6, -1, 2, -7, 8, 4, -3, 5, -6, 3, 1, -2, 5, 6, -4, 7, -20, 10]</p>
+                    <p><strong>Output:</strong> start index = 4, end index = 24, max sum = 33</p>
+                    <p><strong>Explanation:</strong> The period with the maximum cumulative sum is [3, -1, 5, -2, 7], starting at index 8 and ending at index 18. Hence, the maximum cumulative value is 12.</p>
                 </li>
             </ul>
 
