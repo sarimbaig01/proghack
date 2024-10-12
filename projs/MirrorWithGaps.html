@@ -17,37 +17,30 @@
     <div class="statement">
     <h1> Problem 1.1 Mirror with Gaps </h1>
         <section class="statement">
-            <p>Consider a list of integer values representing an image (usually this would be a two-deimensional grid but for this problem we consider only one dimension). The image is to be reflected by a peculiar kind of mirror: some parts of the mirror are frozen, i.e, these parts are not mirrored but are frozen in their places. This means that when the image is mirrored, all elements in the list are reversed in order except the elements at the positions corresponding to the frozen parts, which act like gaps to the reversal process and retain their original places.</p>
+            <p>Consider a list of integer values representing an image (usually this would be a two-deimensional grid but for this problem we consider only one dimension). The image is to be reflected by a peculiar kind of mirror: some parts of the mirror are frozen, i.e, these parts are not reversed but are frozen in their places. This means that when the image is mirrored, all elements in the list are reversed in order except the elements at the positions corresponding to the frozen parts. The reversal of elements happens around the frozen indices.</p>
             <p>An additional challenge is that to achieve this peculiar mirrored effect, you should reverse the contents of the list in-place, i.e., not using a second list in the process. The frozen indices are provided separately in the input.</p>
 
             <h3>Examples of inputs and outputs:</h3>
 
-            <p> Two example inputs and their corresponding outputs are shown below. </p>
+            <p> Two example inputs and their corresponding outputs are shown below.</p>
 
-            <h4>Example 1: </h4>  
             <p><strong>Input:</strong> image = [5, 3, 2, 6, 4, 0, 11, 9, -7, 13], frozen indices = [0, 2, 4, 6]</p>
             <p><strong>Output:</strong> [<span style="color: red;">5</span>, 13, <span style="color: red;">2</span>, -7, <span style="color: red;">4</span>, 9, <span style="color: red;">11</span>, 0, 6, 3]</p>
             <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in red here) have been reversed in order.</p>
 
-            <p>Following is a visual representation of the same example:</p>
+            <p>Following is a visual representation of the example:</p>
             <div class="single-image-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
-                        <img src="./img/MirrorWithGaps.png" width="500" height="350"/>
-                        <figcaption>Figure 1: he frozen elements (in blue) retain their positions while the rest of the elements are reversed.</figcaption>
+                        <img src="./img/MirrorWithGaps.png" width="480" height="300"/>
+                        <figcaption>Figure 1: Elements at the frozen indices (shown in red) retain their positions, while the rest of the elements are reversed around them.</figcaption>
                     </figure>
              </div>
 
-            <h4>Example 2:</h4>  
+            <p>Here is a second example:</p>  
             <p><strong>Input:</strong> image = [7, 14, 2, 8, -1, 5, 0, 3, 9, -4, 12, 6]</p>, frozen indices = [1, 3, 5, 7, 10]</p>
             <p><strong>Output:</strong> [6, <span style="color: red;">14</span>, -4, <span style="color: red;">8</span>, 9, <span style="color: red;">5</span>, 3, <span style="color: red;">3</span>, 0, 2, <span style="color: red;">12</span>, 7]</p>
             <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in red here) have been reversed in order.</p>
        
-
-             
-            
-            
-     
-             
             <h3>Python code</h3>
             <p>Implement the following function stub: </p>
             <div class="code-container" data-filename="./py/fmirror1.py">
@@ -60,9 +53,7 @@
                 <pre><code class="language-python" id="py-code">
                 </code></pre>
             </div>
-            
-            <!--<p><code>void mirrorImage(std::vector&lt;int&gt;& image, const std::vector&lt;int&gt;& frozenIndices);</code></p>-->
-    
+        
         </section>
       </div>
 </body>
