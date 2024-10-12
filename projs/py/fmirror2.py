@@ -15,7 +15,7 @@ def main():
     image = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     frozen_indices = [0, 4, 9]
     reverse_with_frozen_indices(image, frozen_indices)
-    print("Test case 3 - Expected: [1, 10, 8, 7, 5, 3, 2, 4, 6, 9], Output:", image)
+    print("Test case 3 - Expected: [1, 9, 8, 7, 5, 6, 4, 3, 2, 10], Output:", image)
     
     # Test case 4
     image = [15, -10, 30, -20, 25, -5, 40, -30, 50, -40]
