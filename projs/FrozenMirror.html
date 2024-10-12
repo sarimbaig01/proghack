@@ -12,8 +12,8 @@
     <div class="statement">
     <h1> Problem 1.1 Mirror with Gaps </h1>
         <section class="statement">
-            <p>Consider list of integer values representing an image (usually this would be a two-deimensional grid, but for this problem we consider only one dimension). The image is to be reflected by a peculiar kind of mirror: some parts of the mirror are frozen, i.e, these parts are not mirrored but retain their place. When the image is mirrored, all elements in the list are reversed except the elements at the positions corresponding to the frozen parts of the mirror, which retain their original places and are not reversed.</p>
-            <p>To achieve this peculiar mirrored effect, you need to reverse the contents of the list (the original list in-place, i.e., not using another list in the process) while keeping the elements at the frozen indices unchanged. The frozen indices are provided separately in the input.</p>
+            <p>Consider a list of integer values representing an image (usually this would be a two-deimensional grid but for this problem we consider only one dimension). The image is to be reflected by a peculiar kind of mirror: some parts of the mirror are frozen, i.e, these parts are not mirrored but are frozen in their places. This means that when the image is mirrored, all elements in the list are reversed in order except the elements at the positions corresponding to the frozen parts, which act like gaps to the reversal process and retain their original places.</p>
+            <p>An additional challenge is that to achieve this peculiar mirrored effect, you should reverse the contents of the list in-place, i.e., not using a second list in the process. The frozen indices are provided separately in the input.</p>
 
             <h3>Examples of inputs and outputs:</h3>
 
@@ -26,6 +26,15 @@
                     <p><strong>Output:</strong> [5, 13, <span style="color: blue;">2</span>, -7, <span style="color: blue;">4</span>, 9, <span style="color: blue;">11</span>, 0, 6, 3]</p>
                     <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in blue here) have been reversed in order.</p>
                 </li>
+
+                <li>
+                    <p><strong>Input:</strong> image = [7, 14, 2, 8, -1, 5, 0, 3, 9, -4, 12, 6]</p>
+                    <p>frozen indices = [1, 3, 5, 7, 10]</p>
+                    <p><strong>Output:</strong> [6, <span style="color: blue;">14</span>, -4, <span style="color: blue;">8</span>, 9, <span style="color: blue;">5</span>, 3, <span style="color: blue;">3</span>, 0, 2, <span style="color: blue;">12</span>, 7]</p>
+                    <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in blue here) have been reversed in order.</p>
+                </li>
+            </ul>
+
             </ul>
              
             <p>Below is a visual representation of the input and output transformation:</p>
