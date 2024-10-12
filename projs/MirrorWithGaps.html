@@ -22,28 +22,32 @@
 
             <h3>Examples of inputs and outputs:</h3>
 
-            Some example inputs and their corresponding outputs are shown below.
-            
-            <ul>
-                <li>
-                    <p><strong>Input:</strong> image = [5, 3, 2, 6, 4, 0, 11, 9, -7, 13], frozen indices = [0, 2, 4, 6]</p>
-                    <p><strong>Output:</strong> [<span style="color: red;">5</span>, 13, <span style="color: red;">2</span>, -7, <span style="color: red;">4</span>, 9, <span style="color: red;">11</span>, 0, 6, 3]</p>
-                    <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in red here) have been reversed in order.</p>
-                </li>
+            <p> Two example inputs and their corresponding outputs are shown below. </p>
 
-                <li>
-                    <p><strong>Input:</strong> image = [7, 14, 2, 8, -1, 5, 0, 3, 9, -4, 12, 6]</p>, frozen indices = [1, 3, 5, 7, 10]</p>
-                    <p><strong>Output:</strong> [6, <span style="color: red;">14</span>, -4, <span style="color: red;">8</span>, 9, <span style="color: red;">5</span>, 3, <span style="color: red;">3</span>, 0, 2, <span style="color: red;">12</span>, 7]</p>
-                    <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in red here) have been reversed in order.</p>
-                </li>
-            </ul>
+            <h4>Example 1: </h4>  
+            <p><strong>Input:</strong> image = [5, 3, 2, 6, 4, 0, 11, 9, -7, 13], frozen indices = [0, 2, 4, 6]</p>
+            <p><strong>Output:</strong> [<span style="color: red;">5</span>, 13, <span style="color: red;">2</span>, -7, <span style="color: red;">4</span>, 9, <span style="color: red;">11</span>, 0, 6, 3]</p>
+            <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in red here) have been reversed in order.</p>
+
+            <p>Following is a visual representation of the same example:</p>
+            <div class="single-image-container">
+                    <figure style="display: inline-block; margin: 10px; text-align: center;">
+                        <img src="./img/FrozenMirror1.png" width="400" height="150"/>
+                        <figcaption>Figure 1: he frozen elements (in blue) retain their positions while the rest of the elements are reversed.</figcaption>
+                    </figure>
+             </div>
+
+            <h4>Example 2:</h4>  
+            <p><strong>Input:</strong> image = [7, 14, 2, 8, -1, 5, 0, 3, 9, -4, 12, 6]</p>, frozen indices = [1, 3, 5, 7, 10]</p>
+            <p><strong>Output:</strong> [6, <span style="color: red;">14</span>, -4, <span style="color: red;">8</span>, 9, <span style="color: red;">5</span>, 3, <span style="color: red;">3</span>, 0, 2, <span style="color: red;">12</span>, 7]</p>
+            <p><strong>Explanation:</strong> All elements except the ones appearing on frozen indices (shown in red here) have been reversed in order.</p>
+       
 
              
-            <p>Following is a visual representation of the first example above:</p>
-            <img src="./img/FrozenMirror1.png" width="650" height="180">
-            <p>In the visual, the frozen elements (in red) retain their positions while the rest of the elements are reversed.</p>
-    
             
+            
+     
+             
             <h3>Python code</h3>
             <p>Implement the following function stub: </p>
             <div class="code-container" data-filename="./py/fmirror1.py">
