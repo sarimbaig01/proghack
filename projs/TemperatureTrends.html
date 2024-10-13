@@ -19,10 +19,10 @@
         <section class="statement">
            <p>As a data analyst for an environmental research company, you need to identify periods of sustained temperature increase from sensor data collected over time. This time, however, the focus is on detecting the longest periods of increasing temperatures—not necessarily contiguous readings—where each reading is higher than the previous one. These periods represent sustained warming trends, capturing general patterns that persist even amidst daily fluctuations (which could include noise). By identifying these stretches of increase, researchers can gain insights into prolonged warming phases that may not be evident when only considering cumulative sums of temperature values (as sums could turn out to be high due to outliers, for example).</p>
 
-            <p>Your task is to determine the longest, not necessarily contiguous, sequence of increasing temperature readings in the data. This sequence will help prioritize periods of sustained warming, allowing for better monitoring of environmental changes over time.</p>
+            <p>Your task is to determine the longest, not necessarily contiguous, sequence of increasing temperature readings in the data. This sequence will help detect periods of sustained warming, and will be particularly useful for longer inputs.</p>
 
             <h3>A Visual Example</h3>
-            <p>The plots below show three different longest sequences of rising tempteratures detected from the same input. A longer rising trend is not present in the input. In our task we interest only the length of this sequence, or trend, which is 10.</p>
+            <p>The plots below show three different longest sequences of rising tempteratures detected from the same input. A longer rising trend is not present in the input. <strong>In our task we interested only in finding the length of this longest sequence, or trend, which in this case is 10.</p>
             <div class="multi-image-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
                         <img src="./img/TempTrends1.png" width="300" height="300"/>
