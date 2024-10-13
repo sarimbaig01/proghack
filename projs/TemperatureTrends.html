@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 1.3 Temperature Trends</title>
+    <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
+    <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+    <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+    <h1> Problem 1.3 Temperature Trends </h1>
+        <section class="statement">
+            <p>As a data analyst for an environmental research company, you need to identify periods of high temperatures from sensor data collected over time. Your task is to find the contiguous stretch of recorded temperature values that has the highest cumulative temperature. The data includes both positive and negative values, indicating hot and cold tempteratures respectively. By identifying the period with the maximum sum overall, you will be highlighting a stretch of overall warm weather for further analysis of temperature fluctuations.</p>
+
+            <p>The problem, then, is this: Given a sequence of temperature readings, determine the start and end indices (which represent start and end time values) of the period that yields the maximum cumulative termperature, as well as report the maximum cumulative value itself.</p>
+            
+            <h3>Examples of inputs and outputs:</h3>
+
+            Some example inputs and their corresponding outputs are shown below, first in textual and then visual format.
+            
+            <ul>
+                <li>
+                    <p><strong>Input:</strong> temperatures = [2, -4, 3, -1, 5, -2, 7, -3]</p>
+                    <p><strong>Output:</strong> start index = 2, end index = 6, cumulative temperature = 12</p>
+                    <p><strong>Explanation:</strong> The period with the maximum cumulative sum is [3, -1, 5, -2, 7], starting at index 2 and ending at index 6. Hence, the maximum cumulative value is 12.</p>
+                </li>
+
+                <li>
+                    <p><strong>Input:</strong> temperatures = [4, -1, 2, -5, 3, 7, -2, 4, -3, 6, -1, 2, -7, 8, 4, -3, 5, -6, 3, 1, -2, 5, 6, -4, 7, -20, 10]</p>
+                    <p><strong>Output:</strong> start index = 4, end index = 24, cumulative temperature= 33</p>
+                    <p><strong>Explanation:</strong> The period with the maximum cumulative sum is [3, 7, -2, 4, -3, 6, -1, 2, -7, 8, 4, -3, 5, -6, 3, 1, -2, 5, 6, -4, 7], starting at index 4 and ending at index 24. Hence, the maximum cumulative value is 33.</p>
+                </li>
+            </ul>
+
+            <p>Fiigure 1 below shows the maximum culmulative tempertature segments for the above examples in red</p>
+
+            <div class="multi-image-container">
+                    <figure style="display: inline-block; margin: 10px; text-align: center;">
+                        <img src="./img/CumulativeTemperature1.png" width="300" height="300"/>
+                        <img src="./img/CumulativeTemperature2.png" width="300" height="300"/>
+                        <figcaption>Figure 1: Visual representation of max cumulative temperature segments (in red). As you can see, the max cummulative segments can contain negative values.</figcaption>
+                    </figure>
+            </div>
+
+            <h3>Python code</h3>
+            <p>Implement the following function stub: </p>
+            <div class="code-container" data-filename="./py/cumutemp1.py">
+                <pre><code class="language-python" id="py-code">
+                </code></pre>
+            </div>
+
+            <p>Use the following main to test your function: </p>
+            <div class="code-container" data-filename="./py/cumutemp2.py">
+                <pre><code class="language-python" id="py-code">
+                </code></pre>
+            </div>
+    
+        </section>
+      </div>
+</body>
+</html>
