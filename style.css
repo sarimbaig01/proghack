@@ -249,6 +249,12 @@ figcaption {
 }
 */
 
+
+.indented-paragraph {
+    text-indent: 30px;
+}
+
+
 figure {
     display: flex;
     flex-direction: column; /* Arrange content vertically */
