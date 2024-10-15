@@ -18,12 +18,12 @@
     <h1> Problem 1.3 Temperature Trends </h1>
         <section class="statement">
            
-            <p>As a data analyst for an environmental research company, you need to identify periods of sustained temperature increase from sensor data collected over time. This time, however, the focus is on detecting the longest periods of increasing temperatures—not necessarily contiguous readings—where each reading is higher than the previous one. These periods represent sustained warming trends, capturing general patterns that persist even amidst daily fluctuations (which could include noise). By identifying these stretches of increase, researchers can gain insights into prolonged warming phases that may not be evident when only considering cumulative sums of temperature values (as sums could turn out to be high due to outliers, for example).</p>
+            <p>As a data analyst for an environmental research company, you need to identify periods of sustained temperature increase from sensor data collected over time. This time, however, the focus is on detecting the longest trends of increasing temperatures. A trend is a sub-sequence of the input data, containing not necessarily contiguous readings, where each reading is higher than the previous one in the trend. A trend represents a sustained period of warming, capturing a general pattern that persists even amidst daily fluctuations (which could include noise). By identifying trends, researchers can gain insights into prolonged warming phases that may not be evident when only considering cumulative sums of temperature values (as sums could turn out to be high due to outliers, for example).</p>
 
-            <p>Your task is to determine the longest, not necessarily contiguous, sequence of increasing temperature readings in the data. This sequence will help detect periods of sustained warming, and will be particularly useful for longer inputs.</p>
+            <p>Your task is to determine the length of the longest, not necessarily contiguous, subsequence of increasing temperature readings from the data.</p>
 
             <h3>A Visual Example</h3>
-            <p>The plots below show three different longest sequences of rising tempteratures detected from the same input. A longer rising trend is not present in the input. <strong>In our task we are interested only in finding the length of this longest sequence, or trend, which in this case is 10.</strong></p>
+            <p>The plots below show three different longest sequences of rising tempteratures detected from the same input. A longer rising trend is not present in this input. <strong>In our task, we are interested only in finding the length of this longest sequence, or trend, which in this case is 10.</strong></p>
             <div class="multi-image-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
                         <img src="./img/TempTrends1.png" width="300" height="300"/>
@@ -52,7 +52,7 @@
                 <p><strong>Explanation:</strong> The longest increasing trend is [3, 10, 20], which has a length of 3.</p>
             </div>
             
-            <h3>How many trends are there?</h3>
+            <h3>How many possible trends are there?</h3>
             <p>
                 A trend is essentially a subsequence of the input sequence. For an input sequence of length \( N \), i.e., it contains \( N \) numbers, the number of subsequences could be as large as \( 2^N \). This would be a prohibitively large number for any reasonably large value of \( N \). We need therefore to design a method to find the desired trend (in our case its length) without exhaustively searching through all \( 2^N \) possible subsequences.
             </p>
