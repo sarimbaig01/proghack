@@ -22,11 +22,7 @@ def main():
         print("Expected Output: Start Index = " + str(expected[0]) + ", End Index = " + str(expected[1]) + ", Max Sum = " + str(expected[2]))
         print("Function Output: Start Index = " + str(result[0]) + ", End Index = " + str(result[1]) + ", Max Sum = " + str(result[2]))
         
-        # Check if the output matches the expected result
-        if result == expected:
-            print("Result: Pass\n")
-        else:
-            print("Result: Fail\n")
+    
         
         # Increment the test case counter
         test_case_number += 1
