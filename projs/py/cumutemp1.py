@@ -1,4 +1,4 @@
-def max_cumulative_sum(data):
+def max_cumulative_temperature(data):
     """
     Calculates the maximum sum of a contiguous subarray within a list of integers.
     
