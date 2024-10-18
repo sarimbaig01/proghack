@@ -1,4 +1,4 @@
-def largest_rectangle_linear(count):
+def largest_spikeless_rectangle_linear(count):
     """
     Finds the largest rectangle without spikes in the given list of bar heights using a linear-time approach.
 
