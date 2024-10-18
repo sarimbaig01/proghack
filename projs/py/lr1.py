@@ -7,8 +7,6 @@ def updateMaxRectangle(left_side, right_side, area, max_left, max_right, max_are
     
     return max_left, max_right, max_area
 
-
-
 def largest_spikeless_rectangle_brute_force(count):
     """
     Finds the largest rectangle without spikes in the given list of bar heights using a brute-force algorithm.
