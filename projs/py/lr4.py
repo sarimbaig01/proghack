@@ -1,5 +1,5 @@
 #Utility function to be used within the following function
-def updateMaxArea(left_side, right_side, area, max_left, max_right, max_area):
+def updateMaxRectangle(left_side, right_side, area, max_left, max_right, max_area):
     if area > max_area:
         max_area = area
         max_left = left_side
