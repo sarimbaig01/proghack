@@ -17,16 +17,29 @@
     <div class="statement">
     <h1> Problem 2.1 Large Rectangles (with no spikes) </h1>
         <section class="statement">
-            <p></p>
+            <p>This is a problem from image processing. We are processing black and white images. Each image is a two-dimensional grid. In this case, each pixel is either 1 (representing a white pixel) or 0 (representing a black pixel). We are interested in determining regions of black intensity. As this is a commonly used operation, we have done some preprocessing and mapped the image to a 1-dimensional list, called count. Each element in count contains the number of 1s in a row of the original image. More precisely, count[i] = the number of black pixels in row i of the image.</p>
 
-            <div class="multi-image-container">
+            <p>We can now visualize count as a bar graph. For example, if count = [2, 4, 7, 3, 1, 8, 0, 4, 5], then it can be visualized as in Figure 1 below.</p>
+
+            <div class="single-image-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
                         <img src="./img/LargeRectangles1.png" width="300" height="300"/>
                         <figcaption>Figure 1: The 'count' list visualized as a bar graph. The height of bar i corresponds to the number of black pixels in row i of the image.</figcaption>
                     </figure>
-            </div>
-                     
+            </div>                  
+
+            <p>In order to detect areas of black intensity, we consider rectangles composed of the bars of this bar graph. Figure 2 shows four different examples. Note that such a rectangle represents the black intensity within consecutive rows of the image. The area of such a rectangle provides an approximation of the black intensity of a particular region of the image (though not necessarily a rectangular region of the image).</p>
+
+            <p>Let us introduce some terminology associated with a rectangle. The two <strong>side bars</strong> of the rectangle are the bars making up its left and right sides, while any bars lying inside the rectangle are called <strong>internal bars</strong>. Additionally, the width of each bar is <strong>1</strong>.</p>
             
+            <p>We now give a precise definition of the <strong>height</strong>, <strong>width</strong>, and <strong>area</strong> of a rectangle. The <strong>height</strong> of a rectangle is the height of the shorter of its two side bars. The <strong>width</strong> of a rectangle is simply the number of bars it contains, including the two side bars as well as the internal bars if any. The area of a rectangle is the product of its <strong>height</strong> and <strong>width</strong>.</p>
+            
+            <p>Lastly, we define a <strong>spike</strong> as an internal bar that exceeds the height of a rectangle.</p>
+            
+            <p>The four rectangles shown in Figure 2 (below) have no spikes, and may therefore be called <strong>spikeless rectangles</strong>. A spikeless rectangle represents an area of the image where the top and bottom ends have more black intensity than anywhere in the interior. In contrast, the two rectangles shown in Figure 3 do contain spikes (shown in green). For the current problem, we are interested in spikeless rectangles only.</p>
+            
+            <p>(Note: the area of a rectangle with spikes is calculated differently and will be discussed in the next problem).</p>
+
 
             <div class="multi-image-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
@@ -38,19 +51,43 @@
                     </figure>
             </div>
 
-            <h3>Python code</h3>
-            <p>Implement the following function stub: </p>
-            <div class="code-container" data-filename="./py/cumutemp1.py">
+             <div class="multi-image-container">
+                    <figure style="display: inline-block; margin: 10px; text-align: center;">
+                        <img src="./img/LargeRectangles3a.png" width="300" height="300"/>
+                        <img src="./img/LargeRectangles3b.png.png" width="300" height="300"/>
+                        <figcaption>Figure 3: Two different examples of largest rectangles with spikes allowed and their corresponding areas.</figcaption>
+                    </figure>
+            </div>
+
+            <h2>Python Code</h2>
+            <p>Given the list <strong>count</strong>, our goal is to find the spikeless rectangle with the largest area.</p>
+
+            <h3>The Brute Force Method</h3>
+            <p>Implement the following Python function for this purpose. In this version of the solution, write the brute-force algorithm which inspects all possible <strong>spikeless</strong> rectangles and reports the largest one. A utility function called updateMaxRectangle has also been provided to you to use appropriately within your code.</p>
+           
+            <div class="code-container" data-filename="./py/lr1.py">
                 <pre><code class="language-python" id="py-code">
                 </code></pre>
             </div>
 
-            <p>Use the following main to test your function: </p>
-            <div class="code-container" data-filename="./py/cumutemp2.py">
+            <p>Use the following main to test your function:</p>
+
+            <div class="code-container" data-filename="./py/lr3.py">
                 <pre><code class="language-python" id="py-code">
                 </code></pre>
             </div>
-    
+
+            <h3>The Linear Time Method</h3>
+
+            <p>The brute-force function searches all possible rectangles and therefore takes approximately \( c \cdot N^2 \) time, where \( c > 0 \) and \( N \) is the size of the list <strong>count</strong>. Now, implement the following Python function, which finds the largest rectangle in approximately \( d \cdot N \) time, where \( d > 0 \). The function should scan the list only once (or a constant number of times).</p>
+
+            <p>Implement the following function for the linear time method. You may use the same main as above to test your function by changing the name of the function being called in the main.</p>
+            
+           <div class="code-container" data-filename="./py/lr2.py">
+                <pre><code class="language-python" id="py-code">
+                </code></pre>
+            </div>
+            
         </section>
       </div>
 </body>
