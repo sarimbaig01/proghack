@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problem 1.2 Cumulative Temperatures</title>
+    <title>Problem 2.1 Large Rectangles (with no spikes)</title>
     <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
     <script src="../prism.js"></script> <!-- Adjust the path as needed -->
     <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
@@ -59,10 +59,10 @@
                     </figure>
             </div>
 
-            <h2>Python Code</h2>
+            <h3>Python code</h3>
             <p>Given the list <strong>count</strong>, our goal is to find the spikeless rectangle with the largest area.</p>
 
-            <h3>The Brute Force Method</h3>
+            <h3>The brute force method</h3>
             <p>Implement the following Python function for this purpose. In this version of the solution, write the brute-force algorithm which inspects all possible <strong>spikeless</strong> rectangles and reports the largest one. A utility function called updateMaxRectangle has also been provided to you to use appropriately within your code.</p>
            
             <div class="code-container" data-filename="./py/lr1.py">
@@ -77,7 +77,7 @@
                 </code></pre>
             </div>
 
-            <h3>The Linear Time Method</h3>
+            <h3>The linear time method</h3>
 
             <p>The brute-force function searches all possible rectangles and therefore takes approximately \( c \cdot N^2 \) time, where \( c > 0 \) and \( N \) is the size of the list <strong>count</strong>. Now, implement the following Python function, which finds the largest rectangle in approximately \( d \cdot N \) time, where \( d > 0 \). The function should scan the list only once (or a constant number of times).</p>
 
