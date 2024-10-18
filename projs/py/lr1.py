@@ -1,4 +1,4 @@
-def largest_rectangle_brute_force(count):
+def largest_spikeless_rectangle_brute_force(count):
     """
     Finds the largest rectangle without spikes in the given list of bar heights using a brute-force algorithm.
 
