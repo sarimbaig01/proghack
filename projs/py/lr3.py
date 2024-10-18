@@ -3,11 +3,14 @@ def main():
     test_cases = [
         ([2, 1, 5, 6, 2, 3], (2, 3, 10)),  # Test Case 1
         ([1, 3, 2, 5, 4, 1], (1, 3, 9)),    # Test Case 2
-        ([4, 2, 0, 3, 2], (0, 4, 10))        # Test Case 3
+        ([4, 2, 0, 3, 2], (0, 4, 10)),        # Test Case 3
+        ([3, 1, 4, 1, 5, 9, 2], (2, 4, 12)),  # Test Case 4
+        ([5], (0, 0, 5))               # Test Case 5
+        
     ]
     
     for i, (count, expected) in enumerate(test_cases):
-        left_index, right_index, area = largest_rectangle_brute_force(count)
+        left_index, right_index, area = largest_rectangle_linear(count)
         
         # Output the results
         print(f"Test Case {i + 1} Results:")
@@ -19,8 +22,10 @@ def main():
         test_passed = (left_index == expected[0] and 
                        right_index == expected[1] and 
                        area == expected[2])
-        print("Test passed:", test_passed)
-        print()
+        if test_passed: 
+            print("Test passed\n")
+        else:
+            print("Test failed\n")
 
 if __name__ == "__main__":
     main()
