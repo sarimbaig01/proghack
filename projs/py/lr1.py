@@ -1,3 +1,14 @@
+#Utility function to be used within the following function 
+def updateMaxArea(left_side, right_side, area, max_left, max_right, max_area):
+    if area > max_area:
+        max_area = area
+        max_left = left_side
+        max_right = right_side
+    
+    return max_left, max_right, max_area
+
+
+
 def largest_spikeless_rectangle_brute_force(count):
     """
     Finds the largest rectangle without spikes in the given list of bar heights using a brute-force algorithm.
