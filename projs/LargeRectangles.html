@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problem 2.1 Large Rectangles (with no spikes)</title>
+    <title>Problem 2.1 Large Rectangles</title>
     <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
     <script src="../prism.js"></script> <!-- Adjust the path as needed -->
     <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
@@ -15,7 +15,7 @@
     <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
     <div class="statement">
-    <h1> Problem 2.1 Large Rectangles (with no spikes) </h1>
+    <h1> Problem 2.1 Large Rectangles </h1>
         <section class="statement">
             <p>This is a problem from image processing. We are processing black and white images. Each image is a two-dimensional grid. In this case, each pixel is either 1 (representing a white pixel) or 0 (representing a black pixel). We are interested in determining regions of black intensity. As this is a commonly used operation, we have done some preprocessing and mapped the image to a 1-dimensional list, called count. Each element in count contains the number of 1s in a row of the original image. More precisely, count[i] = the number of black pixels in row i of the image.</p>
 
@@ -64,7 +64,7 @@
             </div>
 
             <h3>Python code</h3>
-            <p>Given the list <strong>count</strong>, our goal is to find the spikeless rectangle with the largest area. Implement the following Python function for this purpose. In this version of the solution, write the brute-force algorithm which inspects all possible <strong>spikeless</strong> rectangles and reports the largest one. A utility function called updateMaxRectangle has also been provided to you to use appropriately within your code.</p>
+            <p>Given the list <strong>count</strong>, our goal is to find the spikeless rectangle with the largest area. Implement the following Python function for this purpose. In this version of the solution (let us call is v1 for version 1), write a cubic time algorithm, i.e., an algorithm that takes approximately \( c \cdot N^3 \) time, where \( c > 0 \) is a constant and \( N \) is the size of the list. The algorithm will inspect all candidate rectangles while also ensuring that they are spikeless by traversing through all their bars. It should finally report the largest candidate rectangle. A utility function called updateMaxRectangle has been provided to you to use appropriately within your code.</p>
            
             <div class="code-container" data-filename="./py/lr1.py">
                 <pre><code class="language-python" id="py-code">
@@ -78,11 +78,11 @@
                 </code></pre>
             </div>
 
-            <h3>The linear time method</h3>
+            <h3>The quadratic time method</h3>
 
-            <p>The brute-force function searches all possible rectangles and therefore takes approximately \( c \cdot N^2 \) time, where \( c > 0 \) and \( N \) is the size of the list <strong>count</strong>. Now, implement the following Python function, which finds the largest rectangle in approximately \( d \cdot N \) time, where \( d > 0 \). The function should scan the list only once (or a constant number of times).</p>
+            <p>The aim now is to find the desired rectangle in quadratic time, i.e., approximately \( d \cdot N^2 \) time, where \( d > 0 \) is a constant and \( N \) is the size of the list. As before, you will need to check all candidate rectangles, however, to check whether a candidate rectangle is spikeless you should not need to traverse through all its bars again.</p>
 
-            <p>Implement the following function for the linear time method. You may use the same main as above to test your function by changing the name of the function being called in the main.</p>
+            <p>Implement the following function for the quadratic time method. You may use the same main as above to test your function by changing the name of the function being called in the main.</p>
             
            <div class="code-container" data-filename="./py/lr2.py">
                 <pre><code class="language-python" id="py-code">
