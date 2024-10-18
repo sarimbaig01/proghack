@@ -31,6 +31,17 @@
             <p>In order to detect areas of black intensity, we consider rectangles composed of the bars of this bar graph. Figure 2 shows four different examples. Note that such a rectangle represents the black intensity within consecutive rows of the image. The area of such a rectangle provides an approximation of the black intensity of a particular region of the image (though not necessarily a rectangular region of the image).</p>
 
             <p>Let us introduce some terminology associated with a rectangle. The two <strong>side bars</strong> of the rectangle are the bars making up its left and right sides, while any bars lying inside the rectangle are called <strong>internal bars</strong>. Additionally, the width of each bar is <strong>1</strong>.</p>
+
+            <div class="terms" id="terms">  
+            <fieldset>
+              <legend>Some definitions</legend>
+              <p><strong>width</strong> of a rectangle: The number of bars in the rectangle, including side bars and internal bars.</p>
+              <p><strong>height</strong> of a rectangle: The height of the shorter of the side bars of a rectangle. In case of a single bar rectangle, the height of that bar is the height and area of the rectangle.</p>
+              <p><strong>area</strong>: The product the height and width of the rectangle.</p>
+              <p><strong>spike</strong>: An internal bar that exceeds the height of the rectangle.</p>
+              <p><strong>spikeless rectangle</strong>: A rectangle that has no spikes. Four examples of spikeless rectangles are shown in Figure 2. In contrast, Figure 3 shows two rectangles with spikes (green bars).</p>  
+              </fieldset>
+          </div>
             
             <p>We now give a precise definition of the height, width, and area of a rectangle. The <strong>height</strong> of a rectangle is the height of the shorter of its two side bars. The <strong>width</strong> of a rectangle is simply the number of bars it contains, including the two side bars as well as the internal bars if any. The area of a rectangle is the product of its <strong>height</strong> and <strong>width</strong>.</p>
             
