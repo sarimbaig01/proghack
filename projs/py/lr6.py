@@ -21,7 +21,7 @@ def largest_rectangle_linear(count):
     
     for i in range(n):
         if i == 0:
-            # For the first bar, the rectangle starts at i itself
+            # The largest rectangle ending at bar 0
             left_boundaries[i] = i
             rect_heights[i] = count[i]
         else:
