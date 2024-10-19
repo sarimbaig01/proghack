@@ -11,7 +11,7 @@ def main():
     ]
     
     for i, (count, expected) in enumerate(test_cases):
-        left_index, right_index, area = largest_spikeless_rectangle_v1(count)
+        left_index, right_index, area = largest_spikeless_rectangle_cubic(count)
         
         # Output the results
         print(f"Test Case {i + 1} Results:")
