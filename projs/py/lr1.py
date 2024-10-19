@@ -7,7 +7,7 @@ def updateMaxRectangle(left_side, right_side, area, max_left, max_right, max_are
     
     return max_left, max_right, max_area
 
-def largest_spikeless_rectangle_v1(count):
+def largest_spikeless_rectangle_cubic(count):
     """
     Finds the largest rectangle without spikes in the given list of bar heights using a cubic time approach.
 
