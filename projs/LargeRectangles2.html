@@ -94,6 +94,13 @@
                 <pre><code class="language-python" id="py-code">
                 </code></pre>
             </div>
+
+            <h3>Further improvement</h3>
+
+            <p>Since we only need <strong>left_boundaries[i-1]</strong> and <strong>rect_height[i-1]</strong> for the computation of these values at \(i\), we do not need to store the lists but only two variables corresponding to the values of <strong>left_boundaries[i-1]</strong> and <strong>rect_height[i-1]</strong>. In this case, we will need to maintain <strong>max_left</strong>, <strong>max_right</strong>, and <strong>max_area</strong> as we compute the rectangles. This way, we will no longer require the extra scan through the lists at the end to find the largest rectangle.</p>
+            
+            <p><strong>Update</strong>: We will store the complete lists instead of only two variables.</p>
+
           
         </section>
       </div>
