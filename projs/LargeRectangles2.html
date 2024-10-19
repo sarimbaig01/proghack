@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2.2 Large Spiked Rectangles</title>
+    <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
+    <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+    <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+    <h1> Problem 2.2 Large Spiked Rectangles </h1>
+        <section class="statement">
+          <p>Spikeless rectangles provide a reasonable approximation for high black intensity regions, but they have some limitations. For example, since the area of the rectangle is computed using its sides, rectangles with small internal bars may be selected, resulting in regions of the image that have low black intensity in the interior.</p>
+
+          <p>A better approach is to consider all rectangles, including those that may (or may not) contain spikes. Moreover, we modify the definition of the height of a rectangle as below.</p>
+
+           <fieldset>
+              <legend>Height of a rectagnle</legend>
+                The height of a rectangle is the shortest bar of the rectangle, which may be an internal or side bar.
+            </fieldset>
+
+            <p>Figure 1 below (repeated from Problem 2.1) shows two examples of largest rectangles with spikes and their corresponding areas. Please note that although these examples show rectangles that do contain spikes, if a spikeless rectangle with larger area exists, it will be chosen as the largest rectangle. We simply do not need to check for spikelessness in this problem.</p>
+          
+            <div class="single-image-container">
+                    <figure style="display: inline-block; margin: 10px; text-align: center;">
+                        <img src="./img/LargeRectangles3.png" width="500" height="500"/>
+                        <figcaption>Figure 1: Two different examples of largest rectangles with spikes and their corresponding areas.</figcaption>
+                    </figure>
+            </div> 
+
+            <h3>Python code</h3>
+            <p>Once again, our first task is to write a quadratic time algorithm to compute the largest rectangle (which may or may not contain spikes). We will inspect all possible rectangles and do not need to check for spikelessness. Simply be careful to use the height of the shortest bar as the height of the rectangle.</p>
+
+            <p>Implement the following Python function for this purpose:</p>
+
+            <div class="code-container" data-filename="./py/lr5.py">
+                <pre><code class="language-python" id="py-code">
+                </code></pre>
+            </div>
+
+            <p>Use the following main to test your function:</p>
+  
+            <div class="code-container" data-filename="./py/lr4.py">
+                <pre><code class="language-python" id="py-code">
+                </code></pre>
+            </div>
+
+            <h3>The linear time method</h3>
+
+            <p><i>todo...</i></p>
+          
+        </section>
+      </div>
+</body>
+</html>
