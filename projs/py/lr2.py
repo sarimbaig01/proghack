@@ -1,4 +1,4 @@
-def largest_spikeless_rectangle_v2(count):
+def largest_spikeless_rectangle_quadratic(count):
     """
     Finds the largest rectangle without spikes in the given list of bar heights using a quadratic time approach.
 
