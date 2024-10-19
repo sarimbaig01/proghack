@@ -7,7 +7,7 @@ def updateMaxRectangle(left_side, right_side, area, max_left, max_right, max_are
     
     return max_left, max_right, max_area
 
-def largest_rectangle_v1(count):
+def largest_rectangle_quadratic(count):
     """
     Function to compute the largest rectangle (which may or may not contain spikes)
     using a quadratic time approach.
