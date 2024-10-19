@@ -7,13 +7,13 @@ def updateMaxRectangle(left_side, right_side, area, max_left, max_right, max_are
     
     return max_left, max_right, max_area
 
-def largest_rectangle_brute_force(count):
+def largest_rectangle_v1(count):
     """
     Function to compute the largest rectangle (which may or may not contain spikes)
-    using a brute force approach.
+    using a quadratic time approach.
 
     Parameters:
-    count (list): A list of integers representing the heights of the histogram bars.
+    count (list): A list of integers representing the heights of the bars.
 
     Returns:
     tuple: A tuple containing the left side index, right side index, and the area of the largest rectangle.
