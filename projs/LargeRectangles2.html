@@ -65,19 +65,23 @@
               <li>Once we have computed the largest rectangles ending at all bars \(i\) and their corresponding heights, we can scan through them once and find the largest rectangle overall.</li>
             </ul>
             
-            <p>We will use two auxiliary lists to store rectangles and their heights. We define:</p>
+            <p>We will use two auxiliary lists to store rectangles and their heights.</p>
+            
+            <p> We define:
             <ul>
               <li><strong>left_boundaries[i]</strong>: the index of the left boundary of the largest rectangle ending at bar \(i\)</li>
               <li><strong>rect_height[i]</strong>: the height of the largest rectangle ending at bar \(i\)</li>
             </ul>
+            </p>
             
             <p>Initially:</p>
             <ul>
               <li><strong>left_boundaries[0] = 0</strong></li>
               <li><strong>rect_height[0] = count[0]</strong></li>
             </ul>
+            </p>
             
-            <p>The problem for you to solve is the following:</p>
+            <p>The specific problem for you to solve is the following:</p>
             
             <p>Given the values of <strong>left_boundaries[i-1]</strong> and <strong>rect_height[i-1]</strong>, how does one compute <strong>left_boundaries[i]</strong> and <strong>rect_height[i]</strong>? This will not require looping through the lists if done carefully.</p>
             
