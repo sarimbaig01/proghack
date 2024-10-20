@@ -15,13 +15,35 @@
     <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
     <div class="statement">
-    <h1> Problem 3.1 Two Ways to Partition</h1>
+    <h1> Problem 3.1 Partition</h1>
         <section class="statement">
           <p><i>todo...</i></p>
+         <div class="algo">
+                <p style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9; width: fit-content; font-family: Arial, sans-serif;">
+                  <strong>Partition Algorithm:</strong><br><br>
+                  <strong>Input:</strong> A list <code>A</code> and a <code>pivot_index</code>.<br><br>
+                
+                  <strong>1. Initialization:</strong><br>
+                  &emsp;Set two pointers (indices): <code>i</code> to 0 (start) and <code>j</code> to <code>n-1</code> (end).<br>
+                  &emsp;Use the value at <code>pivot_index</code> as the pivot.<br><br>
+                
+                  <strong>2. Iteration (while <code>i &lt; j</code>):</strong><br>
+                  &emsp;- Move <code>i</code> right until an element greater than the pivot is found.<br>
+                  &emsp;- Move <code>j</code> left until an element less than or equal to the pivot is found.<br>
+                  &emsp;- If <code>i &lt; j</code>, swap elements at <code>i</code> and <code>j</code>.<br><br>
+                
+                  <strong>3. Termination:</strong><br>
+                  &emsp;- The loop stops when <code>i &ge; j</code>, and the list is partitioned:<br>
+                  &emsp;&emsp;• Left side: elements ≤ pivot.<br>
+                  &emsp;&emsp;• Right side: elements > pivot.<br>
+                </p>
+         </div>
+
+            
             <div class="single-image-container" align="center">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
                         <img src="./img/QuickSort.gif" width="500" height="500"/>
-                        <figcaption>Figure 2: Animation showing repeated application of partition to sort numbers.<br>
+                        <figcaption>Figure 2: Animation showing repeated application of partition to sort numbers (Quicksort).<br>
                           By <a href="https://en.wikipedia.org/wiki/User:RolandH" class="extiw" title="en:User:RolandH">en:User:RolandH</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=1965827">Link</a>
                         </figcaption>
                     </figure>
