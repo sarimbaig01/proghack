@@ -32,25 +32,39 @@
             <div class="algo-container" align="center">
                     <figure style="display: inline-block; margin: 10px; text-align: left;"">
                         <div style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9; width: fit-content; font-family: Arial, sans-serif;">
-                              <strong>Partition Algorithm:</strong><br><br>
-                              <strong>Input:</strong> A list <code>A</code> and a <code>pivot_index</code>.<br><br>
-
-                              <strong>1. Initialization:</strong><br>
-                              &emsp;- Swap the pivot element with the element at <code>A[0]</code><br> 
-                              &emsp;Set two pointers (indices): <code>i</code> to 1 (start) and <code>j</code> to <code>n-1</code> (end).<br>
-                              &emsp;Use the value at <code>A[0]</code> as the pivot.<br><br>
-                            
-                              <strong>2. Iteration (while <code>i &lt; j</code>):</strong><br>
-                              &emsp;- Move <code>i</code> right until an element greater than the pivot is found.<br>
-                              &emsp;- Move <code>j</code> left until an element less than or equal to the pivot is found.<br>
-                              &emsp;- If <code>i &lt; j</code>, swap elements at <code>i</code> and <code>j</code>.<br><br>
-
-                              <strong>3. Move the Pivot:</strong><br>
-                              &emsp; Swap the pivot (which is at position 0) with the appropriate element in the list.<br><br>
-                            
-                              <strong>4. Termination:</strong><br>
-                              &emsp;- Partition is complete. 
-                              &emsp;- Return the new index of the pivot element (this is now the parition index).
+                              <strong>Partition Algorithm:</strong>
+                                <p><strong>Input:</strong> A list <code>A</code> and a <code>pivot_index</code>.</p>
+                                
+                                <ol>
+                                    <li><strong>Initialization:</strong>
+                                        <ul>
+                                            <li>Swap the pivot element with the element at <code>A[0]</code>.</li>
+                                            <li>Set two pointers (indices): <code>i</code> to 1 (start) and <code>j</code> to <code>n - 1</code> (end).</li>
+                                            <li>Use the value at <code>A[0]</code> as the pivot.</li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><strong>Iteration (while <code>i <= j</code>):</strong>
+                                        <ul>
+                                            <li>Move <code>i</code> right until an element greater than the pivot is found.</li>
+                                            <li>Move <code>j</code> left until an element less than or equal to the pivot is found.</li>
+                                            <li>If <code>i < j</code>, swap elements at <code>i</code> and <code>j</code>.</li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><strong>Move the Pivot (After the Loop):</strong>
+                                        <ul>
+                                            <li>After the loop ends, swap the pivot (which is at position <code>0</code>) with the appropriate element in the list.</li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><strong>Termination:</strong>
+                                        <ul>
+                                            <li>The partition is complete.</li>
+                                            <li>Return the new index of the pivot element (this is now the partition index).</li>
+                                        </ul>
+                                    </li>
+                                </ol>
                        </div>
                        <figcaption>
                             Figure 3: The in-place Parition algorithm.
