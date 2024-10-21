@@ -8,6 +8,6 @@ def largest_spikeless_rectangle_quadratic(count):
     Returns:
     tuple: A tuple containing the left side bar index, right side bar index, and area of the largest rectangle without spikes.
     """
-    # Linear-time implementation goes here
+    # Quadratic-time implementation goes here
     
     return (0, 0, 0)  # Placeholder return values
