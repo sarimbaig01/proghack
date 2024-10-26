@@ -6,3 +6,5 @@
 bool is_balanced(std::string str) {
     return true; // Placeholder return value
 }
+
+
