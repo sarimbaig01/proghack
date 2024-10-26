@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 3.1 Stock Analysis by Maximum Rise</title>
+    <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
+    <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+    <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+    <h1> Problem 3.1 Stock Analysis by Maximum Rise</h1>
+        <section class="statement">
+
+            <p> We are writing a small piece of code to help analyze the rise of a stock price over a period of time to support investment decisions. </p> 
+            <p> We are given time series data for the prices of a particular stock, represented as a list where each value is the stock price at a specific time point. The time points are represented by indices: 0, 1, 2, ... . </p> 
+            <p> As an indicator of the potential of the stock to create profit, we wish to compute the maximum rise in its price between two time points. </p> 
+            <p> Specifically, given a list \( prices \) of \( N \) time based price values, we want to find indices \( i \) and \( j \) (where \( 0 \leq i < j < N \)) such that \( prices[j] - prices[i] \) is the maximum among all possible \( i, j \) pairs.</p>
+
+            <p>Figure 1 below shows the stock prices as blue bars, with the red dotted line indicating the maximum rise in price.</p>
+
+            
+            <div class="multi-image-container">
+                    <figure style="display: inline-block; margin: 10px; text-align: center;">
+                        <img src="./img/MaximumRise.png" width="400" height="400"/>
+                        <figcaption>Figure 1: Visual representation of the time series price data and the maximum rise in price shown as a red dashed line.</figcaption>
+                    </figure>
+            </div>
+
+            <h3>Code</h3>
+            <p>The simple method to compute the required indices checks all possible \( (i, j) \) pairs of indices and picks the one that results in the maximum rise. As a warm-up, implement the following function stub using this straightforward approach. Then, <strong>refine your method to ensure it makes only a single pass through the prices.</strong></p>
+
+            <p>Note: if the prices do not show any rise (i.e., the prices continue to decrease or stay the same from start to end), the function should return the triple (-1, -1, -1) representing the fact that no valid rise was found.</p>
+   
+             <div class="flex-container">
+                
+                <div class="code-wrapper" style="height: 100%;">
+                    <div class="code-container" data-filename="./py/maxrise1.py" style="height: 100%;">
+                        <pre><code class="language-python" id="py-code1">
+                        </code></pre>
+                    </div>
+                </div>
+
+             </div>
+
+            <h3>Test your code</h3>    
+            <p>Use the following main to test your function: </p>
+            <div class="flex-container">
+                
+                <div class="code-wrapper" style="height: 100%;">
+                    <h4>Python</h4>
+                    <div class="code-container" data-filename="./py/maxrise2.py" style="height: 100%;">
+                        <pre><code class="language-python" id="py-code1">
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+           
+    
+        </section>
+      </div>
+</body>
+</html>
