@@ -18,8 +18,24 @@ int main() {
     bool allTestsPassed = true;
 
     for (int i = 0; i < testStrings.size(); ++i) {
-        bool result = is_balanced(testStrings[i]);  // Calling the is_balanced function
+        bool result = is_balanced(testStrings[i]);
 
+        // Print the test case and result for debugging
+        std::cout << "Testing \"" << testStrings[i] << "\": ";
+        if (result) {
+            std::cout << "balanced";
+        } else {
+            std::cout << "not balanced";
+        }
+        std::cout << " - Expected: ";
+        if (expectedResults[i]) {
+            std::cout << "balanced";
+        } else {
+            std::cout << "not balanced";
+        }
+        std::cout << std::endl;
+
+        // Check if the result matches the expected result
         if (result != expectedResults[i]) {
             std::cout << "Test failed for string: \"" << testStrings[i] << "\". Expected: ";
             if (expectedResults[i]) {
