@@ -6,10 +6,15 @@ def maximum_rise(prices):
     prices: List of stock prices at each time point.
 
     Returns:
-    int: The maximum rise (prices[j] - prices[i]).
+    tuple: A 3-tuple containing (i, j, maximum rise), where:
+        - i: The starting index for the maximum rise.
+        - j: The ending index for the maximum rise.
+        - maximum rise: The difference (prices[j] - prices[i]).
+        
+        If no rise is found, returns (-1, -1, -1).
     """
     
-    return -1
+    return -1, -1, -1
 
 
 
