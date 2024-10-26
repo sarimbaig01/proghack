@@ -292,14 +292,17 @@ figure.no-center {
     background-color: #f5f5f5; /* Background color for the code area */
     padding: 10px; /* Adds space around the code for readability */
     border-radius: 5px; /* Rounds the corners slightly */
+    box-sizing: border-box; /* Includes padding in the element’s width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-    overflow: auto; /* Enables scrolling if the code is too long */
 }
 
 .flex-container .code-container pre {
     margin: 0; /* Removes default margin */
     font-family: Consolas, Monaco, 'Courier New', monospace; /* Sets a monospace font for code */
+    overflow: auto; /* Adds scrolling only to the <pre> element */
+    padding: 0; /* Removes extra padding to avoid double scroll */
 }
+
 
 /* Ensure video controls are hidden */
 video::-webkit-media-controls {
