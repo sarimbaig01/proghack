@@ -294,12 +294,13 @@ figure.no-center {
 }
 
 .flex-container .code-container {
-    background-color: #f5f5f5;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: auto;
-    box-sizing: border-box;
+    padding: 10px !important; /* Override global padding */
+    width: auto !important; /* Override global width */
+    max-width: 100% !important; /* Override global max-width */
+    margin: 0 !important; /* Override global margin */
+    left: auto !important; /* Override global left positioning */
+    border-radius: 5px; /* Add border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
 
