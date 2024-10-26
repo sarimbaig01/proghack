@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-// Assume maximum_rise function is already defined
-
 int main() {
     // Test cases: each test case is represented by a vector of prices
     std::vector<std::vector<int>> test_prices = {
@@ -27,6 +25,6 @@ int main() {
             std::cout << "Expected " << expected_results[i] << ", but got " << result << std::endl;
         }
     }
-
+    
     return 0;
 }
