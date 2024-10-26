@@ -18,15 +18,22 @@ int main() {
     bool allTestsPassed = true;
 
     for (int i = 0; i < testStrings.size(); ++i) {
-        // Placeholder call to is_balanced function; the actual function is missing.
-        bool result = true;  // Placeholder result for demonstration
+        bool result = is_balanced(testStrings[i]);  // Calling the is_balanced function
 
         if (result != expectedResults[i]) {
-            std::cout << "Test failed for string: \"" << testStrings[i] << "\". Expected: "
-                      << (expectedResults[i] ? "balanced" : "not balanced")
-                      << ", but got: "
-                      << (result ? "balanced" : "not balanced")
-                      << std::endl;
+            std::cout << "Test failed for string: \"" << testStrings[i] << "\". Expected: ";
+            if (expectedResults[i]) {
+                std::cout << "balanced";
+            } else {
+                std::cout << "not balanced";
+            }
+            std::cout << ", but got: ";
+            if (result) {
+                std::cout << "balanced";
+            } else {
+                std::cout << "not balanced";
+            }
+            std::cout << std::endl;
             allTestsPassed = false;
         }
     }
