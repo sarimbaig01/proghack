@@ -309,6 +309,7 @@ figure.no-center {
     font-family: Consolas, Monaco, 'Courier New', monospace; /* Sets a monospace font for code */
     overflow: auto; /* Adds scrolling only to the <pre> element */
     padding: 0; /* Removes extra padding to avoid double scroll */
+    height: 100%;
 }
 
 
