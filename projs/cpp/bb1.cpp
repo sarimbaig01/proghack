@@ -3,6 +3,6 @@
 //    str (std::string): The input string containing brackets (e.g., '{([])}').
 // Returns:
 //    bool: True if the brackets in the string are balanced, otherwise False.
-bool isBalanced(std::string str) {
+bool is_balanced(std::string str) {
     return true; // Placeholder return value
 }
