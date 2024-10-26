@@ -301,6 +301,7 @@ figure.no-center {
     left: auto !important; /* Override global left positioning */
     border-radius: 5px; /* Add border radius */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    height: 300px !important; /* Override global width */
 }
 
 
