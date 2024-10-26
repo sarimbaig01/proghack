@@ -283,11 +283,12 @@ figure.no-center {
     gap: 20px; /* Space between code containers */
     justify-content: space-between; /* Aligns items evenly across the container */
     align-items: flex-start; /* Aligns items at the top; can change to 'center' if needed */
+    width: 100%; /* Ensures full width for the container */
 }
 
 .flex-container .code-container {
     flex: 1; /* Makes containers take equal width */
-    max-width: 45%; /* Limits the width to prevent them from getting too wide on larger screens */
+    max-width: 45%; /* Limits the width of each code container */
     background-color: #f5f5f5; /* Background color for the code area */
     padding: 10px; /* Adds space around the code for readability */
     border-radius: 5px; /* Rounds the corners slightly */
@@ -299,7 +300,6 @@ figure.no-center {
     margin: 0; /* Removes default margin */
     font-family: Consolas, Monaco, 'Courier New', monospace; /* Sets a monospace font for code */
 }
-
 
 /* Ensure video controls are hidden */
 video::-webkit-media-controls {
