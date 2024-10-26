@@ -12,4 +12,3 @@ def maximum_rise(prices):
     return -1
 
 
-
