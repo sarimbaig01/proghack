@@ -44,15 +44,15 @@
             <div class="algo-container">
                     <figure style="display: inline-block; margin: 10px; text-align: left;"">
                         <div style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9; width: fit-content; font-family: Arial, sans-serif;">
-                              <strong>Balanced Brackets Algorithm with a Stack:</strong>
+                              <strong>Balanced Brackets Algorithm</strong>
                                       <!-- algo here --> 
                                      <p>
                                          <ol>
                                             <li><strong>Set up a Stack:</strong> Start with an empty stack to keep track of opening brackets.</li>
-                                            <li><strong>Go Through Each Character:</strong>
+                                            <li><strong>Go Through Each Character of the Input:</strong>
                                                 <ul>
-                                                    <li>If the character is an opening bracket (like <code>(</code>, <code>{</code>, or <code>[</code>), add it to the stack.</li>
-                                                    <li>If the character is a closing bracket (like <code>)</code>, <code>}</code>, or <code>]</code>), check two things:
+                                                    <li>If the character is an opening bracket, like <code>(</code>, <code>{</code>, or <code>[</code>, add it to the stack.</li>
+                                                    <li>If the character is a closing bracket, like <code>)</code>, <code>}</code>, or <code>]</code>, check two things:
                                                         <ul>
                                                             <li>If the stack is empty, return <code>False</code> (there’s no matching opening bracket).</li>
                                                             <li>If the stack isn’t empty, remove the top bracket from the stack and make sure it matches the closing bracket. If it doesn’t match, return <code>False</code>.</li>
@@ -60,7 +60,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><strong>Final Check:</strong> After going through all characters, check if the stack is empty. If it’s empty, all brackets were balanced, so return <code>True</code>. If there’s anything left in the stack, return <code>False</code>.</li>
+                                            <li><strong>Final Check:</strong> After going through all characters of the input, check if the stack is empty. If it’s empty, all brackets were balanced, so return <code>True</code>. If there’s anything left in the stack, return <code>False</code>.</li>
                                         </ol>
                                    </p>
                         </div>
