@@ -17,8 +17,15 @@
     <div class="statement">
     <h1> Problem 3.3 Stock Analysis by First Rises</h1>
         <section class="statement">
-          <p>todo:... statement here (with a figure)...</p>
+            <p>While computing the maximum rise in a stock price is useful for analysis, it does not accurately capture the pattern of price rises. A single rise in value could be an outlier.</p>
 
+            <p>A better way to capture the pattern of price rises is to compute, for each price point, the first subsequent rise in its value. Once these rises have been computed for each price point, further analysis can be performed to study the stock behavior more thoroughly.</p>
+            
+            <p><strong>The problem:</strong> For each price of the stock, we compute the first rise in its value; i.e., for each \( i \), we compute <code>first_rise[i] = prices[j] - prices[i]</code>, where \( j \) is the first index after \( i \) for which <code>prices[j] &gt; prices[i]</code>.</p>
+            
+            <p>If no such \( j \) exists for an \( i \), then <code>first_rise[i] = -1</code>. Consequently, <code>first_rise[n-1] = -1</code> (where \( n \) is the length of the input).</p>
+
+            <p>todo: add a figure...</p> 
             
             <!--<div class="multi-image-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
@@ -30,7 +37,7 @@
             <h3>Code</h3>
             <p>The simple method to compute all first rises checks for all point \( i \) the points \( j > i \) corresponding to the first increase in price value after \( i \). As a warm-up, implement the following function stub using this straightforward approach. Then, <strong>refine your method using a stack, ensuring that the algorithm makes only a single pass through the prices.</strong></p>
 
-            <p>Note: if for the price at \( i \) there is no subsequent rise in the price (i.e., all prices following the one at \( i \) are less than or equal to the price at \( i \)), the function should place -1 in \( first\_rises[i] \).</p>
+            <p>Note: if for the price at \( i \) there is no subsequent rise in the price (i.e., all prices following the one at \( i \) are less than or equal to the price at \( i \)), the function should place -1 in \( first\_rise[i] \).</p>
     
             <div class="code-container" data-filename="./py/maxrise1.py">
                 <pre><code class="language-python" id="py-code1">
