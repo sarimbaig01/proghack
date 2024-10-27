@@ -8,4 +8,12 @@ def is_balanced(s):
     Returns:
         True if the brackets in the string are balanced, otherwise False.
     """
+
+    # Setting up the empty stack
+    stack = []
+
+    # Push x to the stack using: stack.append(x)
+    # Pop from the stack using: stack.pop()
+    # Read the top element of the stack into x (make sure the stack is not empty): x = stack[-1]
+    
     return True  # Placeholder return value
