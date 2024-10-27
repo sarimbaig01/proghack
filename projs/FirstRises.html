@@ -49,11 +49,27 @@
                 </code></pre>
             </div>
            
-            <h3>A better approach</h3>
-            <p>Now <strong>refine your method such that algorithm makes only a single pass through the prices. </strong> You can once again use a stack for this purpose.</p>
+            <h3>A better approach (back to Balanced Brackets)</h3>
+            <p>A better method is based on the following observations:</p>
+            <ul>
+                <li>For any price point \( j-1 \) ( \( j > 0 \) ), the next point \( j \) such that <code>prices[j] > prices[j-1]</code> is the required point for <code>first_rise[j-1]</code>.</li>
+                <li>More generally, the same price point \( j \) is also the required point for all previous prices <code>prices[j-k]</code>, where \( k = 1, 2, 3, ... \), as long as <code>prices[j-k] < prices[j]</code>.</li>
+            </ul>
 
-            <p>Here is an insight into how the stack may be used.</p>
-            <p>todo: hint here / a figure... </p>
+            <p>The stack-based solution for this problem is mappable (with small alterations) to the Balanced Brackets problem. </p>
+                    
+            <p>Consider the following comparison:</p>
+           
+            <ul>
+                <li>Push the first price point (0) into the stack (as if it as an "opening bracket").</li>
+                <li>For each price point \( i \) after 0:
+                    <ul>
+                        <li>If the price at \( i \) is less than or equal to the price at the top of the stack, it is pushed into the stack like an "opening bracket".</li>
+                        <li>Else, if the price at \( i \) is greater than the one at the top of the stack, it is like a "closing bracket". In this case, we pop all the price points with values less than this price and mark their rise values in first_rise.</li>
+                    </ul>
+                </li>
+                <li>Lastly, for the price points left in the stack after the input scan is complete, mark their rises as -1 (as no higher prices were after them).</li>
+            </ul>
 
             <p>Implement the first_rises function using the refined approach. Use the same main as above to test your code.</p>
             
