@@ -4,7 +4,7 @@ def main():
         ([100, 180, 260, 310, 40, 535, 695], [80, 80, 50, 225, 495, 160, -1]),   # General case with multiple rises
         ([100, 90, 80, 70, 60, 50, 40], [-1, -1, -1, -1, -1, -1, -1]),           # Decreasing prices, all should be -1
         ([50, 50, 50, 50], [-1, -1, -1, -1]),                                    # Constant prices, all should be -1
-        ([90, 180, 60, 310, 40, 250, 695], [90, 130, 250, 385, 210, 445, -1]),     # Mixed rises and falls
+        ([90, 180, 60, 310, 40, 250, 695], [90, 130, 250, 385, 210, 445, -1]),   # Mixed rises and falls
         ([5], [-1])                                                              # Single price, should return [-1]
     ]
 
