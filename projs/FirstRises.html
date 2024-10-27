@@ -35,19 +35,29 @@
             </div>-->
 
             <h3>Code</h3>
-            <p>The simple method to compute all first rises checks for all point \( i \) the points \( j > i \) corresponding to the first increase in price value after \( i \). As a warm-up, implement the following function stub using this straightforward approach. Then, <strong>refine your method using a stack, ensuring that the algorithm makes only a single pass through the prices.</strong></p>
+            <p>The simple method to compute all first rises checks for all point \( i \) the points \( j > i \) corresponding to the first increase in price value after \( i \). As a warm-up, implement the following function stub using this straightforward approach.</p>
 
-            <p>Note: if for the price at \( i \) there is no subsequent rise in the price (i.e., all prices following the one at \( i \) are less than or equal to the price at \( i \)), the function should place -1 in \( first\_rise[i] \).</p>
-    
-            <div class="code-container" data-filename="./py/maxrise1.py">
+            <div class="code-container" data-filename="./py/firstrise1.py">
                 <pre><code class="language-python" id="py-code1">
+                </code></pre>
+             </div>
+
+            <h4>A faster approach</h4>
+            <p>Now <strong>refine your method such that algorithm makes only a single pass through the prices.</strong></p>
+            <p>Once again, we can use a stack.</p>
+
+            <h4>Hint on how to use a stack</h4>
+            <p>todo: hint here... </p>
+            
+            <div class="code-container" data-filename="./py/firstrise2.py">
+                <pre><code class="language-python" id="py-code2">
                 </code></pre>
              </div>
               
             <h3>Test your code</h3>    
             <p>Use the following main to test your function: </p>
-                <div class="code-container" data-filename="./py/maxrise2.py">
-                <pre><code class="language-python" id="py-code2">
+                <div class="code-container" data-filename="./py/firstrise3.py">
+                <pre><code class="language-python" id="py-code3">
                 </code></pre>
             </div>
            
