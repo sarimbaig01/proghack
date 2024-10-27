@@ -25,14 +25,14 @@
             
             <p>If no such \( j \) exists for an \( i \), then <code>first_rise[i] = -1</code>. Consequently, <code>first_rise[n-1] = -1</code> (where \( n \) is the length of the input).</p>
 
-            <p>todo: add a figure...</p> 
+            <p>Firgure 1 below shows a plot of price values and the first rises in their values (the red arrows).</p> 
             
-            <!--<div class="multi-image-container">
+            div class="multi-image-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
-                        <img src="./img/MaximumRise.png" width="400" height="400"/>
-                        <figcaption>Figure 1: Visual representation of the time series price data and the maximum rise in price shown as a red dashed line.</figcaption>
+                        <img src="./img/FirstRises1.png" width="550" height="500"/>
+                        <figcaption>Figure 1: Visual representation of the time series price data and the first rises in their values. The first_rise values (indicated by arrows) are: [4, 14, 92, 15, 31, 82, 19, -1, 13, -1]. No arrows are shown corresponding to the -1 values in first rise.</figcaption>
                     </figure>
-            </div>-->
+            </div>
 
             <h3>Code</h3>
             <p>The simple method to compute all first rises checks for each point \( i \) the points \( j > i \) corresponding to the first increase in price value after \( i \). As a warm-up, implement the following function stub using this straightforward approach.</p>
