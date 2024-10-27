@@ -76,7 +76,7 @@
                                             <li><strong>Set up a Stack:</strong> Start with an empty stack to keep track of opening brackets.</li>
                                             <li><strong>Go Through Each Character of the Input:</strong>
                                                 <ul>
-                                                    <li>If the character is an opening bracket, like <code>(</code>, <code>{</code>, or <code>[</code>, add it to the stack.</li>
+                                                    <li>If the character is an opening bracket, like <code>(</code>, <code>{</code>, or <code>[</code>, push it into the stack.</li>
                                                     <li>If the character is a closing bracket, like <code>)</code>, <code>}</code>, or <code>]</code>, check two things:
                                                         <ul>
                                                             <li>If the stack is empty, return <code>False</code> (there’s no matching opening bracket).</li>
@@ -90,7 +90,7 @@
                                    </p>
                         </div>
                        <figcaption>
-                            Figure 3: A description of the steps of the algorithm using the list as a stack.
+                            Figure 3: A description of the algorithm using the list as a stack.
                        </figcaption>
                     </figure>
             </div> 
