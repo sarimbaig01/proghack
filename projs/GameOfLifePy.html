@@ -73,9 +73,9 @@
                 </div>
                 <p>Below is a Python function that initializes a random grid and updates it according to the rules. Complete the functions:</p>
                 <ul>
-                    <li>`generate_random_init_conf`</li>
-                    <li>`count_alive_neighbors` (for `update_grid`)</li>
-                    <li>`update_grid`</li>
+                    <li><code><strong>generate_random_init_conf</strong></code></li>
+                    <li><code><strong>count_alive_neighbors</strong></code> (for <code><strong>update_grid</strong></code>)</li>
+                    <li><code><strong>update_grid</strong></code></li>
                 </ul>
 
                 <div class="code-container" data-filename="./python/gol1.py">
@@ -99,7 +99,7 @@
 
             <div class="task2" id="task2">
                 <h2>Task 2: Make it toroidal</h2>
-                <p>Implement a wrap-around effect by modifying `count_alive_neighbors` to treat the grid edges as continuous. This creates a toroidal grid, where cells on the edges connect to cells on the opposite side, mimicking an infinite, unbounded environment. This change is beneficial for observing uninterrupted patterns, like oscillators or spaceships moving freely across the grid.</p>
+                <p>Implement a wrap-around effect by modifying <code><strong>count_alive_neighbors</strong></code> to treat the grid edges as continuous. This creates a toroidal grid, where cells on the edges connect to cells on the opposite side, mimicking an infinite, unbounded environment. This change is beneficial for observing uninterrupted patterns, like oscillators or spaceships moving freely across the grid.</p>
             </div>
 
             <div class="task3" id="task3">
@@ -120,7 +120,7 @@
 
             <div class="task5" id="task5">
                 <h2>Task 5: Color-code for age</h2>
-                <p>Modify the display to show age-based coloring, where cells darken with each generation they've been alive, up to a maximum darkness after 20 generations. This visualization emphasizes long-lived cells and highlights pattern stability. Experiment with different color schemes for an optimal effect. Adjust the `draw_grid` function to implement this gradient.</p>
+                <p>Modify the display to show age-based coloring, where cells darken with each generation they've been alive, up to a maximum darkness after 20 generations. This visualization emphasizes long-lived cells and highlights pattern stability. Experiment with different color schemes for an optimal effect. Adjust the <code><strong>draw_grid</strong></code> function to implement this gradient.</p>
 
                 <div class="video-container">
                     <figure style="text-align: center;">
@@ -140,7 +140,4 @@
         </section>
     </div>
 
-    <script src="../prism.js"></script> <!-- Adjust path as needed -->
-    <script src="../insertCode.js"></script>
-</body>
-</html>
+    <script src="../prism.js"></script> <!-- Adjust path as needed
