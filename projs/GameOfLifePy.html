@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Game of Life</title>
+    <link rel="stylesheet" href="../prism.css"> <!-- Adjust path as needed -->
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="toc">
+        <h2>Contents</h2>
+        <a href="#intro">What is the game of life?</a>
+        <a href="#terms">Basic terminology</a>
+        <a href="#rules">The rules</a>
+        <a href="#task1">Task 1: Basic simulation in Python</a>
+        <a href="#fterms">Further terminology</a>
+        <a href="#task2">Task 2: Make it toroidal</a>
+        <a href="#task3">Task 3: Print useful statistics</a>
+        <a href="#task4">Task 4: Detect equilibrium</a>
+        <a href="#task5">Task 5: Color-code for age</a>
+        <a href="#close">Explore more</a>
+    </div>
+
+    <div class="statement">
+        <h1>Python Game of Life</h1>
+        <section class="statement">
+            <div class="intro" id="intro">
+                <h2>What is the game of life?</h2>  
+                <p>Conway's Game of Life is a cellular automaton developed by mathematician John Conway. It evolves based on initial conditions without further input, producing lifelike patterns from simple rules.</p>
+            </div>
+            
+            <div class="terms" id="terms">  
+                <fieldset>
+                    <legend>Basic terminology</legend>
+                    <p><strong>Cell</strong>: The basic unit in the grid, either alive or dead.</p>
+                    <p><strong>Grid</strong>: A two-dimensional grid where cells evolve.</p>
+                    <p><strong>Neighbor</strong>: Any of the eight cells around a given cell.</p>
+                    <p><strong>Alive</strong>: A cell state set to `1`.</p>
+                    <p><strong>Dead</strong>: A cell state set to `0`.</p>
+                    <p><strong>Initial Configuration</strong>: The starting state of cells in the grid.</p>
+                    <p><strong>Generation</strong>: Each time step in the game.</p>
+                    <p><strong>Survival</strong>: Condition where a cell stays alive in the next generation.</p>
+                </fieldset>
+            </div>
+
+            <div class="rules" id="rules">
+                <h2>The rules</h2>
+                <p>Cells evolve based on the B3/S23 rule: a dead cell with three neighbors becomes alive, and a live cell with two or three neighbors survives. In Python, implement this by checking neighbor counts each generation.</p>
+                <ol>
+                    <li>A cell with fewer than two neighbors dies (underpopulation).</li>
+                    <li>A cell with two or three neighbors survives.</li>
+                    <li>A cell with more than three neighbors dies (overcrowding).</li>
+                    <li>A dead cell with exactly three neighbors becomes alive (reproduction).</li>
+                </ol>
+            </div>
+
+            <div class="task1" id="task1">
+                <h2>Task 1: Basic simulation in Python</h2>
+                <p>This task involves creating a 100x100 Pygame grid where black cells are alive and white are dead. Code the evolution through Pygame, showing each generation continuously.</p>
+                <div class="video-container">
+                    <figure>
+                        <video width="320" height="240" autoplay loop muted>
+                            <source src="./mov/gol_100_eq.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Figure 1: Python-based simulation using Pygame with a randomly generated initial configuration reaching equilibrium.</figcaption>
+                    </figure>
+                </div>
+                <p>Below is a Python function that initializes a random grid and updates it according to the rules. Complete the functions:</p>
+                <ul>
+                    <li>`generate_random_init_conf`</li>
+                    <li>`count_alive_neighbors` (for `update_grid`)</li>
+                    <li>`update_grid`</li>
+                </ul>
+
+                <div class="code-container" data-filename="./python/gol1.py">
+                    <pre><code class="language-python" id="python-code1">
+                        <!-- The code will be loaded dynamically here -->
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="terms" id="fterms">  
+                <fieldset>
+                    <legend>Further terminology</legend>
+                    <p><strong>Age</strong>: Generations a cell has been alive.</p>
+                    <p><strong>Pattern</strong>: Arrangement of live and dead cells.</p>
+                    <p><strong>Oscillator</strong>: Pattern that repeats over generations.</p>
+                    <p><strong>Still Life</strong>: Stable, unchanging pattern.</p>
+                    <p><strong>Equilibrium</strong>: When the grid no longer changes.</p>
+                    <p><strong>Population</strong>: Total live cells in the grid.</p>
+                </fieldset>
+            </div>
+
+            <div class="task2" id="task2">
+                <h2>Task 2: Make it toroidal</h2>
+                <p>Modify `count_alive_neighbors` to simulate a wrap-around grid, where cells at edges connect to opposite sides, creating an infinite grid effect.</p>
+            </div>
+
+            <div class="task3" id="task3">
+                <h2>Task 3: Print useful statistics</h2>
+                <p>Print statistics each generation, including generation count, population, and growth rate. Update the console with values for each step.</p>
+            </div>
+
+            <div class="task4" id="task4">
+                <h2>Task 4: Detect equilibrium</h2>
+                <p>Detect when the grid reaches a stable state, halting simulation when cells stop changing or enter a repeating cycle (up to 10 generations).</p>
+            </div>
+
+            <div class="task5" id="task5">
+                <h2>Task 5: Color-code for age</h2>
+                <p>Color cells based on age, with darker colors for longer-lived cells. Modify `draw_grid` in Pygame to show age gradients for cells.</p>
+
+                <div class="video-container">
+                    <figure style="text-align: center;">
+                        <video width="320" height="240" autoplay loop muted>
+                            <source src="./mov/gol_col1.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Figure 2: Color-coded simulation based on cell age, showing varied patterns.</figcaption>
+                    </figure>
+                </div>
+                <p>Explore visual variations in cell coloring or backgrounds, as seen in <a href="https://jaxry.github.io/colorful-life/" target="_blank">this interactive example</a>.</p>
+            </div>
+
+            <div class="close" id="close">
+                <h1>Explore more</h1>
+                <p>The Game of Life can simulate any computation. With sufficient time and space, it supports complex pattern formation, enabling glider-based logic gates. For more, explore the <a href="https://conwaylife.com/wiki/" target="_blank">Conway Life Wiki</a>.</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="../prism.js"></script> <!-- Adjust path as needed -->
+    <script src="../insertCode.js"></script>
+</body>
+</html>
