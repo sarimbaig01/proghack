@@ -7,19 +7,13 @@ CELL_SIZE = 10
 SCREEN_SIZE = GRID_SIZE * CELL_SIZE
 BLACK, WHITE = (0, 0, 0), (255, 255, 255)
 
-# Initialize Pygame
-pygame.init()
-screen = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
-pygame.display.set_caption("Game of Life")
 
 # Generate random initial configuration
 def generate_random_init_conf():
-    """Generates a random initial grid configuration.
-    
-    Returns:
-        list of list of int: A 2D grid where each cell is randomly set to 0 (dead) or 1 (alive).
-    """
+    #Generates a random initial grid configuration.
     return [[random.choice([0, 1]) for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
+
+#Implement the following two functions
 
 # Stub for counting alive neighbors
 def count_alive_neighbors(grid, x, y):
@@ -49,12 +43,8 @@ def update_grid(grid):
     pass
 
 # Draw the grid
-def draw_grid(grid):
-    """Draws the grid on the Pygame screen.
-    
-    Args:
-        grid (list of list of int): The 2D grid representing the current state of the Game of Life.
-    """
+def draw_grid(grid, screen):
+    #Draws the grid on the Pygame screen.
     screen.fill(BLACK)
     for i in range(GRID_SIZE):
         for j in range(GRID_SIZE):
@@ -64,15 +54,21 @@ def draw_grid(grid):
 
 # Main function
 def main():
-    """Main loop of the Game of Life simulation."""
+    
+    # Initialize Pygame
+    pygame.init()
+    screen = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
+    pygame.display.set_caption("Game of Life")
     grid = generate_random_init_conf()
+    
+    #Main loop of the simulation
     running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
         update_grid(grid)
-        draw_grid(grid)
+        draw_grid(grid, screen)
         pygame.time.delay(100)
     pygame.quit()
 
