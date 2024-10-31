@@ -33,18 +33,17 @@ def count_alive_neighbors(grid, x, y):
     Returns:
         int: The count of neighboring cells that are alive (have a value of 1).
     """
-    # TODO: Implement logic to count alive neighbors for the cell at (x, y)
-    pass
+    # Temporary default return value
+    return 0
 
-# Stub for updating the grid state
+# In-place update for the grid state
 def update_grid(grid):
-    """Generates the next generation of the grid based on Game of Life rules.
+    """Updates the grid in place based on Game of Life rules.
     
     Args:
         grid (list of list of int): The 2D grid representing the current state of the Game of Life.
     
-    Returns:
-        list of list of int: A new 2D grid representing the updated state for the next generation.
+    This function modifies `grid` directly, without returning a new grid, to save memory.
     """
     # TODO: Implement logic to update each cell in the grid based on Game of Life rules
     pass
@@ -72,7 +71,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        grid = update_grid(grid)
+        update_grid(grid)
         draw_grid(grid)
         pygame.time.delay(100)
     pygame.quit()
