@@ -31,7 +31,7 @@
         <section class="statement">
             <div class="intro" id="intro">
                 <h2>What is the game of life?</h2>  
-                <p>Conway's Game of Life is a cellular automaton developed by mathematician John Conway. It evolves based on initial conditions without further input, producing lifelike patterns from simple rules.</p>
+                <p>Conway's Game of Life is a cellular automaton created by mathematician John Conway, where cells evolve on a grid based on initial configurations. In this Python version, we use Pygame to visualize these cell states in real-time.</p>
             </div>
             
             <div class="terms" id="terms">  
@@ -50,7 +50,7 @@
 
             <div class="rules" id="rules">
                 <h2>The rules</h2>
-                <p>Cells evolve based on the B3/S23 rule: a dead cell with three neighbors becomes alive, and a live cell with two or three neighbors survives. In Python, implement this by checking neighbor counts each generation.</p>
+                <p>Cells evolve based on the B3/S23 rule: a dead cell with three neighbors becomes alive, and a live cell with two or three neighbors survives. Implement this in Python by checking neighbor counts in each generation.</p>
                 <ol>
                     <li>A cell with fewer than two neighbors dies (underpopulation).</li>
                     <li>A cell with two or three neighbors survives.</li>
@@ -61,7 +61,7 @@
 
             <div class="task1" id="task1">
                 <h2>Task 1: Basic simulation in Python</h2>
-                <p>This task involves creating a 100x100 Pygame grid where black cells are alive and white are dead. Code the evolution through Pygame, showing each generation continuously.</p>
+                <p>This task involves creating a 100x100 Pygame grid where black cells are alive, and white cells are dead. Code the evolution using Pygame, showing each generation continuously.</p>
                 <div class="video-container">
                     <figure>
                         <video width="320" height="240" autoplay loop muted>
@@ -80,7 +80,7 @@
 
                 <div class="code-container" data-filename="./python/gol1.py">
                     <pre><code class="language-python" id="python-code1">
-                        <!-- The code will be loaded dynamically here -->
+                        <!-- Code will be loaded dynamically here -->
                     </code></pre>
                 </div>
             </div>
@@ -99,37 +99,43 @@
 
             <div class="task2" id="task2">
                 <h2>Task 2: Make it toroidal</h2>
-                <p>Modify `count_alive_neighbors` to simulate a wrap-around grid, where cells at edges connect to opposite sides, creating an infinite grid effect.</p>
+                <p>Implement a wrap-around effect by modifying `count_alive_neighbors` to treat the grid edges as continuous. This creates a toroidal grid, where cells on the edges connect to cells on the opposite side, mimicking an infinite, unbounded environment. This change is beneficial for observing uninterrupted patterns, like oscillators or spaceships moving freely across the grid.</p>
             </div>
 
             <div class="task3" id="task3">
                 <h2>Task 3: Print useful statistics</h2>
-                <p>Print statistics each generation, including generation count, population, and growth rate. Update the console with values for each step.</p>
+                <p>Add code to display statistics for each generation, such as the generation count, live cell population, and growth rate. These statistics provide insight into how the grid evolves and can reveal trends in pattern dynamics. You may print these statistics to the console for easy monitoring as the simulation runs.</p>
+                <p>Implement functions to calculate:</p>
+                <ul>
+                    <li>Generation Number</li>
+                    <li>Population (total live cells)</li>
+                    <li>Growth Rate</li>
+                </ul>
             </div>
 
             <div class="task4" id="task4">
                 <h2>Task 4: Detect equilibrium</h2>
-                <p>Detect when the grid reaches a stable state, halting simulation when cells stop changing or enter a repeating cycle (up to 10 generations).</p>
+                <p>Equilibrium occurs when the grid becomes static or enters a repeating cycle. Add code to detect these states and halt the simulation. Equilibrium detection is useful for efficiently managing the simulation, stopping unnecessary updates once stability is achieved. For this task, consider cycles up to 10 generations long. Track grid states and check for repetitions.</p>
             </div>
 
             <div class="task5" id="task5">
                 <h2>Task 5: Color-code for age</h2>
-                <p>Color cells based on age, with darker colors for longer-lived cells. Modify `draw_grid` in Pygame to show age gradients for cells.</p>
+                <p>Modify the display to show age-based coloring, where cells darken with each generation they've been alive, up to a maximum darkness after 20 generations. This visualization emphasizes long-lived cells and highlights pattern stability. Experiment with different color schemes for an optimal effect. Adjust the `draw_grid` function to implement this gradient.</p>
 
                 <div class="video-container">
                     <figure style="text-align: center;">
                         <video width="320" height="240" autoplay loop muted>
                             <source src="./mov/gol_col1.mp4" type="video/mp4">
                         </video>
-                        <figcaption>Figure 2: Color-coded simulation based on cell age, showing varied patterns.</figcaption>
+                        <figcaption>Figure 2: Age-based color coding highlights persistent patterns.</figcaption>
                     </figure>
                 </div>
-                <p>Explore visual variations in cell coloring or backgrounds, as seen in <a href="https://jaxry.github.io/colorful-life/" target="_blank">this interactive example</a>.</p>
+                <p>For more advanced visualizations, try interactive options like <a href="https://jaxry.github.io/colorful-life/" target="_blank">this colorful version</a>.</p>
             </div>
 
             <div class="close" id="close">
                 <h1>Explore more</h1>
-                <p>The Game of Life can simulate any computation. With sufficient time and space, it supports complex pattern formation, enabling glider-based logic gates. For more, explore the <a href="https://conwaylife.com/wiki/" target="_blank">Conway Life Wiki</a>.</p>
+                <p>Game of Life is a Turing complete system, capable of simulating any computation. By constructing specific patterns, complex circuits and logic gates are possible. Explore the <a href="https://conwaylife.com/wiki/" target="_blank">Conway Life Wiki</a> for tutorials and community insights into this computational marvel.</p>
             </div>
         </section>
     </div>
