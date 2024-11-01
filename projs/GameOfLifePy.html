@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Game of Life</title>
+    <title>Conway's Game of Life</title>
     <link rel="stylesheet" href="../prism.css"> <!-- Adjust path as needed -->
     <link rel="stylesheet" href="../style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -30,12 +30,11 @@
     </div>
 
     <div class="statement">
-        <h1>Python Game of Life</h1>
+        <h1>Conway's Game of Life</h1>
         <section class="statement">
             <div class="intro" id="intro">
                 <h2>What is the game of life?</h2>  
-                <p>Conway's Game of Life is a cellular automaton created by mathematician John Conway, where cells evolve on a grid based on initial configurations. In this Python version, we use Pygame to visualize these cell states in real-time.</p>
-            </div>
+                <p>Conway's Game of Life is a cellular automaton created by mathematician John Conway. t's a zero-player game, meaning its evolution is determined by its initial state without any further input. The game is played on an infinite grid of square cells, each of which can be either <i>alive</i> or <i>dead</i>. The state of the grid evolves in discrete time steps according to a set of simple rules based on the states of neighboring cells. Despite simple rules, the Game of Life can produce incredibly complex and varied patterns, being used in practical applications such as <a href="https://arxiv.org/abs/2009.01398" target="_blank">neural networks research</a> in computer science and <a href="https://pubs.aip.org/aapt/ajp/article/91/7/561/2897367/The-game-of-life-as-a-species-model" target="_blank">simulating population dynamics</a> in theoretical biology</p>
             
             <div class="terms" id="terms">  
                 <fieldset>
@@ -63,9 +62,8 @@
             </div>
 
             <div class="task1" id="task1">
-                <h2>Task 1: Basic simulation in Python</h2>
-                <p>This task involves creating a 100x100 Pygame grid where black cells are alive, and white cells are dead. Code the evolution using Pygame, showing each generation continuously.</p>
-                <div class="video-container">
+                <h2>Task 1: The basic simulation</h2>
+                Consider the following simulation of Conway's Game of Life. This simulation uses a 100x100 grid. This is a good size because it allows intricate patterns to emerge without overwhelming computational resources. In this grid, black cells represent alive states, while white cells represent dead states. The initial configuration of the grid is populated randomly with a mix of alive and dead cells. Our first goal is to write code that can produce such simulations, showing the evolution of this grid over any number of generations, continuing until the window is closed by the user.</p> <div class="video-container">
                     <figure>
                         <video width="320" height="240" autoplay loop muted>
                             <source src="./mov/gol_100_eq.mp4" type="video/mp4">
@@ -74,7 +72,8 @@
                         <figcaption>Figure 1: Python-based simulation using Pygame with a randomly generated initial configuration reaching equilibrium.</figcaption>
                     </figure>
                 </div>
-                <p>Below is a Python function that initializes a random grid and updates it according to the rules. Complete the functions:</p>
+                <p>Below is a Python function that initializes a random grid and updates it according to the rules. </p>
+                <p>Copy and run this code. You will see the initial state of the grid, but there will be no evolution. To implement the evolution, complete the following two functions:</p>
                 <ul>
                     <li><code><strong>count_alive_neighbors</strong></code> (for <code><strong>update_grid</strong></code>)</li>
                     <li><code><strong>update_grid</strong></code></li>
