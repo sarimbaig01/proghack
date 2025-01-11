@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sorting Binary Identifiers</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
+
+    <!--<div class="toc">
+        <h5>Table of Contents</h5>
+        1. <a href="#inspect">Inspecting the hierarchy</a><br><br>
+        2. <a href="#navigate">Navigating the hierarchy</a><br><br>
+        3. <a href="#permissions">File listing and permissions</a><br><br>
+    </div>-->
+
+    <div class="statement">
+        <h1 class="align-with-statement"> Sorting Binary Identifiers for Communication Analysis</h1>
+        <section class="statement">
+            <h2>Introduction</h2>
+            <p>
+                We consider a network server that receives binary identifiers in the form of \(0/1\) strings, each
+                of length \(d\), from up to \(2^d\) communicating machines.</p>
+            <p> These identifiers may arrive in tens of thousands, including repeated times from the same machine. To
+                analyze the communication behavior of each machine
+                effectively, it is essential to sort the received data.</p>
+            <p>Sorting enables efficient organization of the data associated with the identifiers. This may further
+                enable the server to detect patterns, count interactions, and identify anomalies or
+                irregularities in communication behavior.
+            </p>
+
+            <h3>Problem definition</h3>
+            <p>
+                We are given a vector <code>bstrings</code> of \(N\) binary strings, where each string is of fixed
+                length \(d\). The task is to sort the strings in <strong>non-decreasing order of the binary numbers they
+                    represent</strong>. Each string represents a binary number, and the sorting must respect the
+                numerical value of these numbers.
+            </p>
+            <p>
+                For example:
+            </p>
+            <p>
+                <strong>Input:</strong> <code>bstrings = {"100", "110", "101", "110", "000", "101"}</code><br>
+                <strong>Sorted Output:</strong><code> </code>{"000", "100", "101", "101", "110", "110"}</code>
+            </p>
+            <p>
+                <strong>Notes:</strong><br>
+                1. All strings in the vector have the same length \(d\).<br>
+                2. The number of strings, \(N\), can be any positive integer, and strings may appear multiple times in
+                the vector.
+            </p>
+
+        </section>
+    </div>
+</body>
+
+
+</html>
