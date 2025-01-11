@@ -56,16 +56,34 @@
                 For example:
             </p>
             <p>
-                <strong>Input:</strong> <code>bstrings = {"100", "110", "101", "110", "000", "101"}</code><br>
-                <strong>Sorted Output:</strong><code> </code>{"000", "100", "101", "101", "110", "110"}</code>
+                <strong>Input:</strong> {"100", "110", "101", "110", "000", "101"}<br>
+                <strong>Sorted Output:</strong> {"000", "100", "101", "101", "110", "110"}
             </p>
             <p>
                 <strong>Notes:</strong><br>
                 1. All strings in the vector have the same length \(d\).<br>
-                2. The number of strings, \(N\), can be any positive integer, and strings may appear multiple times in
-                the vector.
+                2. The number of strings, \(N\), can be any positive integer.<br>
+                3. The same string may repeat any number of times.
             </p>
 
+            <h3>Implementation 1: Sorting using repeated selection (slow)</h3>
+            <p>
+                One of the simplest sorting algorithms works as follows:
+                Traverse through the elements (strings in this case) of the vector, and in each case: <br>
+                (1) Find the smallest element in the vector (the smallest between the elements starting from the current
+                position to the end of the vector), <br>
+                (2) Swap the current element with the smallest element.
+            </p>
+
+            <p>Let's begin by implementing this simple method in C++. The following code provides a an empty sorting
+                function (to be implemented by you), and a main that tests it.</p>
+            <div class="code-container" data-filename="./cpp/bin_str1.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
+                </code></pre>
+            </div>
+
+            <h3>Implementation 2: Sorting by digits, using auxiliary storage (fast)</h3>
+            <p>todo:...</p>
         </section>
     </div>
 </body>
