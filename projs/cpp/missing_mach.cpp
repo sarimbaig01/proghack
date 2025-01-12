@@ -2,44 +2,11 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> trim_grid(const std::vector<std::string> &bin_strings, int dig_num, char last_dig)
-{
-    std::vector<std::string> trimmed;
-    for (int i = 0; i < bin_strings.size(); i++)
-    {
-        if (bin_strings[i][dig_num] == last_dig)
-        {
-            trimmed.push_back(bin_strings[i]);
-        }
-    }
-    return trimmed;
-}
 
 std::string missing_machine(const std::vector<std::string> &bin_strings)
 {
-    std::vector<std::string> aux = bin_strings;
-    
-    std::string missing;
-    int d = aux[0].size();
-    for (int dig_num = 0; dig_num < d; dig_num++)
-    {
-        int zero_count = 0, one_count = 0;
-        for (int i = 0; i < aux.size(); i++)
-        {
-            zero_count += aux[i][dig_num] == '0';
-            one_count += aux[i][dig_num] == '1';
-        }
-        if (zero_count > one_count)
-        {
-            missing.push_back('1');
-        }
-        else
-        {
-            missing.push_back('0');
-        }
-        aux = trim_grid(aux, dig_num, missing[missing.size() - 1]);
-    }
-    return missing;
+    ///TODO: Implement this function
+    ///Write and use appropriate companion functions
 }
 
 int main()
