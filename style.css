@@ -2,8 +2,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5dc;
-    /* Light beige background */
+    background-color: #f5f5dc; /* Light beige background */
     margin: 0;
     padding: 20px;
     display: flex;
@@ -29,31 +28,24 @@ h1 + section.statement {
     margin-top: 0; /* Ensures no extra space between the h1 and the section */
 }
 
-
 h1.align-with-statement {
     margin-left: 20px; /* Matches the section's margin */
 }
 
-
 h1 {
-    color: #4E342E;
-    /* Dark brown */
+    color: #4E342E; /* Dark brown */
 }
 
 h2 {
-    color: #6A5ACD;
-    /* Slate blue */
+    color: #6A5ACD; /* Slate blue */
 }
 
-
 h3 {
-    color: #556B2F;
-    /* Dark olive green */
+    color: #556B2F; /* Dark olive green */
 }
 
 h4 {
-    color: #D2691E;
-    /* Rusty orange */
+    color: #D2691E; /* Rusty orange */
 }
 
 .no-indent {
@@ -67,19 +59,12 @@ code {
 
 .code-container {
     padding: 0px;
-    /* Reduced padding to 10 pixels */
     width: 90%;
-    /* Make the container wider */
     max-width: 1000px;
-    /* Increase max width */
     margin: 20px 0;
-    /* Remove auto margins and reduce to just vertical margins */
     left: 5%;
-    /* Move the container closer to the left of the screen */
-    /*border: 1px solid #ccc; /* Thin border, slightly darker than body's background color */
 }
 
-/* Add this to your CSS file */
 .algorithm p {
     margin: 0;
 }
@@ -95,7 +80,6 @@ code {
 .algorithm .indent-3 {
     margin-left: 60px;
 }
-
 
 .copy-btn {
     position: absolute;
@@ -194,36 +178,27 @@ code {
 table.atable {
     border-collapse: collapse;
     width: 100%;
-    /* Optional: Set the table to take the full width of its container */
 }
 
 table.atable,
 table.atable td {
     border: 1px solid #000;
-    /* Thin dark border */
 }
 
 table.atable th {
     border: 1px solid #000;
-    /* Add a thin dark border to the table headers */
     text-align: left;
-    /* Left justify the header text */
     padding: 8px;
-    /* Add padding for better readability */
     font-weight: normal;
 }
 
 table.atable td {
     padding: 8px;
-    /* Optional: Add padding to table cells */
     text-align: left;
-    /* Optional: Align text to the left */
 }
-
 
 .statement {
     margin-right: 270px;
-    /* Increase right margin to make more space for the TOC */
 }
 
 legend {
@@ -233,19 +208,14 @@ legend {
 
 fieldset {
     border: 2px solid burgundy;
-    /* Adjust the border width if needed */
     color: burgundy;
-    /* Set the text color inside the fieldset to burgundy */
 }
 
 .toc {
     position: fixed;
     top: 100px;
-    /* Adjust based on your preference */
     right: 40px;
-    /* Move the TOC a little towards the right */
     width: 220px;
-    /* Adjust the width as necessary */
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
@@ -254,106 +224,67 @@ fieldset {
 
 .toc a {
     display: inline;
-    /* Ensure each link takes up the full width and appears on its own line */
-   
     text-decoration: underline;
-    /* Underline the links */
     color: black;
-    /* Set link color to black */
     position: relative;
-    /* Enable positioning of pseudo-element */
     padding-left: 2px;
-    /* Reduce padding to bring text closer to bullet */
 }
 
 .toc a::before {
-    /*content: "•";*/
-    /* Bullet point character */
     position: absolute;
-    /* Position relative to the link */
     left: 0px;
-    /* Adjust distance from the link text */
     color: black;
-    /* Same color as the link text */
 }
 
 .toc a.sub-item {
     padding-left: 0px;
-    /* Indent sub-items more */
 }
 
 .toc a.sub-item::before {
     content: "•";
-    /* Bullet point character */
     position: absolute;
-    /* Position relative to the link */
     left: 25px;
-    /* Adjust distance from the link text to align bullets */
     color: black;
-    /* Same color as the link text */
 }
 
 .toc a:hover {
     text-decoration: underline;
-    /* Underline links on hover for better visibility */
 }
 
+.img-container {
+    text-align: center; /* Center the content within the container */
+    margin: 0 auto;
+}
+
+figure {
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center image and caption horizontally */
+    margin: 20px auto; /* Add spacing and center figure horizontally */
+    max-width: 800px; /* Ensure figure does not exceed image width */
+    text-align: center; /* Center caption text within the figure */
+}
 
 img {
-    max-width: 100%;
-    /* Make images responsive */
-    height: auto;
-    /* Maintain aspect ratio */
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.toc-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 100;
+figcaption {
+    font-size: 14px; /* Adjust text size */
+    color: #555; /* Improve readability with a subtle color */
+    margin-top: 8px; /* Add space between image and caption */
+    max-width: 100%; /* Ensure caption does not exceed image width */
+    word-wrap: break-word; /* Prevent overflow for long words */
+    text-align: center; /* Center-align caption text */
 }
-
-/* ref Table Styling */
-table.ref {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-/* Table Borders */
-table.ref th,
-table.ref td {
-    border: 1px solid #ccc;
-    /* Visible border */
-    padding: 8px 12px;
-    text-align: left;
-    /* Left-aligned content */
-}
-
-/* Header Styling */
-table.ref th {
-    background-color: #f2f2f2;
-    /* Light grey background */
-    font-weight: bold;
-}
-
 
 .video-container {
     display: flex;
     justify-content: center;
-    /* Center the video horizontally */
     margin: 20px 0;
-    /* Add margin for spacing */
 }
 
-
-/* Specific Console Styling */
 .console {
     background: #1e1e1e;
     color: #ffffff;
@@ -375,59 +306,18 @@ table.ref th {
 
 .prompt {
     color: #0ff;
-    /* Cyan for prompt */
 }
 
 .command {
     color: #0f0;
-    /* Green for commands */
 }
 
 .output {
     color: #bbb;
-    /* Light grey for output */
 }
-
-/*figure {
-    display: inline-block;
-    text-align: center;
-    margin: 20px 0;
-}
-
-figcaption {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
-}
-*/
-
 
 .indented-block {
     text-indent: 30px;
-}
-
-
-figure {
-    display: flex;
-    flex-direction: column;
-    /* Arrange content vertically */
-    align-items: center;
-    /* Center content horizontally */
-    margin: 20px auto;
-    /* Center horizontally and add some vertical margin */
-    text-align: center;
-    /* Center text within the figure */
-    max-width: 100%;
-    /* Ensure figures do not exceed container width */
-}
-
-figcaption {
-    margin-top: 10px;
-    /* Add some space between the image/video and the caption */
-    font-size: 14px;
-    color: #555;
-    text-align: center;
-    /* Center the caption text */
 }
 
 figure.no-center {
@@ -440,7 +330,6 @@ figure.no-center {
 .flex-container {
     display: flex;
     gap: 0;
-    /* Removes space between code wrappers */
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
@@ -449,44 +338,28 @@ figure.no-center {
 .flex-container .code-wrapper {
     display: flex;
     flex-direction: column;
-    /* Stacks heading and code container vertically */
     flex: 1;
     max-width: 50%;
-    /* Adjusts to allow two containers to fit side-by-side */
 }
 
 .flex-container .code-container {
     padding: 10px !important;
-    /* Override global padding */
     width: auto !important;
-    /* Override global width */
     max-width: 100% !important;
-    /* Override global max-width */
     margin: 0 !important;
-    /* Override global margin */
     left: auto !important;
-    /* Override global left positioning */
     border-radius: 5px;
-    /* Add border radius */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Add subtle shadow */
 }
-
 
 .flex-container .code-container pre {
     margin: 0;
-    /* Removes default margin */
     font-family: Consolas, Monaco, 'Courier New', monospace;
-    /* Sets a monospace font for code */
     overflow: auto;
-    /* Adds scrolling only to the <pre> element */
     padding: 0;
-    /* Removes extra padding to avoid double scroll */
     height: 100%;
 }
 
-
-/* Ensure video controls are hidden */
 video::-webkit-media-controls {
     display: none !important;
 }
@@ -495,67 +368,17 @@ video::-webkit-media-controls-overlay-enclosure {
     display: none !important;
 }
 
-
-/* Media queries for mobile devices 
-@media only screen and (max-width: 600px) {
-    body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        width: 95%;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-
-    div.toc {
-        display: none;
-    }
-
-    section.toc {
-        position: static;
-        order: 0;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 10px;
-        background-color: #fff;
-    }
-
-    section.statement {
-        position: static;
-        order: 1;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 10px;
-        background-color: #fff;
-        border: none;
-    }
-}*/
-
-/* Media queries for tablets 
-@media only screen and (min-width: 601px) and (max-width: 900px) {
-    body {
-        padding: 15px;
-    }
-
-    .code-container {
-        width: 95%;
-        padding: 10px;
-        margin: 15px 0;
-        left: 2.5%;
-    }
-
-    .toc {
-        right: 10px;
-        width: 200px;
-    }
-
-    .statement {
-        margin-right: 150px;
-    }
-}*/
+.text-box {
+    border: 1px solid #ccc; /* Adds a light border */
+    padding: 5px;          /* Adds space inside the box */
+    margin: 20px 0;         /* Adds vertical spacing */
+    background-color: #f9f9f9; /* Light grey background */
+    border-radius: 5px;     /* Rounds the corners slightly */
+    font-family: Arial, sans-serif; /* Sets a clean font */
+    font-size: 16px;        /* Sets the text size */
+    width: 90%;             /* Make the box responsive */
+    max-width: 800px;       /* Ensure the box doesn't exceed the width of code-container or images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for aesthetics */
+    word-wrap: break-word;  /* Prevent text from overflowing */
+    margin-left: 0;         /* Ensures the box is left-aligned */
+}
