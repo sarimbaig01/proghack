@@ -2,8 +2,7 @@
 #include <string>
 #include <vector>
 
-
-std::string missing_machine(const std::vector<std::string> &bin_strings)
+std::string missing_machine(const std::vector<std::string> & identifiers)
 {
     ///TODO: Implement this function
     ///Write and use appropriate companion functions

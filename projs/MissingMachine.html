@@ -35,47 +35,31 @@
         <section class="statement">
             <h2>Introduction</h2>
             <p>
-                We consider a network server that receives binary identifiers in the form of \(0/1\) strings, each
-                of length \(d\), from up to \(2^d\) communicating machines.</p>
-            <p> These identifiers may arrive in large quantities, often repeatedly from the same machine. To
-                analyze the communication behavior of each machine
-                effectively, it is important to first sort the received data by machine identifiers.</p>
-            <p>Sorting enables efficient organization of the data associated with the identifiers. This may further
-                enable the server to detect patterns, count interactions, and identify anomalies or
-                irregularities in communication behavior.
+                todo...
             </p>
 
             <h3>Problem definition</h3>
             <p>
-                We are given a vector <code>identifiers</code> of \(N\) binary strings, where each string is of fixed
-                length \(d\). The task is to sort the strings in <strong>non-decreasing order of the binary numbers they
-                    represent</strong>.
+                We are given a vector <code>identifiers</code> of \( N = 2^d - 1 \) unique binary strings of length \( d \).
+                Therefore one of the \(2^d\) possible identifiers is missing. The identifiers are already sorted (in the increasing order). Our task is to find the missing identifier.</strong>.
             </p>
             <p>
                 For example:
             </p>
             <p>
-                <strong>Input:</strong> identifiers = {"100", "110", "101", "110", "000", "101"}<br>
-                <strong>Output:</strong> identifiers = {"000", "100", "101", "101", "110", "110"}
-            </p>
-            <p>
-                <strong>Important Notes:</strong>
-            <ol>
-                <li>All strings in the vector <code>identifiers</code> have the same length \(d\).</li>
-                <li>The number of identifiers, \(N\), can be any positive integer. (\(N\)is potentially much larger than \(d\)).
-                </li>
-                <li>The same identifier may repeat any number of times in <code>identifiers</code>.</li>
-            </ol>
+                <strong>Input:</strong> identifiers = {"000", "001", "011", "100", "101", "110", "111"}<br>
+                <strong>Output:</strong> Missing identifier = "010"
             </p>
 
-            <p>todo: about the code...</p>
+            <p>Design and implement a solution in C++. The following code provides an empty function
+                (to be implemented by you), and a main that tests it.</p>
             <div class="code-container" data-filename="./cpp/missing_mach.cpp">
                 <pre><code class="language-cpp" id="cpp-code1">
                 </code></pre>
             </div>
 
-            
         </section>
     </div>
 </body>
+
 </html>
