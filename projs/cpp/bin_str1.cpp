@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-void bstrings_sort_sel(std::vector<std::string> & bin_strings)
+void sort_identifiers_slow(std::vector<std::string> & bin_strings)
 {
    //TODO: Implement this function, using the repeated selection method
 }
@@ -46,7 +46,7 @@ int main()
         }
 
         // Call the bstrings_sort_sel function (not implemented)
-        bstrings_sort_sel(grids[i]);
+        sort_identifiers_slow(grids[i]);
 
         std::cout << std::endl << "Grid " << i + 1 << " after sorting:" << std::endl;
         for (size_t j = 0; j < grids[i].size(); ++j)

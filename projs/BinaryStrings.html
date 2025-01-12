@@ -31,15 +31,15 @@
     </div>-->
 
     <div class="statement">
-        <h1 class="align-with-statement"> Sorting Binary Identifiers for Communication Analysis</h1>
+        <h1 class="align-with-statement"> Sorting Binary Identifiers</h1>
         <section class="statement">
             <h2>Introduction</h2>
             <p>
                 We consider a network server that receives binary identifiers in the form of \(0/1\) strings, each
                 of length \(d\), from up to \(2^d\) communicating machines.</p>
-            <p> These identifiers may arrive in tens of thousands, including repeated times from the same machine. To
+            <p> These identifiers may arrive in large quantities, often repeatedly from the same machine. To
                 analyze the communication behavior of each machine
-                effectively, it is essential to sort the received data.</p>
+                effectively, it is important to first sort the received data by machine identifiers.</p>
             <p>Sorting enables efficient organization of the data associated with the identifiers. This may further
                 enable the server to detect patterns, count interactions, and identify anomalies or
                 irregularities in communication behavior.
@@ -47,23 +47,25 @@
 
             <h3>Problem definition</h3>
             <p>
-                We are given a vector <code>bstrings</code> of \(N\) binary strings, where each string is of fixed
+                We are given a vector <code>identifiers</code> of \(N\) binary strings, where each string is of fixed
                 length \(d\). The task is to sort the strings in <strong>non-decreasing order of the binary numbers they
-                    represent</strong>. Each string represents a binary number, and the sorting must respect the
-                numerical value of these numbers.
+                    represent</strong>.
             </p>
             <p>
                 For example:
             </p>
             <p>
-                <strong>Input:</strong> {"100", "110", "101", "110", "000", "101"}<br>
-                <strong>Sorted Output:</strong> {"000", "100", "101", "101", "110", "110"}
+                <strong>Input:</strong> identifiers = {"100", "110", "101", "110", "000", "101"}<br>
+                <strong>Output:</strong> identifiers = {"000", "100", "101", "101", "110", "110"}
             </p>
             <p>
-                <strong>Notes:</strong><br>
-                1. All strings in the vector have the same length \(d\).<br>
-                2. The number of strings, \(N\), can be any positive integer.<br>
-                3. The same string may repeat any number of times.
+                <strong>Important Notes:</strong>
+            <ol>
+                <li>All strings in the vector <code>identifiers</code> have the same length \(d\).</li>
+                <li>The number of identifiers, \(N\), can be any positive integer. (\(N\)is potentially much larger than \(d\)).
+                </li>
+                <li>The same identifier may repeat any number of times in <code>identifiers</code>.</li>
+            </ol>
             </p>
 
             <h3>Implementation 1: Sorting using repeated selection (slow)</h3>
@@ -72,6 +74,7 @@
             </p>
 
             <div class="text-box">
+                <p><strong>Sorting by Repeated Selection</strong></p>
                 <p>
                     Traverse through the elements (strings, in this case) of the vector, and for each element:
                 <ul>
@@ -91,12 +94,12 @@
 
             <h3>Implementation 2: Sorting by digits, using auxiliary storage (fast)</h3>
             <p>
-                This implementation sorts \(0/1\) strings by exploiting their particular structure.
+                This implementation sorts identifiers by exploiting their \(0/1\) structure.
             </p>
 
             <p>It uses one digit position at a time as the sorting criterion.</p>
 
-            <p>The method is shown in Figure 1 below.</p>
+            <p>The method is shown in Figure 1 below. Please take a careful look at how it works.</p>
 
             <div class="img-container">
                 <figure class="left-aligned">
@@ -107,9 +110,9 @@
                 </figure>
             </div>
 
-            <p> Following is a brief description of the method. The description has been kept brief intentionally, and
-                not all implementation details have been specified. However, breaking the task into smaller functions
-                will help. </p>
+            <p> Following is a brief description of the method. The description is intentionally brief, and not all
+                implementation details are provided. However, breaking the task into smaller functions can simplify the
+                implementation. </p>
 
             <p>A key point is that if two strings \(x\)
                 and \(y\) have the same digit at any step, their relative order from the previous step must be
@@ -118,6 +121,7 @@
             </p>
 
             <div class="text-box">
+                <p><strong>Sorting Digit-by-Digit</strong></p>
                 <p>
                     Traverse through the \(d\) digit positions of the \(0/1\) strings from the least significant to
                     the most significant digit position, and for each position:
@@ -134,10 +138,13 @@
                 <legend>Comparison: Repeated Selection vs. Digit-by-Digit Sorting</legend>
                 <p>
                     This comparison highlights how the digit-by-digit method is faster than repeated selection for
-                    sorting \(N\) strings of length \(d\). Since strings can repeat, the number of strings \(N\) is
-                    often much larger than \(d\), as \(N\) represents the total number of elements while \(d\) is just
-                    the length of each binary string.
+                    sorting \(N\) identifiers (binary strings) of length \(d\).</p>
+
+                <p> The number of strings \(N\) is exponential in terms of \(d\), as there are \(2^d\) possible binary
+                    strings of length \(d\). Furthermore, strings can repeat, so \(N\) can greatly exceed \(2^d\),
+                    making \(N\) much larger than \(d\) in typical cases.
                 </p>
+
                 <p>
                     The repeated selection method takes time proportional to \(N^2 \cdot d\), as it repeatedly scans the
                     unsorted portion of the strings to find the smallest, which involves comparing all pairs of strings.
@@ -162,10 +169,10 @@
             <p>Finally, implement the digit-by-digit method in C++. The following code provides an empty sorting
                 function (to be implemented by you). Use the same main as above to test your function. </p>
 
-                <div class="code-container" data-filename="./cpp/bin_str2.cpp">
-                    <pre><code class="language-cpp" id="cpp-code1">
+            <div class="code-container" data-filename="./cpp/bin_str2.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
                     </code></pre>
-                </div>
+            </div>
 
 
         </section>
