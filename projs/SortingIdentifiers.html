@@ -21,19 +21,19 @@
 </head>
 
 <body>
-    <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
-    <!--<div class="toc">
-        <h5>Table of Contents</h5>
-        1. <a href="#inspect">Inspecting the hierarchy</a><br><br>
-        2. <a href="#navigate">Navigating the hierarchy</a><br><br>
-        3. <a href="#permissions">File listing and permissions</a><br><br>
-    </div>-->
+    <div class="toc">
+        <h4>Table of Contents</h4>
+        <a href="#intro">Introduction</a>
+        <a href="#imp1">Implementation 1: Sorting by repeated selection</a>
+        <a href="#imp2">Implementation 2: Sorting by digits </a>
+    </div>
 
     <div class="statement">
-        <h1 class="align-with-statement"> Sorting Binary Identifiers</h1>
+        <h1 class="align-with-statement">Problem 1.1 Sorting Binary Identifiers</h1>
         <section class="statement">
-            <h2>Introduction</h2>
+            <h2 id="intro">Introduction</h2>
             <p>
                 We consider a network server that receives binary identifiers in the form of \(0/1\) strings, each
                 of length \(d\), from up to \(2^d\) communicating machines.</p>
@@ -68,7 +68,7 @@
             </ol>
             </p>
 
-            <h3>Implementation 1: Sorting using repeated selection (slow)</h3>
+            <h3 id="imp1">Implementation 1: Sorting using repeated selection (slow)</h3>
             <p>
                 One of the simplest sorting algorithms works as follows:
             </p>
@@ -92,7 +92,7 @@
                 </code></pre>
             </div>
 
-            <h3>Implementation 2: Sorting by digits, using auxiliary storage (fast)</h3>
+            <h3 id="imp2">Implementation 2: Sorting by digits, using auxiliary storage (fast)</h3>
             <p>
                 This implementation sorts identifiers by exploiting their \(0/1\) structure.
             </p>

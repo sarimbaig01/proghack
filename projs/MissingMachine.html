@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
     <!--<div class="toc">
         <h5>Table of Contents</h5>
@@ -31,32 +31,71 @@
     </div>-->
 
     <div class="statement">
-        <h1 class="align-with-statement"> The Missing Machine</h1>
+        <h1 class="align-with-statement">Problem 1.2 The Missing Machine</h1>
         <section class="statement">
             <h2>Introduction</h2>
             <p>
-                todo...
+                This problem refers to the same network server as the previous problem. The server collects identifiers
+                from various machines on the network and ensures the data is free of duplicates. However, if a machine
+                has been offline throughout the communication period and doesn’t interact with the server, its
+                identifier will be missing from the list. In such cases, the server needs to quickly detect which
+                machine is missing to address the issue promptly.
             </p>
 
             <h3>Problem definition</h3>
             <p>
-                We are given a vector <code>identifiers</code> of \( N = 2^d - 1 \) unique binary strings of length \( d \).
-                Therefore one of the \(2^d\) possible identifiers is missing. The identifiers are already sorted (in the increasing order). Our task is to find the missing identifier.</strong>.
+                We are given a vector <code>identifiers</code> of \( N = 2^d - 1 \) unique binary strings of length \( d
+                \).
+                Therefore one of the \(2^d\) possible identifiers is missing. The identifiers are not necessarily in the
+                sorted order.</strong>.
             </p>
+            <p>The goal is to find the identifier of the missing machine.</p>
             <p>
                 For example:
             </p>
             <p>
-                <strong>Input:</strong> identifiers = {"000", "001", "011", "100", "101", "110", "111"}<br>
-                <strong>Output:</strong> Missing identifier = "010"
+                <strong>Input:</strong> identifiers = {"110", "101", "011", "111", "001", "000", "100"}<br>
+                <strong>Output:</strong> The identifier of the missing machine = "010"
             </p>
+
+            <p>
+                Some notes: solving this problem may not require sorting the strings first. Moreover, you might be able
+                to do this without using any additional memory, except for a few variables.
+            </p>
+
 
             <p>Design and implement a solution in C++. The following code provides an empty function
                 (to be implemented by you), and a main that tests it.</p>
-            <div class="code-container" data-filename="./cpp/missing_mach.cpp">
+            <div class="code-container" data-filename="./cpp/missing_mach1.cpp">
                 <pre><code class="language-cpp" id="cpp-code1">
                 </code></pre>
             </div>
+
+            <h2>Missing Machine(s)</h2>
+
+            <p>In another version of the problem, the server does not preprocess the data. All received identifiers,
+                including duplicates, are kept in the identifiers list. Additionally, more than one machine might be
+                offline and fail to communicate with the server, leading to multiple missing identifiers. The task
+                is to report all the missing identifiers.</p>
+
+            <h3>Problem definition</h3>
+            <p>
+                We are given a vector <code>identifiers</code> of \( N \) binary strings of length \( d
+                \) each, possibly containing duplicates.
+                The identifiers are not necessarily in the sorted order.</strong>
+            </p>
+
+            <p>The goal is to report the identifiers of all missing machines.</p>
+
+            <p>The function to write: </p>
+
+            <div class="code-container" data-filename="./cpp/missing_mach2.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
+                    </code></pre>
+            </div>
+
+
+
 
         </section>
     </div>
