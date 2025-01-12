@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-void bstrings_sort_sel(std::vector<std::string> &bin_strings)
+void bstrings_sort_sel(std::vector<std::string> & bin_strings)
 {
    //TODO: Implement this function, using the repeated selection method
 }

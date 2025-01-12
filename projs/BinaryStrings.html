@@ -90,16 +90,84 @@
             </div>
 
             <h3>Implementation 2: Sorting by digits, using auxiliary storage (fast)</h3>
-            <p>todo:...</p>
+            <p>
+                This implementation sorts \(0/1\) strings by exploiting their particular structure.
+            </p>
+
+            <p>It uses one digit position at a time as the sorting criterion.</p>
+
+            <p>The method is shown in Figure 1 below.</p>
 
             <div class="img-container">
-                <figure>
+                <figure class="left-aligned">
                     <img src="./img/SortingByDigits.png" width="800" height="700">
                     <figcaption>Figure 1: The working of the digit-by-digit sorting method. On each step, the output of
                         the previous step is sorted based on the value of the next digit (moving from the least to most
                         significant digit).</figcaption>
                 </figure>
             </div>
+
+            <p> Following is a brief description of the method. The description has been kept brief intentionally, and
+                not all implementation details have been specified. However, breaking the task into smaller functions
+                will help. </p>
+
+            <p>A key point is that if two strings \(x\)
+                and \(y\) have the same digit at any step, their relative order from the previous step must be
+                preserved.
+                This is critical for the method to work correctly.
+            </p>
+
+            <div class="text-box">
+                <p>
+                    Traverse through the \(d\) digit positions of the \(0/1\) strings from the least significant to
+                    the most significant digit position, and for each position:
+                <ul class="none">
+                    <li>Move all strings with a \(0\) at that position above the strings with a \(1\) at that position.
+                    </li>
+                    <li>(Preserve the relative order of strings that have the same digit (0 or 1) at the current
+                        position.)</li>
+                </ul>
+                </p>
+            </div>
+
+            <fieldset>
+                <legend>Comparison: Repeated Selection vs. Digit-by-Digit Sorting</legend>
+                <p>
+                    This comparison highlights how the digit-by-digit method is faster than repeated selection for
+                    sorting \(N\) strings of length \(d\). Since strings can repeat, the number of strings \(N\) is
+                    often much larger than \(d\), as \(N\) represents the total number of elements while \(d\) is just
+                    the length of each binary string.
+                </p>
+                <p>
+                    The repeated selection method takes time proportional to \(N^2 \cdot d\), as it repeatedly scans the
+                    unsorted portion of the strings to find the smallest, which involves comparing all pairs of strings.
+                </p>
+                <p>
+                    The digit-by-digit method takes time proportional to \(d^2 \cdot N\). At each of the \(d\) digit
+                    positions, an additional cost of \(d \cdot N\) arises due to copying or processing the strings while
+                    grouping or rearranging them.
+                </p>
+                <p>
+                    For example, consider sorting 1000 8-digit strings. The repeated selection method will require
+                    approximately \(N^2 \cdot d = 1000^2 \cdot 8 = 8,000,000\) basic operations. In contrast, the
+                    digit-by-digit method will require approximately \(d^2 \cdot N = 8^2 \cdot 1000 = 64,000\) basic
+                    operations, making it significantly faster.
+                </p>
+                <p>
+                    The trade-off for the digit-by-digit method is the use of auxiliary storage to group strings during
+                    intermediate steps.
+                </p>
+            </fieldset>
+
+            <p>Finally, implement the digit-by-digit method in C++. The following code provides an empty sorting
+                function (to be implemented by you). Use the same main as above to test your function. </p>
+
+                <div class="code-container" data-filename="./cpp/bin_str2.cpp">
+                    <pre><code class="language-cpp" id="cpp-code1">
+                    </code></pre>
+                </div>
+
+
         </section>
     </div>
 </body>

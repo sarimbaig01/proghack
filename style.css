@@ -252,7 +252,7 @@ fieldset {
 }
 
 .img-container {
-    text-align: center; /* Center the content within the container */
+    /*text-align: center; /* Center the content within the container */
     margin: 0 auto;
 }
 
@@ -327,6 +327,18 @@ figure.no-center {
     text-align: initial;
 }
 
+figure.left-aligned {
+    display: block; /* Removes flex behavior */
+    margin: 20px 0; /* Adds vertical spacing */
+    max-width: 800px; /* Ensures figure does not exceed this width */
+    text-align: left; /* Aligns the caption text to the left */
+}
+
+figure.left-aligned img {
+    display: block; /* Ensures the image behaves as a block element */
+    margin: 0; /* Removes any default centering */
+}
+
 .flex-container {
     display: flex;
     gap: 0;
@@ -381,4 +393,10 @@ video::-webkit-media-controls-overlay-enclosure {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for aesthetics */
     word-wrap: break-word;  /* Prevent text from overflowing */
     margin-left: 0;         /* Ensures the box is left-aligned */
+}
+
+ul.none {
+    list-style-type: none; /* Removes bullets */
+    padding-left: 20px; /* Adds indentation */
+    margin: 0; /* Ensures no extra margin is added */
 }
