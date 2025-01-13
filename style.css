@@ -296,7 +296,7 @@ figure {
     align-items: center; /* Center content horizontally */
     margin: 20px auto; /* Center horizontally and add some vertical margin */
     text-align: center; /* Center text within the figure */
-    max-width: 100%; /* Ensure figures do not exceed container width */
+    max-width: 800px;
 }
 
 figcaption {

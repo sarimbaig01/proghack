@@ -105,7 +105,7 @@
                 <figure class="left-aligned">
                     <img src="./img/SortingByDigits.png" width="800" height="700">
                     <figcaption>Figure 1: The working of the digit-by-digit sorting method. On each step, the output of
-                        the previous step is sorted based on the value of the next digit (moving from the least to most
+                        the previous step is re-grouped based on the value of the next digit (moving from the least to most
                         significant digit).</figcaption>
                 </figure>
             </div>
@@ -126,10 +126,10 @@
                     Traverse through the \(d\) digit positions of the \(0/1\) strings from the least significant to
                     the most significant digit position, and for each position:
                 <ul class="none">
-                    <li>Move all strings with a \(0\) at that position above the strings with a \(1\) at that position.
+                    <li>Move all strings with a \(0\) at the current position before the strings with a \(1\) at the current position.
                     </li>
-                    <li>(Preserve the relative order of strings that have the same digit (0 or 1) at the current
-                        position.)</li>
+                    (In reordering strings, preserve the relative order of the strings that have the same digit (0 or 1) at the current
+                        position.)
                 </ul>
                 </p>
             </div>
