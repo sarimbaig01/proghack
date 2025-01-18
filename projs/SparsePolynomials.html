@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparse Polynomials</title>
-    <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
-    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-    
-<body>
-    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
-    <div class="toc">
-        <h2>Contents</h2>
-      
-        <a href="#intro">Introduction</a>
-        <a href="#impl">Implementation</a>
-      <!--
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sparse Polynomials</title>
+  <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
+  <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+  <div class="toc">
+    <h2>Contents</h2>
+
+    <a href="#intro">Introduction</a>
+    <a href="#impl">Implementation</a>
+    <!--
         <a href="#terms1">Some terminology</a>
         <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
         <a href="#terms2">Further terminology</a>
@@ -26,34 +27,48 @@
         <a href="#heuristic1" class="sub-item">Minimum remaining values heuristic (MRV)</a>
         <a href="#heuristic1" class="sub-item">Least constrained value heuristic (LCV)</a>
       -->
-    </div>
+  </div>
 
 
-    <div class="statement">
-      <h1>Sparse Polynomials</h1>
-      <section class="statement">
-          <div class="intro" id="intro">
-            <h2>Introduction</h2>
-            <p>A sparse polynomial is a polynomial in which most of the coefficients are zero, with only a few non-zero terms. For example, the polynomial \( 5x^8 + 3x^2 + 7 \) is sparse because it has only three non-zero terms, while the remaining coefficients are zero. Another example is \( 4x^{100} + 6x^5 + 2 \), where the highest power is much larger, but the number of non-zero terms remains small.</p>
-            <p>For non-sparse polynomials, a vector is a suitable data structure to store coefficients, with the index numbers corresponding to the powers of \(x\). For example, the polynomial \(3x^3 + 2x^2 + x + 4\) can be stored as \([4, 1, 2, 3]\), where the value at each index represents the coefficient of the corresponding power of \(x\). The advantage of using a vector is that it allows direct access to any coefficient in constant time, making operations like evaluation or differentiation straightforward and efficient. However, since most coefficients in sparse polynomials are zero, storing all terms in a vector would be wasteful in terms of memory. A more space-efficient approach is to store only the non-zero coefficients. A suitable data structure for this scenario is a linked list, where each node stores a non-zero coefficient and its corresponding power of \(x\), allowing memory to be used only for meaningful terms.</p>
-          </div>
+  <div class="statement">
+    <h1>Sparse Polynomials</h1>
+    <section class="statement">
+      <div class="intro" id="intro">
+        <h2>Introduction</h2>
+        <p>A sparse polynomial is a polynomial in which most of the coefficients are zero, with only a few non-zero
+          terms. For example, the polynomial \( 5x^8 + 3x^2 + 7 \) is sparse because it has only three non-zero terms,
+          while the remaining coefficients are zero. Another example is \( 4x^{100} + 6x^5 + 2 \), where the highest
+          power is much larger, but the number of non-zero terms remains small.</p>
+        <p>For non-sparse polynomials, a vector is a suitable data structure to store coefficients, with the index
+          numbers corresponding to the powers of \(x\). For example, the polynomial \(3x^3 + 2x^2 + x + 4\) can be
+          stored as \([4, 1, 2, 3]\), where the value at each index represents the coefficient of the corresponding
+          power of \(x\). The advantage of using a vector is that it allows direct access to any coefficient in constant
+          time, making operations like evaluation or differentiation straightforward and efficient. However, since most
+          coefficients in sparse polynomials are zero, storing all terms in a vector would be wasteful in terms of
+          memory. A more space-efficient approach is to store only the non-zero coefficients. A suitable data structure
+          for this scenario is a linked list, where each node stores a non-zero coefficient and its corresponding power
+          of \(x\), allowing memory to be used only for meaningful terms.</p>
+      </div>
 
-          <div class="impl" id="impl">
-              <h2>Implementation</h2>
-              <p>Following is a skeleton code that provides function prototypes and a main function to test various operations on sparse polynomials. The functions implement key operations such as addition, subtraction, multiplication, differentiation, and integration of polynomials. Feel free to add additional helper functions as needed to simplify the implementation of these operations. Ensure the functions are written as efficiently as possible.</p>
-              <div class="code-container" data-filename="./cpp/spoly.cpp">
-                <pre><code class="language-cpp" id="cpp-code1">
+      <div class="impl" id="impl">
+        <h2>Implementation</h2>
+        <p>Following is a skeleton code that provides function prototypes and a main function to test various operations
+          on sparse polynomials. The functions implement key operations such as addition, subtraction, multiplication,
+          differentiation, and integration of polynomials. Feel free to add additional helper functions as needed to
+          simplify the implementation of these operations. Ensure the functions are written as efficiently as possible.
+        </p>
+        <div class="code-container" data-filename="./cpp/spoly.cpp">
+          <pre><code class="language-cpp" id="cpp-code1">
                 </code></pre>
-            </div>
-          </div>
+        </div>
+      </div>
 
 
-        <!-- Prism.js JavaScript -->
-        <script src="../prism.js"></script> <!-- Adjust the path as needed -->
-        <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
-      </section>
-    </div>
+      <!-- Prism.js JavaScript -->
+      <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+      <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
+    </section>
+  </div>
 </body>
+
 </html>
-
-

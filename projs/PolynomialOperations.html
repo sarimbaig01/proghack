@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Polynomial Operations</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+
+    <div class="statement">
+        <h1 class="align-with-statement">Problem 2.2 Polynomial Operations</h1>
+        <section class="statement">
+
+            <p>In this task, your job is to implement basic operations on polynomials. Polynomials are stored as terms
+                in descending order of exponents. We obviously do not store terms with zero coefficients.</p>
+
+            <p><strong>For example</strong>, the polynomial \( 2x^4 - x^3 + 3x^2 - 1.5x + 1 \) will be stored in a vector as:</p>
+
+            <pre>{{4, 2.0}, {3, -1.0}, {2, 3.0}, {1, -1.5}, {0, 1.0}}</pre>
+
+            <p>and it should be printed by your program as:</p>
+
+            <p><pre>2x^4 - x^3 + 3x^2 - 1.5x + 1</pre></p>
+
+            <h3>Functions to Complete:</h3>
+
+            <p><code><strong>print_polynomial</strong></code>: Prints a polynomial in standard format. When the exponent of a term is 1
+                \(x \) should be printed instead of \(x^1\). If the exponent is 0, only the coefficient should be
+                printed. Similarly, every positive term should have a + preceding it except if it
+                is the first term.</p>
+
+            <p><code><strong>add_polynomials</strong></code>: Adds two polynomials and returns the resulting polynomial. It should be possible to
+                implement this function by doing a single scan of the input
+                polynomials, as they are stored in descending order of the exponents.</p>
+
+            <p><code><strong>mul_polynomials</strong></code>: Multiplies two polynomials and returns the resulting
+                polynomial. It should use the function <code>add_polynomials</code> to accumulate the intermediate sums.</p>
+
+            <p>Refer to the <code><strong>main</strong></code> function below to see how these functions will be used and tested.</p>
+
+            <div class="code-container" data-filename="./cpp/poly_op1.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
+                </code></pre>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+
+</html>

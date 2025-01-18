@@ -1,110 +1,165 @@
 #include <iostream>
 #include <vector>
 
-bool can_relay(const std::vector<int>& ranges) {
-    int n = ranges.size();
-    if (n == 0) return false; // Edge case: Empty input
+// Structures and Functions (as provided in the prompt)
+struct Term{
+    int exp;
+    double coeff;
+};
 
-    int farthest = 0; // Tracks the farthest reachable sensor
+struct Polynomial {
+    std::vector<Term> terms;
+    int deg;
+};
 
-    for (int i = 0; i < n; ++i) {
-        // If the current sensor is not reachable, return false
-        if (i > farthest) return false;
-
-        // Update the farthest point reachable from the current sensor
-        farthest = std::max(farthest, i + ranges[i]);
-
-        // If the last sensor is reachable, return true
-        if (farthest >= n - 1) return true;
+void print_polynomial(const Polynomial &p) {
+    if (p.terms.empty()) {
+        std::cout << "0" << std::endl; // Handle empty polynomial
+        return;
     }
 
-    return false; // If we finish the loop without reaching the last sensor
-}
+    for (size_t i = 0; i < p.terms.size(); ++i) {
+        const Term &term = p.terms[i];
 
-std::vector<int> min_relay_path(const std::vector<int>& ranges) {
-    ///TODO: Implement this function
+        // Skip terms with a coefficient of 0
+        if (term.coeff == 0) {
+            continue;
+        }
 
-    ///The function may assume that a valid relay path exists
-    ///(determined by an earlier call to can_relay)
+        // Print sign for non-first terms
+        if (i > 0 && term.coeff > 0) {
+            std::cout << "+";
+        }
 
-    std::vector<int> path;
-    if(ranges.size()==0){
-        return path;
-    }
+        // Print coefficient
+        if (std::abs(term.coeff) != 1 || term.exp == 0) {
+            std::cout << term.coeff;
+        } else if (term.coeff == -1) {
+            std::cout << "-";
+        }
 
-    int current_jump = ranges[0];
-    path.push_back(0);
-    int N = ranges.size();
-    int  i = 1;
-    while(i<N && current_jump < N - 1){
-        
-        int max_new_jump = current_jump;
-        int max_idx = -1;
-        
-        for(; i < N && i <= current_jump; ++i){
-            if(i + ranges[i] > max_new_jump){
-                max_new_jump = i + ranges[i];
-                max_idx = i;
+        // Print variable and exponent
+        if (term.exp > 0) {
+            std::cout << "x";
+            if (term.exp > 1) {
+                std::cout << "^" << term.exp;
             }
         }
-
-        if(max_new_jump < N){
-            path.push_back(max_idx);
-        }
-        
-        current_jump = max_new_jump; 
     }
 
-    path.push_back(N-1);
-    return path;
+    std::cout << std::endl;
+}
+Polynomial add_polynomials(const Polynomial &p, const Polynomial &q) {
+    Polynomial r;
+    int pi = 0, qi = 0;
+
+    // Merge terms from both polynomials
+    while (pi < p.terms.size() && qi < q.terms.size()) {
+        Term t;
+        if (p.terms[pi].exp == q.terms[qi].exp) {
+            t.coeff = p.terms[pi].coeff + q.terms[qi].coeff;
+            t.exp = p.terms[pi].exp;
+            pi++;
+            qi++;
+        } else if (p.terms[pi].exp > q.terms[qi].exp) {
+            t = p.terms[pi++];
+        } else {
+            t = q.terms[qi++];
+        }
+
+        if (t.coeff != 0) {
+            r.terms.push_back(t);
+        }
+    }
+
+    // Add remaining terms from p
+    while (pi < p.terms.size()) {
+        Term t = p.terms[pi++];
+        if (t.coeff != 0) {
+            r.terms.push_back(t);
+        }
+    }
+
+    // Add remaining terms from q
+    while (qi < q.terms.size()) {
+        Term t = q.terms[qi++];
+        if (t.coeff != 0) {
+            r.terms.push_back(t);
+        }
+    }
+
+    // Update degree based on resulting terms
+    if (!r.terms.empty()) {
+        r.deg = r.terms.front().exp;  // Highest exponent in descending order
+    } else {
+        r.deg = 0; // Zero polynomial
+    }
+
+    return r;
 }
 
+Polynomial mul_polynomials(const Polynomial &p, const Polynomial &q) {
+    Polynomial r, part;
+
+
+    for(int pi = 0; pi < p.terms.size(); ++pi){
+        part.terms.clear();
+
+        for(int qi=0; qi <q.terms.size(); ++qi ){
+            Term t;
+            t.coeff = p.terms[pi].coeff * q.terms[qi].coeff; 
+            t.exp = p.terms[pi].exp + q.terms[qi].exp;
+            part.terms.push_back(t);
+        }
+
+        r = add_polynomials(r, part);
+    }
+    
+    return r;
+}
+
+
+// Main function
 int main() {
-    // Test cases with expected results
-    std::vector<std::pair<std::vector<int>, bool>> test_cases = {
-        {{2, 3, 1, 1, 4}, true},      
-        {{3, 2, 1, 0, 4}, false},     
-        {{1, 1, 1, 1, 1}, true},      
-        {{2, 0, 2, 0, 1}, true},      
-        {{5, 0, 0, 0, 0, 0}, true}    
+    // Create a vector of polynomials
+    std::vector<Polynomial> polynomials = {
+        {{ {4, 2.0}, {3, -1.0}, {2, 3.0} }, 4},  // 2x^4 - x^3 + 3x^2
+        {{ {4, -2.0}, {3, 1.0}, {1, -4.0} }, 4}, // -2x^4 + x^3 - 4x
+        {{ {5, 6.0}, {2, -3.0}, {1, 4.0}, {0, 1.0} }, 2},  // -3x^2 + 4x + 1
+        {{ {1, -4.0}, {0, -1.0} }, 1},           // -4x - 1
+        {{ {0, 7.0} }, 0}                        // 7
     };
 
-    for (int i = 0; i < test_cases.size(); ++i) {
-        bool result = can_relay(test_cases[i].first);
-        bool expected = test_cases[i].second;
-
-        std::cout << "Test Case " << i + 1 << ":" << std::endl;
-        std::cout << "Input: ";
-        for (int j = 0; j < test_cases[i].first.size(); ++j) {
-            std::cout << test_cases[i].first[j] << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "Expected: ";
-        if (expected) {
-            std::cout << "true" << std::endl;
-        } else {
-            std::cout << "false" << std::endl;
-        }
-
-        std::cout << "Output: ";
-        if (result) {
-            std::cout << "true" << std::endl;
-        } else {
-            std::cout << "false" << std::endl;
-        }
-
-        if (result) {
-            std::vector<int> path = min_relay_path(test_cases[i].first);
-            std::cout << "Relaying Path: ";
-            for (int sensor : path) {
-                std::cout << sensor << " ";
-            }
-            std::cout << std::endl;
-        }
-
-        std::cout << std::endl;
+    // Print each polynomial
+    std::cout << "Input Polynomials:" << std::endl;
+    for (int i = 0; i < polynomials.size(); ++i) {
+        std::cout << "Polynomial " << i + 1 << ": ";
+        print_polynomial(polynomials[i]);
     }
+
+    // Compute the sum of all polynomials
+    Polynomial sum = polynomials[0];
+    for (int i = 1; i < polynomials.size(); ++i) {
+        sum = add_polynomials(sum, polynomials[i]);
+    }
+
+    // Print the result
+    std::cout << "Sum of all polynomials: ";
+    print_polynomial(sum);
+    std::cout << "Expected answer: 6x^5-4x+7" << std::endl;
+
+    // Test multiplication
+    std::cout << "\nTesting multiplication of Polynomial 1 and Polynomial 2:" << std::endl;
+    Polynomial product = mul_polynomials(polynomials[0], polynomials[1]);
+
+    std::cout << "Result of multiplication: ";
+    print_polynomial(product);
+
+    // Print the expected result
+    std::cout << "Expected result: -4x^8+4x^7-7x^6-5x^5+4x^4-12x^3" << std::endl;
 
     return 0;
 }
+
+
+
