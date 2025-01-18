@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Relaying in Sensor Networks</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+
+    <div class="statement">
+        <h1 class="align-with-statement">Problem 2.1 Data Relaying in Sensor Networks</h1>
+        <section class="statement">
+
+            <h2 id="intro">Introduction</h2>
+            <p>
+                A <strong>linear network of temperature sensors</strong> has been deployed along a pipeline. These
+                sensors are designed to monitor temperature variations and detect anomalies.
+            </p>
+            <p>
+                The network aims to relay temperature readings from the <strong>first sensor</strong> (at position 0) to
+                the <strong>last sensor</strong> (at position \(n-1\)). Each sensor has a limited communication range,
+                defining how far its data can travel directly to other sensors in the network.
+            </p>
+            <p>
+                The objective is to determine if it is possible to transmit temperature data from the first sensor to
+                the last sensor by relaying through intermediate sensors.
+            </p>
+
+            <h3>Part 1: Reachability</h3>
+            <p>
+                We are given an integer vector <code>ranges</code>, where each element \(ranges[i]\) represents the
+                communication range of the \(i\)-th sensor.
+            </p>
+            <p>
+                The task is to determine if it is possible to relay temperature data from the first sensor to the last
+                sensor.
+            </p>
+
+            <p>
+                <strong>Expected Output:</strong><br>
+                The function should return:
+            </p>
+            <p>
+                <strong>true</strong>: If it is possible to transmit temperature data from the first sensor to the
+                last sensor.<br>
+                <strong>false</strong>: If it is not possible to relay data to the last sensor.
+            </p>
+
+            <h4>Examples</h4>
+            <table class="example-table">
+                <thead>
+                    <tr>
+                        <th>Example</th>
+                        <th>Input (<code>ranges</code>)</th>
+                        <th>Output</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td>[2, 3, 1, 1, 4]</td>
+                        <td>true</td>
+                        <td>
+                            The first sensor (index 0) can send data to sensors at indices 1 and 2. From sensor 1,
+                            the data can hop directly to sensor 4. Therefore, it is possible to transmit data to the
+                            last sensor using sensors 0, 1, and 4.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td>[3, 2, 1, 0, 4]</td>
+                        <td>false</td>
+                        <td>
+                            The first sensor can send data to sensors up to index 3, but sensor 3 has a
+                            communication range of 0. This makes it impossible to relay data to the last sensor. <br>
+                            (Note: if there are no zero range sensors, the last sensor is always reachable. The question
+                            of
+                            reachability is interesting when there are some zeros.)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Code</h4>
+
+            <p>The following code provides an empty function (to be implemented by you), and a main that tests it.</p>
+            <div class="code-container" data-filename="./cpp/relay1.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
+                </code></pre>
+            </div>
+
+            <h3>Part 2: The Minimum Relay Path</h3>
+            <p>
+                We wish to not only find if data can be relayed to the last sensor, but also, in case data can
+                be relayed, wish to known the minimum relay path (the one involving the least number of sensors) that
+                data can follow from the first to the last sensor. In this task, we may
+                assume that the path exists (i.e., <code>can_relay</code> has returned true for the given input).
+            </p>
+            <p>
+                <strong>Expected Output:</strong><br>
+                The function should return:
+            </p>
+            <p>
+                A vector containing the indices of the sensors used in the relaying process, in order.
+            </p>
+
+            <h4>Code</h4>
+
+            <p>The following code provides an empty function (to be implemented by you), and a main that tests it. Use
+                your <code>can_relay</code> function in the main.</p>
+            <div class="code-container" data-filename="./cpp/relay2.cpp">
+                <pre><code class="language-cpp" id="cpp-code1">
+                </code></pre>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+
+</html>

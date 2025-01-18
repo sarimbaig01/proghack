@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/sbaig/testing/proghack/projs/cpp",
-      "program": "/Users/sbaig/testing/proghack/projs/cpp/build/Debug/outDebug"
+      "cwd": "/Users/sbaig/testing/proghack/local",
+      "program": "/Users/sbaig/testing/proghack/local/a"
     }
   ]
 }

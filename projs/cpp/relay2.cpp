@@ -1,62 +1,11 @@
 #include <iostream>
 #include <vector>
 
-bool can_relay(const std::vector<int>& ranges) {
-    int n = ranges.size();
-    if (n == 0) return false; // Edge case: Empty input
-
-    int farthest = 0; // Tracks the farthest reachable sensor
-
-    for (int i = 0; i < n; ++i) {
-        // If the current sensor is not reachable, return false
-        if (i > farthest) return false;
-
-        // Update the farthest point reachable from the current sensor
-        farthest = std::max(farthest, i + ranges[i]);
-
-        // If the last sensor is reachable, return true
-        if (farthest >= n - 1) return true;
-    }
-
-    return false; // If we finish the loop without reaching the last sensor
-}
-
 std::vector<int> min_relay_path(const std::vector<int>& ranges) {
     ///TODO: Implement this function
 
     ///The function may assume that a valid relay path exists
     ///(determined by an earlier call to can_relay)
-
-    std::vector<int> path;
-    if(ranges.size()==0){
-        return path;
-    }
-
-    int current_jump = ranges[0];
-    path.push_back(0);
-    int N = ranges.size();
-    int  i = 1;
-    while(i<N && current_jump < N - 1){
-        
-        int max_new_jump = current_jump;
-        int max_idx = -1;
-        
-        for(; i < N && i <= current_jump; ++i){
-            if(i + ranges[i] > max_new_jump){
-                max_new_jump = i + ranges[i];
-                max_idx = i;
-            }
-        }
-
-        if(max_new_jump < N){
-            path.push_back(max_idx);
-        }
-        
-        current_jump = max_new_jump; 
-    }
-
-    path.push_back(N-1);
-    return path;
 }
 
 int main() {
