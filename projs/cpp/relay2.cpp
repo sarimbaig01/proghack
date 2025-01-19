@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> min_relay_path(const std::vector<int>& ranges) {
+std::vector<int> shortest_relay_path(const std::vector<int>& ranges) {
     ///TODO: Implement this function
 
     ///The function may assume that a valid relay path exists
@@ -44,7 +44,7 @@ int main() {
         }
 
         if (result) {
-            std::vector<int> path = min_relay_path(test_cases[i].first);
+            std::vector<int> path = shortest_relay_path(test_cases[i].first);
             std::cout << "Relaying Path: ";
             for (int sensor : path) {
                 std::cout << sensor << " ";

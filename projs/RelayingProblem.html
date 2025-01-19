@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Data Relaying in Sensor Networks</title>
+    <title>The Relaying Problem</title>
 
     <div class="common-head">
         <meta charset="UTF-8">
@@ -25,7 +25,7 @@
 
 
     <div class="statement">
-        <h1 class="align-with-statement">Problem 2.1 Data Relaying in Sensor Networks</h1>
+        <h1 class="align-with-statement">Problem 2.1 The Relaying Problem</h1>
         <section class="statement">
 
             <h2 id="intro">Introduction</h2>
@@ -107,19 +107,19 @@
                 </code></pre>
             </div>
 
-            <h3>Part 2: The Minimum Relay Path</h3>
+            <h3>Part 2: The Shortest Relay Path</h3>
             <p>
                 We wish to not only find if data can be relayed to the last sensor, but also, in case data can
-                be relayed, wish to known the minimum relay path (the one involving the least number of sensors) that
+                be relayed, wish to known the shortest relay path (the one involving the least number of sensors) that
                 data can follow from the first to the last sensor. In this task, we may
                 assume that the path exists (i.e., <code>can_relay</code> has returned true for the given input).
             </p>
             <p>
-                <strong>Expected Output:</strong><br>
+                <p><strong>Expected Output:</strong></p>
                 The function should return:
             </p>
             <p>
-                A vector containing the indices of the sensors used in the relaying process, in order.
+                A vector containing the positions (indices) of the sensors used in the shortest relaying path.
             </p>
 
             <h4>Code</h4>
