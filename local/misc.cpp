@@ -1,165 +1,59 @@
-#include <iostream>
-#include <vector>
+ #include <iostream>
+#include <unordered_set>
+#include <string>
+#include <fstream>
 
-// Structures and Functions (as provided in the prompt)
-struct Term{
-    int exp;
-    double coeff;
-};
-
-struct Polynomial {
-    std::vector<Term> terms;
-    int deg;
-};
-
-void print_polynomial(const Polynomial &p) {
-    if (p.terms.empty()) {
-        std::cout << "0" << std::endl; // Handle empty polynomial
-        return;
+// Function to read dictionary from a file
+std::unordered_set<std::string> readDictionary(const std::string& filename) {
+    std::unordered_set<std::string> dictionary;
+    std::ifstream file(filename);
+    std::string word;
+    while (file >> word) {
+        dictionary.insert(word);
     }
-
-    for (size_t i = 0; i < p.terms.size(); ++i) {
-        const Term &term = p.terms[i];
-
-        // Skip terms with a coefficient of 0
-        if (term.coeff == 0) {
-            continue;
-        }
-
-        // Print sign for non-first terms
-        if (i > 0 && term.coeff > 0) {
-            std::cout << "+";
-        }
-
-        // Print coefficient
-        if (std::abs(term.coeff) != 1 || term.exp == 0) {
-            std::cout << term.coeff;
-        } else if (term.coeff == -1) {
-            std::cout << "-";
-        }
-
-        // Print variable and exponent
-        if (term.exp > 0) {
-            std::cout << "x";
-            if (term.exp > 1) {
-                std::cout << "^" << term.exp;
-            }
-        }
-    }
-
-    std::cout << std::endl;
-}
-Polynomial add_polynomials(const Polynomial &p, const Polynomial &q) {
-    Polynomial r;
-    int pi = 0, qi = 0;
-
-    // Merge terms from both polynomials
-    while (pi < p.terms.size() && qi < q.terms.size()) {
-        Term t;
-        if (p.terms[pi].exp == q.terms[qi].exp) {
-            t.coeff = p.terms[pi].coeff + q.terms[qi].coeff;
-            t.exp = p.terms[pi].exp;
-            pi++;
-            qi++;
-        } else if (p.terms[pi].exp > q.terms[qi].exp) {
-            t = p.terms[pi++];
-        } else {
-            t = q.terms[qi++];
-        }
-
-        if (t.coeff != 0) {
-            r.terms.push_back(t);
-        }
-    }
-
-    // Add remaining terms from p
-    while (pi < p.terms.size()) {
-        Term t = p.terms[pi++];
-        if (t.coeff != 0) {
-            r.terms.push_back(t);
-        }
-    }
-
-    // Add remaining terms from q
-    while (qi < q.terms.size()) {
-        Term t = q.terms[qi++];
-        if (t.coeff != 0) {
-            r.terms.push_back(t);
-        }
-    }
-
-    // Update degree based on resulting terms
-    if (!r.terms.empty()) {
-        r.deg = r.terms.front().exp;  // Highest exponent in descending order
-    } else {
-        r.deg = 0; // Zero polynomial
-    }
-
-    return r;
+    file.close();
+    return dictionary;
 }
 
-Polynomial mul_polynomials(const Polynomial &p, const Polynomial &q) {
-    Polynomial r, part;
-
-
-    for(int pi = 0; pi < p.terms.size(); ++pi){
-        part.terms.clear();
-
-        for(int qi=0; qi <q.terms.size(); ++qi ){
-            Term t;
-            t.coeff = p.terms[pi].coeff * q.terms[qi].coeff; 
-            t.exp = p.terms[pi].exp + q.terms[qi].exp;
-            part.terms.push_back(t);
-        }
-
-        r = add_polynomials(r, part);
-    }
-    
-    return r;
+// Function to check if a word is valid by looking it up in the dictionary
+bool validWord(const std::unordered_set<std::string>& dictionary, const std::string& word) {
+    return dictionary.find(word) != dictionary.end();
 }
 
+// Function in Stage 1
+bool segmentation(const std::unordered_set<std::string>& dictionary, const std::string& stream){
+    ///TODO: Implement this function
+    return true;
+}
 
-// Main function
+// Function in Stage 2
+bool segmentation(const std::unordered_set<std::string>& dictionary, const std::string& stream, std::string& decoded){
+    ///TODO: Implement this function
+    return true;
+}
+
+// Test the functions
 int main() {
-    // Create a vector of polynomials
-    std::vector<Polynomial> polynomials = {
-        {{ {4, 2.0}, {3, -1.0}, {2, 3.0} }, 4},  // 2x^4 - x^3 + 3x^2
-        {{ {4, -2.0}, {3, 1.0}, {1, -4.0} }, 4}, // -2x^4 + x^3 - 4x
-        {{ {5, 6.0}, {2, -3.0}, {1, 4.0}, {0, 1.0} }, 2},  // -3x^2 + 4x + 1
-        {{ {1, -4.0}, {0, -1.0} }, 1},           // -4x - 1
-        {{ {0, 7.0} }, 0}                        // 7
-    };
+    // Read the dictionary from the provided file
+    std::unordered_set<std::string> dictionary = readDictionary("wordlist.10000");
 
-    // Print each polynomial
-    std::cout << "Input Polynomials:" << std::endl;
-    for (int i = 0; i < polynomials.size(); ++i) {
-        std::cout << "Polynomial " << i + 1 << ": ";
-        print_polynomial(polynomials[i]);
+    // Example stream
+    std::string stream = "helloworldthisisatest";
+    std::string decoded;
+
+    // Test Stage 1
+    if (segmentation(dictionary, stream)) {
+        std::cout << "Valid communication is possible." << std::endl;
+    } else {
+        std::cout << "No valid communication possible." << std::endl;
     }
 
-    // Compute the sum of all polynomials
-    Polynomial sum = polynomials[0];
-    for (int i = 1; i < polynomials.size(); ++i) {
-        sum = add_polynomials(sum, polynomials[i]);
+    // Test Stage 2
+    if (segmentation(dictionary, stream, decoded)) {
+        std::cout << "Decoded sentence: " << decoded << std::endl;
+    } else {
+        std::cout << "No valid communication possible." << std::endl;
     }
-
-    // Print the result
-    std::cout << "Sum of all polynomials: ";
-    print_polynomial(sum);
-    std::cout << "Expected answer: 6x^5-4x+7" << std::endl;
-
-    // Test multiplication
-    std::cout << "\nTesting multiplication of Polynomial 1 and Polynomial 2:" << std::endl;
-    Polynomial product = mul_polynomials(polynomials[0], polynomials[1]);
-
-    std::cout << "Result of multiplication: ";
-    print_polynomial(product);
-
-    // Print the expected result
-    std::cout << "Expected result: -4x^8+4x^7-7x^6-5x^5+4x^4-12x^3" << std::endl;
 
     return 0;
 }
-
-
-

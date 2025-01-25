@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Segmenting Text</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="#" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+        <h1>Problem 3.2  Segmenting Text</h1>
+        <section class="statement">
+            <h2 class="introduction">Introduction</h2>
+            <p>This problem requires segmenting a continuous stream of characters into meaningful English words using a
+                given dictionary, or report that such a segmentation does not exist. </p>
+
+            <p>Such programs are often required in text recognition systems where they are used to
+                decode and validate continuous input from OCR (Optical Character Recognition) software or from
+                speech-to-text systems to produce accurate and meaningful text.</p>
+
+            <h2>Problem statement</h2>
+            <p>Given a continuous stream of characters, determine if the stream can be segmented into a sentence
+                consisting of valid English words. The sentence does not have to make grammatical sense. It simply needs
+                to be a sequence of valid words according to a dictionary. A dictionary of valid words is provided for
+                reference.</p>
+
+            <h3>Input:</h3>
+            <ul>
+                <li>A string <code>stream</code> consisting of lowercase letters (no spaces or special characters).</li>
+                <li>A dictionary of valid English words (available as a C++ function that checks if a string is a valid
+                    word).</li>
+            </ul>
+
+            <h3>Output (in two different stages):</h3>
+            <p>It is a good idea to solve this problem in two separate stages.</p>
+            <div class="output">
+                <h4>In stage 1:</h4>
+                <p>Write a function that returns:</p>
+                <ul>
+                    <li><strong>true</strong> if the stream can be segmented into valid English words.</li>
+                    <li><strong>false</strong> otherwise.</li>
+                </ul>
+
+                <h4>In stage 2:</h4>
+                <p>Write a a function that returns:</p>
+                <ul>
+                    <li><strong>true</strong> and a string <code>decoded</code> of a space-delimited sentence of valid
+                        words if
+                        the stream can be segmented into valid English words (according to the dictionary).</li>
+                    <li><strong>false</strong> and a string <code>decoded</code> which is empty if
+                        the stream cannot be segmented into valid English words (according to the dictionary).</li>
+                </ul>
+            </div>
+
+            <h3>Further details</h3>
+            <ul>
+                <li>The dictionary contains 10,000 words accessible <a
+                        href="https://www.mit.edu/~ecprice/wordlist.10000" target="_blank">here</a>.</li>
+                <li>The function <code>validWord</code> (available in the code below) operates in constant time.</li>
+            </ul>
+
+            <div class="examples">
+                <p>Some examples of inputs and outputs are as follows:</p>
+                <p><strong>Example 1:</strong></p>
+                <ul>
+                    <li>Input: <code>stream = "thisisasimplevalidstring"</code></li>
+                    <li>Output: <code>true</code>, <code>decoded = "this is a simple valid string"</code>
+                    </li>
+                </ul>
+                <p><strong>Example 2:</strong></p>
+                <ul>
+                    <li>Input: <code>stream = "uuydhllhfis"</code></li>
+                    <li>Output: <code>false</code>, <code>decoded = ""</code></li>
+                </ul>
+
+                <p><strong>Example 3:</strong></p>
+                <ul>
+                    <li>Input: <code>stream = "thisisanalmostavalidbutinvavidstring"</code></li>
+                    <li>Output: <code>false</code>, <code>decoded = ""</code></li>
+                </ul>
+                <p><strong>Example 4:</strong></p>
+                <ul>
+                    <li>Input: <code>stream = "thequickbrownfoxjumpsoverthelazydog"</code></li>
+                    <li>Output: <code>true</code>, <code>decoded = "the quick brown fox jumps over the lazy dog"</code>
+                    </li>
+                </ul>
+
+                <h3>Implementation</h3>
+                <p>The following code contains an empty function (to be implemented by you), and a main that tests it.
+                </p>
+
+                <div class="code-container" data-filename="./cpp/text_segmentation.cpp">
+                    <pre><code class="language-cpp" id="cpp-code1">
+            </code></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

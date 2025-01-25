@@ -1,84 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problem 3.1 Two Ways to Partition</title>
-    <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
-    <script src="../prism.js"></script> <!-- Adjust the path as needed -->
-    <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
-    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Partition</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
 </head>
+
 <body>
     <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
     <div class="statement">
-    <h1> Problem 3.1 Partition</h1>
+        <h1>Problem 3.1 Partitioning Data</h1>
         <section class="statement">
-          <p><i>todo...</i></p>
+            <h2 class="introduction">Introduction</h2>
+            <p>
+                Partitioning data around an element is a common operation used in several fundamental algorithms in
+                computer science. Given a vector of integers, \( A \), of size \( N \), and an index \( p \) between 0
+                and
+                \( N - 1 \), partitioning involves rearranging the elements of \( A \) such that all elements with
+                indices
+                \( i \) where \( 0 \leq i < N \) are divided into two groups: those less than or equal to \( A[p] \)
+                    (the pivot) are placed on one side, and those greater than \( A[p] \) are placed on the other side.
+                    The element \( A[p] \) is referred to as the pivot. </p>
 
-            
-            <div class="single-image-container" align="center">
-                    <figure style="display: inline-block; margin: 10px; text-align: center;">
-                        <img src="./img/QuickSort.gif" width="500" height="500"/>
-                        <figcaption>Figure 2: Animation showing repeated application of partition to sort numbers (Quicksort). The red bar represents the pivot element.<br>
-                          By <a href="https://en.wikipedia.org/wiki/User:RolandH" class="extiw" title="en:User:RolandH">en:User:RolandH</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=1965827">Link</a>
-                        </figcaption>
-                    </figure>
-            </div> 
+                    <h3>Examples</h3>
 
-            <div class="algo-container" align="center">
-                    <figure style="display: inline-block; margin: 10px; text-align: left;"">
-                        <div style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9; width: fit-content; font-family: Arial, sans-serif;">
-                              <strong>Partition Algorithm:</strong>
-                                <p><strong>Input:</strong> A list <code>A</code> and a <code>pivot_index</code>.</p>
-                                
-                                <ol>
-                                    <li><strong>Initialization:</strong>
-                                        <ul>
-                                            <li>Swap the pivot element with the element at <code>A[0]</code>.</li>
-                                            <li>Set two pointers (indices): <code>i</code> to 1 (start) and <code>j</code> to <code>n - 1</code> (end).</li>
-                                            <li>Use the value at <code>A[0]</code> as the pivot.</li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li><strong>Iteration (while <code>i <= j</code>):</strong>
-                                        <ul>
-                                            <li>Move <code>i</code> right until an element greater than the pivot is found.</li>
-                                            <li>Move <code>j</code> left until an element less than or equal to the pivot is found.</li>
-                                            <li>If <code>i < j</code>, swap elements at <code>i</code> and <code>j</code>.</li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li><strong>Move the Pivot (After the Loop):</strong>
-                                        <ul>
-                                            <li>After the loop ends, swap the pivot (which is at position <code>0</code>) with the appropriate element in the list.</li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li><strong>Termination:</strong>
-                                        <ul>
-                                            <li>The partition is complete.</li>
-                                            <li>Return the new index of the pivot element (this is the partition point).</li>
-                                        </ul>
-                                    </li>
-                                </ol>
-                       </div>
-                       <figcaption>
-                            Figure 3: The in-place Parition algorithm.
-                       </figcaption>
-                    </figure>
-            </div> 
+                    <p>Let A = [9, 3, 7, 6, 2, 8, 1, 4, 5, 10] with pivot index p = 2 (pivot = 7).</p>
 
-            <div class="code-container" data-filename="./py/partition1.py">
-                <pre><code class="language-python" id="py-code">
-                </code></pre>
-            </div>
-            
-          </div>
+                    <p><strong>Original:</strong><br><br>
+                        A = [9, 3, 7, 6, 2, 8, 1, 4, 5, 10]</p>
+
+                    <p><strong>All of the following partitions are valid:</strong></p>
+
+                    <p>A = [1, 3, 2, 5, 6, 4, 7, 9, 10, 8]</p>
+
+                    <p>A = [6, 2, 1, 3, 5, 4, 7, 10, 8, 9]</p>
+
+                    <p>A = [4, 1, 5, 2, 3, 6, 7, 9, 10, 8]</p>
+
+                    <p>In all these cases, the elements less than or equal to the pivot (7) are on the left, while the
+                        elements
+                        greater than 7 are on the right, though their relative order differs.</p>
+
+                    <h3>Requirements</h3>
+                    <p>The goal is often to partition the data <strong>in-place</strong>. This means that the data is
+                        rearranged
+                        directly within the original structure, reducing memory overhead. By doing so, algorithms can be
+                        more
+                        efficient, especially when handling large datasets, as no extra space is required for a copy of
+                        the
+                        data, and three is no need to allocate/deallocate additional memory, which will slow down the
+                        program.
+                    </p>
+
+                    <h4>An in-place method</h4>
+                    <p>Following is a description of a method for in-place partition. The description is
+                        deliberately kept at a high level; details need to be worked out.</p>
+
+                    <div class="text-box">
+                        <p><strong>In-place partition using two indices</strong></p>
+
+                        <p>Keep an index \( l \) (left) on the left side, and an index \( r \) (right), on the right
+                            side of
+                            the vector, \( A \).</p>
+                        <p>Determine if \( A[l] \) and \( A[r] \) should be swapped, based on the value of the pivot.
+                        </p>
+                        (Be careful regarding where \( l \) and \( r \) should begin, and when the loop should
+                        terminate)
+                        <p>Return the index of partition: the index \( k \), such that \( \forall i \, (i < k) \), \(
+                                A[k] \leq \text{pivot} \), and \( \forall k \, (k> p) \), \( A[k] > \text{pivot} \).</p>
+                    </div>
+
+
+                    <p>The following code contains an empty function (to be implemented by you), and a main that tests
+                        it.</p>
+
+                    <div class="code-container" data-filename="./cpp/partition.cpp">
+                        <pre><code class="language-cpp" id="cpp-code1">
+            </code></pre>
+                    </div>
         </section>
-      </div>
+    </div>
 </body>
+
 </html>

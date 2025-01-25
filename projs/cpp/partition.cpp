@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 
-// Prototype for the partition function
-void partition(std::vector<int>& A, int pivot_index);
+int partition(std::vector<int>& A, int pivot_index) {
+    ///TODO Implement this function
+}
 
 int main() {
     // Create all vectors at the start
@@ -12,48 +13,51 @@ int main() {
 
     // Test case 1
     std::cout << "Before partitioning (Test Case 1): ";
-    for (int num : A1) {
-        std::cout << num << " ";
+    for (int i = 0; i < A1.size(); i++) {
+        std::cout << A1[i] << " ";
     }
     std::cout << std::endl;
 
-    partition(A1, 2); // Using 7 as the pivot
-
+    std::cout << "Pivot value: " << A1[2] << std::endl; // Display pivot value
+    int pivot1 = partition(A1, 2); // Using 7 as the pivot
     std::cout << "After partitioning (Test Case 1): ";
-    for (int num : A1) {
-        std::cout << num << " ";
+    for (int i = 0; i < A1.size(); i++) {
+        std::cout << A1[i] << " ";
     }
     std::cout << std::endl;
+    std::cout << "Pivot index: " << pivot1 << std::endl;
 
     // Test case 2
     std::cout << "Before partitioning (Test Case 2): ";
-    for (int num : A2) {
-        std::cout << num << " ";
+    for (int i = 0; i < A2.size(); i++) {
+        std::cout << A2[i] << " ";
     }
     std::cout << std::endl;
 
-    partition(A2, 4); // Using 3 as the pivot
-
+    std::cout << "Pivot value: " << A2[4] << std::endl; // Display pivot value
+    int pivot2 = partition(A2, 4); // Using 3 as the pivot
     std::cout << "After partitioning (Test Case 2): ";
-    for (int num : A2) {
-        std::cout << num << " ";
+    for (int i = 0; i < A2.size(); i++) {
+        std::cout << A2[i] << " ";
     }
     std::cout << std::endl;
+    std::cout << "Pivot index: " << pivot2 << std::endl;
 
     // Test case 3
     std::cout << "Before partitioning (Test Case 3): ";
-    for (int num : A3) {
-        std::cout << num << " ";
+    for (int i = 0; i < A3.size(); i++) {
+        std::cout << A3[i] << " ";
     }
     std::cout << std::endl;
 
-    partition(A3, 5); // Using 16 as the pivot
-
+    std::cout << "Pivot value: " << A3[5] << std::endl; // Display pivot value
+    int pivot3 = partition(A3, 5); // Using 16 as the pivot
     std::cout << "After partitioning (Test Case 3): ";
-    for (int num : A3) {
-        std::cout << num << " ";
+    for (int i = 0; i < A3.size(); i++) {
+        std::cout << A3[i] << " ";
     }
     std::cout << std::endl;
+    std::cout << "Pivot index: " << pivot3 << std::endl;
 
     return 0;
 }

@@ -16,8 +16,20 @@ std::unordered_set<std::string> readDictionary(const std::string& filename) {
 }
 
 // Function to check if a word is valid by looking it up in the dictionary
-bool validWord(const std::unordered_set<std::string>& dictionary, const std::string& str) {
-    return dictionary.find(str) != dictionary.end();
+bool validWord(const std::unordered_set<std::string>& dictionary, const std::string& word) {
+    return dictionary.find(word) != dictionary.end();
+}
+
+// Function in Stage 1
+bool segmentation(const std::unordered_set<std::string>& dictionary, const std::string& stream){
+    ///TODO: Implement this function
+    return true;
+}
+
+// Function in Stage 2
+bool segmentation(const std::unordered_set<std::string>& dictionary, const std::string& stream, std::string& decoded){
+    ///TODO: Implement this function
+    return true;
 }
 
 // Test the functions
@@ -30,14 +42,14 @@ int main() {
     std::string decoded;
 
     // Test Stage 1
-    if (validCommunication(dictionary, stream)) {
+    if (segmentation(dictionary, stream)) {
         std::cout << "Valid communication is possible." << std::endl;
     } else {
         std::cout << "No valid communication possible." << std::endl;
     }
 
     // Test Stage 2
-    if (validCommunication(dictionary, stream, decoded)) {
+    if (segmentation(dictionary, stream, decoded)) {
         std::cout << "Decoded sentence: " << decoded << std::endl;
     } else {
         std::cout << "No valid communication possible." << std::endl;
