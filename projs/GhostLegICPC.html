@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ghost Leg Permutation</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+        <h1>Problem 4.4 Ghost Leg Permutation</h1>
+        <section class="statement">
+            <h2 class="introduction">Introduction</h2>
+
+            <p><em><strong>This is a competition problem, featured in the ICPC (International Collegiate Programming
+                        Contest)
+                        North America Qualifier, 2022.</strong></em></p>
+
+            <p>A Ghost Leg is a method for representing permutations.
+            <p>
+
+            <p>A Ghost Leg can be represented as a set of vertical lines, each line corresponding to one element of the
+                set being permuted. </p>
+
+            <p>Horizontal lines (like the rungs of a ladder) connect adjacent vertical lines in such a way that no two
+                rungs share an endpoint. An example is shown in the illustration in Figure 1.</p>
+
+
+            <div class="single-image-container">
+                <figure style="display: inline-block; margin: 10px; text-align: center;">
+                    <img src="./img/GhostLeg.png" width="400" height="400" />
+                    <figcaption>Figure 1: An example of a Ghost Leg Permutation with lines and rungs (the red part is an
+                        example of a tracing, showing number 2 finding its correct position in the permuted order).
+                </figure>
+            </div>
+
+            <h4>Tracing</h4>
+
+            <p>To determine the resulting position of any element under a Ghost Leg permutation, begin at the top of the
+                vertical line corresponding to that
+                element. Trace a path down the line until encountering the first rung touching that line. Follow that
+                rung to the adjacent vertical line. It does not matter whether the rung goes to the left or to the
+                right, just follow it. Continue downward, following rungs, until reaching the bottom. This gives the
+                final position of that element under the permutation.</p>
+
+
+            <p>In the example in Figure 1, element 2 ends up third in the permutation. The path is shown with red dotted
+                lines.
+                Likewise, element 1 ends up fourth, element 3 ends up first, and element 4 ends up second.</p>
+
+            <h3>Problem Input and Output</h3>
+            <p>Given a description of a Ghost Leg, determine the result of the permutation. In other words, apply the
+                specified permutation, and output the elements in their permuted order.</p>
+
+            <h4>Input</h4>
+            <p>Read input from a file, input.txt.</p>
+
+            <p> The first line of input contains two positive integers \( n \) (\( 1 \leq n \leq 100 \)) and \( m \) (\(
+                0 \leq m \leq 1,000 \)), where \( n \) is the number of elements being permuted, and \( m \) is the
+                number of rungs. </p>
+
+            <p>The vertical lines (elements) are identified from left to right by the integers \( 1 \)
+                through \( n \). Each of the next \( m \) lines contains a single integer \( a \) (\( 1 \leq a < n \)),
+                    which indicates that there is a rung between vertical lines \( a \) and \( a + 1 \). </p>
+
+                    <p>The rungs are listed in order from top to bottom of the Ghost Leg. Clearly, no two rungs can be
+                        at the same
+                        height.</p>
+
+                    <h4>Output</h4>
+                    <p>Output \( n \) lines, where each line contains a single integer. This is the resulting
+                        permutation. The first line is the element that ends up first in the permutation, the second is
+                        the element that ends up second, and so on.</p>
+
+                    <h3>Implementation</h3>
+
+                    <p>The following code contains an empty function (to be implemented by you), and a main that
+                        tests it. </p>
+                    
+                    <p>Note: This problem does not require more than a couple of passes of the input.</p>
+
+                    <p>Used these inputs: <a href="./docs/input1.txt">input1.txt</a>, <a
+                            href="./docs/input2.txt">input2.txt</a>, <a href="./docs/input3.txt">input3.txt</a></p>
+
+                    <div class="code-container" data-filename="./cpp/ghost_perm.cpp">
+                        <pre><code class="language-cpp" id="cpp-code1">
+    </code></pre>
+                    </div>
+        </section>
+    </div>
+</body>
+
+</html>
