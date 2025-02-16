@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <utility>
@@ -7,15 +6,15 @@
 
 // Checks if placing a number in a specific 3x3 subgrid is valid, i.e., it does not
 // violate the uniqueness condition in a row, column or subgrid.
-bool validMove(const std::vector<std::vector<char>>& board, int startRow, int startCol, char num);
+bool valid_move(const std::vector<std::vector<char>>& board, int startRow, int startCol, char num);
 
 // Solves the Sudoku puzzle using a recursive backtracking approach.
 // Each call increments the solveSodukoCalls parameter, so that
 // a global count of all calls per puzzle is maintained.
-bool solveSudoku(std::vector<std::vector<char>>& board, int &solveSudokuCalls);
+bool solve_sudoku(std::vector<std::vector<char>>& board, int &solveSudokuCalls);
 
 // Prints the current state of the Sudoku board.
-void printBoard(const std::vector<std::vector<char>>& board) {
+void print_board(const std::vector<std::vector<char>>& board) {
     for (int row = 0; row < N; ++row) {
         for (int col = 0; col < N; ++col) {
             std::cout << board[row][col] << " ";
@@ -67,11 +66,11 @@ int main() {
         int solveSudokuCalls = 0;  // Initialize the counter for solveSudoku
 
         std::cout << "Initial Sudoku Board " << i + 1 << ":" << std::endl;
-        printBoard(board);
+        print_board(board);
 
-        if (solveSudoku(board, solveSudokuCalls)) {
+        if (solve_sudoku(board, solveSudokuCalls)) {
             std::cout << "Sudoku Solved Successfully:" << std::endl;
-            printBoard(board);
+            print_board(board);
         } else {
             std::cout << "No solution exists for Sudoku Board " << i + 1 << "." << std::endl;
         }

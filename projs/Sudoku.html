@@ -1,13 +1,15 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku with Exhaustive Search and Heuristics</title>
+    <title>Sudoku Solver</title>
     <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
-     
+
 </head>
+
 <body>
     <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
 
@@ -15,133 +17,199 @@
         <h2>Contents</h2>
         <a href="#intro">Introduction</a>
         <a href="#terms1">Some terminology</a>
-        <a href="#task1">Task 1: Solve a 9x9 Sudoku board</a>
+        <a href="#task1">Task 1: Solve a 9x9 Sudoku grid</a>
         <a href="#terms2">Further terminology</a>
         <a href="#task2">Task 2: Implement heuristics</a>
         <a href="#heuristic1" class="sub-item">Minimum remaining values heuristic (MRV)</a>
-        <a href="#heuristic1" class="sub-item">Least constrained value heuristic (LCV)</a>
-        
-        <!--<a href="#toroidal" class="sub-item">Make it toriodal</a>
-        <a href="#stats" class="sub-item">Print statistics</a>
-        <a href="#colors" class="sub-item">Color-code for age</a>
-        <a href="#equi" class="sub-item">Detect equilibrium</a>
-        <a href="#confs">Simulate different initial configurations</a>-->
+        <a href="#heuristic2" class="sub-item">Least constrained value heuristic (LCV)</a>
     </div>
 
     <div class="statement">
-        <h1>Sudoku with Exhaustive Search and Heuristics</h1>
-      <section class="statement">
+        <h1>Sudoku Solver</h1>
+        <section class="statement">
 
-          <div class="intro" id="intro">
-            <h2>Introduction</h2>
-            <p>Sudoku is a puzzle game played on a 9x9 board, divided into nine 3x3 subgrids. The goal is to fill the board with digits from 1 to 9 so that each digit appears exactly once in every row, column, and 3x3 subgrid. The puzzle begins with some cells already filled, and the player's task is to fill in the empty cells while following these rules, ensuring no repetition of digits in any row, column, or subgrid.</p>
-        
-            <p>Figure 1 shows a partially filled input board and a corresponding fully-filled board presenting a valid solution.</p>
+            <div class="intro" id="intro">
+                <h2>Introduction</h2>
+                <p>Sudoku is a puzzle game played on a 9x9 grid. The grid is divided into nine 3x3 sub-grids. The goal
+                    is to fill the grid with digits from 1 to 9, such that: <strong>each digit (1-9) appears exactly
+                        once in every
+                        row, column, and 3x3 sub-grid.</strong></p>
 
-              <div class="video-container">
+                <h2>The problem</h2>
+                <p> Given a partially filled Sudoku grid, fill the empty cells such that the resultant fully-filled grid
+                    is a valid Sudoku solution.</p>
+
+                <p>Figure 1 shows a partially filled input grid and a corresponding fully-filled grid presenting a
+                    valid solution.</p>
+
+                <div class="video-container">
                     <figure style="display: inline-block; margin: 10px; text-align: center;">
                         <!-- Video 1 -->
-                        <img  src="./img/Sudoku1a.png">
-                        <img  src="./img/Sudoku1b.png">
-                        <figcaption>Figure 1: A partially filled Sudoku board representing a typical input and a corresponding solution (a valid output)</figcaption>
+                        <img src="./img/Sudoku1a.png">
+                        <img src="./img/Sudoku1b.png">
+                        <figcaption>Figure 1: A partially filled Sudoku grid representing a typical input and a
+                            corresponding solution (a valid output)</figcaption>
                     </figure>
-              </div>
-    
-            <p>For our purposes, each cell on the board will either contain a digit from 1 to 9 or a '.' representing an empty cell. We aim to write a recursive program that receives a partially filled initial state and attempts to reach a fully filled final state that satisfies all the Sudoku rules.</p>
-        
-          </div>
+                </div>
 
-          <div class="terms1" id="terms1">
-            <fieldset>
-                <legend>Some terminology</legend>
-            
-                <p><strong>Solution Search Space:</strong> 
-                The solution search space is the set of all possible configurations that could solve a problem. In Sudoku, it includes every potential way to fill the grid with digits 1-9, regardless of whether the configurations follow the Sudoku rules.</p>
-            
-                <p><strong>Exhaustive Search:</strong> 
-                Exhaustive search explores all possible options within the solution search space to find a solution. For Sudoku, this involves trying every combination of numbers until a valid solution is found, but it can be time-consuming due to the large number of possibilities. Typical applications of exhaustive search include solving puzzles like Sudoku, generating permutations and combinations, and finding brute-force solutions to computationally hard problems such as the traveling salesman problem.</p>
-            
-                <p><strong>Backtracking:</strong> 
-                Backtracking is a recursive technique that explores possible solutions by making choices and undoing them if they lead to dead ends. In Sudoku, backtracking places a number in a cell and, if it leads to an invalid configuration, reverses the decision and tries a different number. It is part of the core structure of a recursive algorithm and allows it to navigate through a solution space.</p>
-            </fieldset>
-          </div>
+                <h3>The input</h3>
+                <p>The input to the program is a partially filled grid: initial state. Each cell in the initial state
+                    contains either a digit from 1 to 9 or a '.'
+                    representing an empty cell.</p>
 
-          <div class="task1" id="task1">
-              <h2>Task 1: Solve a 9x9 Sudoku board</h2>
-              <p>Our first goal is to write a recursive exhaustive search algorithm to find a solution to a partially filled Sudoku board.</p>
-              <h3>Brief explanation of the algorithm:</h3>
-              <p>The algorithm works by recursively attempting to place a valid digit in each empty cell. It starts from the first empty cell, tries all possible digits (1-9), and checks if placing a digit violates any Sudoku rules (row, column, or subgrid). If a digit is valid, the algorithm moves to the next empty cell and repeats the process. If a dead end is reached (i.e., no valid digits can be placed in the current cell), the algorithm backtracks to the previous cell and tries the next possible digit. This process continues until the board is completely and correctly filled or all possibilities are exhausted.</p>
-              <p>The code below shows various function prototypes to be implemented. A brief comment against each prototype describes what the function is supposed to do. The main program shows how the functions are to be used. You may want to test your program on more inputs.</p>
-             
-              <div class="code-container" data-filename="./cpp/sudoku1.cpp">
-                    <pre>
-                         <code class="language-cpp" id="cpp-code1"></code>
-                    </pre>
-              </div>
-              
-          </div>
-          
-          <div class="terms2" id="terms2">
+                <h3>The output</h3>
+                <p>The output could be one of two things:
+                <ul>
+                    <li>A fully filled grid representing a valid Sudoku solution, or,</li>
+                    <li>a message that no solution exists for the given initial state.</li>
+                </ul>
+                In other words, you are required to write a recursive program that receives a partially filled initial
+                state and attempts to reach a fully filled final state which satisfies all the Sudoku rules, or reports
+                that no solution exists.
+                </p>
+
+
+            </div>
+
+            <div class="terms1" id="terms1">
+                <fieldset>
+                    <legend>Some terminology</legend>
+
+                    <p><strong>Solution Search Space:</strong>
+                        The solution search space is the set of all possible configurations that could solve a problem.
+                        In Sudoku, it includes every potential way to fill the grid with digits 1-9, regardless of
+                        whether the configurations follow the Sudoku rules.</p>
+
+                    <p><strong>Exhaustive Search:</strong>
+                        Exhaustive search explores all possible options within the solution search space to find a
+                        solution. For Sudoku, this involves trying every combination of numbers until a valid solution
+                        is found, but it can be time-consuming due to the large number of possibilities.</p>
+
+                    <p><strong>Backtracking:</strong>
+                        Backtracking is a recursive technique that explores possible solutions by making choices and
+                        undoing them if they lead to dead ends. In the context of Sudoku, backtracking places a number
+                        in a cell and,
+                        if it leads to an invalid configuration, reverses the decision and tries a different number.</p>
+                </fieldset>
+            </div>
+
+            <div class="task1" id="task1">
+                <h2>Task 1: Solve a 9x9 Sudoku grid</h2>
+                <p>Our first goal is to write a recursive exhaustive search algorithm to find a solution to a partially
+                    filled Sudoku grid.</p>
+                <h3>Brief description of the algorithm</h3>
+                <p>
+                    Following is a brief description of the recursive algorithm. It has been deliberately kept at a high
+                    level, leaving it to you to work out the details.
+                <ul>
+                    <li>Identify the first empty cell: Start from the first empty cell in the Sudoku grid.</li>
+                    <li>Attempt to place digits: Try placing each digit from 1 to 9 in the empty cell.</li>
+                    <li>Validate placement: Check if the placed digit violates any Sudoku rules (row, column, or
+                        subgrid).</li>
+                    <li>Recursive progression: If the digit is valid, move to the next empty cell and repeat the
+                        process.</li>
+                    <li>Backtracking on failure: If no valid digit can be placed, backtrack to the previous cell to try
+                        a different placement.</li>
+                    <li>Completion check: Continue this process until the grid is fully filled, or all possibilities are
+                        exhausted.</li>
+                </ul>
+                </p>
+
+                <h3>Implementation</h3>
+
+                <p>The code below shows various function prototypes to be implemented. A brief comment against each
+                    prototype describes what the function is supposed to do. The main program shows how the functions
+                    are to be used. You may want to test your program on more inputs.</p>
+
+                <div class="code-container" data-filename="./cpp/sudoku1.cpp">
+                    <pre><code class="language-cpp" id="cpp-code1"></code></pre>
+                </div>
+
+            </div>
+
+            <div class="terms2" id="terms2">
                 <fieldset>
                     <legend>Further terminology</legend>
-                    <p><strong>State:</strong> A specific configuration of the problem at a given moment. In the context of Sudoku, a state refers to the current arrangement of digits on the Sudoku board, including both filled and empty cells.</p>
-                    <p><strong>State transition:</strong> The process of moving from one configuration of the problem to one of the valid next states. In the context of Sudoku, a state transition occurs when a digit is placed in an empty cell, altering the board to a valid next state.</p>
-                    <p><strong>Goal state:</strong> The final configuration in a problem-solving process, where all constraints are satisfied (e.g., a fully solved Sudoku board).</p>
-                    <p><strong>Heuristic function:</strong> A function, often denoted as h(n), that estimates the cost or distance from a given state to the goal state, guiding the search algorithm toward more promising paths.</p>
+                    <p><strong>State:</strong> A specific configuration of the problem at a given moment. In the context
+                        of Sudoku, a state refers to the current arrangement of digits on the Sudoku grid, including
+                        both filled and empty cells.</p>
+                    <p><strong>State transition:</strong> The process of moving from one valid state to a next valid
+                        state. In the context of Sudoku, a state transition occurs when a digit
+                        is placed in an empty cell, altering the grid to a valid next state.</p>
+                    <p><strong>Goal state:</strong> The final configuration in a problem-solving process, where all
+                        constraints are satisfied (e.g., a fully solved Sudoku grid).</p>
+                    <p><strong>Heuristic function:</strong> A function, often denoted as h(s), which gives an estimate
+                        of the potential cost
+                        of reaching the goal state from a given state s. A good heuristic function helps guide the
+                        search toward more
+                        promising paths first.</p>
                 </fieldset>
-          </div>
+            </div>
 
-           <div class="task2" id="task2">
-              <h2>Task 2: Implement heuristics</h2>
-                <p>In exhaustive search, we could be searching in subtrees that will not ultimately lead to a solution (goal state). This can be highly inefficient as it wastes time exploring paths that don't contribute to finding the correct answer.</p>
+            <div class="task2" id="task2">
+                <h2>Task 2: Implement heuristics</h2>
+                <p>Currently, we could be spending a lot of time searching in subtrees that will not ultimately lead to
+                    a solution
+                    (goal state).</p>
 
-                <p>Heuristics can be used to prioritize subtrees (or paths) that are more likely to lead to a solution based on common-sense rules or educated guesses. By applying these heuristics, the search process is likely to become less wasteful by focusing on more promising paths, even though wasteful execution, and in particular the worst-case scenario, are still possible.</p>
-                
-                <p>The input of a heuristic function h(n) is a potential next state (or child state) n that can be reached directly from the current state by making a single move; such as, in case of Sudoku, by placing a valid number in the board. The output of the function is an estimate of the cost or distance from this child state to a goal state. This estimate helps guide the search algorithm in choosing which child node to explore next.</p>
-                
-                <p>Now, we will introduce two heuristics that could be useful for Sudoku.</p>
+                <p>Heuristics can be used to prioritize subtrees (or paths) that are more likely to lead to a solution
+                    based on common-sense rules or educated guesses.</p>
+
+                <p>The input of a heuristic function h(s) is a potential next state (or child state) s that can be
+                    reached directly from the current state by making a single move. The output of the function is an
+                    estimate of the cost. This estimate helps
+                    choosing the child node to explore next.</p>
 
                 <div class="heuristic1" id="heuristic1">
                     <h3>Minimum remaining values (MRV) heuristic</h3>
 
-                    <p>The Minimum Remaining Values (MRV) heuristic improves the efficiency of a Sudoku solver by selecting the cell with the fewest legal options available. In other words, the most constrained cell. The intuition here is that since a few options are left for this cell one of them is likely to be part of a goal state.</p>
-                    
-                    <p>Write another version of the solveSudoku method called solveSudokuMRV. Also, write functions countMRV and hMRV. The prototypes of these functions are shown below with brief explanations in comments:</p>
+                    <p>The Minimum Remaining Values (MRV) heuristic selects the cell (to fill) that has the fewest legal
+                        options available (least number of valid placements). In other words, the most constrained
+                        cell. The intuition here is that since a few options are left for this cell one of them is
+                        likely to be part of a goal state.</p>
+
+                    <h3>Implementation</h3>
+
+                    <p>Write another version of the solveSudoku method called <code>solve_sudoku_MRV</code>. Also, write functions
+                        <code>count_MRV</code> and <code>h_MRV</code>. The prototypes of these functions are shown below with brief explanations in
+                        comments:</p>
 
                     <div class="code-container" data-filename="./cpp/sudoku2.cpp">
-                        <pre>
-                             <code class="language-cpp" id="cpp-code2"></code>
-                        </pre>
+                        <pre><code class="language-cpp" id="cpp-code2"></code></pre>
                     </div>
-                    
-                    <p>These functions help implement the MRV heuristic in the Sudoku solver, making the algorithm more efficient by focusing on the most constrained cells first.</p>
-            
-                    <p>Use the solveSudokuMRV function in the main and compare the number of recusrive calls it makes with those made in the basic backtracking code. Is there a reduction in the number of calls?</p>
 
+                    <p>Use the <code>solve_sudoku_MRV</code> function in the main and compare the number of recusrive calls it makes
+                        with those made in the basic backtracking code. Is there a reduction in the number of calls?</p>
                 </div>
 
-               <div class="heuristic2" id="heuristic2">
-                   <h3>Least constraining value (LCV) heuristic</h3>
-                   <p>While the MRV heuristic looks to fill the most constrained cells first, the LCV works by choosing the value which, when placed in a selected cell (selected randomly or via MRV), leaves the most options open for other cells. Intuitively, this heuristic reduces the likelihood of creating further constraints down the line, helping to avoid dead-ends and excessive backtracking.</p>
-                   <p>Note that when a value is placed in a cell, it only reduces the number of the options of the impacted cells by 1 each. Here the impacted cells are those in the same row, column and subgrid of the selected cell. However, the impact of a placement goes beyond this. For example, placing a specific number in a cell may highly constrain a nearby, almost filled subgrid. So, in LCV, we select a value which keeps the number of available options for all other empty cells in the grid to maximum possible.</p>
-                   <p>Following snippet shows prototypes of functions you need to add (feel free to add more utility functions if required). As before, compare the number of recursive calls made by <code>solveSodukuLCV</code> per puzzle with those made by the basic backtracking and MRV methods.</p>
-                   
-                   <div class="code-container" data-filename="./cpp/sudoku3.cpp">
-                            <pre>
-                                 <code class="language-cpp" id="cpp-code3"></code>
-                            </pre>
-                        </div>
-                   </div>
-               
-          </div>
+                <div class="heuristic2" id="heuristic2">
+                    <h3>Least constraining value (LCV) heuristic</h3>
+                    <p>While the MRV heuristic looks to fill the most constrained cells first, the LCV looks for the least constraining digit.</p>
+                    
+                    <p>It works by choosing the value (digit) which, when placed in a selected cell, leaves the most
+                        options open for other cells. </p>
 
-        <!-- Prism.js JavaScript -->
-        <script src="../prism.js"></script> <!-- Adjust the path as needed -->
-        <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
-      </section>
+                    <p>Intuitively, this heuristic reduces the likelihood of creating further constraints down the line, helping to avoid dead-ends and excessive backtracking.</p>
+
+                    <h3>Implementation</h3>
+                    <p>Following snippet shows prototypes of functions you need to add (feel free to add more utility
+                        functions if required). As before, compare the number of recursive calls made by
+                        <code>solve_soduku_LCV</code> per puzzle with those made by the basic backtracking and MRV
+                        methods.
+                    </p>
+
+                    <div class="code-container" data-filename="./cpp/sudoku3.cpp">
+                        <pre><code class="language-cpp" id="cpp-code3"></code></pre>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Prism.js JavaScript -->
+            <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+            <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
+        </section>
     </div>
 </body>
+
 </html>
-
-
-
