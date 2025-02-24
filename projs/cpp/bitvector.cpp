@@ -3,33 +3,44 @@
 #include <iostream>
 
 class BitVector {
-    private:
-        std::vector<uint32_t> bits;
-        size_t num_bits;
-    
-    public:
-        // Constructor
-        BitVector(size_t n);
-    
-        // Set a bit at the given index
-        void set(size_t index);
-    
-        // Clear a bit at the given index
-        void clear(size_t index);
-    
-        // Check if a bit is set
-        bool get(size_t index) const;
-    
-        // Returns the number of uint32_t elements in the bit vector
-        size_t size() const;
-    
-        // Returns the total number of bits represented
-        size_t numBits() const;
-    
-        // Returns a const reference to the internal bit storage
-        const std::vector<uint32_t>& getBits() const;
-    };
-    
+private:
+    uint32_t* bits;  // Dynamically allocated bit storage
+    size_t num_bits; // Total number of bits
+    size_t num_uint32; // Number of uint32_t elements needed
+
+public:
+    // Constructor
+    BitVector(size_t n);
+
+    // Destructor
+    ~BitVector();
+
+    // Copy Constructor
+    BitVector(const BitVector& other);
+
+    // Assignment Operator 
+    const BitVector& operator=(const BitVector& other);
+
+    // Set a bit at the given index
+    void set(size_t index);
+
+    // Clear a bit at the given index
+    void clear(size_t index);
+
+    // Check if a bit is set
+    bool get(size_t index) const;
+
+    // Returns the number of uint32_t elements in the bit vector
+    size_t size() const;
+
+    // Returns the total number of bits represented
+    size_t numBits() const;
+
+    // Returns a "read only" pointer to the internal bit storage
+    const uint32_t* getBits() const;
+
+};
+
 int main() {
     size_t N = 100;  // Total number of bits in the bit vector
     BitVector bv(N); // Create a BitVector of size N
@@ -73,6 +84,13 @@ int main() {
     std::cout << "Total bits: " << bv.numBits() << std::endl;
     std::cout << "Number of uint32_t blocks used: " << bv.size() << std::endl;
 
+     // Retrieve a read-only pointer to internal bit storage
+     const uint32_t* bitData = bv.getBits();
+
+     std::cout << "Raw bit storage (read-only access):\n";
+     for (size_t i = 0; i < bv.size(); i++) {
+         std::cout << "Block " << i << ": " << bitData[i] << std::endl;
+     }
+
     return 0;
 }
-    
