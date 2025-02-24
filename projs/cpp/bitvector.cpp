@@ -19,7 +19,7 @@ public:
     BitVector(const BitVector& other);
 
     // Assignment Operator 
-    const BitVector& operator=(const BitVector& other);
+    BitVector& operator=(const BitVector& other);
 
     // Set a bit at the given index
     void set(size_t index);
