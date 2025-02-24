@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fast Sets Using Bit Vectors</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+        <h1>Problem 6.2 Fast Sets Using Bit Vectors</h1>
+
+        <section class="statement">
+            <h2 class="introduction">Introduction</h2>
+            <p> In this problem, you will implement a <code>FastSet</code> class using a bit vector.
+                A FastSet allows efficient storage and lookup of numbers from a given range <code>[0, N]</code>.
+                Unlike traditional data structures such as hash tables or arrays, a bit vector provides a
+                space-efficient and cache-friendly way to store and operate on sets of numbers.</p>
+
+            <h3>Objective</h3>
+            <p>Implement a C++ class <code>FastSet</code> that supports the following set operations:</p>
+
+            <ul>
+                <li> Insert an element into the set. </li>
+                <li> Remove an element from the set. </li>
+                <li> Compute the union of two sets. </li>
+                <li> Compute the intersection of two sets. </li>
+                <li> Check if an element is a member of the set. </li>
+            </ul>
+
+            <h3>Implementation</h3>
+            <p>
+                A FastSet is implemented using a bit vector, where each number <code>x</code> is represented
+                by setting the bit at index <code>x</code>. This allows for O(1) insertions, deletions, and lookups.
+            </p>
+
+            <h4>Union and intersection of two sets</h4>
+            <p>
+                The union of two sets \( A \) and \( B \) results in a set containing all elements that are in
+                either \( A \) or \( B \). This can be computed using a bitwise OR operation:
+            </p>
+            \[
+            A \cup B = A \ | \ B
+            \]
+            <p>
+                In terms of bit vectors, we iterate over each block of 32-bit integers and apply the OR operation:
+            </p>
+            \[
+            \text{result}[i] = A[i] \ | \ B[i]
+            \]
+            <p>
+                This operation runs in O(N/32) = O(N) time and is much faster than a traditional array-based
+                implementation which would require multiple passes of the array.
+            </p>
+
+            <p>Similarly, you can implement other set operations efficiently.</p>
+
+            <p>The following code contains the class definition (to be implemented by you) and a main function for
+                testing.</p>
+
+            <div class="code-container" data-filename="./cpp/FastSets.cpp">
+                <pre><code class="language-cpp">
+                </code></pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

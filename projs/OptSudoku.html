@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+        <h1>Problem 6.3 Optimize the Sudoku Solver</h1>
+        <section class="statement">
+            <div class="intro" id="intro">
+                <p>
+                    The basic recursive Sudoku solver checks available numbers for each empty cell by iterating over all
+                    values from \( 1 \) to \( 9 \)
+                    and validating them against the row, column, and 3×3 sub-grid. This process can be optimized using
+                    the <code>FastSet</code> class
+                    to store and manipulate allowed numbers efficiently.
+                </p>
+
+                <h3>How to use FastSet?</h3>
+
+                <p>
+                    Instead of looping over all possible numbers for a given cell, we can maintain three
+                    arrays of <code>FastSet</code> objects:
+                    <code>row[9]</code>, <code>col[9]</code>, and <code>box[9]</code>, where each array contains 9
+                    <code>FastSet</code> instances.
+                    Here, <code>row[i]</code> tracks numbers used in row <code>i</code>, <code>col[j]</code> tracks
+                    numbers used in column <code>j</code>,
+                    and <code>box[b]</code> tracks numbers used in the 3×3 sub-grid indexed by <code>b</code>.
+                    Each <code>FastSet</code> efficiently stores which numbers (1-9) are already placed in its
+                    corresponding region.
+                </p>
+
+                <p>
+                    At first glance, this seems like a lot of extra storage, but we are using only 243 bits, which means
+                    31 bytes, or in other words, fewer than 8 integers!
+                </p>
+
+                <h3>Operations</h3>
+
+                <p>Instead of iterating through numbers 1 to 9, searching for a valid one by performing separate
+                    validity checks, we can do this quickly using <code>FastSet</code>.</p>
+
+                <h4>Finding available numbers quickly in a single operation</h4>
+                <p>
+                    To determine the valid numbers for an empty cell at \( (i, j) \), we compute:
+                    \[
+                    \text{allowed} = \sim(\text{row}[i] \cup \text{col}[j] \cup \text{box}[b])
+                    \]
+                    using bitwise operations. This represents all numbers that are still available for placement.
+                </p>
+
+                <h4>Extracting the smallest of the available numbers in a single operation</h4>
+                <p>
+                    Instead of iterating through numbers 1 to 9, we can extract the smallest available number
+                    efficiently using a bitwise operation,
+                    such as counting the position of the lowest set bit. To do this most efficiently, see how the
+                    built-in function <code>__builtin_ctz()</code> works. (Note: <code>__builtin_ctz()</code> is a
+                    compiler built-in
+                    function which runs in O(1) time because it is mapped directly to a single CPU instruction on most
+                    modern processors.)
+                </p>
+
+                <h4>Placement and removal</h4>
+                <p>
+                    When placing a number, update the corresponding <code>FastSet</code> objects using
+                    <code>insert()</code>. When backtracking, remove the number using <code>remove()</code>.
+                </p>
+
+                <h4>Overall benefits</h4>
+                <p>
+                    Using <code>FastSet</code> allows us to:
+                <ul>
+                    <li>Reduce unnecessary iterations over digits 1-9 and comparisons across rows, columns, and grids.
+                    </li>
+                    <li>Improve cache efficiency with compact storage.</li>
+                    <li>Optimize code by using bitwise operators, which avoid branching (unlike comparison operators), preventing CPU stalls and minimizing
+                        pipeline flushes at the assembly level.</li>
+                </ul>
+
+                This results in a significantly faster recursive solver without changing the fundamental backtracking
+                logic.
+                </p>
+
+            </div>
+
+        </section>
+    </div>
+</body>
+
+</html>

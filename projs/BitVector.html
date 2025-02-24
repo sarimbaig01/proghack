@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Implementing a Bit Vector</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../prism.css">
+
+        <!-- Scripts -->
+        <script src="../prism.js"></script>
+        <script src="../insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/proghack/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+        <h1>Problem 6.1 Implementing a Bit Vector</h1>
+        
+        <section class="statement">
+            <h2 class="introduction">Introduction</h2>
+            <p> In this problem, you will implement a <strong>Bit Vector</strong> class, a space-efficient way to store and manipulate binary values. 
+                A bit vector is an array of bits, where each bit can be set (1) or cleared (0). Unlike an array of booleans, 
+                which may use an entire byte per element, a bit vector packs multiple bits into a single integer, minimizing space usage.</p>
+
+            <h3>Objective</h3>
+            <p>Implement a C++ class <code>BitVector</code> that dynamically allocates memory for storing bits efficiently.</p>
+
+            <h3>Class Requirements</h3>
+            <ul>
+                <li> The class should support dynamic allocation and be able to resize itself when needed. </li>
+                <li> The bit vector should be stored in an array of <code>unsigned int</code> or <code>uint32_t</code>, where each element stores 32 bits.</li>
+                <li> Provide member functions to:
+                    <ul>
+                        <li> Set a bit at a given index. </li>
+                        <li> Clear a bit at a given index. </li>
+                        <li> Toggle a bit at a given index. </li>
+                        <li> Check if a bit is set. </li>
+                        <li> Print the bit vector. </li>
+                    </ul>
+                </li>
+                <li> Implement proper memory management (constructor, destructor, and resizing logic).</li>
+            </ul>
+
+            <h3>Implementation</h3>
+            <p>
+                Since each <code>uint32_t</code> contains 32 bits, individual bits can be accessed and modified using bitwise operations. 
+                To set a bit at index \( i \), use bitwise OR (\(|\)) with a shifted mask:  
+                \[
+                \text{vec} \left[ \frac{i}{32} \right] \mathrel{|}= \left(1 \ll (i \bmod 32) \right)
+                \]  
+                To clear a bit, use bitwise AND (\(\&\)) with the negated mask:  
+                \[
+                \text{vec} \left[ \frac{i}{32} \right] \mathrel{\&}= \sim \left(1 \ll (i \bmod 32) \right)
+                \]  
+                Similarly, clearing a bit can also be done using XOR (<code>^</code>), and checking whether a bit is set can be achieved using bitwise AND. Work out the exact expressions for these operations using the same indexing method.  
+                </p>                                    
+
+            <p>The following code contains the class definition (to be implemented by you) and a main function for testing.</p>
+
+            <div class="code-container" data-filename="./cpp/BitVector.cpp">
+                <pre><code class="language-cpp">
+                </code></pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
