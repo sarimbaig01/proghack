@@ -1,44 +1,36 @@
 #include <iostream>
 #include <vector>
 
-// Changes the value of an element and restores the heap property
-void updateKey(std::vector<int>& heap, int index, int newValue);
-
-// Merges two heaps into one while maintaining the heap property
-std::vector<int> mergeHeaps(const std::vector<int>& heap1, const std::vector<int>& heap2);
-
-// Removes an element from the heap and restores the heap property
-void deleteElement(std::vector<int>& heap, int index);
-
-// Sorts a vector using heap sort algorithm
-void heapSort(std::vector<int>& vec);
+///Implement all class functions such that the following code works as expected
 
 int main() {
-    // Example heap vector
-    std::vector<int> heap = {10, 20, 15, 30, 40, 50, 60, 70, 80, 90};
+    MinHeap heap;
 
-    // Test updateKey
-    std::cout << "Original heap: ";
-    for (int val : heap) std::cout << val << " ";
+    // Accepting a pre-built heap
+    std::cout << "Accepting a pre-built heap:\n";
+    heap.acceptHeap({10, 20, 15, 30, 40, 50, 60, 70, 80, 90});
+    heap.printHeap();
     std::cout << std::endl;
 
-    updateKey(heap, 5, 12); // Update the value at index 5 to 12 (could be an increase or decrease)
-    std::cout << "Heap after updateKey: ";
-    for (int val : heap) std::cout << val << " ";
+    // Test updateKey
+    std::cout << "Updating index 5 to 12:\n";
+    heap.updateKey(5, 12);  // Update index 5 to 12
+    heap.printHeap();
     std::cout << std::endl;
 
     // Test mergeHeaps
-    std::vector<int> heap1 = {10, 20, 15, 40, 50};
-    std::vector<int> heap2 = {5, 25, 30, 35, 45};
-    std::vector<int> mergedHeap = mergeHeaps(heap1, heap2);
-    std::cout << "Merged heap: ";
-    for (int val : mergedHeap) std::cout << val << " ";
+    MinHeap heap1, heap2, mergedHeap;
+    heap1.acceptHeap({10, 20, 15, 40, 50});
+    heap2.acceptHeap({5, 25, 30, 35, 45});
+    mergedHeap = heap1.mergeHeaps(heap2);
+    std::cout << "Merged heap:\n";
+    mergedHeap.printHeap();
     std::cout << std::endl;
 
     // Test deleteElement
-    deleteElement(heap, 3); // Delete the element at index 3
-    std::cout << "Heap after deleteElement: ";
-    for (int val : heap) std::cout << val << " ";
+    std::cout << "Deleting element at index 3:\n";
+    heap.deleteElement(3);  // Delete index 3
+    heap.printHeap();
     std::cout << std::endl;
 
     // Test heapSort
@@ -47,11 +39,10 @@ int main() {
     for (int val : unsortedVec) std::cout << val << " ";
     std::cout << std::endl;
 
-    heapSort(unsortedVec); // Sort the vector
+    heap.heapSort(unsortedVec);
     std::cout << "Sorted vector using heapSort: ";
     for (int val : unsortedVec) std::cout << val << " ";
     std::cout << std::endl;
 
     return 0;
 }
-
